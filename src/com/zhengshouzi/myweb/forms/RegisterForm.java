@@ -10,9 +10,9 @@ import java.util.Date;
 public class RegisterForm {
     private String email;
     private String password;
-    private String status = String.valueOf(0);//����״̬
-    private String activatecode;//������
-    private Timestamp registerTime;//ע��ʱ��
+    private String status = String.valueOf(0);
+    private String activatecode;
+    private Timestamp registerTime;
 
     public String getEmail() {
         return email;
