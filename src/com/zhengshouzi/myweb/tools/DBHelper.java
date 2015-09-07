@@ -10,7 +10,7 @@ public class DBHelper {
 
     public static Connection getMySqlConnection() {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://127.0.0.1:3306/MyWeb";
+        String url = "jdbc:mysql://127.0.0.1:3306/CrowdSourcing";
         String user = "root";
         String password = "zhengqiang";
         Connection conn = null;

@@ -4,9 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="registerService" class="com.zhengshouzi.myweb.servicesimpl.RegisterServiceImpl">
+    <bean id="registerService" class="com.zhengshouzi.myweb.servicesimpl.RegisterServiceImpl"></bean>
+    <bean id="judgeTaskService" class="com.zhengshouzi.myweb.servicesimpl.JudgeTaskServiceImpl"></bean>
+    <bean id="postService" class="com.zhengshouzi.myweb.servicesimpl.PostServiceImpl"></bean>
+    <bean id="loginService" class="com.zhengshouzi.myweb.servicesimpl.LoginServiceImpl"></bean>
 
-    </bean>
 
 
 </beans>

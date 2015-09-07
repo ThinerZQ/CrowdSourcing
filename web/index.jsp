@@ -123,7 +123,7 @@
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="home">
-                    <p>CrowdSourcing Anything</p>
+                    <p>${allJudgeTask.get(0).task.title}</p>
                 </div>
                 <div class="tab-pane fade" id="orginTask">
                     <div class="panel panel-primary panel-info">

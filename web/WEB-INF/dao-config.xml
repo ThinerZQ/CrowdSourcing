@@ -4,9 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="registerDao" class="com.zhengshouzi.myweb.daoimpl.RegisterDaoImpl">
-
-    </bean>
+    <bean id="registerDao" class="com.zhengshouzi.myweb.daoimpl.RegisterDaoImpl"></bean>
+    <bean id="userDao" class="com.zhengshouzi.myweb.daoimpl.UserDaoImpl"></bean>
+    <bean id="taskDao" class="com.zhengshouzi.myweb.daoimpl.TaskDaoImpl"></bean>
+    <bean id="judgeTaskDao" class="com.zhengshouzi.myweb.daoimpl.JudgeTaskDaoImple"></bean>
 
 
 </beans>
