@@ -1,9 +1,7 @@
 package com.zhengshouzi.myweb.dao;
 
 
-import com.zhengshouzi.myweb.beans.JudgeTask;
-import com.zhengshouzi.myweb.beans.Task;
-import com.zhengshouzi.myweb.beans.User;
+import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 
 import java.util.ArrayList;
 
@@ -12,8 +10,8 @@ import java.util.ArrayList;
  */
 public interface JudgeTaskDao {
 
-    public boolean addJudgeTask(JudgeTask judgeTask);
-    public ArrayList<JudgeTask> findAllJudgeTask();
-    public boolean deleteJudgeTask(JudgeTask judgeTask);
-    public boolean updateJudgeUser(JudgeTask judgeTask);
+    public boolean addJudgeTask(JudgetaskEntity judgetaskEntity);
+    public ArrayList<JudgetaskEntity> findAllJudgeTask();
+    public boolean deleteJudgeTask(JudgetaskEntity judgetaskEntity);
+    public boolean updateJudgeUser(JudgetaskEntity judgetaskEntity);
 }

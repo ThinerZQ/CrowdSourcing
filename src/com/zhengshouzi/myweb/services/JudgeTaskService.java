@@ -1,6 +1,6 @@
 package com.zhengshouzi.myweb.services;
 
-import com.zhengshouzi.myweb.beans.JudgeTask;
+import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public interface JudgeTaskService {
 
-    public ArrayList<JudgeTask> getSystemAllJudgeTask();
-    public ArrayList<JudgeTask> getTheSameJudgeTaskByTaskId();
+    public ArrayList<JudgetaskEntity> getSystemAllJudgeTask();
+    public ArrayList<JudgetaskEntity> getTheSameJudgeTaskByTaskId();
 
 
 

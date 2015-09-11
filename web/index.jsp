@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!-- saved from url=(0045)http://www.treemolabs.com/dashboard/login.php -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,6 +20,12 @@
         $(function () {
             $("#myCarousel").carousel();
         });
+       function signUp(){
+           window.location="register.jsp";
+       }
+        function signIn(){
+            window.location="login.jsp";
+        }
     </script>
 
 
@@ -47,13 +54,24 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
-                    <li>
-                        <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;">Sign up
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-default" style="color: black">Sign in</button>
-                    </li>
+
+                    <c:choose>
+                        <c:when test="${empty sessionScope.get('user')}">
+                            <li>
+                                <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;" onclick="signUp()">sign up</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-default" style="color: black" onclick="signIn()">Sign in</button>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li style="color: red;">
+                                <c:forEach var="${sessionScope.get('user')}" items="user">
+
+                                </c:forEach>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
         </div>

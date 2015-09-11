@@ -1,6 +1,6 @@
 package com.zhengshouzi.myweb.servicesimpl;
 
-import com.zhengshouzi.myweb.beans.JudgeTask;
+import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 import com.zhengshouzi.myweb.services.JudgeTaskService;
 
 import java.util.ArrayList;
@@ -10,12 +10,12 @@ import java.util.ArrayList;
  */
 public class JudgeTaskServiceImpl implements JudgeTaskService{
     @Override
-    public ArrayList<JudgeTask> getSystemAllJudgeTask() {
+    public ArrayList<JudgetaskEntity> getSystemAllJudgeTask() {
         return null;
     }
 
     @Override
-    public ArrayList<JudgeTask> getTheSameJudgeTaskByTaskId() {
+    public ArrayList<JudgetaskEntity> getTheSameJudgeTaskByTaskId() {
         return null;
     }
 }

@@ -1,7 +1,7 @@
 package com.zhengshouzi.myweb.servicesimpl;
 
-import com.zhengshouzi.myweb.beans.Task;
 import com.zhengshouzi.myweb.dao.TaskDao;
+import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.services.PostService;
 
 import javax.annotation.Resource;
@@ -16,7 +16,7 @@ public class PostServiceImpl implements PostService {
     @Resource(name = "taskDao")
     TaskDao taskDao;
     @Override
-    public boolean postTask(Task task) {
+    public boolean postTask(TaskEntity task) {
 
 
         task.setReleaseTime(new Timestamp(new Date().getTime()));

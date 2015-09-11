@@ -18,6 +18,9 @@
           <element id="library" level="project" name="Spring MVC-4.1.5.RELEASE" />
           <element id="library" level="project" name="mysql:mysql-connector-java:5.1.35" />
           <element id="library" level="project" name="org.apache.ant:ant-javamail:1.8.2" />
+          <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
+          <element id="library" level="project" name="ant-junit-1.6.5" />
+          <element id="library" level="project" name="jstl-1.2" />
         </element>
       </element>
     </root>

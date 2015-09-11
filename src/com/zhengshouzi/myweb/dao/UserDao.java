@@ -1,15 +1,15 @@
 package com.zhengshouzi.myweb.dao;
 
-import com.zhengshouzi.myweb.beans.User;
+import com.zhengshouzi.myweb.entity.UserEntity;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface UserDao {
-    public boolean addUser(User user);
-    public User findUserByEmail(String email);
-    public boolean checkUser(User user);
+    public boolean addUser(UserEntity userEntity);
+    public UserEntity findUserByEmail(String email);
+    public boolean checkUser(UserEntity userEntity);
     public boolean deleteUserByEmail(String email);
-    public boolean updateUser(User user);
+    public boolean updateUser(UserEntity userEntity);
 
 }

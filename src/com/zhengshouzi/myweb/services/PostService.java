@@ -1,11 +1,12 @@
 package com.zhengshouzi.myweb.services;
 
-import com.zhengshouzi.myweb.beans.Task;
+
+import com.zhengshouzi.myweb.entity.TaskEntity;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface PostService {
-    public boolean postTask(Task task);
+    public boolean postTask(TaskEntity taskEntity);
 
 }

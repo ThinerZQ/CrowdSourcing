@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zhengshouzi.myweb.entity.JudgetaskEntity" table="judgetask" schema="" catalog="crowdsourcing">
+        <id name="id">
+            <column name="id" sql-type="bigint" not-null="true"/>
+        </id>
+        <property name="simple">
+            <column name="simple" sql-type="enum" length="4"/>
+        </property>
+        <property name="releaseTime">
+            <column name="releaseTime" sql-type="datetime"/>
+        </property>
+        <property name="deadlineTime">
+            <column name="deadlineTime" sql-type="datetime"/>
+        </property>
+        <property name="completeTime">
+            <column name="completeTime" sql-type="datetime"/>
+        </property>
+        <property name="taskId">
+            <column name="taskId" sql-type="bigint"/>
+        </property>
+        <property name="userId">
+            <column name="userId" sql-type="bigint"/>
+        </property>
+        <many-to-one name="userByUserId" class="com.zhengshouzi.myweb.entity.UserEntity">
+            <column name="userId"/>
+        </many-to-one>
+        <many-to-one name="taskByTaskId" class="com.zhengshouzi.myweb.entity.TaskEntity">
+            <column name="taskId"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

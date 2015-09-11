@@ -1,6 +1,6 @@
 package com.zhengshouzi.myweb.controllers;
 
-import com.zhengshouzi.myweb.beans.JudgeTask;
+import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 import com.zhengshouzi.myweb.services.JudgeTaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +24,8 @@ public class TaskController {
         System.out.println("--------getSystemAllJudgeTask----------");
 
         ModelAndView modelAndView  = new ModelAndView();
-        ArrayList<JudgeTask> judgeTasks = judgeTaskService.getSystemAllJudgeTask();
-        modelAndView.addObject("allJudgeTask",judgeTasks);
+        ArrayList<JudgetaskEntity> judgeTasks = judgeTaskService.getSystemAllJudgeTask();
+        modelAndView.addObject("allJudgeTaskEntity",judgeTasks);
         modelAndView.setViewName("index");
         return modelAndView;
 

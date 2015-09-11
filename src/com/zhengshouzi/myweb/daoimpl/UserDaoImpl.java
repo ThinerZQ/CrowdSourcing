@@ -1,7 +1,7 @@
 package com.zhengshouzi.myweb.daoimpl;
 
-import com.zhengshouzi.myweb.beans.User;
 import com.zhengshouzi.myweb.dao.UserDao;
+import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
 
 import java.sql.Connection;
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  */
 public class UserDaoImpl  implements UserDao{
     @Override
-    public boolean addUser(User user) {
+    public boolean addUser(UserEntity userEntity) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
@@ -21,12 +21,12 @@ public class UserDaoImpl  implements UserDao{
         String sql = "INSERT INTO user (userName,password,email,activateCode,status,registerDate) VALUES(?,?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,user.getUserName());
-            ps.setString(2,user.getPassword());
-            ps.setString(3,user.getEmail());
-            ps.setString(4,user.getActivateCode());
-            ps.setString(5,user.getStatus());
-            ps.setTimestamp(6,user.getRegisterDate());
+            ps.setString(1,userEntity.getUserName());
+            ps.setString(2,userEntity.getPassword());
+            ps.setString(3,userEntity.getEmail());
+            ps.setString(4,userEntity.getActivateCode());
+            ps.setString(5,userEntity.getStatus());
+            ps.setTimestamp(6,userEntity.getRegisterDate());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -39,11 +39,11 @@ public class UserDaoImpl  implements UserDao{
     }
 
     @Override
-    public User findUserByEmail(String email) {
+    public UserEntity findUserByEmail(String email) {
 
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
-        User user =new User();
+        UserEntity user =new UserEntity();
         ResultSet rs = null;
 
         String sql = "SELECT  * from USER  WHERE email = ?";
@@ -71,23 +71,23 @@ public class UserDaoImpl  implements UserDao{
     }
 
     @Override
-    public boolean checkUser(User user) {
+    public boolean checkUser(UserEntity userEntity) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        User selectUser =new User();
+        UserEntity selectUser =new UserEntity();
         String sql = "select * from USER where email=?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getEmail());
+            ps.setString(1, userEntity.getEmail());
 
             rs = ps.executeQuery();
             while (rs.next()){
                 selectUser.setPassword(rs.getString("password"));
             }
             if(selectUser.getPassword() !=null){
-                if(user.getPassword().equals(selectUser.getPassword())){
+                if(userEntity.getPassword().equals(selectUser.getPassword())){
 b=true;
                 }else{
                     throw new Exception("√‹¬Î¥ÌŒÛ");
@@ -125,7 +125,7 @@ b=true;
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public boolean updateUser(UserEntity userEntity) {
         return false;
     }
 

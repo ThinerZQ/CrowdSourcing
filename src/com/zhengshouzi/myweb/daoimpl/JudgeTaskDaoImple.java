@@ -1,9 +1,8 @@
 package com.zhengshouzi.myweb.daoimpl;
 
-import com.zhengshouzi.myweb.beans.JudgeTask;
-import com.zhengshouzi.myweb.beans.Task;
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
+import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
     TaskDao taskDao;
 
     @Override
-    public boolean addJudgeTask(JudgeTask judgeTask) {
+    public boolean addJudgeTask(JudgetaskEntity judgetaskEntity) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
@@ -29,10 +28,10 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
         String sql = "INSERT INTO judgetask (simple,releaseTime,deadlineTime,completeTime) VALUES(?,?,?,?)";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,judgeTask.getSimple());
-            ps.setTimestamp(2,judgeTask.getReleaseTime());
-            ps.setTimestamp(2,judgeTask.getDeadlineTime());
-            ps.setTimestamp(2,judgeTask.getCompleteTime());
+            ps.setString(1,judgetaskEntity.getSimple());
+            ps.setTimestamp(2,judgetaskEntity.getReleaseTime());
+            ps.setTimestamp(2,judgetaskEntity.getDeadlineTime());
+            ps.setTimestamp(2,judgetaskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -45,9 +44,9 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
     }
 
     @Override
-    public ArrayList<JudgeTask> findAllJudgeTask() {
+    public ArrayList<JudgetaskEntity> findAllJudgeTask() {
 
-        ArrayList<JudgeTask> judgeTasks = new ArrayList<>();
+        ArrayList<JudgetaskEntity> judgeTasks = new ArrayList<>();
 
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
@@ -59,12 +58,12 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
 
             rs = ps.executeQuery();
             while(rs.next()){
-                JudgeTask judgeTask = new JudgeTask();
-                judgeTask.setId(rs.getInt("id"));
-                judgeTask.setSimple(rs.getString("simple"));
-                judgeTask.setReleaseTime(rs.getTimestamp("releaseTime"));
-                judgeTask.setDeadlineTime(rs.getTimestamp("deadlineTime"));
-                judgeTask.setCompleteTime(rs.getTimestamp("completeTime"));
+                JudgetaskEntity judgetaskEntity = new JudgetaskEntity();
+                judgetaskEntity.setId(rs.getInt("id"));
+                judgetaskEntity.setSimple(rs.getString("simple"));
+                judgetaskEntity.setReleaseTime(rs.getTimestamp("releaseTime"));
+                judgetaskEntity.setDeadlineTime(rs.getTimestamp("deadlineTime"));
+                judgetaskEntity.setCompleteTime(rs.getTimestamp("completeTime"));
 
                 //Task task = taskDao.findTaskById();
                 //judgeTask.setTask(task);
@@ -83,12 +82,12 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
     }
 
     @Override
-    public boolean deleteJudgeTask(JudgeTask judgeTask) {
+    public boolean deleteJudgeTask(JudgetaskEntity judgetaskEntity) {
         return false;
     }
 
     @Override
-    public boolean updateJudgeUser(JudgeTask judgeTask) {
+    public boolean updateJudgeUser(JudgetaskEntity judgetaskEntity) {
         return false;
     }
 

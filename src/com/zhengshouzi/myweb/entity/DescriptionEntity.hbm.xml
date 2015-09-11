@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zhengshouzi.myweb.entity.DescriptionEntity" table="description" schema="" catalog="crowdsourcing">
+        <id name="id">
+            <column name="id" sql-type="bigint" not-null="true"/>
+        </id>
+        <property name="description">
+            <column name="description" sql-type="varchar"/>
+        </property>
+        <property name="taskId">
+            <column name="taskId" sql-type="bigint"/>
+        </property>
+        <many-to-one name="taskByTaskId" class="com.zhengshouzi.myweb.entity.TaskEntity">
+            <column name="taskId"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

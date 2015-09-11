@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zhengshouzi.myweb.entity.TaskEntity" table="task" schema="" catalog="crowdsourcing">
+        <id name="id">
+            <column name="id" sql-type="bigint" not-null="true"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar"/>
+        </property>
+        <property name="releaseTime">
+            <column name="releaseTime" sql-type="datetime"/>
+        </property>
+        <property name="deadlineTime">
+            <column name="deadlineTime" sql-type="datetime"/>
+        </property>
+        <property name="completeTime">
+            <column name="completeTime" sql-type="datetime"/>
+        </property>
+        <property name="taskType">
+            <column name="taskType" sql-type="varchar" length="50"/>
+        </property>
+        <property name="userId">
+            <column name="userId" sql-type="bigint"/>
+        </property>
+        <many-to-one name="userByUserId" class="com.zhengshouzi.myweb.entity.UserEntity">
+            <column name="userId"/>
+        </many-to-one>
+        <set name="decomposetasksById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.DecomposetaskEntity"/>
+        </set>
+        <set name="decomposetaskTasksById" inverse="true">
+            <key>
+                <column name="taskId" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.DecomposetaskTaskEntity"/>
+        </set>
+        <set name="descriptionsById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.DescriptionEntity"/>
+        </set>
+        <set name="judgetasksById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.JudgetaskEntity"/>
+        </set>
+        <set name="mergetasksById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.MergetaskEntity"/>
+        </set>
+        <set name="qualificationsById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.QualificationEntity"/>
+        </set>
+        <set name="solvetasksById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.SolvetaskEntity"/>
+        </set>
+        <set name="votetasksById" inverse="true">
+            <key>
+                <column name="taskId"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.VotetaskEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

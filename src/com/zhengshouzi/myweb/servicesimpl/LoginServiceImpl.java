@@ -1,7 +1,7 @@
 package com.zhengshouzi.myweb.servicesimpl;
 
-import com.zhengshouzi.myweb.beans.User;
 import com.zhengshouzi.myweb.dao.UserDao;
+import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.services.LoginService;
 
 import javax.annotation.Resource;
@@ -15,13 +15,13 @@ public class LoginServiceImpl implements LoginService {
     UserDao userDao;
 
     @Override
-    public boolean login(User user) {
+    public boolean login(UserEntity userEntity) {
 
-        boolean b = userDao.checkUser(user);
+        boolean b = userDao.checkUser(userEntity);
 
         return b;
     }
-    public User getUserByEmail(String email){
+    public UserEntity getUserByEmail(String email){
 
         return userDao.findUserByEmail(email);
 

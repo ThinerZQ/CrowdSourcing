@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1515915204">
+  <component name="DataSourceManagerImpl" format="xml" hash="3208868257">
     <data-source source="LOCAL" name="MySQL - CrowdSourcing@localhost" uuid="9be9d642-e84e-4048-8196-c6238831a2be">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
