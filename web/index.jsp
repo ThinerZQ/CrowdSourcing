@@ -26,6 +26,9 @@
         function signIn(){
             window.location="login.jsp";
         }
+        function post(){
+            window.location="post.jsp";
+        }
     </script>
 
 
@@ -66,9 +69,11 @@
                         </c:when>
                         <c:otherwise>
                             <li style="color: red;">
-                                <c:forEach var="${sessionScope.get('user')}" items="user">
-
-                                </c:forEach>
+                                    <c:set var="user" value="${sessionScope.get('user')}" scope="page"></c:set>
+                                welcome : <c:out value="${user.userName}"></c:out>
+                            </li>
+                            <li style="color: red;">
+                                <button type="button" class="btn btn-default" style="color: black" onclick="post()">Post</button>
                             </li>
                         </c:otherwise>
                     </c:choose>
