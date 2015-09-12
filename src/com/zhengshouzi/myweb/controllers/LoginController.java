@@ -14,29 +14,28 @@ import javax.servlet.http.HttpSession;
  * Created by zhengshouzi on 2015/9/7.
  */
 @Controller
-public class LoginController  {
+public class LoginController {
     @Resource(name = "loginService")
     LoginService loginService;
 
     @RequestMapping("/login.do")
-    public ModelAndView login(@ModelAttribute UserEntity userEntity,HttpSession httpSession){
+    public ModelAndView login(@ModelAttribute UserEntity userEntity, HttpSession httpSession) {
 
         System.out.println("-------login---------");
         ModelAndView modelAndView = new ModelAndView();
 
         boolean b = loginService.login(userEntity);
-        if (b==true){
+        if (b == true) {
             userEntity = loginService.getUserByEmail(userEntity.getEmail());
-            httpSession.setAttribute("user",userEntity);
+            httpSession.setAttribute("user", userEntity);
             modelAndView.setViewName("redirect:/getSystemAllJudgeTask.do");
-        }else{
-            modelAndView.addObject("loginError","用户名或者密码错误");
+        } else {
+            modelAndView.addObject("loginError", "用户名或者密码错误");
             modelAndView.setViewName("login");
         }
 
-        return  modelAndView;
+        return modelAndView;
     }
-
 
 
 }

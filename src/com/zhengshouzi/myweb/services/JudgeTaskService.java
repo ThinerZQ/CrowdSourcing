@@ -10,13 +10,8 @@ import java.util.ArrayList;
 public interface JudgeTaskService {
 
     public ArrayList<JudgetaskEntity> getSystemAllJudgeTask();
+
     public ArrayList<JudgetaskEntity> getTheSameJudgeTaskByTaskId();
-
-
-
-
-
-
 
 
 }

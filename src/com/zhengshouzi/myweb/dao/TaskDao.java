@@ -10,8 +10,12 @@ import java.util.ArrayList;
  */
 public interface TaskDao {
     public boolean addTask(TaskEntity taskEntity);
+
     public ArrayList<TaskEntity> findAllTask();
+
     public boolean deleteTask(TaskEntity taskEntity);
+
     public boolean updateUser(UserEntity userEntity);
+
     public TaskEntity findTaskById(String id);
 }

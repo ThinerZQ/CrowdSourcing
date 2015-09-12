@@ -7,9 +7,13 @@ import com.zhengshouzi.myweb.entity.UserEntity;
  */
 public interface UserDao {
     public boolean addUser(UserEntity userEntity);
+
     public UserEntity findUserByEmail(String email);
+
     public boolean checkUser(UserEntity userEntity);
+
     public boolean deleteUserByEmail(String email);
+
     public boolean updateUser(UserEntity userEntity);
 
 }

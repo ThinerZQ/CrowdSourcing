@@ -15,12 +15,12 @@ public class PostServiceImpl implements PostService {
 
     @Resource(name = "taskDao")
     TaskDao taskDao;
+
     @Override
     public boolean postTask(TaskEntity task) {
 
 
         task.setReleaseTime(new Timestamp(new Date().getTime()));
-
 
 
         return taskDao.addTask(task);

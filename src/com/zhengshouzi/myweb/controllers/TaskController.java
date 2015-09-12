@@ -23,9 +23,9 @@ public class TaskController {
 
         System.out.println("--------getSystemAllJudgeTask----------");
 
-        ModelAndView modelAndView  = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         ArrayList<JudgetaskEntity> judgeTasks = judgeTaskService.getSystemAllJudgeTask();
-        modelAndView.addObject("allJudgeTaskEntity",judgeTasks);
+        modelAndView.addObject("allJudgeTaskEntity", judgeTasks);
         modelAndView.setViewName("index");
         return modelAndView;
 

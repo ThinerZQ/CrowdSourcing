@@ -28,10 +28,10 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
         String sql = "INSERT INTO judgetask (simple,releaseTime,deadlineTime,completeTime) VALUES(?,?,?,?)";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,judgetaskEntity.getSimple());
-            ps.setTimestamp(2,judgetaskEntity.getReleaseTime());
-            ps.setTimestamp(2,judgetaskEntity.getDeadlineTime());
-            ps.setTimestamp(2,judgetaskEntity.getCompleteTime());
+            ps.setString(1, judgetaskEntity.getSimple());
+            ps.setTimestamp(2, judgetaskEntity.getReleaseTime());
+            ps.setTimestamp(2, judgetaskEntity.getDeadlineTime());
+            ps.setTimestamp(2, judgetaskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -57,7 +57,7 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
             ps = connection.prepareStatement(sql);
 
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 JudgetaskEntity judgetaskEntity = new JudgetaskEntity();
                 judgetaskEntity.setId(rs.getInt("id"));
                 judgetaskEntity.setSimple(rs.getString("simple"));
@@ -75,8 +75,6 @@ public class JudgeTaskDaoImple implements JudgeTaskDao {
             close(connection, ps, null);
         }
         return judgeTasks;
-
-
 
 
     }

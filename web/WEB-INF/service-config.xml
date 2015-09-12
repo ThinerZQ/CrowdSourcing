@@ -10,5 +10,4 @@
     <bean id="loginService" class="com.zhengshouzi.myweb.servicesimpl.LoginServiceImpl"></bean>
 
 
-
 </beans>

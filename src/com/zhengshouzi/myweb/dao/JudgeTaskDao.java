@@ -11,7 +11,10 @@ import java.util.ArrayList;
 public interface JudgeTaskDao {
 
     public boolean addJudgeTask(JudgetaskEntity judgetaskEntity);
+
     public ArrayList<JudgetaskEntity> findAllJudgeTask();
+
     public boolean deleteJudgeTask(JudgetaskEntity judgetaskEntity);
+
     public boolean updateJudgeUser(JudgetaskEntity judgetaskEntity);
 }

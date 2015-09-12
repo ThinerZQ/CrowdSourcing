@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
-public class UserDaoImpl  implements UserDao{
+public class UserDaoImpl implements UserDao {
     @Override
     public boolean addUser(UserEntity userEntity) {
         boolean b = false;
@@ -21,12 +21,12 @@ public class UserDaoImpl  implements UserDao{
         String sql = "INSERT INTO user (userName,password,email,activateCode,status,registerDate) VALUES(?,?,?,?,?,?)";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,userEntity.getUserName());
-            ps.setString(2,userEntity.getPassword());
-            ps.setString(3,userEntity.getEmail());
-            ps.setString(4,userEntity.getActivateCode());
-            ps.setString(5,userEntity.getStatus());
-            ps.setTimestamp(6,userEntity.getRegisterDate());
+            ps.setString(1, userEntity.getUserName());
+            ps.setString(2, userEntity.getPassword());
+            ps.setString(3, userEntity.getEmail());
+            ps.setString(4, userEntity.getActivateCode());
+            ps.setString(5, userEntity.getStatus());
+            ps.setTimestamp(6, userEntity.getRegisterDate());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -43,17 +43,17 @@ public class UserDaoImpl  implements UserDao{
 
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
-        UserEntity user =new UserEntity();
+        UserEntity user = new UserEntity();
         ResultSet rs = null;
 
         String sql = "SELECT  * from USER  WHERE email = ?";
 
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,email);
+            ps.setString(1, email);
 
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 user.setId(rs.getInt("id"));
                 user.setUserName(rs.getString("userName"));
                 user.setPassword(rs.getString("password"));
@@ -76,23 +76,23 @@ public class UserDaoImpl  implements UserDao{
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        UserEntity selectUser =new UserEntity();
+        UserEntity selectUser = new UserEntity();
         String sql = "select * from USER where email=?";
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, userEntity.getEmail());
 
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 selectUser.setPassword(rs.getString("password"));
             }
-            if(selectUser.getPassword() !=null){
-                if(userEntity.getPassword().equals(selectUser.getPassword())){
-b=true;
-                }else{
+            if (selectUser.getPassword() != null) {
+                if (userEntity.getPassword().equals(selectUser.getPassword())) {
+                    b = true;
+                } else {
                     throw new Exception("密码错误");
                 }
-            }else{
+            } else {
                 throw new Exception("没有这个用户");
             }
         } catch (Exception e) {
@@ -112,7 +112,7 @@ b=true;
         String sql = "DELETE from USER  WHERE  email=?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1,email);
+            ps.setString(1, email);
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -128,8 +128,6 @@ b=true;
     public boolean updateUser(UserEntity userEntity) {
         return false;
     }
-
-
 
 
     //关闭连接

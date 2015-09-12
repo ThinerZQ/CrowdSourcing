@@ -20,14 +20,14 @@
         $(function () {
             $("#myCarousel").carousel();
         });
-       function signUp(){
-           window.location="register.jsp";
-       }
-        function signIn(){
-            window.location="login.jsp";
+        function signUp() {
+            window.location = "register.jsp";
         }
-        function post(){
-            window.location="post.jsp";
+        function signIn() {
+            window.location = "login.jsp";
+        }
+        function post() {
+            window.location = "post.jsp";
         }
     </script>
 
@@ -61,19 +61,25 @@
                     <c:choose>
                         <c:when test="${empty sessionScope.get('user')}">
                             <li>
-                                <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;" onclick="signUp()">sign up</button>
+                                <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;"
+                                        onclick="signUp()">sign up
+                                </button>
                             </li>
                             <li>
-                                <button type="button" class="btn btn-default" style="color: black" onclick="signIn()">Sign in</button>
+                                <button type="button" class="btn btn-default" style="color: black" onclick="signIn()">
+                                    Sign in
+                                </button>
                             </li>
                         </c:when>
                         <c:otherwise>
                             <li style="color: red;">
-                                    <c:set var="user" value="${sessionScope.get('user')}" scope="page"></c:set>
+                                <c:set var="user" value="${sessionScope.get('user')}" scope="page"></c:set>
                                 welcome : <c:out value="${user.userName}"></c:out>
                             </li>
                             <li style="color: red;">
-                                <button type="button" class="btn btn-default" style="color: black" onclick="post()">Post</button>
+                                <button type="button" class="btn btn-default" style="color: black" onclick="post()">
+                                    Post
+                                </button>
                             </li>
                         </c:otherwise>
                     </c:choose>

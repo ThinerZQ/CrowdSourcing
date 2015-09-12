@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
-public class JudgeTaskServiceImpl implements JudgeTaskService{
+public class JudgeTaskServiceImpl implements JudgeTaskService {
     @Override
     public ArrayList<JudgetaskEntity> getSystemAllJudgeTask() {
         return null;

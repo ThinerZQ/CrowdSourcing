@@ -1,7 +1,7 @@
 package com.zhengshouzi.myweb.controllers;
 
 
-import com.zhengshouzi.myweb.entity.TaskEntity;
+import com.zhengshouzi.myweb.forms.TaskForm;
 import com.zhengshouzi.myweb.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,28 +18,26 @@ public class PostController {
 
     @Resource(name = "postService")
     PostService postService;
+
     @RequestMapping("/post.do")
-    public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity) {
+    public ModelAndView postTask(@ModelAttribute("taskForm") TaskForm taskForm) {
 
         System.out.println("--------post----------");
 
-        ModelAndView modelAndView  = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
 
-        boolean b = postService.postTask(taskEntity);
+        System.out.println(taskForm.getDeadlineTime());
+        System.out.println(taskForm.getTitle());
+        System.out.println(taskForm.getDescription());
 
-        if (b==true){
+
+        //boolean b = postService.postTask(taskEntity);
+
+        if (true) {
             modelAndView.setViewName("redirect:/getSystemAllJudgeTask.do");
+        } else {
 
-
-
-
-
-
-
-
-        }else {
-
-            modelAndView.addObject("errorMessage","发布错误");
+            modelAndView.addObject("errorMessage", "发布错误");
             modelAndView.setViewName("error");
         }
         return modelAndView;

@@ -21,7 +21,8 @@ public class LoginServiceImpl implements LoginService {
 
         return b;
     }
-    public UserEntity getUserByEmail(String email){
+
+    public UserEntity getUserByEmail(String email) {
 
         return userDao.findUserByEmail(email);
 

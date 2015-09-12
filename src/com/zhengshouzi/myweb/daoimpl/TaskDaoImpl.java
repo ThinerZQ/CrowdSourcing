@@ -2,7 +2,6 @@ package com.zhengshouzi.myweb.daoimpl;
 
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
-import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.ConstantDefine;
@@ -24,7 +23,6 @@ public class TaskDaoImpl implements TaskDao {
     JudgeTaskDao judgeTaskDao;
 
 
-
     @Override
     public boolean addTask(TaskEntity taskEntity) {
         boolean b = false;
@@ -36,18 +34,18 @@ public class TaskDaoImpl implements TaskDao {
             ps = connection.prepareStatement(sql);
             ps.setString(1, taskEntity.getTitle());
             ps.setTimestamp(2, taskEntity.getReleaseTime());
-            ps.setTimestamp(2,taskEntity.getDeadlineTime());
-            ps.setTimestamp(2,taskEntity.getCompleteTime());
+            ps.setTimestamp(2, taskEntity.getDeadlineTime());
+            ps.setTimestamp(2, taskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;
 
             //为每个根任务，添加判断任务
-            for(int i=0;i< ConstantDefine.JudgeNumber;i++){
+            for (int i = 0; i < ConstantDefine.JudgeNumber; i++) {
 
             }
             //添加task 和 judgeTask 的依赖关系
-            for (int i=0;i<ConstantDefine.JudgeNumber;i++){
+            for (int i = 0; i < ConstantDefine.JudgeNumber; i++) {
 
             }
 
@@ -80,7 +78,7 @@ public class TaskDaoImpl implements TaskDao {
 
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
-        TaskEntity task =null;
+        TaskEntity task = null;
         ResultSet rs = null;
 
         String sql = "select * from task where id=?";
@@ -88,9 +86,9 @@ public class TaskDaoImpl implements TaskDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(id));
 
-            rs= ps.executeQuery();
-            while (rs.next()){
-                task =new TaskEntity();
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                task = new TaskEntity();
                 task.setId(rs.getInt("id"));
 
             }

@@ -44,7 +44,6 @@
     <orderEntry type="library" name="mysql:mysql-connector-java:5.1.35" level="project" />
     <orderEntry type="library" name="org.apache.ant:ant-javamail:1.8.2" level="project" />
     <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
-    <orderEntry type="library" name="ant-junit-1.6.5" level="project" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
   </component>
 </module>
