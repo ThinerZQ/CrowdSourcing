@@ -101,51 +101,52 @@
                     </div>
 
 
-                    <%--  <div class="form-group">
-                          <label for="inputPhoneNumber" class="control-label">请确认您的联系方式，我们才知道怎么联系您噢</label>
-
-                          <div class="row">
-                              <div class="col-lg-3 " style="padding-right: 0px">
-                                  <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="请输入手机号码">
-                              </div>
-                              <div class="col-lg-4" style="padding-left: 0px">
-                                  <button type="button" class="btn btn-default">点我获取验证码</button>
-                              </div>
-                          </div>
-                      </div>--%>
-
                     <%--
-                                        <div class="form-group">
-                                            <label for="inputCheckCode" class="control-label sr-only">checkCode</label>
-
-                                            <div class="row">
-                                                <div class="col-lg-3" style="padding-right: 0px">
-                                                    <input type="text" class="form-control " id="inputCheckCode"
-                                                           placeholder="请输入手机验证码">
-                                                </div>
-
-                                            </div>
-                                        </div>--%>
                     <div class="form-group">
-                        <label for="inputDetail" class="control-label">说说您的具体要求</label>
+                        <label for="inputPhoneNumber" class="control-label">请确认您的联系方式，我们才知道怎么联系您噢</label>
 
-                        <div>
-                            <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
-                                      name="descriptionsById"
-                                      style="width: 80%;height: 250px"></textarea>
+                        <div class="row">
+                            <div class="col-lg-3 " style="padding-right: 0px">
+                                <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="请输入手机号码">
+                            </div>
+                            <div class="col-lg-4" style="padding-left: 0px">
+                                <button type="button" class="btn btn-default">点我获取验证码</button>
+                            </div>
                         </div>
                     </div>
-                    <!--
+
                     <div class="form-group">
-                        <label for="inputCheckCode" class="control-label sr-only">file</label>
+                        <label for="inputCheckCode" class="control-label sr-only">checkCode</label>
+
+                        <div class="row">
+                            <div class="col-lg-3" style="padding-right: 0px">
+                                <input type="text" class="form-control " id="inputCheckCode"
+                                       placeholder="请输入手机验证码">
+                            </div>
+
+                        </div>
+                    </div>
+--%>
+                    <div class="form-group">
+                        <label for="inputDetail" class="control-label">说说您的具体要求</label>
+                        <div>
+                        <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
+                  name="descriptionsById"
+                  style="width: 80%;height: 250px"></textarea>
+                        </div>
+                    </div>
+
+                  <%--  <div class="form-group">
+                        <label for="inputFile" class="control-label sr-only">file</label>
 
                         <div>
                             <a href="javascript:;" class="file">添加附件
                                 <input type="file" class="form-control" id="inputFile"
                                        multiple="multiple"></a><span style="padding-left: 10px">最多添加5个附件，每个大小不超过10M 上传遇到问题</span>
                         </div>
-                    </div>
-                    -->
+                    </div>--%>
+
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-lg-2">

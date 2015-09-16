@@ -1,4 +1,4 @@
-package com.zhengshouzi.myweb.servicesimpl;
+package com.zhengshouzi.myweb.services.impl;
 
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.TaskEntity;
@@ -18,10 +18,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public boolean postTask(TaskEntity task) {
-
-
-        task.setReleaseTime(new Timestamp(new Date().getTime()));
-
 
         return taskDao.addTask(task);
     }

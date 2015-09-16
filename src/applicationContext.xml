@@ -17,7 +17,7 @@
         <property name="converters">
             <set>
                 <bean class="com.zhengshouzi.myweb.tools.ArrayToDescriptionCollectionConverter"/>
-                <bean class="com.zhengshouzi.myweb.tools.StringToDateTime"/>
+                <bean class="com.zhengshouzi.myweb.tools.StringToTimeStamp"/>
             </set>
         </property>
     </bean>

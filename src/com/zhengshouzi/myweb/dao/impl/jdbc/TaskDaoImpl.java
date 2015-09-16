@@ -1,4 +1,4 @@
-package com.zhengshouzi.myweb.daoimpl;
+package com.zhengshouzi.myweb.dao.impl.jdbc;
 
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
@@ -34,8 +34,8 @@ public class TaskDaoImpl implements TaskDao {
             ps = connection.prepareStatement(sql);
             ps.setString(1, taskEntity.getTitle());
             ps.setTimestamp(2, taskEntity.getReleaseTime());
-            ps.setTimestamp(2, taskEntity.getDeadlineTime());
-            ps.setTimestamp(2, taskEntity.getCompleteTime());
+            ps.setTimestamp(3, taskEntity.getDeadlineTime());
+            ps.setTimestamp(4, taskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;

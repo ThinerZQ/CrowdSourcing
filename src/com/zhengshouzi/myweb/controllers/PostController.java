@@ -1,6 +1,8 @@
 package com.zhengshouzi.myweb.controllers;
 
 
+import com.zhengshouzi.myweb.entity.TaskEntity;
+import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.forms.TaskForm;
 import com.zhengshouzi.myweb.services.PostService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -20,20 +25,27 @@ public class PostController {
     PostService postService;
 
     @RequestMapping("/post.do")
-    public ModelAndView postTask(@ModelAttribute("taskForm") TaskForm taskForm) {
+    public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity,HttpSession httpSession) {
 
         System.out.println("--------post----------");
 
         ModelAndView modelAndView = new ModelAndView();
 
-        System.out.println(taskForm.getDeadlineTime());
-        System.out.println(taskForm.getTitle());
-        System.out.println(taskForm.getDescription());
+        System.out.println(taskEntity.getDeadlineTime());
+        System.out.println(taskEntity.getTitle());
+        System.out.println(taskEntity.getDescriptionsById().size());
+
+        taskEntity.setTaskType("mainTask");
+        taskEntity.setReleaseTime(new Timestamp(new Date().getTime()));
+        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
+        taskEntity.setUserId(userEntity.getId());
+
+        System.out.printf(taskEntity.toString());
 
 
-        //boolean b = postService.postTask(taskEntity);
+        boolean b = postService.postTask(taskEntity);
 
-        if (true) {
+        if (b) {
             modelAndView.setViewName("redirect:/getSystemAllJudgeTask.do");
         } else {
 

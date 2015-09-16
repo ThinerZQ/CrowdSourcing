@@ -1,7 +1,7 @@
 package com.zhengshouzi.myweb.controllers;
 
+import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.exceptions.ServiceException;
-import com.zhengshouzi.myweb.forms.RegisterForm;
 import com.zhengshouzi.myweb.services.RegisterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,19 +23,13 @@ public class RegisterController {
     public RegisterService registerService;
 
 
-    @ModelAttribute("registerForm")
-    public RegisterForm initRegisterForm() {
-        RegisterForm registerForm = new RegisterForm();
-        return registerForm;
-    }
-
     @RequestMapping("/register/register.do")
-    public String proccessRegister(@ModelAttribute RegisterForm registerForm) {
+    public String proccessRegister(@ModelAttribute UserEntity userEntity) {
 
         String returnString = null;
-        System.out.print(registerForm.getEmail());
-        System.out.println("------------------");
-        boolean flag = registerService.register(registerForm);
+        System.out.print(userEntity.getEmail());
+        System.out.println("-------/register/register.do-----------");
+        boolean flag = registerService.register(userEntity);
         if (flag == true) {
             returnString = "register_success";
         } else {

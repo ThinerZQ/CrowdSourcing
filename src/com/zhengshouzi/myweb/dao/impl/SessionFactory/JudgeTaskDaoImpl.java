@@ -1,4 +1,4 @@
-package com.zhengshouzi.myweb.daoimpl;
+package com.zhengshouzi.myweb.dao.impl.SessionFactory;
 
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
-public class JudgeTaskDaoImple implements JudgeTaskDao {
+public class JudgeTaskDaoImpl implements JudgeTaskDao {
 
     @Resource(name = "taskDao")
     TaskDao taskDao;

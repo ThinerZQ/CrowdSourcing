@@ -1,4 +1,4 @@
-package com.zhengshouzi.myweb.servicesimpl;
+package com.zhengshouzi.myweb.services.impl;
 
 import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 import com.zhengshouzi.myweb.services.JudgeTaskService;

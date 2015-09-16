@@ -9,27 +9,24 @@ import java.util.Collection;
 /**
  * Created by ǿ on 2015/9/15.
  */
-public class ArrayToDescriptionCollectionConverter implements Converter<String[], Collection<DescriptionEntity>> {
+public class ArrayToDescriptionCollectionConverter implements Converter<String, Collection<DescriptionEntity>> {
     @Override
-    public Collection<DescriptionEntity> convert(String[] strings) {
+    public Collection<DescriptionEntity> convert(String strings) {
         Collection<DescriptionEntity> descriptionEntities = null;
 
 
-        System.out.println("convert");
+        System.out.println("convert Collection<DescriptionEntity> ");
 
         if (strings == null) {
             return null;
         } else {
-            descriptionEntities = new ArrayList<>();
-            for (int i = 0; i < strings.length; i++) {
+                descriptionEntities = new ArrayList<>();
                 DescriptionEntity descriptionEntity = new DescriptionEntity();
-                descriptionEntity.setDescription(strings[i]);
+                descriptionEntity.setDescription(strings);
                 descriptionEntities.add(descriptionEntity);
             }
             return descriptionEntities;
 
-
-        }
 
     }
 }

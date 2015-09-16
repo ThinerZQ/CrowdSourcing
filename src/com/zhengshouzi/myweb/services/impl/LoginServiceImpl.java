@@ -1,4 +1,4 @@
-package com.zhengshouzi.myweb.servicesimpl;
+package com.zhengshouzi.myweb.services.impl;
 
 import com.zhengshouzi.myweb.dao.UserDao;
 import com.zhengshouzi.myweb.entity.UserEntity;
@@ -18,7 +18,6 @@ public class LoginServiceImpl implements LoginService {
     public boolean login(UserEntity userEntity) {
 
         boolean b = userDao.checkUser(userEntity);
-
         return b;
     }
 

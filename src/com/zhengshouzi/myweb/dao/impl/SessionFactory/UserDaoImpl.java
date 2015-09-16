@@ -1,8 +1,10 @@
-package com.zhengshouzi.myweb.daoimpl;
+package com.zhengshouzi.myweb.dao.impl.SessionFactory;
 
 import com.zhengshouzi.myweb.dao.UserDao;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +14,12 @@ import java.sql.ResultSet;
  * Created by zhengshouzi on 2015/9/7.
  */
 public class UserDaoImpl implements UserDao {
+
+    //@Autowired
+   // public SessionFactory sessionFactory;
+
     @Override
-    public boolean addUser(UserEntity userEntity) {
+    public boolean register(UserEntity userEntity) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();
         PreparedStatement ps = null;
@@ -127,6 +133,28 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean updateUser(UserEntity userEntity) {
         return false;
+    }
+
+    @Override
+    public boolean updateRegisterStatus(String email, String status) {
+        boolean b = false;
+        Connection connection = DBHelper.getMySqlConnection();
+        PreparedStatement ps = null;
+        String sql = "UPDATE user_register_table SET status=? where email=?";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, status);
+            ps.setString(2, email);
+            if (ps.executeUpdate() == 1) {
+                b = true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(connection, ps, null);
+        }
+        return b;
     }
 
 
