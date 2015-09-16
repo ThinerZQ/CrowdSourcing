@@ -90,7 +90,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8" style="padding-left: 0px">
-                <form class="form" id="taskForm" action="/CrowdSourcing/post.do">
+                <form class="form" action="${pageContext.request.contextPath}/post.do">
                     <div class="form-group">
                         <label for="inputTitle" class="control-label">简单描述你的需求：</label>
 
@@ -131,7 +131,7 @@
 
                         <div>
                             <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
-                                      name="descriptionsById[0].description"
+                                      name="descriptionsById"
                                       style="width: 80%;height: 250px"></textarea>
                         </div>
                     </div>

@@ -11,27 +11,24 @@
 
 
     <bean id="dbHelper" class="com.zhengshouzi.myweb.tools.DBHelper"/>
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="webBindingInitializer">
-            <bean class="com.zhengshouzi.myweb.tools.ReservationBindingInitializer"/>
-        </property>
-        <property name="messageConverters">
-            <list>
-                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                    <property name="writeAcceptCharset" value="false"/>
-                    <property name="supportedMediaTypes">
-                        <list>
-                            <value>text/plain;charset=UTF-8</value>
-                            <value>*/*;charset=UTF-8</value>
-                        </list>
-                    </property>
-                </bean>
-                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
-                <bean class="org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter"/>
-            </list>
+
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.zhengshouzi.myweb.tools.ArrayToDescriptionCollectionConverter"/>
+                <bean class="com.zhengshouzi.myweb.tools.StringToDateTime"/>
+            </set>
         </property>
     </bean>
+
+    <!--<bean id= "webBindingInitializer" class= "org.springframework.web.bind.support.ConfigurableWebBindingInitializer">-->
+    <!--<property name= "conversionService" ref= "conversionService"/>-->
+    <!--</bean>-->
+
+    <!--<bean class= "org.springframework.web.servlet.mvc.method.annotation.RequestMappi ngHandlerAdapter">-->
+    <!--<property name= "webBindingInitializer" ref= "webBindingInitializer"/>-->
+    <!--</bean>-->
 
 
 </beans>
