@@ -5,8 +5,6 @@ import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.services.PostService;
 
 import javax.annotation.Resource;
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * Created by zhengshouzi on 2015/9/7.

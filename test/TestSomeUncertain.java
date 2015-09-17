@@ -1,4 +1,3 @@
-import java.sql.Time;
 import java.sql.Timestamp;
 
 /**
@@ -12,10 +11,6 @@ public class TestSomeUncertain {
         String s = "2013-11-11 11:11:11";
         Timestamp timestamp = Timestamp.valueOf(s);
         System.out.printf(timestamp.toString());
-
-
-
-
 
 
     }

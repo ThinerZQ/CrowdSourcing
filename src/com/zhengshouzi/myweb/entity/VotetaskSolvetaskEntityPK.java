@@ -3,7 +3,7 @@ package com.zhengshouzi.myweb.entity;
 import java.io.Serializable;
 
 /**
- * Created by zhengshouzi on 2015/9/11.
+ * Created by ǿ on 2015/9/16.
  */
 public class VotetaskSolvetaskEntityPK implements Serializable {
     private long voteTaskId;

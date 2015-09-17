@@ -1,12 +1,11 @@
 package com.zhengshouzi.myweb.entity;
 
 /**
- * Created by zhengshouzi on 2015/9/11.
+ * Created by ǿ on 2015/9/16.
  */
 public class QualificationEntity {
     private long id;
     private String qualification;
-    private Long taskId;
     private TaskEntity taskByTaskId;
 
     public long getId() {
@@ -25,14 +24,6 @@ public class QualificationEntity {
         this.qualification = qualification;
     }
 
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,7 +34,6 @@ public class QualificationEntity {
         if (id != that.id) return false;
         if (qualification != null ? !qualification.equals(that.qualification) : that.qualification != null)
             return false;
-        if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
 
         return true;
     }
@@ -52,7 +42,6 @@ public class QualificationEntity {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (qualification != null ? qualification.hashCode() : 0);
-        result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
         return result;
     }
 

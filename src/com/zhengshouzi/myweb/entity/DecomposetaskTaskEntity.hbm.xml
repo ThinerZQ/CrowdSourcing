@@ -7,16 +7,10 @@
     <class name="com.zhengshouzi.myweb.entity.DecomposetaskTaskEntity" table="decomposetask_task" schema=""
            catalog="crowdsourcing">
         <composite-id mapped="true" class="com.zhengshouzi.myweb.entity.DecomposetaskTaskEntityPK">
-            <key-property name="decomposeTaskId">
-                <column name="decomposeTaskId" sql-type="bigint" not-null="true"/>
-            </key-property>
-            <key-property name="taskId">
-                <column name="taskId" sql-type="bigint" not-null="true"/>
-            </key-property>
+            <key-property name="decomposeTaskId" column="decomposeTaskId"/>
+            <key-property name="taskId" column="taskId"/>
         </composite-id>
-        <property name="whichStep">
-            <column name="whichStep" sql-type="bigint"/>
-        </property>
+        <property name="whichStep" column="whichStep"/>
         <many-to-one name="decomposetaskByDecomposeTaskId" class="com.zhengshouzi.myweb.entity.DecomposetaskEntity">
             <column name="decomposeTaskId" not-null="true"/>
         </many-to-one>

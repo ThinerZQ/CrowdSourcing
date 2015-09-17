@@ -3,7 +3,7 @@ package com.zhengshouzi.myweb.entity;
 import java.sql.Timestamp;
 
 /**
- * Created by zhengshouzi on 2015/9/11.
+ * Created by ǿ on 2015/9/16.
  */
 public class MergetaskEntity {
     private long id;
@@ -11,7 +11,6 @@ public class MergetaskEntity {
     private Timestamp releaseTime;
     private Timestamp deadlineTime;
     private Timestamp completeTime;
-    private Long taskId;
     private TaskEntity taskByTaskId;
 
     public long getId() {
@@ -54,14 +53,6 @@ public class MergetaskEntity {
         this.completeTime = completeTime;
     }
 
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,7 +65,6 @@ public class MergetaskEntity {
         if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
         if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
         if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-        if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
 
         return true;
     }
@@ -86,7 +76,6 @@ public class MergetaskEntity {
         result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
         result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
         result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
         return result;
     }
 

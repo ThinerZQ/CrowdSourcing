@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 /**
- * Created by zhengshouzi on 2015/9/11.
+ * Created by ǿ on 2015/9/16.
  */
 public class UserEntity {
     private long id;

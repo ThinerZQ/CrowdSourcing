@@ -3,7 +3,6 @@ package com.zhengshouzi.myweb.controllers;
 
 import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.entity.UserEntity;
-import com.zhengshouzi.myweb.forms.TaskForm;
 import com.zhengshouzi.myweb.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,7 +24,7 @@ public class PostController {
     PostService postService;
 
     @RequestMapping("/post.do")
-    public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity,HttpSession httpSession) {
+    public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity, HttpSession httpSession) {
 
         System.out.println("--------post----------");
 
@@ -38,7 +37,7 @@ public class PostController {
         taskEntity.setTaskType("mainTask");
         taskEntity.setReleaseTime(new Timestamp(new Date().getTime()));
         UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
-        taskEntity.setUserId(userEntity.getId());
+        taskEntity.setUserByUserId(userEntity);
 
         System.out.printf(taskEntity.toString());
 

@@ -4,10 +4,9 @@ import com.zhengshouzi.myweb.beans.MailBean;
 import com.zhengshouzi.myweb.dao.UserDao;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.exceptions.ServiceException;
-
-import com.zhengshouzi.myweb.tools.RegisterTools;
 import com.zhengshouzi.myweb.services.RegisterService;
 import com.zhengshouzi.myweb.tools.MD5Utils;
+import com.zhengshouzi.myweb.tools.RegisterTools;
 import com.zhengshouzi.myweb.tools.SendMail;
 
 import javax.annotation.Resource;

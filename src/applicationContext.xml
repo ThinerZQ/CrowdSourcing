@@ -8,6 +8,7 @@
     <import resource="service-config.xml"/>
     <import resource="dao-config.xml"/>
     <import resource="mail-config.xml"/>
+    <import resource="dataSource.xml"/>
 
 
     <bean id="dbHelper" class="com.zhengshouzi.myweb.tools.DBHelper"/>

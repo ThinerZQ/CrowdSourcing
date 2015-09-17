@@ -4,11 +4,13 @@ import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.entity.UserEntity;
-import com.zhengshouzi.myweb.tools.ConstantDefine;
 import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,43 +25,22 @@ public class TaskDaoImpl implements TaskDao {
     @Resource(name = "judgeTaskDao")
     JudgeTaskDao judgeTaskDao;
 
-    //@Resource(name = "sessionFactory")
+    @Resource(name = "sessionFactory")
     SessionFactory sessionFactory;
 
 
+    @Transactional
     @Override
     public boolean addTask(TaskEntity taskEntity) {
-        boolean b = false;
-        Connection connection = DBHelper.getMySqlConnection();
-        PreparedStatement ps = null;
-        //添加根任务
-        String sql = "INSERT INTO task (title,releaseTime,deadlineTime,completeTime) VALUES(?,?,?,?)";
-        try {
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, taskEntity.getTitle());
-            ps.setTimestamp(2, taskEntity.getReleaseTime());
-            ps.setTimestamp(3, taskEntity.getDeadlineTime());
-            ps.setTimestamp(4, taskEntity.getCompleteTime());
 
-            if (ps.executeUpdate() == 1)
-                b = true;
+        Session session = sessionFactory.getCurrentSession();
 
-            //为每个根任务，添加判断任务
-            for (int i = 0; i < ConstantDefine.JudgeNumber; i++) {
+        Serializable id = (Serializable) session.save(taskEntity);
 
-            }
-            //添加task 和 judgeTask 的依赖关系
-            for (int i = 0; i < ConstantDefine.JudgeNumber; i++) {
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            close(connection, ps, null);
+        if (id != 0 || id != null) {
+            return true;
         }
-        return b;
+        return false;
     }
 
     @Override

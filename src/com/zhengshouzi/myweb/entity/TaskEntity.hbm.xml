@@ -4,28 +4,13 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.zhengshouzi.myweb.entity.TaskEntity" table="task" schema="" catalog="crowdsourcing">
-        <id name="id">
-            <column name="id" sql-type="bigint" not-null="true"/>
-        </id>
-        <property name="title">
-            <column name="title" sql-type="varchar"/>
-        </property>
-        <property name="releaseTime">
-            <column name="releaseTime" sql-type="datetime"/>
-        </property>
-        <property name="deadlineTime">
-            <column name="deadlineTime" sql-type="datetime"/>
-        </property>
-        <property name="completeTime">
-            <column name="completeTime" sql-type="datetime"/>
-        </property>
-        <property name="taskType">
-            <column name="taskType" sql-type="varchar" length="50"/>
-        </property>
-        <property name="userId">
-            <column name="userId" sql-type="bigint"/>
-        </property>
+    <class name="com.zhengshouzi.myweb.entity.TaskEntity" table="task" catalog="crowdsourcing">
+        <id name="id" column="id"/>
+        <property name="title" column="title"/>
+        <property name="releaseTime" column="releaseTime"/>
+        <property name="deadlineTime" column="deadlineTime"/>
+        <property name="completeTime" column="completeTime"/>
+        <property name="taskType" column="taskType"/>
         <many-to-one name="userByUserId" class="com.zhengshouzi.myweb.entity.UserEntity">
             <column name="userId"/>
         </many-to-one>
@@ -41,7 +26,7 @@
             </key>
             <one-to-many not-found="ignore" class="com.zhengshouzi.myweb.entity.DecomposetaskTaskEntity"/>
         </set>
-        <set name="descriptionsById" inverse="true">
+        <set name="descriptionsById" cascade="all">
             <key>
                 <column name="taskId"/>
             </key>

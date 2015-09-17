@@ -3,7 +3,7 @@ package com.zhengshouzi.myweb.entity;
 import java.sql.Timestamp;
 
 /**
- * Created by zhengshouzi on 2015/9/11.
+ * Created by ǿ on 2015/9/16.
  */
 public class JudgetaskEntity {
     private long id;
@@ -11,10 +11,8 @@ public class JudgetaskEntity {
     private Timestamp releaseTime;
     private Timestamp deadlineTime;
     private Timestamp completeTime;
-    private Long taskId;
-    private Long userId;
-    private UserEntity userByUserId;
     private TaskEntity taskByTaskId;
+    private UserEntity userByUserId;
 
     public long getId() {
         return id;
@@ -56,22 +54,6 @@ public class JudgetaskEntity {
         this.completeTime = completeTime;
     }
 
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,8 +66,6 @@ public class JudgetaskEntity {
         if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
         if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
         if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-        if (taskId != null ? !taskId.equals(that.taskId) : that.taskId != null) return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
     }
@@ -97,17 +77,7 @@ public class JudgetaskEntity {
         result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
         result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
         result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        result = 31 * result + (taskId != null ? taskId.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
-    }
-
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
     }
 
     public TaskEntity getTaskByTaskId() {
@@ -116,5 +86,13 @@ public class JudgetaskEntity {
 
     public void setTaskByTaskId(TaskEntity taskByTaskId) {
         this.taskByTaskId = taskByTaskId;
+    }
+
+    public UserEntity getUserByUserId() {
+        return userByUserId;
+    }
+
+    public void setUserByUserId(UserEntity userByUserId) {
+        this.userByUserId = userByUserId;
     }
 }

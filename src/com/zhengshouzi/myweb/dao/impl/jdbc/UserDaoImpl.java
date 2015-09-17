@@ -3,11 +3,7 @@ package com.zhengshouzi.myweb.dao.impl.jdbc;
 import com.zhengshouzi.myweb.dao.UserDao;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
-import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

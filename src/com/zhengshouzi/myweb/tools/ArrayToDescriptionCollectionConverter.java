@@ -20,12 +20,12 @@ public class ArrayToDescriptionCollectionConverter implements Converter<String, 
         if (strings == null) {
             return null;
         } else {
-                descriptionEntities = new ArrayList<>();
-                DescriptionEntity descriptionEntity = new DescriptionEntity();
-                descriptionEntity.setDescription(strings);
-                descriptionEntities.add(descriptionEntity);
-            }
-            return descriptionEntities;
+            descriptionEntities = new ArrayList<>();
+            DescriptionEntity descriptionEntity = new DescriptionEntity();
+            descriptionEntity.setDescription(strings);
+            descriptionEntities.add(descriptionEntity);
+        }
+        return descriptionEntities;
 
 
     }

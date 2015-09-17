@@ -7,12 +7,8 @@
     <class name="com.zhengshouzi.myweb.entity.VotetaskDecomposetaskEntity" table="votetask_decomposetask" schema=""
            catalog="crowdsourcing">
         <composite-id mapped="true" class="com.zhengshouzi.myweb.entity.VotetaskDecomposetaskEntityPK">
-            <key-property name="voteTaskId">
-                <column name="voteTaskId" sql-type="bigint" not-null="true"/>
-            </key-property>
-            <key-property name="decomposeTaskId">
-                <column name="decomposeTaskId" sql-type="bigint" not-null="true"/>
-            </key-property>
+            <key-property name="voteTaskId" column="voteTaskId"/>
+            <key-property name="decomposeTaskId" column="decomposeTaskId"/>
         </composite-id>
         <many-to-one name="decomposetaskByDecomposeTaskId" class="com.zhengshouzi.myweb.entity.DecomposetaskEntity">
             <column name="decomposeTaskId" not-null="true"/>

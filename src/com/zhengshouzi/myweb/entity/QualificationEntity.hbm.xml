@@ -6,15 +6,8 @@
 
     <class name="com.zhengshouzi.myweb.entity.QualificationEntity" table="qualification" schema=""
            catalog="crowdsourcing">
-        <id name="id">
-            <column name="id" sql-type="bigint" not-null="true"/>
-        </id>
-        <property name="qualification">
-            <column name="qualification" sql-type="varchar"/>
-        </property>
-        <property name="taskId">
-            <column name="taskId" sql-type="bigint"/>
-        </property>
+        <id name="id" column="id"/>
+        <property name="qualification" column="qualification"/>
         <many-to-one name="taskByTaskId" class="com.zhengshouzi.myweb.entity.TaskEntity">
             <column name="taskId"/>
         </many-to-one>

@@ -5,35 +5,17 @@
 <hibernate-mapping>
 
     <class name="com.zhengshouzi.myweb.entity.SolvetaskEntity" table="solvetask" schema="" catalog="crowdsourcing">
-        <id name="id">
-            <column name="id" sql-type="bigint" not-null="true"/>
-        </id>
-        <property name="result">
-            <column name="result" sql-type="longtext" length="2147483647"/>
-        </property>
-        <property name="best">
-            <column name="best" sql-type="enum" length="4"/>
-        </property>
-        <property name="releaseTime">
-            <column name="releaseTime" sql-type="datetime"/>
-        </property>
-        <property name="deadlineTime">
-            <column name="deadlineTime" sql-type="datetime"/>
-        </property>
-        <property name="completeTime">
-            <column name="completeTime" sql-type="datetime"/>
-        </property>
-        <property name="taskId">
-            <column name="taskId" sql-type="bigint"/>
-        </property>
-        <property name="userId">
-            <column name="userId" sql-type="bigint"/>
-        </property>
-        <many-to-one name="userByUserId" class="com.zhengshouzi.myweb.entity.UserEntity">
-            <column name="userId"/>
-        </many-to-one>
+        <id name="id" column="id"/>
+        <property name="result" column="result"/>
+        <property name="best" column="best"/>
+        <property name="releaseTime" column="releaseTime"/>
+        <property name="deadlineTime" column="deadlineTime"/>
+        <property name="completeTime" column="completeTime"/>
         <many-to-one name="taskByTaskId" class="com.zhengshouzi.myweb.entity.TaskEntity">
             <column name="taskId"/>
+        </many-to-one>
+        <many-to-one name="userByUserId" class="com.zhengshouzi.myweb.entity.UserEntity">
+            <column name="userId"/>
         </many-to-one>
         <set name="votetaskSolvetasksById" inverse="true">
             <key>

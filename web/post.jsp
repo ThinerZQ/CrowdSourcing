@@ -129,22 +129,23 @@
 --%>
                     <div class="form-group">
                         <label for="inputDetail" class="control-label">说说您的具体要求</label>
+
                         <div>
                         <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
-                  name="descriptionsById"
-                  style="width: 80%;height: 250px"></textarea>
+                                  name="descriptionsById"
+                                  style="width: 80%;height: 250px"></textarea>
                         </div>
                     </div>
 
-                  <%--  <div class="form-group">
-                        <label for="inputFile" class="control-label sr-only">file</label>
+                    <%--  <div class="form-group">
+                          <label for="inputFile" class="control-label sr-only">file</label>
 
-                        <div>
-                            <a href="javascript:;" class="file">添加附件
-                                <input type="file" class="form-control" id="inputFile"
-                                       multiple="multiple"></a><span style="padding-left: 10px">最多添加5个附件，每个大小不超过10M 上传遇到问题</span>
-                        </div>
-                    </div>--%>
+                          <div>
+                              <a href="javascript:;" class="file">添加附件
+                                  <input type="file" class="form-control" id="inputFile"
+                                         multiple="multiple"></a><span style="padding-left: 10px">最多添加5个附件，每个大小不超过10M 上传遇到问题</span>
+                          </div>
+                      </div>--%>
 
 
                     <div class="form-group">

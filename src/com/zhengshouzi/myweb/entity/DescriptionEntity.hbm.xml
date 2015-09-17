@@ -4,16 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.zhengshouzi.myweb.entity.DescriptionEntity" table="description" schema="" catalog="crowdsourcing">
-        <id name="id">
-            <column name="id" sql-type="bigint" not-null="true"/>
-        </id>
-        <property name="description">
-            <column name="description" sql-type="varchar"/>
-        </property>
-        <property name="taskId">
-            <column name="taskId" sql-type="bigint"/>
-        </property>
+    <class name="com.zhengshouzi.myweb.entity.DescriptionEntity" table="description" catalog="crowdsourcing">
+        <id name="id" column="id"/>
+        <property name="description" column="description"/>
         <many-to-one name="taskByTaskId" class="com.zhengshouzi.myweb.entity.TaskEntity">
             <column name="taskId"/>
         </many-to-one>
