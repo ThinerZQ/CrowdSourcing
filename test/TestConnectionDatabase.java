@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
@@ -24,6 +25,7 @@ import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext.xml")
+@TransactionConfiguration
 public class TestConnectionDatabase extends AbstractJUnit4SpringContextTests {
 
     @Resource(name = "userDao")
@@ -37,7 +39,7 @@ public class TestConnectionDatabase extends AbstractJUnit4SpringContextTests {
     public void testRegister() {
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail("6010978@qq.com");
-        userEntity.setPassword("6823");
+        userEntity.setPassword("6823ssssss");
         userEntity.setRegisterDate(new Timestamp(new Date().getTime()));
         userDao.register(userEntity);
     }
@@ -48,36 +50,20 @@ public class TestConnectionDatabase extends AbstractJUnit4SpringContextTests {
         Session session = sessionFactory.openSession();
 
         TaskEntity taskEntity = new TaskEntity();
-        taskEntity.setTitle("写一篇关于众包的文章111");
-        taskEntity.setDeadlineTime(new Timestamp(new Date().getTime()));
-        taskEntity.setReleaseTime(new Timestamp(new Date().getTime()));
+        taskEntity.setTitle("写一篇的文章111 text");
+
         taskEntity.setTaskType("mainTask");
 
         DescriptionEntity descriptionEntity = new DescriptionEntity();
+        descriptionEntity.setDescription("不少于300字  sss");
+        descriptionEntity.setTaskEntity(taskEntity);
 
-        Set<DescriptionEntity> descriptionEntitySet = new HashSet<>();
-        descriptionEntity.setDescription("不少于300字");
-        descriptionEntity.setTaskByTaskId(taskEntity);
-
-        descriptionEntitySet.add(descriptionEntity);
-
-        taskEntity.getDescriptionsById().add(descriptionEntity);
-
-
+        taskEntity.getDescriptionEntitySet().add(descriptionEntity);
         session.save(taskEntity);
+        session.save(descriptionEntity);
 
         session.flush();
         session.close();
-
-
-        //descriptionEntity.setTaskByTaskId(taskEntity);
-
-
-        //taskEntity.setUserByUserId(userDao.findUserByEmail("601097836@qq.com"));
-
-        //taskDao.addTask(taskEntity);
-        //descriptionDao.addDescriptionTask(descriptionEntity);
-
 
 
 

@@ -1,20 +1,41 @@
 package com.zhengshouzi.myweb.entity;
 
-import java.sql.Timestamp;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "votetask")
 public class VotetaskEntity {
-    private long id;
-    private Timestamp releaseTime;
-    private Timestamp deadlineTime;
-    private Timestamp completeTime;
-    private TaskEntity taskByTaskId;
-    private UserEntity userByUserId;
-    private Collection<VotetaskDecomposetaskEntity> votetaskDecomposetasksById;
-    private Collection<VotetaskSolvetaskEntity> votetaskSolvetasksById;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date releaseTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date deadlineTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date completeTime;
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    public TaskEntity taskEntity;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public UserEntity userEntity;
+    @OneToMany
+    @JoinColumn(name = "votetask_id")
+    public Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet = new HashSet<>();
+    @OneToMany
+    @JoinColumn(name = "votetask_id")
+    public Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet= new HashSet<>();
 
     public long getId() {
         return id;
@@ -24,83 +45,59 @@ public class VotetaskEntity {
         this.id = id;
     }
 
-    public Timestamp getReleaseTime() {
+    public Date getReleaseTime() {
         return releaseTime;
     }
 
-    public void setReleaseTime(Timestamp releaseTime) {
+    public void setReleaseTime(Date releaseTime) {
         this.releaseTime = releaseTime;
     }
 
-    public Timestamp getDeadlineTime() {
+    public Date getDeadlineTime() {
         return deadlineTime;
     }
 
-    public void setDeadlineTime(Timestamp deadlineTime) {
+    public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
 
-    public Timestamp getCompleteTime() {
+    public Date getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(Date completeTime) {
         this.completeTime = completeTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        VotetaskEntity that = (VotetaskEntity) o;
-
-        if (id != that.id) return false;
-        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
-        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
-        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-
-        return true;
+    public TaskEntity getTaskEntity() {
+        return taskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
-        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
-        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        return result;
+    public void setTaskEntity(TaskEntity taskEntity) {
+        this.taskEntity = taskEntity;
     }
 
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
-    public UserEntity getUserByUserId() {
-        return userByUserId;
+    public Set<VotetaskDecomposetaskEntity> getVotetaskDecomposetaskEntitySet() {
+        return votetaskDecomposetaskEntitySet;
     }
 
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
+    public void setVotetaskDecomposetaskEntitySet(Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet) {
+        this.votetaskDecomposetaskEntitySet = votetaskDecomposetaskEntitySet;
     }
 
-    public Collection<VotetaskDecomposetaskEntity> getVotetaskDecomposetasksById() {
-        return votetaskDecomposetasksById;
+    public Set<VotetaskSolvetaskEntity> getVotetaskSolvetaskEntitySet() {
+        return votetaskSolvetaskEntitySet;
     }
 
-    public void setVotetaskDecomposetasksById(Collection<VotetaskDecomposetaskEntity> votetaskDecomposetasksById) {
-        this.votetaskDecomposetasksById = votetaskDecomposetasksById;
-    }
-
-    public Collection<VotetaskSolvetaskEntity> getVotetaskSolvetasksById() {
-        return votetaskSolvetasksById;
-    }
-
-    public void setVotetaskSolvetasksById(Collection<VotetaskSolvetaskEntity> votetaskSolvetasksById) {
-        this.votetaskSolvetasksById = votetaskSolvetasksById;
+    public void setVotetaskSolvetaskEntitySet(Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet) {
+        this.votetaskSolvetaskEntitySet = votetaskSolvetaskEntitySet;
     }
 }

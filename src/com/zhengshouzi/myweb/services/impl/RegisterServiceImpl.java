@@ -98,7 +98,7 @@ public class RegisterServiceImpl implements RegisterService {
 
                 //验证链接是否过期
                 // currentTime.before(registerForm.getRegisterTime());
-                if (currentTime.before(RegisterTools.getLastActivateTime(userEntity.getRegisterDate()))) {
+                if (currentTime.before(RegisterTools.getLastActivateTime(new Timestamp(new Date().getTime())))) {
                     //验证激活码是否正确
                     if (validateCode.equals(userEntity.getActivateCode())) {
                         //激活成功， //并更新用户的激活状态，为已激活

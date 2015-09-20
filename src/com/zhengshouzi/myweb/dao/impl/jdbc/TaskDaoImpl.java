@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -33,9 +34,9 @@ public class TaskDaoImpl implements TaskDao {
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, taskEntity.getTitle());
-            ps.setTimestamp(2, taskEntity.getReleaseTime());
-            ps.setTimestamp(3, taskEntity.getDeadlineTime());
-            ps.setTimestamp(4, taskEntity.getCompleteTime());
+            //ps.setTimestamp(2, taskEntity.getReleaseTime());
+//.setTimestamp(3, taskEntity.getDeadlineTime());
+           // ps.setTimestamp(4, taskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -64,8 +65,8 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Override
-    public boolean deleteTask(TaskEntity taskEntity) {
-        return false;
+    public List deleteTask(TaskEntity taskEntity) {
+        return new ArrayList();
     }
 
     @Override

@@ -1,24 +1,53 @@
 package com.zhengshouzi.myweb.entity;
 
-import java.sql.Timestamp;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "user")
 public class UserEntity {
-    private long id;
-    private String userName;
-    private String password;
-    private String email;
-    private String activateCode;
-    private String status;
-    private Timestamp registerDate;
-    private Collection<DecomposetaskEntity> decomposetasksById;
-    private Collection<JudgetaskEntity> judgetasksById;
-    private Collection<SolvetaskEntity> solvetasksById;
-    private Collection<TaskEntity> tasksById;
-    private Collection<VotetaskEntity> votetasksById;
+
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+
+    @Basic
+    public String userName;
+    @Basic
+    public String password;
+    @Basic
+    public String email;
+    @Basic
+    public String activateCode;
+    @Basic
+    public String status;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date registerDate;
+    @OneToMany()
+    @JoinColumn(name="user_id")
+    public Set<DecomposetaskEntity> decomposetaskEntitySet=new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="user_id")
+    public Set<JudgetaskEntity> judgetaskEntitySet=new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="user_id")
+    public Set<SolvetaskEntity> solvetaskEntitySet =new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="user_id")
+    public Set<TaskEntity> taskEntitySet=new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="user_id")
+    public Set<VotetaskEntity> votetaskEntitySet=new HashSet<>();
+
 
     public long getId() {
         return id;
@@ -68,81 +97,52 @@ public class UserEntity {
         this.status = status;
     }
 
-    public Timestamp getRegisterDate() {
+    public Date getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(Timestamp registerDate) {
+    public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserEntity that = (UserEntity) o;
-
-        if (id != that.id) return false;
-        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
-        if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (activateCode != null ? !activateCode.equals(that.activateCode) : that.activateCode != null) return false;
-        if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (registerDate != null ? !registerDate.equals(that.registerDate) : that.registerDate != null) return false;
-
-        return true;
+    public Set<DecomposetaskEntity> getDecomposetaskEntitySet() {
+        return decomposetaskEntitySet;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (activateCode != null ? activateCode.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (registerDate != null ? registerDate.hashCode() : 0);
-        return result;
+    public void setDecomposetaskEntitySet(Set<DecomposetaskEntity> decomposetaskEntitySet) {
+        this.decomposetaskEntitySet = decomposetaskEntitySet;
     }
 
-    public Collection<DecomposetaskEntity> getDecomposetasksById() {
-        return decomposetasksById;
+    public Set<JudgetaskEntity> getJudgetaskEntitySet() {
+        return judgetaskEntitySet;
     }
 
-    public void setDecomposetasksById(Collection<DecomposetaskEntity> decomposetasksById) {
-        this.decomposetasksById = decomposetasksById;
+    public void setJudgetaskEntitySet(Set<JudgetaskEntity> judgetaskEntitySet) {
+        this.judgetaskEntitySet = judgetaskEntitySet;
     }
 
-    public Collection<JudgetaskEntity> getJudgetasksById() {
-        return judgetasksById;
+    public Set<SolvetaskEntity> getSolvetaskEntitySet() {
+        return solvetaskEntitySet;
     }
 
-    public void setJudgetasksById(Collection<JudgetaskEntity> judgetasksById) {
-        this.judgetasksById = judgetasksById;
+    public void setSolvetaskEntitySet(Set<SolvetaskEntity> solvetaskEntitySet) {
+        this.solvetaskEntitySet = solvetaskEntitySet;
     }
 
-    public Collection<SolvetaskEntity> getSolvetasksById() {
-        return solvetasksById;
+    public Set<TaskEntity> getTaskEntitySet() {
+        return taskEntitySet;
     }
 
-    public void setSolvetasksById(Collection<SolvetaskEntity> solvetasksById) {
-        this.solvetasksById = solvetasksById;
+    public void setTaskEntitySet(Set<TaskEntity> taskEntitySet) {
+        this.taskEntitySet = taskEntitySet;
     }
 
-    public Collection<TaskEntity> getTasksById() {
-        return tasksById;
+    public Set<VotetaskEntity> getVotetaskEntitySet() {
+        return votetaskEntitySet;
     }
 
-    public void setTasksById(Collection<TaskEntity> tasksById) {
-        this.tasksById = tasksById;
+    public void setVotetaskEntitySet(Set<VotetaskEntity> votetaskEntitySet) {
+        this.votetaskEntitySet = votetaskEntitySet;
     }
 
-    public Collection<VotetaskEntity> getVotetasksById() {
-        return votetasksById;
-    }
-
-    public void setVotetasksById(Collection<VotetaskEntity> votetasksById) {
-        this.votetasksById = votetasksById;
-    }
 }

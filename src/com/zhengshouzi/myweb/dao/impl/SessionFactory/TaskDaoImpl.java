@@ -4,17 +4,16 @@ import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.entity.UserEntity;
-import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -33,25 +32,46 @@ public class TaskDaoImpl implements TaskDao {
     @Override
     public boolean addTask(TaskEntity taskEntity) {
 
-        Session session = sessionFactory.getCurrentSession();
+        boolean b =false;
+        try {
+            Session session = sessionFactory.getCurrentSession();
 
-        Serializable id = (Serializable) session.save(taskEntity);
+            Serializable id = (Serializable) session.save(taskEntity);
 
-        if (id != 0 || id != null) {
-            return true;
+            if (id != 0 || id != null) {
+                b= true;
+            }
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            b=false;
+        } finally {
+            return b;
         }
-        return false;
+
+
+
     }
 
     @Override
-    public ArrayList<TaskEntity> findAllTask() {
+    public List<TaskEntity> findAllTask() {
+        List<TaskEntity> taskEntityList =null;
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            Criteria criteria = session.createCriteria(TaskEntity.class);
+            taskEntityList =criteria.list();
+        }catch (Exception e){
+           taskEntityList = new ArrayList<>();
+        }finally {
+            return  taskEntityList;
+        }
+
+    }
+
+    @Override
+    public List deleteTask(TaskEntity taskEntity) {
         return null;
     }
 
-    @Override
-    public boolean deleteTask(TaskEntity taskEntity) {
-        return false;
-    }
 
     @Override
     public boolean updateUser(UserEntity userEntity) {
@@ -61,47 +81,8 @@ public class TaskDaoImpl implements TaskDao {
     @Override
     public TaskEntity findTaskById(String id) {
 
-        Connection connection = DBHelper.getMySqlConnection();
-        PreparedStatement ps = null;
-        TaskEntity task = null;
-        ResultSet rs = null;
+        return null;
 
-        String sql = "select * from task where id=?";
-        try {
-            ps = connection.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(id));
-
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                task = new TaskEntity();
-                task.setId(rs.getInt("id"));
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            close(connection, ps, null);
-        }
-        return task;
     }
 
-    //πÿ±’¡¨Ω”
-    public void close(Connection cn, PreparedStatement ps, ResultSet rs) {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
-            if (cn != null) {
-                cn.close();
-                ;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

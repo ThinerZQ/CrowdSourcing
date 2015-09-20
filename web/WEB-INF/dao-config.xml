@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="userDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.UserDaoImpl"></bean>
+    <bean id="taskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.TaskDaoImpl"></bean>
+    <bean id="judgeTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.JudgeTaskDaoImpl"></bean>
+    <bean id="descriptionDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.DescriptionDaoImpl"></bean>
+
+
+</beans>

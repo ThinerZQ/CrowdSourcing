@@ -1,12 +1,25 @@
 package com.zhengshouzi.myweb.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "qualification")
 public class QualificationEntity {
-    private long id;
-    private String qualification;
-    private TaskEntity taskByTaskId;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Basic
+    public String qualification;
+
+    @ManyToOne
+    @JoinColumn(name="task_id")
+    public TaskEntity taskEntity;
 
     public long getId() {
         return id;
@@ -24,32 +37,11 @@ public class QualificationEntity {
         this.qualification = qualification;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        QualificationEntity that = (QualificationEntity) o;
-
-        if (id != that.id) return false;
-        if (qualification != null ? !qualification.equals(that.qualification) : that.qualification != null)
-            return false;
-
-        return true;
+    public TaskEntity getTaskEntity() {
+        return taskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (qualification != null ? qualification.hashCode() : 0);
-        return result;
-    }
-
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
-    }
-
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
+    public void setTaskEntity(TaskEntity taskEntity) {
+        this.taskEntity = taskEntity;
     }
 }

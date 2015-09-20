@@ -1,28 +1,62 @@
 package com.zhengshouzi.myweb.entity;
 
-import java.sql.Timestamp;
-import java.util.Collection;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "task")
 public class TaskEntity {
-    private long id;
-    private String title;
-    private Timestamp releaseTime;
-    private Timestamp deadlineTime;
-    private Timestamp completeTime;
-    private String taskType;
-    private Collection<DecomposetaskEntity> decomposetasksById;
-    private Collection<DecomposetaskTaskEntity> decomposetaskTasksById;
-    private Collection<DescriptionEntity> descriptionsById = new HashSet<>();
-    private Collection<JudgetaskEntity> judgetasksById;
-    private Collection<MergetaskEntity> mergetasksById;
-    private Collection<QualificationEntity> qualificationsById;
-    private Collection<SolvetaskEntity> solvetasksById;
-    private UserEntity userByUserId;
-    private Collection<VotetaskEntity> votetasksById;
+
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Basic
+    public String title;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date releaseTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date deadlineTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date completeTime;
+    @Basic
+    public String taskType;
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<DecomposetaskEntity> decomposetaskEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<DescriptionEntity> descriptionEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<JudgetaskEntity> judgetaskEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<MergetaskEntity> mergetaskEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<QualificationEntity> qualificationEntitySet = new HashSet<>();
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<SolvetaskEntity> solvetaskEntitySet = new HashSet<>();
+    @ManyToOne()
+    @JoinColumn(name="task_id")
+    public UserEntity userEntity;
+    @OneToMany()
+    @JoinColumn(name="task_id")
+    public Set<VotetaskEntity> votetaskEntitySet = new HashSet<>();
+
 
     public long getId() {
         return id;
@@ -40,27 +74,27 @@ public class TaskEntity {
         this.title = title;
     }
 
-    public Timestamp getReleaseTime() {
+    public Date getReleaseTime() {
         return releaseTime;
     }
 
-    public void setReleaseTime(Timestamp releaseTime) {
+    public void setReleaseTime(Date releaseTime) {
         this.releaseTime = releaseTime;
     }
 
-    public Timestamp getDeadlineTime() {
+    public Date getDeadlineTime() {
         return deadlineTime;
     }
 
-    public void setDeadlineTime(Timestamp deadlineTime) {
+    public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
 
-    public Timestamp getCompleteTime() {
+    public Date getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(Date completeTime) {
         this.completeTime = completeTime;
     }
 
@@ -72,103 +106,76 @@ public class TaskEntity {
         this.taskType = taskType;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TaskEntity that = (TaskEntity) o;
-
-        if (id != that.id) return false;
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
-        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
-        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-        if (taskType != null ? !taskType.equals(that.taskType) : that.taskType != null) return false;
-
-        return true;
+    public Set<DecomposetaskEntity> getDecomposetaskEntitySet() {
+        return decomposetaskEntitySet;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
-        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
-        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        result = 31 * result + (taskType != null ? taskType.hashCode() : 0);
-        return result;
+    public void setDecomposetaskEntitySet(Set<DecomposetaskEntity> decomposetaskEntitySet) {
+        this.decomposetaskEntitySet = decomposetaskEntitySet;
     }
 
-    public Collection<DecomposetaskEntity> getDecomposetasksById() {
-        return decomposetasksById;
+    public Set<DecomposetaskTaskEntity> getDecomposetaskTaskEntitySet() {
+        return decomposetaskTaskEntitySet;
     }
 
-    public void setDecomposetasksById(Collection<DecomposetaskEntity> decomposetasksById) {
-        this.decomposetasksById = decomposetasksById;
+    public void setDecomposetaskTaskEntitySet(Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet) {
+        this.decomposetaskTaskEntitySet = decomposetaskTaskEntitySet;
     }
 
-    public Collection<DecomposetaskTaskEntity> getDecomposetaskTasksById() {
-        return decomposetaskTasksById;
+    public Set<DescriptionEntity> getDescriptionEntitySet() {
+        return descriptionEntitySet;
     }
 
-    public void setDecomposetaskTasksById(Collection<DecomposetaskTaskEntity> decomposetaskTasksById) {
-        this.decomposetaskTasksById = decomposetaskTasksById;
+    public void setDescriptionEntitySet(Set<DescriptionEntity> descriptionEntitySet) {
+        this.descriptionEntitySet = descriptionEntitySet;
     }
 
-    public Collection<DescriptionEntity> getDescriptionsById() {
-        return descriptionsById;
+    public Set<JudgetaskEntity> getJudgetaskEntitySet() {
+        return judgetaskEntitySet;
     }
 
-    public void setDescriptionsById(Collection<DescriptionEntity> descriptionsById) {
-        this.descriptionsById = descriptionsById;
+    public void setJudgetaskEntitySet(Set<JudgetaskEntity> judgetaskEntitySet) {
+        this.judgetaskEntitySet = judgetaskEntitySet;
     }
 
-    public Collection<JudgetaskEntity> getJudgetasksById() {
-        return judgetasksById;
+    public Set<MergetaskEntity> getMergetaskEntitySet() {
+        return mergetaskEntitySet;
     }
 
-    public void setJudgetasksById(Collection<JudgetaskEntity> judgetasksById) {
-        this.judgetasksById = judgetasksById;
+    public void setMergetaskEntitySet(Set<MergetaskEntity> mergetaskEntitySet) {
+        this.mergetaskEntitySet = mergetaskEntitySet;
     }
 
-    public Collection<MergetaskEntity> getMergetasksById() {
-        return mergetasksById;
+    public Set<QualificationEntity> getQualificationEntitySet() {
+        return qualificationEntitySet;
     }
 
-    public void setMergetasksById(Collection<MergetaskEntity> mergetasksById) {
-        this.mergetasksById = mergetasksById;
+    public void setQualificationEntitySet(Set<QualificationEntity> qualificationEntitySet) {
+        this.qualificationEntitySet = qualificationEntitySet;
     }
 
-    public Collection<QualificationEntity> getQualificationsById() {
-        return qualificationsById;
+    public Set<SolvetaskEntity> getSolvetaskEntitySet() {
+        return solvetaskEntitySet;
     }
 
-    public void setQualificationsById(Collection<QualificationEntity> qualificationsById) {
-        this.qualificationsById = qualificationsById;
+    public void setSolvetaskEntitySet(Set<SolvetaskEntity> solvetaskEntitySet) {
+        this.solvetaskEntitySet = solvetaskEntitySet;
     }
 
-    public Collection<SolvetaskEntity> getSolvetasksById() {
-        return solvetasksById;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setSolvetasksById(Collection<SolvetaskEntity> solvetasksById) {
-        this.solvetasksById = solvetasksById;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
-    public UserEntity getUserByUserId() {
-        return userByUserId;
+    public Set<VotetaskEntity> getVotetaskEntitySet() {
+        return votetaskEntitySet;
     }
 
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
+    public void setVotetaskEntitySet(Set<VotetaskEntity> votetaskEntitySet) {
+        this.votetaskEntitySet = votetaskEntitySet;
     }
 
-    public Collection<VotetaskEntity> getVotetasksById() {
-        return votetasksById;
-    }
-
-    public void setVotetasksById(Collection<VotetaskEntity> votetasksById) {
-        this.votetasksById = votetasksById;
-    }
 }

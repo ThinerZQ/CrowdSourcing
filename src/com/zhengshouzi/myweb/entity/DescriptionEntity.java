@@ -1,12 +1,27 @@
 package com.zhengshouzi.myweb.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "description")
 public class DescriptionEntity {
-    private long id;
-    private String description;
-    private TaskEntity taskByTaskId;
+
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+
+    @Basic
+    public String description;
+
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    public TaskEntity taskEntity;
 
     public long getId() {
         return id;
@@ -24,31 +39,13 @@ public class DescriptionEntity {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        DescriptionEntity that = (DescriptionEntity) o;
-
-        if (id != that.id) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-
-        return true;
+    public TaskEntity getTaskEntity() {
+        return taskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+    public void setTaskEntity(TaskEntity taskEntity) {
+        this.taskEntity = taskEntity;
     }
 
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
-    }
 
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
-    }
 }

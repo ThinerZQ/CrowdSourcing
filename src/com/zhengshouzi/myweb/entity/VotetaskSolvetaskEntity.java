@@ -1,63 +1,49 @@
 package com.zhengshouzi.myweb.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "votetask_solvetask")
 public class VotetaskSolvetaskEntity {
-    private long voteTaskId;
-    private long solveTaskId;
-    private SolvetaskEntity solvetaskBySolveTaskId;
-    private VotetaskEntity votetaskByVoteTaskId;
 
-    public long getVoteTaskId() {
-        return voteTaskId;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+
+    @ManyToOne
+    @JoinColumn(name = "solvetask_id")
+    private SolvetaskEntity solvetaskEntity;
+    @ManyToOne
+    @JoinColumn(name = "votetask_id")
+    private VotetaskEntity votetaskEntity;
+
+    public long getId() {
+        return id;
     }
 
-    public void setVoteTaskId(long voteTaskId) {
-        this.voteTaskId = voteTaskId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public long getSolveTaskId() {
-        return solveTaskId;
+    public SolvetaskEntity getSolvetaskEntity() {
+        return solvetaskEntity;
     }
 
-    public void setSolveTaskId(long solveTaskId) {
-        this.solveTaskId = solveTaskId;
+    public void setSolvetaskEntity(SolvetaskEntity solvetaskEntity) {
+        this.solvetaskEntity = solvetaskEntity;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        VotetaskSolvetaskEntity that = (VotetaskSolvetaskEntity) o;
-
-        if (voteTaskId != that.voteTaskId) return false;
-        if (solveTaskId != that.solveTaskId) return false;
-
-        return true;
+    public VotetaskEntity getVotetaskEntity() {
+        return votetaskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (voteTaskId ^ (voteTaskId >>> 32));
-        result = 31 * result + (int) (solveTaskId ^ (solveTaskId >>> 32));
-        return result;
-    }
-
-    public SolvetaskEntity getSolvetaskBySolveTaskId() {
-        return solvetaskBySolveTaskId;
-    }
-
-    public void setSolvetaskBySolveTaskId(SolvetaskEntity solvetaskBySolveTaskId) {
-        this.solvetaskBySolveTaskId = solvetaskBySolveTaskId;
-    }
-
-    public VotetaskEntity getVotetaskByVoteTaskId() {
-        return votetaskByVoteTaskId;
-    }
-
-    public void setVotetaskByVoteTaskId(VotetaskEntity votetaskByVoteTaskId) {
-        this.votetaskByVoteTaskId = votetaskByVoteTaskId;
+    public void setVotetaskEntity(VotetaskEntity votetaskEntity) {
+        this.votetaskEntity = votetaskEntity;
     }
 }

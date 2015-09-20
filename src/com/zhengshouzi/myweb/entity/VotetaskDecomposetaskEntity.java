@@ -1,63 +1,49 @@
 package com.zhengshouzi.myweb.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "votetask_decomposetask")
 public class VotetaskDecomposetaskEntity {
-    private long voteTaskId;
-    private long decomposeTaskId;
-    private DecomposetaskEntity decomposetaskByDecomposeTaskId;
-    private VotetaskEntity votetaskByVoteTaskId;
 
-    public long getVoteTaskId() {
-        return voteTaskId;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name = "generator",strategy = "identity")
+    public long id ;
+
+    @ManyToOne
+    @JoinColumn(name = "decomposetask_id")
+    public DecomposetaskEntity decomposetaskEntity;
+    @ManyToOne
+    @JoinColumn(name = "votetask_id")
+    public VotetaskEntity votetaskEntity;
+
+    public long getId() {
+        return id;
     }
 
-    public void setVoteTaskId(long voteTaskId) {
-        this.voteTaskId = voteTaskId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public long getDecomposeTaskId() {
-        return decomposeTaskId;
+    public DecomposetaskEntity getDecomposetaskEntity() {
+        return decomposetaskEntity;
     }
 
-    public void setDecomposeTaskId(long decomposeTaskId) {
-        this.decomposeTaskId = decomposeTaskId;
+    public void setDecomposetaskEntity(DecomposetaskEntity decomposetaskEntity) {
+        this.decomposetaskEntity = decomposetaskEntity;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        VotetaskDecomposetaskEntity that = (VotetaskDecomposetaskEntity) o;
-
-        if (voteTaskId != that.voteTaskId) return false;
-        if (decomposeTaskId != that.decomposeTaskId) return false;
-
-        return true;
+    public VotetaskEntity getVotetaskEntity() {
+        return votetaskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (voteTaskId ^ (voteTaskId >>> 32));
-        result = 31 * result + (int) (decomposeTaskId ^ (decomposeTaskId >>> 32));
-        return result;
-    }
-
-    public DecomposetaskEntity getDecomposetaskByDecomposeTaskId() {
-        return decomposetaskByDecomposeTaskId;
-    }
-
-    public void setDecomposetaskByDecomposeTaskId(DecomposetaskEntity decomposetaskByDecomposeTaskId) {
-        this.decomposetaskByDecomposeTaskId = decomposetaskByDecomposeTaskId;
-    }
-
-    public VotetaskEntity getVotetaskByVoteTaskId() {
-        return votetaskByVoteTaskId;
-    }
-
-    public void setVotetaskByVoteTaskId(VotetaskEntity votetaskByVoteTaskId) {
-        this.votetaskByVoteTaskId = votetaskByVoteTaskId;
+    public void setVotetaskEntity(VotetaskEntity votetaskEntity) {
+        this.votetaskEntity = votetaskEntity;
     }
 }

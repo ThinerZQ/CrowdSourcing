@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(3, userEntity.getEmail());
             ps.setString(4, userEntity.getActivateCode());
             ps.setString(5, userEntity.getStatus());
-            ps.setTimestamp(6, userEntity.getRegisterDate());
+            //ps.setTimestamp(6, userEntity.getRegisterDate());
 
             if (ps.executeUpdate() == 1)
                 b = true;

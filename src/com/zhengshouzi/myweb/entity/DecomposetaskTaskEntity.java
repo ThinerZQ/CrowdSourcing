@@ -1,29 +1,36 @@
 package com.zhengshouzi.myweb.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "decomposetask_task")
 public class DecomposetaskTaskEntity {
-    private long decomposeTaskId;
-    private long taskId;
-    private Long whichStep;
-    private DecomposetaskEntity decomposetaskByDecomposeTaskId;
-    private TaskEntity taskByTaskId;
 
-    public long getDecomposeTaskId() {
-        return decomposeTaskId;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Basic
+    public  Long whichStep;
+
+    @ManyToOne
+    @JoinColumn(name = "decomposetask_id")
+    public  DecomposetaskEntity decomposetaskEntity;
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    public  TaskEntity taskEntity;
+
+    public long getId() {
+        return id;
     }
 
-    public void setDecomposeTaskId(long decomposeTaskId) {
-        this.decomposeTaskId = decomposeTaskId;
-    }
-
-    public long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(long taskId) {
-        this.taskId = taskId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Long getWhichStep() {
@@ -34,41 +41,19 @@ public class DecomposetaskTaskEntity {
         this.whichStep = whichStep;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        DecomposetaskTaskEntity that = (DecomposetaskTaskEntity) o;
-
-        if (decomposeTaskId != that.decomposeTaskId) return false;
-        if (taskId != that.taskId) return false;
-        if (whichStep != null ? !whichStep.equals(that.whichStep) : that.whichStep != null) return false;
-
-        return true;
+    public DecomposetaskEntity getDecomposetaskEntity() {
+        return decomposetaskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (decomposeTaskId ^ (decomposeTaskId >>> 32));
-        result = 31 * result + (int) (taskId ^ (taskId >>> 32));
-        result = 31 * result + (whichStep != null ? whichStep.hashCode() : 0);
-        return result;
+    public void setDecomposetaskEntity(DecomposetaskEntity decomposetaskEntity) {
+        this.decomposetaskEntity = decomposetaskEntity;
     }
 
-    public DecomposetaskEntity getDecomposetaskByDecomposeTaskId() {
-        return decomposetaskByDecomposeTaskId;
+    public TaskEntity getTaskEntity() {
+        return taskEntity;
     }
 
-    public void setDecomposetaskByDecomposeTaskId(DecomposetaskEntity decomposetaskByDecomposeTaskId) {
-        this.decomposetaskByDecomposeTaskId = decomposetaskByDecomposeTaskId;
-    }
-
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
-    }
-
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
+    public void setTaskEntity(TaskEntity taskEntity) {
+        this.taskEntity = taskEntity;
     }
 }

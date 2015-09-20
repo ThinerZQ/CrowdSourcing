@@ -1,17 +1,33 @@
 package com.zhengshouzi.myweb.entity;
 
-import java.sql.Timestamp;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
 
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "mergetask")
 public class MergetaskEntity {
-    private long id;
-    private String finalResult;
-    private Timestamp releaseTime;
-    private Timestamp deadlineTime;
-    private Timestamp completeTime;
-    private TaskEntity taskByTaskId;
+
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Basic
+    public String finalResult;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date releaseTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date deadlineTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date completeTime;
+
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    public TaskEntity taskEntity;
 
     public long getId() {
         return id;
@@ -29,61 +45,36 @@ public class MergetaskEntity {
         this.finalResult = finalResult;
     }
 
-    public Timestamp getReleaseTime() {
+    public Date getReleaseTime() {
         return releaseTime;
     }
 
-    public void setReleaseTime(Timestamp releaseTime) {
+    public void setReleaseTime(Date releaseTime) {
         this.releaseTime = releaseTime;
     }
 
-    public Timestamp getDeadlineTime() {
+    public Date getDeadlineTime() {
         return deadlineTime;
     }
 
-    public void setDeadlineTime(Timestamp deadlineTime) {
+    public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
 
-    public Timestamp getCompleteTime() {
+    public Date getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(Date completeTime) {
         this.completeTime = completeTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        MergetaskEntity that = (MergetaskEntity) o;
-
-        if (id != that.id) return false;
-        if (finalResult != null ? !finalResult.equals(that.finalResult) : that.finalResult != null) return false;
-        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
-        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
-        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-
-        return true;
+    public TaskEntity getTaskEntity() {
+        return taskEntity;
     }
 
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (finalResult != null ? finalResult.hashCode() : 0);
-        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
-        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
-        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        return result;
+    public void setTaskEntity(TaskEntity taskEntity) {
+        this.taskEntity = taskEntity;
     }
 
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
-    }
-
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
-    }
 }

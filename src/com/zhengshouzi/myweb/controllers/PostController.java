@@ -32,12 +32,12 @@ public class PostController {
 
         System.out.println(taskEntity.getDeadlineTime());
         System.out.println(taskEntity.getTitle());
-        System.out.println(taskEntity.getDescriptionsById().size());
+        System.out.println(taskEntity.getDescriptionEntitySet().size());
 
         taskEntity.setTaskType("mainTask");
         taskEntity.setReleaseTime(new Timestamp(new Date().getTime()));
         UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
-        taskEntity.setUserByUserId(userEntity);
+        taskEntity.setUserEntity(userEntity);
 
         System.out.printf(taskEntity.toString());
 

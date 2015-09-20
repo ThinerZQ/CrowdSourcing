@@ -1,22 +1,51 @@
 package com.zhengshouzi.myweb.entity;
 
-import java.sql.Timestamp;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by ǿ on 2015/9/16.
+ * Created by zhengshouzi on 2015/9/17.
  */
+@Entity
+@Table(name = "decomposetask")
 public class DecomposetaskEntity {
-    private long id;
-    private Byte step;
-    private String best;
-    private Timestamp releaseTime;
-    private Timestamp deadlineTime;
-    private Timestamp completeTime;
-    private TaskEntity taskByTaskId;
-    private UserEntity userByUserId;
-    private Collection<DecomposetaskTaskEntity> decomposetaskTasksById;
-    private Collection<VotetaskDecomposetaskEntity> votetaskDecomposetasksById;
+
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name="generator",strategy = "identity")
+    public long id;
+    @Basic
+    public Byte step;
+    @Basic
+    public String best;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date releaseTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date deadlineTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date completeTime;
+
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    public TaskEntity task;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public UserEntity user;
+
+
+    @OneToMany
+    @JoinColumn(name = "decomposetask_id")
+    public Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet =new HashSet<>();
+
+    @OneToMany
+    @JoinColumn(name = "decomposetask_id")
+    public Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet=new HashSet<>();
+
 
     public long getId() {
         return id;
@@ -42,87 +71,61 @@ public class DecomposetaskEntity {
         this.best = best;
     }
 
-    public Timestamp getReleaseTime() {
-        return releaseTime;
-    }
 
-    public void setReleaseTime(Timestamp releaseTime) {
-        this.releaseTime = releaseTime;
-    }
-
-    public Timestamp getDeadlineTime() {
+    public Date getDeadlineTime() {
         return deadlineTime;
     }
 
-    public void setDeadlineTime(Timestamp deadlineTime) {
+    public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
+    
 
-    public Timestamp getCompleteTime() {
+    public TaskEntity getTask() {
+        return task;
+    }
+
+    public void setTask(TaskEntity task) {
+        this.task = task;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public Set<DecomposetaskTaskEntity> getDecomposetaskTaskEntitySet() {
+        return decomposetaskTaskEntitySet;
+    }
+
+    public void setDecomposetaskTaskEntitySet(Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet) {
+        this.decomposetaskTaskEntitySet = decomposetaskTaskEntitySet;
+    }
+
+    public void setReleaseTime(Date releaseTime) {
+        this.releaseTime = releaseTime;
+    }
+
+    public Set<VotetaskDecomposetaskEntity> getVotetaskDecomposetaskEntitySet() {
+        return votetaskDecomposetaskEntitySet;
+    }
+
+    public void setVotetaskDecomposetaskEntitySet(Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet) {
+        this.votetaskDecomposetaskEntitySet = votetaskDecomposetaskEntitySet;
+    }
+
+    public Date getReleaseTime() {
+        return releaseTime;
+    }
+
+    public Date getCompleteTime() {
         return completeTime;
     }
 
-    public void setCompleteTime(Timestamp completeTime) {
+    public void setCompleteTime(Date completeTime) {
         this.completeTime = completeTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        DecomposetaskEntity that = (DecomposetaskEntity) o;
-
-        if (id != that.id) return false;
-        if (step != null ? !step.equals(that.step) : that.step != null) return false;
-        if (best != null ? !best.equals(that.best) : that.best != null) return false;
-        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
-        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
-        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (step != null ? step.hashCode() : 0);
-        result = 31 * result + (best != null ? best.hashCode() : 0);
-        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
-        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
-        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
-        return result;
-    }
-
-    public TaskEntity getTaskByTaskId() {
-        return taskByTaskId;
-    }
-
-    public void setTaskByTaskId(TaskEntity taskByTaskId) {
-        this.taskByTaskId = taskByTaskId;
-    }
-
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    public Collection<DecomposetaskTaskEntity> getDecomposetaskTasksById() {
-        return decomposetaskTasksById;
-    }
-
-    public void setDecomposetaskTasksById(Collection<DecomposetaskTaskEntity> decomposetaskTasksById) {
-        this.decomposetaskTasksById = decomposetaskTasksById;
-    }
-
-    public Collection<VotetaskDecomposetaskEntity> getVotetaskDecomposetasksById() {
-        return votetaskDecomposetasksById;
-    }
-
-    public void setVotetaskDecomposetasksById(Collection<VotetaskDecomposetaskEntity> votetaskDecomposetasksById) {
-        this.votetaskDecomposetasksById = votetaskDecomposetasksById;
     }
 }
