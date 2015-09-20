@@ -1,22 +1,23 @@
 package com.zhengshouzi.myweb.dao;
 
 import com.zhengshouzi.myweb.entity.TaskEntity;
-import com.zhengshouzi.myweb.entity.UserEntity;
+import org.hibernate.Criteria;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface TaskDao {
-    public boolean addTask(TaskEntity taskEntity);
+    boolean addTask(TaskEntity taskEntity);
 
-    public List<TaskEntity> findAllTask();
+    boolean deleteTaskById(String task_id);
 
-    public List deleteTask(TaskEntity taskEntity);
+    boolean updateTask(TaskEntity taskEntity);
 
-    public boolean updateUser(UserEntity userEntity);
+    List<TaskEntity> findAllTask();
 
-    public TaskEntity findTaskById(String id);
+    TaskEntity findTaskById(String id);
+
+    List<TaskEntity> findTaskByCriteria(Criteria criteria);
 }

@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>error</title>
+    <script src="js/header.js"></script>
 </head>
 <body>
+
+<header>
+    <jsp:include page="header.jsp"></jsp:include>
+
+</header>
 
 ${errorMessage}
 </body>

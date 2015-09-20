@@ -14,7 +14,8 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="mysqlDataSource"/>
-        <property name="annotatedClasses" >
+
+        <property name="annotatedClasses">
             <list>
                 <value>com.zhengshouzi.myweb.entity.VotetaskEntity</value>
                 <value>com.zhengshouzi.myweb.entity.VotetaskDecomposetaskEntity</value>
@@ -43,8 +44,6 @@
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
-
-
     </bean>
 
     <!--配置声明式事务管理（采用注解的方式）-->

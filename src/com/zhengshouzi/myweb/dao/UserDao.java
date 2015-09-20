@@ -1,21 +1,33 @@
 package com.zhengshouzi.myweb.dao;
 
 import com.zhengshouzi.myweb.entity.UserEntity;
+import org.hibernate.Criteria;
+
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface UserDao {
-    public boolean register(UserEntity userEntity);
+    boolean addUser(UserEntity userEntity);
 
-    public UserEntity findUserByEmail(String email);
+    boolean deleteUserByEmail(String email);
 
-    public boolean checkUser(UserEntity userEntity);
+    boolean deleteUserById(String user_id);
 
-    public boolean deleteUserByEmail(String email);
+    boolean updateUser(UserEntity userEntity);
 
-    public boolean updateUser(UserEntity userEntity);
+    UserEntity findUserByEmail(String email);
+
+    UserEntity findUserById(String user_id);
+
+    List<UserEntity> findAllUser();
+
+    List<UserEntity> findUserByCriteria(Criteria criteria);
+
+    boolean checkUser(UserEntity userEntity);
 
     boolean updateRegisterStatus(String email, String status);
+
 
 }

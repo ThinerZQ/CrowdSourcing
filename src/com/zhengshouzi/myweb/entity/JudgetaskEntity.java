@@ -13,7 +13,7 @@ import java.util.Date;
 public class JudgetaskEntity {
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     private long id;
     @Basic
     private String simple;
@@ -23,10 +23,10 @@ public class JudgetaskEntity {
     private Date deadlineTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date completeTime;
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "task_id")
     private TaskEntity taskEntity;
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 
@@ -86,4 +86,45 @@ public class JudgetaskEntity {
         this.userEntity = userEntity;
     }
 
+    @Override
+    public String toString() {
+        return "JudgetaskEntity{" +
+                "id=" + id +
+                ", simple='" + simple + '\'' +
+                ", releaseTime=" + releaseTime +
+                ", deadlineTime=" + deadlineTime +
+                ", completeTime=" + completeTime +
+                ", taskEntity=" + taskEntity +
+                ", userEntity=" + userEntity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        JudgetaskEntity that = (JudgetaskEntity) o;
+
+        if (id != that.id) return false;
+        if (simple != null ? !simple.equals(that.simple) : that.simple != null) return false;
+        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
+        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
+        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
+        if (taskEntity != null ? !taskEntity.equals(that.taskEntity) : that.taskEntity != null) return false;
+        return !(userEntity != null ? !userEntity.equals(that.userEntity) : that.userEntity != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (simple != null ? simple.hashCode() : 0);
+        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
+        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
+        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
+        result = 31 * result + (taskEntity != null ? taskEntity.hashCode() : 0);
+        result = 31 * result + (userEntity != null ? userEntity.hashCode() : 0);
+        return result;
+    }
 }

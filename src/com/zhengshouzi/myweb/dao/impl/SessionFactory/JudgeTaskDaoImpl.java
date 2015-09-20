@@ -3,13 +3,20 @@ package com.zhengshouzi.myweb.dao.impl.SessionFactory;
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.JudgetaskEntity;
+import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -18,63 +25,43 @@ public class JudgeTaskDaoImpl implements JudgeTaskDao {
 
     @Resource(name = "taskDao")
     TaskDao taskDao;
+    @Resource
+    SessionFactory sessionFactory;
 
+    @Transactional
     @Override
     public boolean addJudgeTask(JudgetaskEntity judgetaskEntity) {
         boolean b = false;
-        Connection connection = DBHelper.getMySqlConnection();
-        PreparedStatement ps = null;
-        //添加任务
-        String sql = "INSERT INTO judgetask (simple,releaseTime,deadlineTime,completeTime) VALUES(?,?,?,?)";
         try {
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, judgetaskEntity.getSimple());
-           // ps.setTimestamp(2, judgetaskEntity.getReleaseTime());
-          //  ps.setTimestamp(2, judgetaskEntity.getDeadlineTime());
-           // ps.setTimestamp(2, judgetaskEntity.getCompleteTime());
+            Session session = sessionFactory.getCurrentSession();
 
-            if (ps.executeUpdate() == 1)
+            Serializable id = (Serializable) session.save(judgetaskEntity);
+
+            if (id != 0 || id != null) {
                 b = true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            b = false;
         } finally {
-            close(connection, ps, null);
+            return b;
         }
-        return b;
     }
 
+    @Transactional
     @Override
-    public ArrayList<JudgetaskEntity> findAllJudgeTask() {
+    public List<JudgetaskEntity> findAllJudgeTask() {
 
-        ArrayList<JudgetaskEntity> judgeTasks = new ArrayList<>();
-
-        Connection connection = DBHelper.getMySqlConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        //查找所有的judgeTask
-        String sql = "SELECT * from judgetask ";
+        List<JudgetaskEntity> judgetaskEntityList = null;
         try {
-            ps = connection.prepareStatement(sql);
-
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                JudgetaskEntity judgetaskEntity = new JudgetaskEntity();
-                judgetaskEntity.setId(rs.getInt("id"));
-                judgetaskEntity.setSimple(rs.getString("simple"));
-               // judgetaskEntity.setReleaseTime(rs.getTimestamp("releaseTime"));
-               // judgetaskEntity.setDeadlineTime(rs.getTimestamp("deadlineTime"));
-               // judgetaskEntity.setCompleteTime(rs.getTimestamp("completeTime"));
-
-                //Task task = taskDao.findTaskById();
-                //judgeTask.setTask(task);
-            }
-
+            Session session = sessionFactory.getCurrentSession();
+            Criteria criteria = session.createCriteria(JudgetaskEntity.class);
+            judgetaskEntityList = criteria.list();
         } catch (Exception e) {
-            e.printStackTrace();
+            judgetaskEntityList = new ArrayList<>();
         } finally {
-            close(connection, ps, null);
+            return judgetaskEntityList;
         }
-        return judgeTasks;
 
 
     }
@@ -89,21 +76,5 @@ public class JudgeTaskDaoImpl implements JudgeTaskDao {
         return false;
     }
 
-    //关闭连接
-    public void close(Connection cn, PreparedStatement ps, ResultSet rs) {
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
-            if (cn != null) {
-                cn.close();
-                ;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }

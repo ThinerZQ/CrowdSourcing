@@ -13,17 +13,17 @@ public class DecomposetaskTaskEntity {
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     public long id;
     @Basic
-    public  Long whichStep;
+    public Long whichStep;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "decomposetask_id")
-    public  DecomposetaskEntity decomposetaskEntity;
-    @ManyToOne
+    public DecomposetaskEntity decomposetaskEntity;
+    @ManyToOne()
     @JoinColumn(name = "task_id")
-    public  TaskEntity taskEntity;
+    public TaskEntity taskEntity;
 
     public long getId() {
         return id;
@@ -55,5 +55,39 @@ public class DecomposetaskTaskEntity {
 
     public void setTaskEntity(TaskEntity taskEntity) {
         this.taskEntity = taskEntity;
+    }
+
+    @Override
+    public String toString() {
+        return "DecomposetaskTaskEntity{" +
+                "id=" + id +
+                ", whichStep=" + whichStep +
+                ", decomposetaskEntity=" + decomposetaskEntity +
+                ", taskEntity=" + taskEntity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DecomposetaskTaskEntity that = (DecomposetaskTaskEntity) o;
+
+        if (id != that.id) return false;
+        if (whichStep != null ? !whichStep.equals(that.whichStep) : that.whichStep != null) return false;
+        if (decomposetaskEntity != null ? !decomposetaskEntity.equals(that.decomposetaskEntity) : that.decomposetaskEntity != null)
+            return false;
+        return !(taskEntity != null ? !taskEntity.equals(that.taskEntity) : that.taskEntity != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (whichStep != null ? whichStep.hashCode() : 0);
+        result = 31 * result + (decomposetaskEntity != null ? decomposetaskEntity.hashCode() : 0);
+        result = 31 * result + (taskEntity != null ? taskEntity.hashCode() : 0);
+        return result;
     }
 }

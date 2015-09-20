@@ -6,8 +6,12 @@
 
     <bean id="userDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.UserDaoImpl"></bean>
     <bean id="taskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.TaskDaoImpl"></bean>
-    <bean id="judgeTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.JudgeTaskDaoImpl"></bean>
-    <bean id="descriptionDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.DescriptionDaoImpl"></bean>
 
+    <bean id="descriptionDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.DescriptionDaoImpl"></bean>
+    <bean id="judgeTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.JudgeTaskDaoImpl"></bean>
+    <bean id="decomposeTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.DecomposeTaskDaoImpl"></bean>
+    <bean id="solveTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.SolveTaskDaoImpl"></bean>
+    <bean id="voteTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.VoteTaskDaoImpl"></bean>
+    <bean id="mergeTaskDao" class="com.zhengshouzi.myweb.dao.impl.SessionFactory.MergeTaskDaoImpl"></bean>
 
 </beans>

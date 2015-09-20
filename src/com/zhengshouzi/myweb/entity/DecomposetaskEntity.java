@@ -3,7 +3,7 @@ package com.zhengshouzi.myweb.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,11 +13,12 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "decomposetask")
-public class DecomposetaskEntity {
+public class DecomposetaskEntity implements Serializable {
+
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     public long id;
     @Basic
     public Byte step;
@@ -30,21 +31,21 @@ public class DecomposetaskEntity {
     @Temporal(TemporalType.TIMESTAMP)
     public Date completeTime;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "task_id")
     public TaskEntity task;
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     public UserEntity user;
 
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "decomposetask_id")
-    public Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet =new HashSet<>();
+    public Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "decomposetask_id")
-    public Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet=new HashSet<>();
+    public Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet = new HashSet<>();
 
 
     public long getId() {
@@ -79,7 +80,7 @@ public class DecomposetaskEntity {
     public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
     }
-    
+
 
     public TaskEntity getTask() {
         return task;
@@ -127,5 +128,57 @@ public class DecomposetaskEntity {
 
     public void setCompleteTime(Date completeTime) {
         this.completeTime = completeTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DecomposetaskEntity that = (DecomposetaskEntity) o;
+
+        if (id != that.id) return false;
+        if (step != null ? !step.equals(that.step) : that.step != null) return false;
+        if (best != null ? !best.equals(that.best) : that.best != null) return false;
+        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
+        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
+        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
+        if (task != null ? !task.equals(that.task) : that.task != null) return false;
+        if (user != null ? !user.equals(that.user) : that.user != null) return false;
+        if (decomposetaskTaskEntitySet != null ? !decomposetaskTaskEntitySet.equals(that.decomposetaskTaskEntitySet) : that.decomposetaskTaskEntitySet != null)
+            return false;
+        return !(votetaskDecomposetaskEntitySet != null ? !votetaskDecomposetaskEntitySet.equals(that.votetaskDecomposetaskEntitySet) : that.votetaskDecomposetaskEntitySet != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (step != null ? step.hashCode() : 0);
+        result = 31 * result + (best != null ? best.hashCode() : 0);
+        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
+        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
+        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
+        result = 31 * result + (task != null ? task.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (decomposetaskTaskEntitySet != null ? decomposetaskTaskEntitySet.hashCode() : 0);
+        result = 31 * result + (votetaskDecomposetaskEntitySet != null ? votetaskDecomposetaskEntitySet.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "DecomposetaskEntity{" +
+                "id=" + id +
+                ", step=" + step +
+                ", best='" + best + '\'' +
+                ", releaseTime=" + releaseTime +
+                ", deadlineTime=" + deadlineTime +
+                ", completeTime=" + completeTime +
+                ", task=" + task +
+                ", user=" + user +
+                ", decomposetaskTaskEntitySet=" + decomposetaskTaskEntitySet +
+                ", votetaskDecomposetaskEntitySet=" + votetaskDecomposetaskEntitySet +
+                '}';
     }
 }

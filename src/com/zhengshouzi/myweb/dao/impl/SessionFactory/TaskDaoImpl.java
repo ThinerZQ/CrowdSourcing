@@ -3,9 +3,8 @@ package com.zhengshouzi.myweb.dao.impl.SessionFactory;
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.TaskEntity;
-import com.zhengshouzi.myweb.entity.UserEntity;
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,50 +31,51 @@ public class TaskDaoImpl implements TaskDao {
     @Override
     public boolean addTask(TaskEntity taskEntity) {
 
-        boolean b =false;
+        boolean b = false;
         try {
             Session session = sessionFactory.getCurrentSession();
 
             Serializable id = (Serializable) session.save(taskEntity);
 
             if (id != 0 || id != null) {
-                b= true;
+                b = true;
             }
-        } catch (HibernateException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
-            b=false;
+            b = false;
         } finally {
             return b;
         }
 
 
-
     }
 
     @Override
+    public boolean deleteTaskById(String task_id) {
+        return false;
+    }
+
+    @Override
+    public boolean updateTask(TaskEntity taskEntity) {
+        return false;
+    }
+
+    @Transactional
+    @Override
     public List<TaskEntity> findAllTask() {
-        List<TaskEntity> taskEntityList =null;
+        List<TaskEntity> taskEntityList = null;
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(TaskEntity.class);
-            taskEntityList =criteria.list();
-        }catch (Exception e){
-           taskEntityList = new ArrayList<>();
-        }finally {
-            return  taskEntityList;
+            taskEntityList = criteria.list();
+           //Hibernate.initialize();
+        } catch (Exception e) {
+            taskEntityList = new ArrayList<>();
+        } finally {
+            return taskEntityList;
         }
 
-    }
-
-    @Override
-    public List deleteTask(TaskEntity taskEntity) {
-        return null;
-    }
-
-
-    @Override
-    public boolean updateUser(UserEntity userEntity) {
-        return false;
     }
 
     @Override
@@ -83,6 +83,11 @@ public class TaskDaoImpl implements TaskDao {
 
         return null;
 
+    }
+
+    @Override
+    public List<TaskEntity> findTaskByCriteria(Criteria criteria) {
+        return null;
     }
 
 }

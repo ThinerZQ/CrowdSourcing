@@ -13,13 +13,14 @@ public class VotetaskSolvetaskEntity {
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     public long id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "solvetask_id")
     private SolvetaskEntity solvetaskEntity;
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name = "votetask_id")
     private VotetaskEntity votetaskEntity;
 
@@ -45,5 +46,36 @@ public class VotetaskSolvetaskEntity {
 
     public void setVotetaskEntity(VotetaskEntity votetaskEntity) {
         this.votetaskEntity = votetaskEntity;
+    }
+
+    @Override
+    public String toString() {
+        return "VotetaskSolvetaskEntity{" +
+                "id=" + id +
+                ", solvetaskEntity=" + solvetaskEntity +
+                ", votetaskEntity=" + votetaskEntity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        VotetaskSolvetaskEntity that = (VotetaskSolvetaskEntity) o;
+
+        if (id != that.id) return false;
+        if (solvetaskEntity != null ? !solvetaskEntity.equals(that.solvetaskEntity) : that.solvetaskEntity != null)
+            return false;
+        return !(votetaskEntity != null ? !votetaskEntity.equals(that.votetaskEntity) : that.votetaskEntity != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (solvetaskEntity != null ? solvetaskEntity.hashCode() : 0);
+        result = 31 * result + (votetaskEntity != null ? votetaskEntity.hashCode() : 0);
+        return result;
     }
 }

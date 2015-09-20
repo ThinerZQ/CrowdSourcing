@@ -12,76 +12,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/post.js"></script>
     <title>发布工作</title>
 
-    <style type="text/css">
-        .file {
-            position: relative;
-            display: inline-block;
-            background: #D0EEFF;
-            border: 1px solid #99D3F5;
-            border-radius: 4px;
-            padding: 4px 12px;
-            overflow: hidden;
-            color: #1E88C7;
-            text-decoration: none;
-            text-indent: 0;
-            line-height: 20px;
-        }
-
-        .file input {
-            position: absolute;
-            font-size: 100px;
-            right: 0;
-            top: 0;
-            opacity: 0;
-        }
-
-        .file:hover {
-            background: #AADFFD;
-            border-color: #78C3F3;
-            color: #004974;
-            text-decoration: none;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/post.css"/>
 
 </head>
 
 <body>
 <header>
-    <nav class="navbar navbar-inverse" style="margin-bottom: 0px">
-        <div class="container">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">CrowdSourcing</a>
-                </div>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search CrowdSourcing">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
-                    <li>
-                        <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;">Sign up
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-default" style="color: black">Sign in</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="header.jsp"></jsp:include>
 </header>
 <div class="container-fluid" style="background: url('images/bg-login-top.png') repeat #fff;">
     <div class="container">
@@ -132,7 +73,7 @@
 
                         <div>
                         <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
-                                  name="descriptionsById"
+                                  name="descriptionEntitySet"
                                   style="width: 80%;height: 250px"></textarea>
                         </div>
                     </div>

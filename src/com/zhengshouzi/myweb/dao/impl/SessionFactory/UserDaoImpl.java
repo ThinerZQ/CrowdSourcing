@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -25,19 +24,19 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @Transactional
-    public boolean register(UserEntity userEntity) {
-        boolean b =false;
+    public boolean addUser(UserEntity userEntity) {
+        boolean b = false;
         try {
             Session session = sessionFactory.getCurrentSession();
 
             Serializable id = (Serializable) session.save(userEntity);
 
             if (id != 0 || id != null) {
-                b= true;
+                b = true;
             }
         } catch (HibernateException e) {
             e.printStackTrace();
-            b=false;
+            b = false;
         } finally {
             return b;
         }
@@ -51,30 +50,45 @@ public class UserDaoImpl implements UserDao {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
 
-            Criterion criterion = Restrictions.eq("email",email);
+            Criterion criterion = Restrictions.eq("email", email);
             criteria.add(criterion);
 
             List<UserEntity> userEntityList = criteria.list();
 
-            if (userEntityList.size()==1) {
+            if (userEntityList.size() == 1) {
                 userEntity = new UserEntity();
-                userEntity= userEntityList.get(0);
+                userEntity = userEntityList.get(0);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             userEntity = new UserEntity();
-        }finally {
-            return  userEntity;
+        } finally {
+            return userEntity;
         }
 
 
+    }
+
+    @Override
+    public UserEntity findUserById(String user_id) {
+        return null;
+    }
+
+    @Override
+    public List<UserEntity> findAllUser() {
+        return null;
+    }
+
+    @Override
+    public List<UserEntity> findUserByCriteria(Criteria criteria) {
+        return null;
     }
 
     @Transactional
     @Override
     public boolean checkUser(UserEntity userEntity) {
 
-        boolean b =false;
+        boolean b = false;
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
@@ -84,15 +98,17 @@ public class UserDaoImpl implements UserDao {
 
             List<UserEntity> userEntityList = criteria.list();
 
+            System.out.printf(userEntityList.size() + "");
             if (userEntityList.size() == 1) {
-                if (userEntity.getPassword().trim() == userEntityList.get(0).getPassword().trim()) {
-                    b= true;
+                if (userEntity.getPassword().trim().equals(userEntityList.get(0).getPassword().trim())) {
+                    b = true;
                 }
             }
-        }catch (Exception e){
-            b=false;
-        }finally {
-            return  b;
+        } catch (Exception e) {
+            e.printStackTrace();
+            b = false;
+        } finally {
+            return b;
         }
     }
 
@@ -100,7 +116,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean deleteUserByEmail(String email) {
 
-        boolean b=false;
+        boolean b = false;
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
@@ -112,22 +128,27 @@ public class UserDaoImpl implements UserDao {
 
             if (userEntityList.size() == 1) {
                 session.delete(userEntityList.get(0));
-               b=true;
-            }else {
-                b=false;
+                b = true;
+            } else {
+                b = false;
             }
-        }catch (Exception e){
-            b=false;
-        }finally {
+        } catch (Exception e) {
+            b = false;
+        } finally {
             return b;
         }
+    }
+
+    @Override
+    public boolean deleteUserById(String user_id) {
+        return false;
     }
 
     @Transactional
     @Override
     public boolean updateUser(UserEntity userEntity) {
-        boolean b =false;
-        try{
+        boolean b = false;
+        try {
             Session session = sessionFactory.getCurrentSession();
 
             UserEntity userEntity1 = (UserEntity) session.load(UserEntity.class, userEntity.getId());
@@ -135,11 +156,11 @@ public class UserDaoImpl implements UserDao {
             userEntity1 = userEntity;
             session.update(userEntity1);
 
-            b=  true;
-        }catch (Exception e){
-            b= false;
-        }finally {
-return  b ;
+            b = true;
+        } catch (Exception e) {
+            b = false;
+        } finally {
+            return b;
         }
 
     }
@@ -147,18 +168,18 @@ return  b ;
     @Transactional
     @Override
     public boolean updateRegisterStatus(String email, String status) {
-        boolean b=false;
+        boolean b = false;
 
         try {
-            Session session  = sessionFactory.getCurrentSession();
+            //Session session  = sessionFactory.getCurrentSession();
             UserEntity userEntity = findUserByEmail(email);
 
             userEntity.setStatus(status);
             updateUser(userEntity);
-            b=true;
+            b = true;
         } catch (HibernateException e) {
             e.printStackTrace();
-            b=false;
+            b = false;
         } finally {
             return b;
         }

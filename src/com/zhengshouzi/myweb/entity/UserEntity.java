@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +16,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     public long id;
 
     @Basic
@@ -32,21 +31,26 @@ public class UserEntity {
     public String status;
     @Temporal(TemporalType.TIMESTAMP)
     public Date registerDate;
-    @OneToMany()
-    @JoinColumn(name="user_id")
-    public Set<DecomposetaskEntity> decomposetaskEntitySet=new HashSet<>();
-    @OneToMany()
-    @JoinColumn(name="user_id")
-    public Set<JudgetaskEntity> judgetaskEntitySet=new HashSet<>();
-    @OneToMany()
-    @JoinColumn(name="user_id")
-    public Set<SolvetaskEntity> solvetaskEntitySet =new HashSet<>();
-    @OneToMany()
-    @JoinColumn(name="user_id")
-    public Set<TaskEntity> taskEntitySet=new HashSet<>();
-    @OneToMany()
-    @JoinColumn(name="user_id")
-    public Set<VotetaskEntity> votetaskEntitySet=new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<DecomposetaskEntity> decomposetaskEntitySet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<JudgetaskEntity> judgetaskEntitySet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<SolvetaskEntity> solvetaskEntitySet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<TaskEntity> taskEntitySet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<VotetaskEntity> votetaskEntitySet = new HashSet<>();
 
 
     public long getId() {
@@ -145,4 +149,64 @@ public class UserEntity {
         this.votetaskEntitySet = votetaskEntitySet;
     }
 
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", activateCode='" + activateCode + '\'' +
+                ", status='" + status + '\'' +
+                ", registerDate=" + registerDate +
+                ", decomposetaskEntitySet=" + decomposetaskEntitySet +
+                ", judgetaskEntitySet=" + judgetaskEntitySet +
+                ", solvetaskEntitySet=" + solvetaskEntitySet +
+                ", taskEntitySet=" + taskEntitySet +
+                ", votetaskEntitySet=" + votetaskEntitySet +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserEntity that = (UserEntity) o;
+
+        if (id != that.id) return false;
+        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (activateCode != null ? !activateCode.equals(that.activateCode) : that.activateCode != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (registerDate != null ? !registerDate.equals(that.registerDate) : that.registerDate != null) return false;
+        if (decomposetaskEntitySet != null ? !decomposetaskEntitySet.equals(that.decomposetaskEntitySet) : that.decomposetaskEntitySet != null)
+            return false;
+        if (judgetaskEntitySet != null ? !judgetaskEntitySet.equals(that.judgetaskEntitySet) : that.judgetaskEntitySet != null)
+            return false;
+        if (solvetaskEntitySet != null ? !solvetaskEntitySet.equals(that.solvetaskEntitySet) : that.solvetaskEntitySet != null)
+            return false;
+        if (taskEntitySet != null ? !taskEntitySet.equals(that.taskEntitySet) : that.taskEntitySet != null)
+            return false;
+        return !(votetaskEntitySet != null ? !votetaskEntitySet.equals(that.votetaskEntitySet) : that.votetaskEntitySet != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (activateCode != null ? activateCode.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (registerDate != null ? registerDate.hashCode() : 0);
+        result = 31 * result + (decomposetaskEntitySet != null ? decomposetaskEntitySet.hashCode() : 0);
+        result = 31 * result + (judgetaskEntitySet != null ? judgetaskEntitySet.hashCode() : 0);
+        result = 31 * result + (solvetaskEntitySet != null ? solvetaskEntitySet.hashCode() : 0);
+        result = 31 * result + (taskEntitySet != null ? taskEntitySet.hashCode() : 0);
+        result = 31 * result + (votetaskEntitySet != null ? votetaskEntitySet.hashCode() : 0);
+        return result;
+    }
 }

@@ -28,7 +28,7 @@ public class LoginController {
         if (b == true) {
             userEntity = loginService.getUserByEmail(userEntity.getEmail());
             httpSession.setAttribute("user", userEntity);
-            modelAndView.setViewName("redirect:/getSystemAllJudgeTask.do");
+            modelAndView.setViewName("redirect:/Home.do");
         } else {
             modelAndView.addObject("loginError", "用户名或者密码错误");
             modelAndView.setViewName("login");

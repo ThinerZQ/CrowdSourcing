@@ -3,9 +3,9 @@ package com.zhengshouzi.myweb.dao.impl.jdbc;
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
 import com.zhengshouzi.myweb.entity.TaskEntity;
-import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.ConstantDefine;
 import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.Criteria;
 
 import javax.annotation.Resource;
 import java.sql.Connection;
@@ -36,7 +36,7 @@ public class TaskDaoImpl implements TaskDao {
             ps.setString(1, taskEntity.getTitle());
             //ps.setTimestamp(2, taskEntity.getReleaseTime());
 //.setTimestamp(3, taskEntity.getDeadlineTime());
-           // ps.setTimestamp(4, taskEntity.getCompleteTime());
+            // ps.setTimestamp(4, taskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
                 b = true;
@@ -60,18 +60,18 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Override
+    public boolean deleteTaskById(String task_id) {
+        return false;
+    }
+
+    @Override
+    public boolean updateTask(TaskEntity taskEntity) {
+        return false;
+    }
+
+    @Override
     public ArrayList<TaskEntity> findAllTask() {
         return null;
-    }
-
-    @Override
-    public List deleteTask(TaskEntity taskEntity) {
-        return new ArrayList();
-    }
-
-    @Override
-    public boolean updateUser(UserEntity userEntity) {
-        return false;
     }
 
     @Override
@@ -101,6 +101,11 @@ public class TaskDaoImpl implements TaskDao {
             close(connection, ps, null);
         }
         return task;
+    }
+
+    @Override
+    public List<TaskEntity> findTaskByCriteria(Criteria criteria) {
+        return null;
     }
 
     //πÿ±’¡¨Ω”

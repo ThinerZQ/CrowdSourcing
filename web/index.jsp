@@ -15,78 +15,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/header.js"></script>
     <title>CrowdSourcing</title>
-    <script>
-        $(function () {
-            $("#myCarousel").carousel();
-        });
-        function signUp() {
-            window.location = "register.jsp";
-        }
-        function signIn() {
-            window.location = "login.jsp";
-        }
-        function post() {
-            window.location = "post.jsp";
-        }
-    </script>
-
-
 <head>
 
 <body>
 <header>
-    <nav class="navbar navbar-inverse" style="margin-bottom: 0px">
-        <div class="container">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">CrowdSourcing</a>
-                </div>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search CrowdSourcing">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
-
-                    <c:choose>
-                        <c:when test="${empty sessionScope.get('user')}">
-                            <li>
-                                <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;"
-                                        onclick="signUp()">sign up
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="btn btn-default" style="color: black" onclick="signIn()">
-                                    Sign in
-                                </button>
-                            </li>
-                        </c:when>
-                        <c:otherwise>
-                            <li style="color: red;">
-                                <c:set var="user" value="${sessionScope.get('user')}" scope="page"></c:set>
-                                welcome : <c:out value="${user.userName}"></c:out>
-                            </li>
-                            <li style="color: red;">
-                                <button type="button" class="btn btn-default" style="color: black" onclick="post()">
-                                    Post
-                                </button>
-                            </li>
-                        </c:otherwise>
-                    </c:choose>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="header.jsp"></jsp:include>
 </header>
 <div class="container-fluid" style="background: url('images/bg-login-top.png') repeat #fff;">
 
@@ -127,16 +62,14 @@
         <div class="container">
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active">
-                    <a href="#home" data-toggle="tab">
-                        Home
-                    </a>
+                    <a href="${pageContext.request.contextPath}/Home.do">Home</a>
                 </li>
-                <li><a href="#orginTask" data-toggle="tab">原始任务</a></li>
-                <li><a href="#judgeTask" data-toggle="tab">判断任务</a></li>
-                <li><a href="#decomposeTask" data-toggle="tab">分解任务</a></li>
-                <li><a href="#solveTask" data-toggle="tab">解决任务</a></li>
-                <li><a href="#voteTask" data-toggle="tab">投票任务</a></li>
-                <li><a href="#mergeTask" data-toggle="tab">合并任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/task.do">原始任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/judgeTask.do">判断任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/decomposeTask.do">分解任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/solveTask.do">解决任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/voteTask.do">投票任务</a></li>
+                <li><a href="${pageContext.request.contextPath}/mergeTask.do">合并任务</a></li>
                 <li class="dropdown">
                     <a href="#" id="myTabDrop1" class="dropdown-toggle"
                        data-toggle="dropdown">其他任务
@@ -152,125 +85,79 @@
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="home">
-                    <p>${allJudgeTask.get(0).task.title}</p>
-                </div>
-                <div class="tab-pane fade" id="orginTask">
-                    <div class="panel panel-primary panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">写一篇关于众包的文章</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    发布者：<span>郑强</span>
+                    <c:choose>
+                        <c:when test="${not empty HomeTaskEntityList}">
+
+                            <c:forEach items="${HomeTaskEntityList }" var="taskEntity">
+
+                                <div class="panel panel-primary panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><c:out value="${taskEntity.title}"></c:out></h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                发布者：<span><c:out
+                                                    value="${taskEntity.userEntity.userName}"></c:out></span>
+                                            </div>
+                                            <div class="col-lg-6 text-right">
+                                                过期时间：
+                                                <span><c:out value="${taskEntity.deadlineTime}"></c:out></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <c:forEach items="${taskEntity.descriptionEntitySet}"
+                                                           var="descriptionEntity">
+                                                    <c:out value="${descriptionEntity.description}"></c:out>
+                                                    </br>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 text-danger">
+                                                资格要求
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer text-right">
+                                        <span class="text-danger">1000元</span>
+                                        <a href="#" class="btn btn-success" role="button">详细</a>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6 text-right">
-                                    过期时间：
-                                    <span> 2015-11-11</span>
-                                </div>
-                            </div>
+                            </c:forEach>
                             <div class="row">
-                                <div class="col-lg-12">
-                                    请写一篇关于众包的文章，不少于5000字。请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 text-danger">
-                                    资格要求
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验必要要3年写作经验
+                                <div class="col-lg-8 col-lg-offset-3">
+                                    <ul class="pagination pagination-lg container">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li class="disabled"><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                        <li><a href="#">9</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="panel-footer text-right">
-                            <span class="text-danger">1000元</span>
-                            <a href="#" class="btn btn-success" role="button">详细</a>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">写一篇关于众包的文章</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    发布者：<span>郑强</span>
-                                </div>
-                                <div class="col-lg-6 text-right">
-                                    过期时间：
-                                    <span> 2015-11-11</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    请写一篇关于众包的文章，不少于5000字。请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字请写一篇关于众包的文章，不少于5000字
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-footer text-right">
-                            <span class="text-danger">1000元</span>
-                            <a href="#" class="btn btn-success" role="button">详细</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 container">
-                            <ul class="pagination pagination-lg">
-                                <li><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li class="disabled"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="judgeTask">
-                    <div class="panel panel-primary panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">写一篇关于众包的文章</h3>
-                        </div>
-                        <div class="panel-body">
-                            描述
-                        </div>
-                        <div class="panel-footer">
-                            0.5元
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-pane fade" id="decomposeTask">
-                    <p>decompose task</p>
-                </div>
-                <div class="tab-pane fade" id="solveTask">
-                    <p>solve task
-                    </p>
-                </div>
-                <div class="tab-pane fade" id="voteTask">
-                    <p>vote task
-                    </p>
-                </div>
-                <div class="tab-pane fade" id="mergeTask">
-                    <p>merge task
-                    </p>
-                </div>
-                <div class="tab-pane fade" id="otherTask1">
-                    <p>other task1
-                    </p>
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="no task"></c:out>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 </body>
 

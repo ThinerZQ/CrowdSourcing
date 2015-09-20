@@ -2,17 +2,22 @@ package com.zhengshouzi.myweb.dao;
 
 import com.zhengshouzi.myweb.entity.DescriptionEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ǿ on 2015/9/16.
  */
 public interface DescriptionDao {
-    public boolean addDescriptionTask(DescriptionEntity descriptionEntity);
 
-    public ArrayList<DescriptionEntity> findAllTask();
+    boolean addDescription(DescriptionEntity descriptionEntity);
 
-    public boolean deleteTask(DescriptionEntity descriptionEntity);
+    boolean deleteDescription(DescriptionEntity descriptionEntity);
 
-    public DescriptionEntity findTaskById(String id);
+    boolean updateDescription(DescriptionEntity descriptionEntity);
+
+    List<DescriptionEntity> findAllTask();
+
+    DescriptionEntity findDescriptionById(String id);
+
+
 }

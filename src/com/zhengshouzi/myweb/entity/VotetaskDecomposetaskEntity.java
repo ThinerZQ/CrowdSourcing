@@ -13,13 +13,14 @@ public class VotetaskDecomposetaskEntity {
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator",strategy = "identity")
-    public long id ;
+    @GenericGenerator(name = "generator", strategy = "identity")
+    public long id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "decomposetask_id")
     public DecomposetaskEntity decomposetaskEntity;
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name = "votetask_id")
     public VotetaskEntity votetaskEntity;
 
@@ -45,5 +46,36 @@ public class VotetaskDecomposetaskEntity {
 
     public void setVotetaskEntity(VotetaskEntity votetaskEntity) {
         this.votetaskEntity = votetaskEntity;
+    }
+
+    @Override
+    public String toString() {
+        return "VotetaskDecomposetaskEntity{" +
+                "id=" + id +
+                ", decomposetaskEntity=" + decomposetaskEntity +
+                ", votetaskEntity=" + votetaskEntity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        VotetaskDecomposetaskEntity that = (VotetaskDecomposetaskEntity) o;
+
+        if (id != that.id) return false;
+        if (decomposetaskEntity != null ? !decomposetaskEntity.equals(that.decomposetaskEntity) : that.decomposetaskEntity != null)
+            return false;
+        return !(votetaskEntity != null ? !votetaskEntity.equals(that.votetaskEntity) : that.votetaskEntity != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (decomposetaskEntity != null ? decomposetaskEntity.hashCode() : 0);
+        result = 31 * result + (votetaskEntity != null ? votetaskEntity.hashCode() : 0);
+        return result;
     }
 }

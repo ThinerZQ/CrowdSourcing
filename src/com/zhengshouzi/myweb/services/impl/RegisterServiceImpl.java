@@ -31,12 +31,12 @@ public class RegisterServiceImpl implements RegisterService {
 
         try {
             //添加注册的附加信息
-            userEntity.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+            userEntity.setRegisterDate(new Date());
             userEntity.setStatus(String.valueOf(0));
             userEntity.setActivateCode(MD5Utils.encode2hex(userEntity.getEmail()));
 
             //保存用户信息
-            b = userDao.register(userEntity);
+            b = userDao.addUser(userEntity);
 
             //保存成功发送激活邮件
             if (b == true) {
@@ -98,7 +98,7 @@ public class RegisterServiceImpl implements RegisterService {
 
                 //验证链接是否过期
                 // currentTime.before(registerForm.getRegisterTime());
-                if (currentTime.before(RegisterTools.getLastActivateTime(new Timestamp(new Date().getTime())))) {
+                if (currentTime.before(RegisterTools.getLastActivateTime(new Timestamp(userEntity.getRegisterDate().getTime())))) {
                     //验证激活码是否正确
                     if (validateCode.equals(userEntity.getActivateCode())) {
                         //激活成功， //并更新用户的激活状态，为已激活

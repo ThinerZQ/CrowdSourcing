@@ -19,7 +19,7 @@ public class DescriptionDaoImpl implements DescriptionDao {
 
     @Transactional
     @Override
-    public boolean addDescriptionTask(DescriptionEntity descriptionEntity) {
+    public boolean addDescription(DescriptionEntity descriptionEntity) {
         Session session = sessionFactory.getCurrentSession();
 
         Serializable id = (Serializable) session.save(descriptionEntity);
@@ -28,17 +28,22 @@ public class DescriptionDaoImpl implements DescriptionDao {
     }
 
     @Override
+    public boolean deleteDescription(DescriptionEntity descriptionEntity) {
+        return false;
+    }
+
+    @Override
+    public boolean updateDescription(DescriptionEntity descriptionEntity) {
+        return false;
+    }
+
+    @Override
     public ArrayList<DescriptionEntity> findAllTask() {
         return null;
     }
 
     @Override
-    public boolean deleteTask(DescriptionEntity descriptionEntity) {
-        return false;
-    }
-
-    @Override
-    public DescriptionEntity findTaskById(String id) {
+    public DescriptionEntity findDescriptionById(String id) {
         return null;
     }
 }

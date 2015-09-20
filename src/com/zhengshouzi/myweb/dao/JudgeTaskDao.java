@@ -3,18 +3,20 @@ package com.zhengshouzi.myweb.dao;
 
 import com.zhengshouzi.myweb.entity.JudgetaskEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface JudgeTaskDao {
 
-    public boolean addJudgeTask(JudgetaskEntity judgetaskEntity);
+    boolean addJudgeTask(JudgetaskEntity judgetaskEntity);
 
-    public ArrayList<JudgetaskEntity> findAllJudgeTask();
+    boolean deleteJudgeTask(JudgetaskEntity judgetaskEntity);
 
-    public boolean deleteJudgeTask(JudgetaskEntity judgetaskEntity);
+    boolean updateJudgeUser(JudgetaskEntity judgetaskEntity);
 
-    public boolean updateJudgeUser(JudgetaskEntity judgetaskEntity);
+    List<JudgetaskEntity> findAllJudgeTask();
+
+
 }

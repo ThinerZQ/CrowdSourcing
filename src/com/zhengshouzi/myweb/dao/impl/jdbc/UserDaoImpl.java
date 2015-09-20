@@ -3,41 +3,18 @@ package com.zhengshouzi.myweb.dao.impl.jdbc;
 import com.zhengshouzi.myweb.dao.UserDao;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.tools.DBHelper;
+import org.hibernate.Criteria;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
 public class UserDaoImpl implements UserDao {
 
-    @Override
-    public boolean register(UserEntity userEntity) {
-        boolean b = false;
-        Connection connection = DBHelper.getMySqlConnection();
-        PreparedStatement ps = null;
-        //添加用户
-        String sql = "INSERT INTO user (userName,password,email,activateCode,status,registerDate) VALUES(?,?,?,?,?,?)";
-        try {
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, userEntity.getUserName());
-            ps.setString(2, userEntity.getPassword());
-            ps.setString(3, userEntity.getEmail());
-            ps.setString(4, userEntity.getActivateCode());
-            ps.setString(5, userEntity.getStatus());
-            //ps.setTimestamp(6, userEntity.getRegisterDate());
-
-            if (ps.executeUpdate() == 1)
-                b = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            close(connection, ps, null);
-        }
-        return b;
-    }
 
     @Override
     public UserEntity findUserByEmail(String email) {
@@ -69,6 +46,21 @@ public class UserDaoImpl implements UserDao {
             close(connection, ps, null);
         }
         return user;
+    }
+
+    @Override
+    public UserEntity findUserById(String user_id) {
+        return null;
+    }
+
+    @Override
+    public List<UserEntity> findAllUser() {
+        return null;
+    }
+
+    @Override
+    public List<UserEntity> findUserByCriteria(Criteria criteria) {
+        return null;
     }
 
     @Override
@@ -105,6 +97,32 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean addUser(UserEntity userEntity) {
+        boolean b = false;
+        Connection connection = DBHelper.getMySqlConnection();
+        PreparedStatement ps = null;
+        //添加用户
+        String sql = "INSERT INTO user (userName,password,email,activateCode,status,registerDate) VALUES(?,?,?,?,?,?)";
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, userEntity.getUserName());
+            ps.setString(2, userEntity.getPassword());
+            ps.setString(3, userEntity.getEmail());
+            ps.setString(4, userEntity.getActivateCode());
+            ps.setString(5, userEntity.getStatus());
+            //ps.setTimestamp(6, userEntity.getRegisterDate());
+
+            if (ps.executeUpdate() == 1)
+                b = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(connection, ps, null);
+        }
+        return b;
+    }
+
+    @Override
     public boolean deleteUserByEmail(String email) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();
@@ -123,6 +141,11 @@ public class UserDaoImpl implements UserDao {
             close(connection, ps, null);
         }
         return b;
+    }
+
+    @Override
+    public boolean deleteUserById(String user_id) {
+        return false;
     }
 
     @Override

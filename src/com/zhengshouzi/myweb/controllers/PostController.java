@@ -4,6 +4,7 @@ package com.zhengshouzi.myweb.controllers;
 import com.zhengshouzi.myweb.entity.TaskEntity;
 import com.zhengshouzi.myweb.entity.UserEntity;
 import com.zhengshouzi.myweb.services.PostService;
+import com.zhengshouzi.myweb.tools.TaskType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -30,15 +30,16 @@ public class PostController {
 
         ModelAndView modelAndView = new ModelAndView();
 
-        System.out.println(taskEntity.getDeadlineTime());
-        System.out.println(taskEntity.getTitle());
-        System.out.println(taskEntity.getDescriptionEntitySet().size());
+        taskEntity.setTaskType(TaskType.MainTask);
+        taskEntity.setReleaseTime(new Date());
 
-        taskEntity.setTaskType("mainTask");
-        taskEntity.setReleaseTime(new Timestamp(new Date().getTime()));
         UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
         taskEntity.setUserEntity(userEntity);
 
+
+        System.out.println(taskEntity.getDeadlineTime());
+        System.out.println(taskEntity.getTitle());
+        System.out.println(taskEntity.getDescriptionEntitySet().size());
         System.out.printf(taskEntity.toString());
 
 

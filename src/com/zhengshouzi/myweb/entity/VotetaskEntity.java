@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +15,7 @@ import java.util.Set;
 public class VotetaskEntity {
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name="generator",strategy = "identity")
+    @GenericGenerator(name = "generator", strategy = "identity")
     public long id;
     @Temporal(TemporalType.TIMESTAMP)
     public Date releaseTime;
@@ -24,18 +23,23 @@ public class VotetaskEntity {
     public Date deadlineTime;
     @Temporal(TemporalType.TIMESTAMP)
     public Date completeTime;
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name = "task_id")
     public TaskEntity taskEntity;
-    @ManyToOne
+
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     public UserEntity userEntity;
-    @OneToMany
+
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "votetask_id")
     public Set<VotetaskDecomposetaskEntity> votetaskDecomposetaskEntitySet = new HashSet<>();
-    @OneToMany
+
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "votetask_id")
-    public Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet= new HashSet<>();
+    public Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet = new HashSet<>();
+
 
     public long getId() {
         return id;
@@ -99,5 +103,52 @@ public class VotetaskEntity {
 
     public void setVotetaskSolvetaskEntitySet(Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet) {
         this.votetaskSolvetaskEntitySet = votetaskSolvetaskEntitySet;
+    }
+
+    @Override
+    public String toString() {
+        return "VotetaskEntity{" +
+                "id=" + id +
+                ", releaseTime=" + releaseTime +
+                ", deadlineTime=" + deadlineTime +
+                ", completeTime=" + completeTime +
+                ", taskEntity=" + taskEntity +
+                ", userEntity=" + userEntity +
+                ", votetaskDecomposetaskEntitySet=" + votetaskDecomposetaskEntitySet +
+                ", votetaskSolvetaskEntitySet=" + votetaskSolvetaskEntitySet +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        VotetaskEntity that = (VotetaskEntity) o;
+
+        if (id != that.id) return false;
+        if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
+        if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
+        if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
+        if (taskEntity != null ? !taskEntity.equals(that.taskEntity) : that.taskEntity != null) return false;
+        if (userEntity != null ? !userEntity.equals(that.userEntity) : that.userEntity != null) return false;
+        if (votetaskDecomposetaskEntitySet != null ? !votetaskDecomposetaskEntitySet.equals(that.votetaskDecomposetaskEntitySet) : that.votetaskDecomposetaskEntitySet != null)
+            return false;
+        return !(votetaskSolvetaskEntitySet != null ? !votetaskSolvetaskEntitySet.equals(that.votetaskSolvetaskEntitySet) : that.votetaskSolvetaskEntitySet != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
+        result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
+        result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
+        result = 31 * result + (taskEntity != null ? taskEntity.hashCode() : 0);
+        result = 31 * result + (userEntity != null ? userEntity.hashCode() : 0);
+        result = 31 * result + (votetaskDecomposetaskEntitySet != null ? votetaskDecomposetaskEntitySet.hashCode() : 0);
+        result = 31 * result + (votetaskSolvetaskEntitySet != null ? votetaskSolvetaskEntitySet.hashCode() : 0);
+        return result;
     }
 }

@@ -29,8 +29,8 @@ public class JudgeTaskDaoImpl implements JudgeTaskDao {
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, judgetaskEntity.getSimple());
-           // ps.setTimestamp(2, judgetaskEntity.getReleaseTime());
-           // ps.setTimestamp(2, judgetaskEntity.getDeadlineTime());
+            // ps.setTimestamp(2, judgetaskEntity.getReleaseTime());
+            // ps.setTimestamp(2, judgetaskEntity.getDeadlineTime());
             //ps.setTimestamp(2, judgetaskEntity.getCompleteTime());
 
             if (ps.executeUpdate() == 1)
