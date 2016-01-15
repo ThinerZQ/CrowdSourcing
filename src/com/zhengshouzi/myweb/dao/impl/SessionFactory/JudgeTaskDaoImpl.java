@@ -56,6 +56,7 @@ public class JudgeTaskDaoImpl implements JudgeTaskDao {
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(JudgetaskEntity.class);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             judgetaskEntityList = criteria.list();
         } catch (Exception e) {
             judgetaskEntityList = new ArrayList<>();

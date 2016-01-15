@@ -17,6 +17,8 @@ public class JudgetaskEntity {
     private long id;
     @Basic
     private String simple;
+    @Basic
+    public String price;
     @Temporal(TemporalType.TIMESTAMP)
     private Date releaseTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -84,6 +86,14 @@ public class JudgetaskEntity {
 
     public void setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     @Override

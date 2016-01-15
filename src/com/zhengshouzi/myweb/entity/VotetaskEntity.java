@@ -16,7 +16,11 @@ public class VotetaskEntity {
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "identity")
+
     public long id;
+    @Basic
+    public String price;
+
     @Temporal(TemporalType.TIMESTAMP)
     public Date releaseTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -40,6 +44,14 @@ public class VotetaskEntity {
     @JoinColumn(name = "votetask_id")
     public Set<VotetaskSolvetaskEntity> votetaskSolvetaskEntitySet = new HashSet<>();
 
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public long getId() {
         return id;

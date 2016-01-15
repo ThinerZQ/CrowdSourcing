@@ -20,7 +20,11 @@
     </filter>
     <filter-mapping>
         <filter-name>SpringOpenSessionInViewFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.do</url-pattern>  
+            <init-param>   
+                          <param-name>singleSession</param-name>   
+                          <param-value>true</param-value>   
+                </init-param>   
     </filter-mapping>
     <filter-mapping>
         <filter-name>SpringOpenSessionInViewFilter</filter-name>

@@ -24,6 +24,8 @@ public class DecomposetaskEntity implements Serializable {
     public Byte step;
     @Basic
     public String best;
+    @Basic
+    public String price;
     @Temporal(TemporalType.TIMESTAMP)
     public Date releaseTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -130,6 +132,14 @@ public class DecomposetaskEntity implements Serializable {
         this.completeTime = completeTime;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -140,6 +150,7 @@ public class DecomposetaskEntity implements Serializable {
         if (id != that.id) return false;
         if (step != null ? !step.equals(that.step) : that.step != null) return false;
         if (best != null ? !best.equals(that.best) : that.best != null) return false;
+        if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (releaseTime != null ? !releaseTime.equals(that.releaseTime) : that.releaseTime != null) return false;
         if (deadlineTime != null ? !deadlineTime.equals(that.deadlineTime) : that.deadlineTime != null) return false;
         if (completeTime != null ? !completeTime.equals(that.completeTime) : that.completeTime != null) return false;
@@ -156,6 +167,7 @@ public class DecomposetaskEntity implements Serializable {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (step != null ? step.hashCode() : 0);
         result = 31 * result + (best != null ? best.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (releaseTime != null ? releaseTime.hashCode() : 0);
         result = 31 * result + (deadlineTime != null ? deadlineTime.hashCode() : 0);
         result = 31 * result + (completeTime != null ? completeTime.hashCode() : 0);
@@ -172,6 +184,7 @@ public class DecomposetaskEntity implements Serializable {
                 "id=" + id +
                 ", step=" + step +
                 ", best='" + best + '\'' +
+                ", price='" + price + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", deadlineTime=" + deadlineTime +
                 ", completeTime=" + completeTime +

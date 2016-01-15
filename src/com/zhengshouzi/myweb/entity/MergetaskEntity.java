@@ -18,6 +18,8 @@ public class MergetaskEntity {
     public long id;
     @Basic
     public String finalResult;
+    @Basic
+    public String price;
     @Temporal(TemporalType.TIMESTAMP)
     public Date releaseTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -59,6 +61,14 @@ public class MergetaskEntity {
 
     public void setDeadlineTime(Date deadlineTime) {
         this.deadlineTime = deadlineTime;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public Date getCompleteTime() {

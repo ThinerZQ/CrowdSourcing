@@ -1,3 +1,4 @@
+import com.sun.javafx.tk.Toolkit;
 import com.zhengshouzi.myweb.dao.DescriptionDao;
 import com.zhengshouzi.myweb.dao.JudgeTaskDao;
 import com.zhengshouzi.myweb.dao.TaskDao;
@@ -68,8 +69,24 @@ public class TestTask extends AbstractJUnit4SpringContextTests {
                 judgetaskEntity.setReleaseTime(new Date());
                 judgetaskEntity.setUserEntity(userDao.findUserByEmail("admin@admin.com"));
                 judgetaskEntity.setTaskEntity(taskEntityList.get(i));
+                judgetaskEntity.setPrice("10");
                 judgeTaskDao.addJudgeTask(judgetaskEntity);
+
             }
+        }
+    }
+    @Test
+    public void testGetAllTask() {
+
+        List<TaskEntity> taskEntityList = taskDao.findAllTask();
+
+        for (TaskEntity taskEntity :taskEntityList) {
+
+            System.out.println(taskEntity.title);
+            for (DescriptionEntity descriptionEntity :taskEntity.getDescriptionEntitySet()){
+                System.out.println(descriptionEntity.description);
+            }
+
         }
     }
 }

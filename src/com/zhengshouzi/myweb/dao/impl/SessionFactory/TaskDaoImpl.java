@@ -7,6 +7,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -68,8 +71,10 @@ public class TaskDaoImpl implements TaskDao {
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(TaskEntity.class);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             taskEntityList = criteria.list();
            //Hibernate.initialize();
+            //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
             taskEntityList = new ArrayList<>();
         } finally {

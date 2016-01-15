@@ -7,3 +7,4 @@ public interface ConstantDefine {
     public static int JudgeNumber = 3;
     public static int decomposeNumber = 3;
 }
+

@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer text-right">
-                                        <span class="text-danger">1000元</span>
+                                        <span class="text-danger"><c:out value="${taskEntity.price}"></c:out>元</span>
                                         <a href="#" class="btn btn-success" role="button">详细</a>
                                     </div>
                                 </div>

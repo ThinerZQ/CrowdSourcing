@@ -27,6 +27,8 @@ public class SolvetaskEntity {
     public Date deadlineTime;
     @Temporal(TemporalType.TIMESTAMP)
     public Date completeTime;
+    @Basic
+    public String price;
 
     @ManyToOne()
     @JoinColumn(name = "task_id")
@@ -48,6 +50,14 @@ public class SolvetaskEntity {
 
     public String getResult() {
         return result;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setResult(String result) {
