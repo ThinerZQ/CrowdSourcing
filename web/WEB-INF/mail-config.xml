@@ -39,7 +39,7 @@
         -->
     </bean>
 
-    <bean id="sendMail" class="com.zhengshouzi.myweb.tools.SendMail"/>
+    <bean id="sendMail" class="com.sysu.crowdsourcing.tools.SendMail"/>
 
 
 </beans>

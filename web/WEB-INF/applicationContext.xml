@@ -11,14 +11,14 @@
     <import resource="dataSource.xml"/>
 
 
-    <bean id="dbHelper" class="com.zhengshouzi.myweb.tools.DBHelper"/>
+    <bean id="dbHelper" class="com.sysu.crowdsourcing.tools.DBHelper"/>
 
 
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.zhengshouzi.myweb.tools.ArrayToDescriptionCollectionConverter"/>
-                <bean class="com.zhengshouzi.myweb.tools.StringToDate"/>
+                <bean class="com.sysu.crowdsourcing.tools.ArrayToDescriptionCollectionConverter"/>
+                <bean class="com.sysu.crowdsourcing.tools.StringToDate"/>
             </set>
         </property>
     </bean>
