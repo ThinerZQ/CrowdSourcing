@@ -40,7 +40,8 @@ public class PostController {
         System.out.println(taskEntity.getDeadlineTime());
         System.out.println(taskEntity.getTitle());
         System.out.println(taskEntity.getDescriptionEntitySet().size());
-        System.out.printf(taskEntity.toString());
+
+        //System.out.printf(taskEntity.toString());
 
 
         boolean b = postService.postTask(taskEntity);
