@@ -23,7 +23,6 @@ public class VoteTaskDaoImpl implements VoteTaskDao {
     SessionFactory sessionFactory;
 
 
-
     public boolean addVoteTask(VotetaskEntity votetaskEntity) {
         return false;
     }

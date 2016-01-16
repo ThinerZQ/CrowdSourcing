@@ -8,7 +8,7 @@ package com.sysu.crowdsourcing.tools;
  */
 public class PageUtil {
 
-    public static Page createPage(int everyPage,int totalCount,int currentPage) {
+    public static Page createPage(int everyPage, int totalCount, int currentPage) {
         everyPage = getEveryPage(everyPage);
         currentPage = getCurrentPage(currentPage);
         int totalPage = getTotalPage(everyPage, totalCount);
@@ -16,10 +16,10 @@ public class PageUtil {
         boolean hasPrePage = getHasPrePage(currentPage);
         boolean hasNextPage = getHasNextPage(totalPage, currentPage);
         return new Page(everyPage, totalCount, totalPage, currentPage,
-                beginIndex, hasPrePage,  hasNextPage);
+                beginIndex, hasPrePage, hasNextPage);
     }
 
-    public static Page createPage(Page page,int totalCount) {
+    public static Page createPage(Page page, int totalCount) {
         int everyPage = getEveryPage(page.getEveryPage());
         int currentPage = getCurrentPage(page.getCurrentPage());
         int totalPage = getTotalPage(everyPage, totalCount);
@@ -27,7 +27,7 @@ public class PageUtil {
         boolean hasPrePage = getHasPrePage(currentPage);
         boolean hasNextPage = getHasNextPage(totalPage, currentPage);
         return new Page(everyPage, totalCount, totalPage, currentPage,
-                beginIndex, hasPrePage,  hasNextPage);
+                beginIndex, hasPrePage, hasNextPage);
     }
 
     //设置每页显示记录数
@@ -41,9 +41,9 @@ public class PageUtil {
     }
 
     //设置总页数,需要总记录数，每页显示多少
-    public static int getTotalPage(int everyPage,int totalCount) {
+    public static int getTotalPage(int everyPage, int totalCount) {
         int totalPage = 0;
-        if(totalCount % everyPage == 0) {
+        if (totalCount % everyPage == 0) {
             totalPage = totalCount / everyPage;
         } else {
             totalPage = totalCount / everyPage + 1;
@@ -52,7 +52,7 @@ public class PageUtil {
     }
 
     //设置起始点，需要每页显示多少，当前页
-    public static int getBeginIndex(int everyPage,int currentPage) {
+    public static int getBeginIndex(int everyPage, int currentPage) {
         return (currentPage - 1) * everyPage;
     }
 

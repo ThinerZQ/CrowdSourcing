@@ -44,7 +44,7 @@ public class TaskEntity {
     @JoinColumn(name = "task_id")
     public Set<DecomposetaskTaskEntity> decomposetaskTaskEntitySet = new HashSet<DecomposetaskTaskEntity>();
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "task_id")
     public Set<DescriptionEntity> descriptionEntitySet = new HashSet<DescriptionEntity>();
 

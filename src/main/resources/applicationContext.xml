@@ -14,14 +14,7 @@
     <bean id="dbHelper" class="com.sysu.crowdsourcing.tools.DBHelper"/>
 
 
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.sysu.crowdsourcing.tools.ArrayToDescriptionCollectionConverter"/>
-                <bean class="com.sysu.crowdsourcing.tools.StringToDate"/>
-            </set>
-        </property>
-    </bean>
+
 
     <!--<bean id= "webBindingInitializer" class= "org.springframework.web.bind.support.ConfigurableWebBindingInitializer">-->
     <!--<property name= "conversionService" ref= "conversionService"/>-->

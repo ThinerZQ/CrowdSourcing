@@ -20,6 +20,4 @@ public interface DescriptionDao {
     DescriptionEntity findDescriptionById(String id);
 
 
-
-
 }

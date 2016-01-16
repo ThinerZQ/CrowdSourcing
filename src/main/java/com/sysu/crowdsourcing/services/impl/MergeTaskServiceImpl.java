@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.services.impl;
 
 import com.sysu.crowdsourcing.dao.MergeTaskDao;
-import com.sysu.crowdsourcing.services.MergeTaskService;
 import com.sysu.crowdsourcing.entity.MergetaskEntity;
+import com.sysu.crowdsourcing.services.MergeTaskService;
 
 import javax.annotation.Resource;
 import java.util.List;

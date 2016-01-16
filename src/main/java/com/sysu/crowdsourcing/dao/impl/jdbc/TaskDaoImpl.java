@@ -24,7 +24,6 @@ public class TaskDaoImpl implements TaskDao {
     JudgeTaskDao judgeTaskDao;
 
 
-
     public boolean addTask(TaskEntity taskEntity) {
         boolean b = false;
         Connection connection = DBHelper.getMySqlConnection();

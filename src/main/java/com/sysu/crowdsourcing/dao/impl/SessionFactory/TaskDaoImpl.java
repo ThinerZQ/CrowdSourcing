@@ -69,7 +69,7 @@ public class TaskDaoImpl implements TaskDao {
             Criteria criteria = session.createCriteria(TaskEntity.class);
             criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             taskEntityList = criteria.list();
-           //Hibernate.initialize();
+            //Hibernate.initialize();
             //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
 

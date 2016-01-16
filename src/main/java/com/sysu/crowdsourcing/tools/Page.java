@@ -31,7 +31,8 @@ public class Page {
     }
 
     //构造函数，默认
-    public Page(){}
+    public Page() {
+    }
 
     //构造方法，对所有属性进行设置
 

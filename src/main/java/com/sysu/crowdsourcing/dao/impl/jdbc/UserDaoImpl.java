@@ -16,7 +16,6 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
 
-
     public UserEntity findUserByEmail(String email) {
 
         Connection connection = DBHelper.getMySqlConnection();

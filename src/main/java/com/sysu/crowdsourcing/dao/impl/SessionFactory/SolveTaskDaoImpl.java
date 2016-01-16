@@ -1,9 +1,9 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
 import com.sysu.crowdsourcing.dao.JudgeTaskDao;
-import com.sysu.crowdsourcing.entity.TaskEntity;
 import com.sysu.crowdsourcing.dao.SolveTaskDao;
 import com.sysu.crowdsourcing.entity.SolvetaskEntity;
+import com.sysu.crowdsourcing.entity.TaskEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,7 +22,6 @@ public class SolveTaskDaoImpl implements SolveTaskDao {
 
     @Resource(name = "sessionFactory")
     SessionFactory sessionFactory;
-
 
 
     public boolean addSolveTask(SolvetaskEntity solvetaskEntity) {

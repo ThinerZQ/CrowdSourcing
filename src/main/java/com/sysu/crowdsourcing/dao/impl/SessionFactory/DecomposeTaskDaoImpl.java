@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
-import com.sysu.crowdsourcing.dao.JudgeTaskDao;
 import com.sysu.crowdsourcing.dao.DecomposeTaskDao;
+import com.sysu.crowdsourcing.dao.JudgeTaskDao;
 import com.sysu.crowdsourcing.entity.DecomposetaskEntity;
 import com.sysu.crowdsourcing.entity.DecomposetaskTaskEntity;
 import org.hibernate.Criteria;
@@ -25,7 +25,6 @@ public class DecomposeTaskDaoImpl implements DecomposeTaskDao {
 
     @Resource(name = "sessionFactory")
     SessionFactory sessionFactory;
-
 
 
     public boolean addDecomposeTask(DecomposetaskEntity decomposetaskEntity) {

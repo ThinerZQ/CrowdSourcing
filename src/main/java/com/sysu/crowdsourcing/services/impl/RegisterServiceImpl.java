@@ -1,12 +1,12 @@
 package com.sysu.crowdsourcing.services.impl;
 
 import com.sysu.crowdsourcing.beans.MailBean;
+import com.sysu.crowdsourcing.dao.UserDao;
 import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.exceptions.ServiceException;
-import com.sysu.crowdsourcing.tools.RegisterTools;
-import com.sysu.crowdsourcing.dao.UserDao;
 import com.sysu.crowdsourcing.services.RegisterService;
 import com.sysu.crowdsourcing.tools.MD5Utils;
+import com.sysu.crowdsourcing.tools.RegisterTools;
 import com.sysu.crowdsourcing.tools.SendMail;
 
 import javax.annotation.Resource;

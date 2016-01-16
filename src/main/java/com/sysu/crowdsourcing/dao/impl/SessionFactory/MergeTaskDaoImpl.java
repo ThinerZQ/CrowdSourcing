@@ -40,7 +40,7 @@ public class MergeTaskDaoImpl implements MergeTaskDao {
 
     @Transactional
     public List<MergetaskEntity> findAllMergeTask() {
-        List<MergetaskEntity> mergetaskEntityList =  new ArrayList<MergetaskEntity>();
+        List<MergetaskEntity> mergetaskEntityList = new ArrayList<MergetaskEntity>();
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(MergetaskEntity.class);

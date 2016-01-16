@@ -52,16 +52,16 @@ public class SolvetaskEntity {
         return result;
     }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public String getPrice() {
         return price;
     }
 
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
     }
 
     public String getBest() {

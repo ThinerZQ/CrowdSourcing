@@ -127,7 +127,8 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer text-right">
-                                        <span class="text-danger"><c:out value="${judgeTaskEntity.price }"></c:out></span>
+                                        <span class="text-danger"><c:out
+                                                value="${judgeTaskEntity.price }"></c:out></span>
                                         <a href="#" class="btn btn-success" role="button">详细</a>
                                     </div>
                                 </div>

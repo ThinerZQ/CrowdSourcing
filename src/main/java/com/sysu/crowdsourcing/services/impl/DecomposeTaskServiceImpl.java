@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.services.impl;
 
-import com.sysu.crowdsourcing.services.DecomposeTaskService;
 import com.sysu.crowdsourcing.dao.DecomposeTaskDao;
 import com.sysu.crowdsourcing.entity.DecomposetaskEntity;
+import com.sysu.crowdsourcing.services.DecomposeTaskService;
 
 import javax.annotation.Resource;
 import java.util.List;

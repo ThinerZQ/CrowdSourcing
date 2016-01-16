@@ -11,14 +11,14 @@ import java.util.Date;
 @Entity
 @Table(name = "judgetask")
 public class JudgetaskEntity {
+    @Basic
+    public String price;
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "identity")
     private long id;
     @Basic
     private String simple;
-    @Basic
-    public String price;
     @Temporal(TemporalType.TIMESTAMP)
     private Date releaseTime;
     @Temporal(TemporalType.TIMESTAMP)

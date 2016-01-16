@@ -108,10 +108,6 @@ public class DecomposetaskEntity implements Serializable {
         this.decomposetaskTaskEntitySet = decomposetaskTaskEntitySet;
     }
 
-    public void setReleaseTime(Date releaseTime) {
-        this.releaseTime = releaseTime;
-    }
-
     public Set<VotetaskDecomposetaskEntity> getVotetaskDecomposetaskEntitySet() {
         return votetaskDecomposetaskEntitySet;
     }
@@ -122,6 +118,10 @@ public class DecomposetaskEntity implements Serializable {
 
     public Date getReleaseTime() {
         return releaseTime;
+    }
+
+    public void setReleaseTime(Date releaseTime) {
+        this.releaseTime = releaseTime;
     }
 
     public Date getCompleteTime() {
