@@ -1,13 +1,11 @@
 package com.sysu.crowdsourcing.controllers;
 
-import com.sysu.crowdsourcing.entity.*;
-import com.sysu.crowdsourcing.services.*;
+import com.sysu.crowdsourcing.services.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -15,20 +13,7 @@ import java.util.List;
 @Controller
 public class TaskController {
 
-    @Resource(name = "judgeTaskService")
-    JudgeTaskService judgeTaskService;
 
-    @Resource(name = "solveTaskService")
-    SolveTaskService solveTaskService;
-
-    @Resource(name = "voteTaskService")
-    VoteTaskService voteTaskService;
-
-    @Resource(name = "decomposeTaskService")
-    DecomposeTaskService decomposeTaskService;
-
-    @Resource(name = "mergeTaskService")
-    MergeTaskService mergeTaskService;
 
     @Resource(name = "taskService")
     TaskService taskService;
@@ -39,8 +24,8 @@ public class TaskController {
         System.out.println("--------Home----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<TaskEntity> taskEntityList = taskService.getAllTask();
-        modelAndView.addObject("HomeTaskEntityList", taskEntityList);
+     /*   List<TaskEntity> taskEntityList = taskService.getAllTask();
+        modelAndView.addObject("HomeTaskEntityList", taskEntityList);*/
         modelAndView.setViewName("index");
         return modelAndView;
     }
@@ -51,8 +36,8 @@ public class TaskController {
         System.out.println("--------task.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<TaskEntity> taskEntityList = taskService.getAllTask();
-        modelAndView.addObject("taskEntityList", taskEntityList);
+       /* List<TaskEntity> taskEntityList = taskService.getAllTask();
+        modelAndView.addObject("taskEntityList", taskEntityList);*/
         modelAndView.setViewName("task");
         return modelAndView;
     }
@@ -63,9 +48,9 @@ public class TaskController {
         System.out.println("--------judgeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<JudgetaskEntity> judgetaskEntityList = judgeTaskService.getAllJudgeTask();
+       /* List<JudgetaskEntity> judgetaskEntityList = judgeTaskService.getAllJudgeTask();
         modelAndView.addObject("judgetaskEntityList", judgetaskEntityList);
-        modelAndView.setViewName("judgeTask");
+        modelAndView.setViewName("judgeTask");*/
         return modelAndView;
     }
 
@@ -75,9 +60,9 @@ public class TaskController {
         System.out.println("--------solveTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<SolvetaskEntity> solvetaskEntityList = solveTaskService.getAllSolveTask();
+      /*  List<SolvetaskEntity> solvetaskEntityList = solveTaskService.getAllSolveTask();
         modelAndView.addObject("solvetaskEntityList", solvetaskEntityList);
-        modelAndView.setViewName("solveTask");
+        modelAndView.setViewName("solveTask");*/
         return modelAndView;
     }
 
@@ -87,9 +72,9 @@ public class TaskController {
         System.out.println("--------mergeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<MergetaskEntity> mergetaskEntityList = mergeTaskService.getAllMergeTask();
+      /*  List<MergetaskEntity> mergetaskEntityList = mergeTaskService.getAllMergeTask();
         modelAndView.addObject("mergetaskEntityList", mergetaskEntityList);
-        modelAndView.setViewName("mergeTask");
+        modelAndView.setViewName("mergeTask");*/
         return modelAndView;
     }
 
@@ -99,9 +84,9 @@ public class TaskController {
         System.out.println("--------voteTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<VotetaskEntity> votetaskEntityList = voteTaskService.getAllVoteTask();
+     /*   List<VotetaskEntity> votetaskEntityList = voteTaskService.getAllVoteTask();
         modelAndView.addObject("votetaskEntityList", votetaskEntityList);
-        modelAndView.setViewName("voteTask");
+        modelAndView.setViewName("voteTask");*/
         return modelAndView;
     }
 
@@ -111,9 +96,9 @@ public class TaskController {
         System.out.println("--------decomposeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        List<DecomposetaskEntity> decomposetaskEntityList = decomposeTaskService.getAllDecomposeTask();
+      /*  List<DecomposetaskEntity> decomposetaskEntityList = decomposeTaskService.getAllDecomposeTask();
         modelAndView.addObject("decomposetaskEntityList", decomposetaskEntityList);
-        modelAndView.setViewName("decomposeTask");
+        modelAndView.setViewName("decomposeTask");*/
         return modelAndView;
     }
 

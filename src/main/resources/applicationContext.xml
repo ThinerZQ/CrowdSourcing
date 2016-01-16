@@ -12,6 +12,7 @@
 
 
     <bean id="dbHelper" class="com.sysu.crowdsourcing.tools.DBHelper"/>
+    <bean id="userEntity" class="com.sysu.workflow.service.indentityservice.UserEntity"/>
 
 
 

@@ -1,13 +1,12 @@
 package com.sysu.crowdsourcing.dao.impl.jdbc;
 
-import com.sysu.crowdsourcing.dao.JudgeTaskDao;
+
 import com.sysu.crowdsourcing.dao.TaskDao;
 import com.sysu.crowdsourcing.entity.TaskEntity;
 import com.sysu.crowdsourcing.tools.ConstantDefine;
 import com.sysu.crowdsourcing.tools.DBHelper;
 import org.hibernate.Criteria;
 
-import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,9 +19,6 @@ import java.util.List;
 public class TaskDaoImpl implements TaskDao {
 
 
-    @Resource(name = "judgeTaskDao")
-    JudgeTaskDao judgeTaskDao;
-
 
     public boolean addTask(TaskEntity taskEntity) {
         boolean b = false;
@@ -32,7 +28,7 @@ public class TaskDaoImpl implements TaskDao {
         String sql = "INSERT INTO task (title,releaseTime,deadlineTime,completeTime) VALUES(?,?,?,?)";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, taskEntity.getTitle());
+            ps.setString(1, taskEntity.getTaskName());
             //ps.setTimestamp(2, taskEntity.getReleaseTime());
 //.setTimestamp(3, taskEntity.getDeadlineTime());
             // ps.setTimestamp(4, taskEntity.getCompleteTime());
@@ -89,7 +85,7 @@ public class TaskDaoImpl implements TaskDao {
             rs = ps.executeQuery();
             while (rs.next()) {
                 task = new TaskEntity();
-                task.setId(rs.getInt("id"));
+                task.setTaskId(rs.getInt("id"));
 
             }
 

@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
 import com.sysu.crowdsourcing.dao.UserDao;
-import com.sysu.crowdsourcing.entity.UserEntity;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -85,7 +85,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Transactional
-
     public boolean checkUser(UserEntity userEntity) {
 
         boolean b = false;
@@ -93,14 +92,14 @@ public class UserDaoImpl implements UserDao {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
 
-            Criterion criterion = Restrictions.eq("email", userEntity.getEmail());
+            Criterion criterion = Restrictions.eq("email", userEntity.getUserEmail());
             criteria.add(criterion);
 
             List<UserEntity> userEntityList = criteria.list();
 
             System.out.printf(userEntityList.size() + "");
             if (userEntityList.size() == 1) {
-                if (userEntity.getPassword().trim().equals(userEntityList.get(0).getPassword().trim())) {
+                if (userEntity.getUserPassword().trim().equals(userEntityList.get(0).getUserPassword().trim())) {
                     b = true;
                 }
             }
@@ -113,7 +112,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Transactional
-
     public boolean deleteUserByEmail(String email) {
 
         boolean b = false;
@@ -145,13 +143,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Transactional
-
     public boolean updateUser(UserEntity userEntity) {
         boolean b = false;
         try {
             Session session = sessionFactory.getCurrentSession();
 
-            UserEntity userEntity1 = (UserEntity) session.load(UserEntity.class, userEntity.getId());
+            UserEntity userEntity1 = (UserEntity) session.load(UserEntity.class, userEntity.getUserId());
 
             userEntity1 = userEntity;
             session.update(userEntity1);
@@ -166,7 +163,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Transactional
-
     public boolean updateRegisterStatus(String email, String status) {
         boolean b = false;
 
@@ -174,7 +170,7 @@ public class UserDaoImpl implements UserDao {
             //Session session  = sessionFactory.getCurrentSession();
             UserEntity userEntity = findUserByEmail(email);
 
-            userEntity.setStatus(status);
+            userEntity.setUserStatus(status);
             updateUser(userEntity);
             b = true;
         } catch (HibernateException e) {
@@ -183,8 +179,6 @@ public class UserDaoImpl implements UserDao {
         } finally {
             return b;
         }
-
-
     }
 
 

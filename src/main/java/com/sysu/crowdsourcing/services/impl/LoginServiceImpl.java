@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.services.impl;
 
 import com.sysu.crowdsourcing.dao.UserDao;
-import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.services.LoginService;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 
 import javax.annotation.Resource;
 
@@ -14,7 +14,7 @@ public class LoginServiceImpl implements LoginService {
     @Resource(name = "userDao")
     UserDao userDao;
 
-    @Override
+
     public boolean login(UserEntity userEntity) {
 
         boolean b = userDao.checkUser(userEntity);

@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
-import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.services.LoginService;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +26,7 @@ public class LoginController {
 
         boolean b = loginService.login(userEntity);
         if (b == true) {
-            userEntity = loginService.getUserByEmail(userEntity.getEmail());
+            userEntity = loginService.getUserByEmail(userEntity.getUserEmail());
             httpSession.setAttribute("user", userEntity);
             modelAndView.setViewName("redirect:/Home.do");
         } else {

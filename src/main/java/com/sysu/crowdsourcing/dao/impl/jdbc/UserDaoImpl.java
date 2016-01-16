@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.dao.impl.jdbc;
 
 import com.sysu.crowdsourcing.dao.UserDao;
-import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.tools.DBHelper;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 import org.hibernate.Criteria;
 
 import java.sql.Connection;
@@ -31,13 +31,13 @@ public class UserDaoImpl implements UserDao {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                user.setId(rs.getInt("id"));
+                user.setUserId(rs.getInt("id"));
                 user.setUserName(rs.getString("userName"));
-                user.setPassword(rs.getString("password"));
-                user.setEmail(rs.getString("email"));
-                user.setActivateCode(rs.getString("activateCode"));
-                user.setStatus(rs.getString("status"));
-                user.setRegisterDate(rs.getTimestamp("registerDate"));
+                user.setUserPassword(rs.getString("password"));
+                user.setUserEmail(rs.getString("email"));
+                user.setUserActivateCode(rs.getString("activateCode"));
+                user.setUserStatus(rs.getString("status"));
+                user.setUserRegisterDate(rs.getTimestamp("registerDate"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,14 +72,14 @@ public class UserDaoImpl implements UserDao {
         String sql = "select * from USER where email=?";
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, userEntity.getEmail());
+            ps.setString(1, userEntity.getUserEmail());
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                selectUser.setPassword(rs.getString("password"));
+                selectUser.setUserPassword(rs.getString("password"));
             }
-            if (selectUser.getPassword() != null) {
-                if (userEntity.getPassword().equals(selectUser.getPassword())) {
+            if (selectUser.getUserPassword() != null) {
+                if (userEntity.getUserPassword().equals(selectUser.getUserPassword())) {
                     b = true;
                 } else {
                     throw new Exception("√‹¬Î¥ÌŒÛ");
@@ -105,10 +105,10 @@ public class UserDaoImpl implements UserDao {
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, userEntity.getUserName());
-            ps.setString(2, userEntity.getPassword());
-            ps.setString(3, userEntity.getEmail());
-            ps.setString(4, userEntity.getActivateCode());
-            ps.setString(5, userEntity.getStatus());
+            ps.setString(2, userEntity.getUserPassword());
+            ps.setString(3, userEntity.getUserEmail());
+            ps.setString(4, userEntity.getUserActivateCode());
+            ps.setString(5, userEntity.getUserStatus());
             //ps.setTimestamp(6, userEntity.getRegisterDate());
 
             if (ps.executeUpdate() == 1)

@@ -16,18 +16,10 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="com.sysu.crowdsourcing.entity.UserEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.VotetaskDecomposetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.VotetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.VotetaskSolvetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.DecomposetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.DecomposetaskTaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.DescriptionEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.JudgetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.MergetaskEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.QualificationEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.SolvetaskEntity"/>
+        <mapping class="com.sysu.workflow.service.indentityservice.UserEntity"/>
         <mapping class="com.sysu.crowdsourcing.entity.TaskEntity"/>
+        <mapping class="com.sysu.workflow.service.indentityservice.GroupEntity"/>
+        <mapping class="com.sysu.workflow.service.indentityservice.WorkItemEntity"/>
 
     </session-factory>
 </hibernate-configuration>

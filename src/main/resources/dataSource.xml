@@ -17,18 +17,12 @@
 
         <property name="annotatedClasses">
             <list>
-                <value>com.sysu.crowdsourcing.entity.VotetaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.VotetaskDecomposetaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.DecomposetaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.DescriptionEntity</value>
-                <value>com.sysu.crowdsourcing.entity.JudgetaskEntity</value>
+
                 <value>com.sysu.crowdsourcing.entity.UserEntity</value>
                 <value>com.sysu.crowdsourcing.entity.TaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.MergetaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.DecomposetaskTaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.QualificationEntity</value>
-                <value>com.sysu.crowdsourcing.entity.SolvetaskEntity</value>
-                <value>com.sysu.crowdsourcing.entity.VotetaskSolvetaskEntity</value>
+                <value>com.sysu.crowdsourcing.entity.GroupEntity</value>
+                <value>com.sysu.crowdsourcing.entity.WorkItemEntity</value>
+
             </list>
         </property>
         <property name="hibernateProperties">

@@ -7,11 +7,5 @@
     <bean id="userDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.UserDaoImpl"></bean>
     <bean id="taskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.TaskDaoImpl"></bean>
 
-    <bean id="descriptionDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.DescriptionDaoImpl"></bean>
-    <bean id="judgeTaskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.JudgeTaskDaoImpl"></bean>
-    <bean id="decomposeTaskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.DecomposeTaskDaoImpl"></bean>
-    <bean id="solveTaskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.SolveTaskDaoImpl"></bean>
-    <bean id="voteTaskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.VoteTaskDaoImpl"></bean>
-    <bean id="mergeTaskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.MergeTaskDaoImpl"></bean>
 
 </beans>

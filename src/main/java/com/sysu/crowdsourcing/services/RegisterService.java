@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.services;
 
-import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.exceptions.ServiceException;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 
 
 /**

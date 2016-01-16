@@ -14,7 +14,6 @@
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.sysu.crowdsourcing.tools.ArrayToDescriptionCollectionConverter"/>
                 <bean class="com.sysu.crowdsourcing.tools.StringToDate"/>
             </set>
         </property>

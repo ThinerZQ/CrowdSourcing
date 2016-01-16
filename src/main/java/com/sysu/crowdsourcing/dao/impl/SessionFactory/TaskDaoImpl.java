@@ -1,6 +1,6 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
-import com.sysu.crowdsourcing.dao.JudgeTaskDao;
+
 import com.sysu.crowdsourcing.dao.TaskDao;
 import com.sysu.crowdsourcing.entity.TaskEntity;
 import org.hibernate.Criteria;
@@ -19,15 +19,11 @@ import java.util.List;
 public class TaskDaoImpl implements TaskDao {
 
 
-    @Resource(name = "judgeTaskDao")
-    JudgeTaskDao judgeTaskDao;
-
     @Resource(name = "sessionFactory")
     SessionFactory sessionFactory;
 
 
     @Transactional
-
     public boolean addTask(TaskEntity taskEntity) {
 
         boolean b = false;

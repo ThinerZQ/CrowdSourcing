@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.controllers;
 
-import com.sysu.crowdsourcing.entity.UserEntity;
 import com.sysu.crowdsourcing.exceptions.ServiceException;
 import com.sysu.crowdsourcing.services.RegisterService;
+import com.sysu.workflow.service.indentityservice.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +27,7 @@ public class RegisterController {
     public String proccessRegister(@ModelAttribute UserEntity userEntity) {
 
         String returnString = null;
-        System.out.print(userEntity.getEmail());
+        System.out.print(userEntity.getUserEmail());
         System.out.println("-------/register/register.do-----------");
         boolean flag = registerService.register(userEntity);
         if (flag == true) {

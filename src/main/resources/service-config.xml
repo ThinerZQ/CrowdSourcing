@@ -8,11 +8,5 @@
     <bean id="postService" class="com.sysu.crowdsourcing.services.impl.PostServiceImpl"></bean>
     <bean id="loginService" class="com.sysu.crowdsourcing.services.impl.LoginServiceImpl"></bean>
     <bean id="taskService" class="com.sysu.crowdsourcing.services.impl.TaskServiceImpl"></bean>
-    <bean id="judgeTaskService" class="com.sysu.crowdsourcing.services.impl.JudgeTaskServiceImpl"></bean>
-    <bean id="voteTaskService" class="com.sysu.crowdsourcing.services.impl.VoteTaskServiceImpl"></bean>
-    <bean id="solveTaskService" class="com.sysu.crowdsourcing.services.impl.SolveTaskServiceImpl"></bean>
-    <bean id="mergeTaskService" class="com.sysu.crowdsourcing.services.impl.MergeTaskServiceImpl"></bean>
-    <bean id="decomposeTaskService" class="com.sysu.crowdsourcing.services.impl.DecomposeTaskServiceImpl"></bean>
-
 
 </beans>

@@ -14,7 +14,7 @@ public class PostServiceImpl implements PostService {
     @Resource(name = "taskDao")
     TaskDao taskDao;
 
-    @Override
+
     public boolean postTask(TaskEntity task) {
 
         return taskDao.addTask(task);
