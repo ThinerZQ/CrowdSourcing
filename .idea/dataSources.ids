@@ -7,45 +7,5 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="crowdsourcing"/>
-    <table name="t_group" schema="" catalog="crowdsourcing" type="TABLE">
-      <column name="groupId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="groupName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="groupId"/>
-      <exported-key name="FK300645B6E713BB51" table="t_user_group" schema="" catalog="crowdsourcing" columns="group_id"/>
-    </table>
-    <table name="t_user" schema="" catalog="crowdsourcing" type="TABLE">
-      <column name="userId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="userActivateCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userAge" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userEmail" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userGender" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userPassword" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userRealName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userRegisterDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
-      <column name="userStatus" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="userId"/>
-      <exported-key name="FK300645B65C7CD5E9" table="t_user_group" schema="" catalog="crowdsourcing" columns="user_id"/>
-    </table>
-    <table name="t_user_group" schema="" catalog="crowdsourcing" type="TABLE">
-      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="group_id,user_id"/>
-      <foreign-key name="FK300645B6E713BB51" columns="group_id" ref-table="t_group" ref-schema="" ref-catalog="crowdsourcing" ref-columns="groupId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK300645B65C7CD5E9" columns="user_id" ref-table="t_user" ref-schema="" ref-catalog="crowdsourcing" ref-columns="userId" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK300645B65C7CD5E9" unique="false" columns="user_id"/>
-      <index name="FK300645B6E713BB51" unique="false" columns="group_id"/>
-    </table>
-    <table name="t_workitem" schema="" catalog="crowdsourcing" type="TABLE">
-      <column name="itemId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="itemAssigineeId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemAssigneeName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemCreateTimee" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemDueTime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemProcessId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="itemStateId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="itemId"/>
-    </table>
   </data-source>
 </component>

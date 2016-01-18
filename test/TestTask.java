@@ -10,7 +10,6 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/20.
@@ -50,7 +49,7 @@ public class TestTask extends AbstractJUnit4SpringContextTests {
     @Test
     public void testGetAllTask() {
 
-        List<TaskEntity> taskEntityList = taskDao.findAllTask();
+        //List<TaskEntity> taskEntityList = taskDao.findAllTask();
 
 
     }

@@ -5,6 +5,7 @@ import com.sysu.crowdsourcing.dao.TaskDao;
 import com.sysu.crowdsourcing.entity.TaskEntity;
 import com.sysu.crowdsourcing.tools.ConstantDefine;
 import com.sysu.crowdsourcing.tools.DBHelper;
+import com.sysu.workflow.service.indentityservice.WorkItemEntity;
 import org.hibernate.Criteria;
 
 import java.sql.Connection;
@@ -103,6 +104,10 @@ public class TaskDaoImpl implements TaskDao {
         return null;
     }
 
+    public List<WorkItemEntity> findAllWorkitem() {
+        return null;
+    }
+
     //πÿ±’¡¨Ω”
     public void close(Connection cn, PreparedStatement ps, ResultSet rs) {
         try {
@@ -114,7 +119,6 @@ public class TaskDaoImpl implements TaskDao {
             }
             if (cn != null) {
                 cn.close();
-                ;
             }
         } catch (Exception e) {
             e.printStackTrace();

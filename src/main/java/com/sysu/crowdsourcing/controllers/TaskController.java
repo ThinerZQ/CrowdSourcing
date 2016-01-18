@@ -1,11 +1,13 @@
 package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.services.TaskService;
+import com.sysu.workflow.service.indentityservice.WorkItemEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -27,6 +29,20 @@ public class TaskController {
      /*   List<TaskEntity> taskEntityList = taskService.getAllTask();
         modelAndView.addObject("HomeTaskEntityList", taskEntityList);*/
         modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+    @RequestMapping("/myTask.do")
+    public ModelAndView myTask() {
+
+        System.out.println("--------myTask.do----------");
+        System.out.println("--------load my workitem----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+        ArrayList<WorkItemEntity> workItemEntityList = (ArrayList<WorkItemEntity>) taskService.getAllMyWorkItem();
+
+        modelAndView.addObject("workItemEntityList", workItemEntityList);
+        modelAndView.setViewName("myTask");
         return modelAndView;
     }
 

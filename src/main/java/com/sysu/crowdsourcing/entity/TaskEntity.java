@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by zhengshouzi on 2015/9/17.
  */
 @Entity
-@Table(name = "task")
+@Table(name = "t_task")
 public class TaskEntity {
 
 
@@ -113,5 +113,18 @@ public class TaskEntity {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "TaskEntity{" +
+                "taskId=" + taskId +
+                ", taskName='" + taskName + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", taskReleaseTime=" + taskReleaseTime +
+                ", taskDeadlineTime=" + taskDeadlineTime +
+                ", taskCompleteTime=" + taskCompleteTime +
+                ", taskType='" + taskType + '\'' +
+                ", taskPrice='" + taskPrice + '\'' +
+                ", userEntity=" + userEntity +
+                '}';
+    }
 }

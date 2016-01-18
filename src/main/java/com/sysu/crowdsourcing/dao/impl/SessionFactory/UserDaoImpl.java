@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
 
-            Criterion criterion = Restrictions.eq("email", email);
+            Criterion criterion = Restrictions.eq("userEmail", email);
             criteria.add(criterion);
 
             List<UserEntity> userEntityList = criteria.list();
@@ -65,8 +65,6 @@ public class UserDaoImpl implements UserDao {
         } finally {
             return userEntity;
         }
-
-
     }
 
 
@@ -92,7 +90,7 @@ public class UserDaoImpl implements UserDao {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
 
-            Criterion criterion = Restrictions.eq("email", userEntity.getUserEmail());
+            Criterion criterion = Restrictions.eq("userEmail", userEntity.getUserEmail());
             criteria.add(criterion);
 
             List<UserEntity> userEntityList = criteria.list();

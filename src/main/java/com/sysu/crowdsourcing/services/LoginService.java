@@ -8,7 +8,7 @@ import com.sysu.workflow.service.indentityservice.UserEntity;
  */
 public interface LoginService {
 
-    public boolean login(UserEntity userEntity);
+     boolean login(UserEntity userEntity);
 
-    public UserEntity getUserByEmail(String email);
+     UserEntity getUserByEmail(String email);
 }

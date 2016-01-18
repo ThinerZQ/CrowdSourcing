@@ -36,7 +36,7 @@
                         <label for="inputTitle" class="control-label">简单描述你的需求：</label>
 
                         <div>
-                            <input type="text" class="form-control" id="inputTitle" name="title"
+                            <input type="text" class="form-control" id="inputTitle" name="taskName"
                                    placeholder="一句话描述你的需求，例如：写一篇关于众包的文章" style="width: 50%">
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 
                         <div>
                         <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
-                                  name="descriptionEntitySet"
+                                  name="taskDescription"
                                   style="width: 80%;height: 250px"></textarea>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                 <label for="deadlineTime" class="control-label" style="display:inline">截止时间</label>
                             </div>
                             <div class="col-lg-4">
-                                <input type="date" class="form-control" id="deadlineTime" name="deadlineTime"
+                                <input type="date" class="form-control" id="deadlineTime" name="taskDeadlineTime"
                                        min="2015-09-09"></div>
 
                         </div>

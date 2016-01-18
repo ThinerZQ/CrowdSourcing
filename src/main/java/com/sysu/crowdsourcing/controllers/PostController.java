@@ -26,7 +26,7 @@ public class PostController {
     @RequestMapping("/post.do")
     public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity, HttpSession httpSession) {
 
-        System.out.println("--------post----------");
+        System.out.println("--------postTask----------");
 
         ModelAndView modelAndView = new ModelAndView();
 
@@ -47,7 +47,8 @@ public class PostController {
         boolean b = postService.postTask(taskEntity);
 
         if (b) {
-            modelAndView.setViewName("redirect:/getSystemAllJudgeTask.do");
+            modelAndView.addObject("sucessMessage", "发布成功");
+            modelAndView.setViewName("sucess");
         } else {
 
             modelAndView.addObject("errorMessage", "发布错误");

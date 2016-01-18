@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">CrowdSourcing</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">CrowdSourcing</a>
             </div>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">

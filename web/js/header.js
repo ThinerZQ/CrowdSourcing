@@ -11,5 +11,5 @@ function signIn() {
     window.location = "login.jsp";
 }
 function post() {
-    window.location = "post.jsp";
+    window.location = "postTask.jsp";
 }

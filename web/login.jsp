@@ -41,7 +41,8 @@
                         <label for="inputEmail" class="col-lg-3 control-label">Email</label>
 
                         <div class="col-lg-9">
-                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email"
+                            <input type="email" name="userEmail" class="form-control" id="inputEmail"
+                                   placeholder="Email"
                                    onchange="check('email')" required="required" data-toggle="popover"
                                    data-placement="top" data-title="请输入正确的地址" data-trigger="manual"
                                    data-content="正确的地址格式是；；；；">
@@ -51,7 +52,7 @@
                         <label for="inputPassword" class="col-lg-3 control-label">Password</label>
 
                         <div class="col-lg-9">
-                            <input type="password" name="password" class="form-control" id="inputPassword"
+                            <input type="password" name="userPassword" class="form-control" id="inputPassword"
                                    placeholder=" Password" onchange="check('password')" required data-toggle="popover"
                                    data-placement="top" data-title="请输入安全度合适的密码" data-trigger="manual"
                                    data-content="密码至少要6位吧">

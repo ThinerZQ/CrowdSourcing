@@ -3,6 +3,7 @@ package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
 import com.sysu.crowdsourcing.dao.TaskDao;
 import com.sysu.crowdsourcing.entity.TaskEntity;
+import com.sysu.workflow.service.indentityservice.WorkItemEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,9 +33,9 @@ public class TaskDaoImpl implements TaskDao {
 
             Serializable id = (Serializable) session.save(taskEntity);
 
-           /* if (id != 0 || id != null) {
+            if ((Long) id != 0 && id != null) {
                 b = true;
-            }*/
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,7 +58,6 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Transactional
-
     public List<TaskEntity> findAllTask() {
         List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
         try {
@@ -75,16 +75,35 @@ public class TaskDaoImpl implements TaskDao {
 
     }
 
-
+    @Transactional
     public TaskEntity findTaskById(String id) {
 
         return null;
 
     }
 
-
+    @Transactional
     public List<TaskEntity> findTaskByCriteria(Criteria criteria) {
         return null;
+    }
+
+    @Transactional
+    public List<WorkItemEntity> findAllWorkitem() {
+
+        List<WorkItemEntity> workItemEntityList = new ArrayList<WorkItemEntity>();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            Criteria criteria = session.createCriteria(WorkItemEntity.class);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+            workItemEntityList = criteria.list();
+            //Hibernate.initialize();
+            //System.out.printf(taskEntityList.get(0).toString());
+        } catch (Exception e) {
+
+        } finally {
+            return workItemEntityList;
+        }
+
     }
 
 }
