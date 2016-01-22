@@ -2,7 +2,7 @@ package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.exceptions.ServiceException;
 import com.sysu.crowdsourcing.services.RegisterService;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

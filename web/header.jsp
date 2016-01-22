@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
 
                 <c:choose>
-                    <c:when test="${empty sessionScope.get('user')}">
+                    <c:when test="${empty sessionScope.get('currentUserEntity')}">
                         <li>
                             <button type="button" class="btn btn-success" style="color: white;margin-right: 10px;"
                                     onclick="signUp()">sign up
@@ -45,12 +45,12 @@
                     </c:when>
                     <c:otherwise>
                         <li style="color: red;">
-                            <c:set var="user" value="${sessionScope.get('user')}" scope="page"></c:set>
-                            welcome : <c:out value="${user.userName}"></c:out>
+                            <c:set var="user" value="${sessionScope.get('currentUserEntity')}" scope="page"></c:set>
+                            welcome : <c:out value="${user.userRealName}"></c:out>
                         </li>
                         <li style="color: red;">
-                            <button type="button" class="btn btn-default" style="color: black" onclick="post()">
-                                Post
+                            <button type="button" class="btn btn-default" style="color: black">
+                                Your Profile
                             </button>
                         </li>
                     </c:otherwise>

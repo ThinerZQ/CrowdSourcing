@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
 import com.sysu.crowdsourcing.dao.UserDao;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

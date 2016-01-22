@@ -86,13 +86,15 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <c:choose>
-                        <c:when test="${not empty workItemEntityList}">
+                        <c:when test="${not empty userWorkItemEntityList}">
 
-                            <c:forEach items="${workItemEntityList }" var="workItemEntity">
+                            <span> 用户自己任务</span>
+                            <c:forEach items="${userWorkItemEntityList }" var="userWorkItemEntity">
 
                                 <div class="panel panel-primary panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><c:out value="${workItemEntity.itemId}"></c:out></h3>
+                                        <h3 class="panel-title"><c:out
+                                                value="${userWorkItemEntity.itemId}"></c:out></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
@@ -106,7 +108,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                任务名：<c:out value="${workItemEntity.itemName}"></c:out>
+                                                任务名：<c:out value="${userWorkItemEntity.itemName}"></c:out>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +141,66 @@
 
                         </c:when>
                         <c:otherwise>
-                            <c:out value="no task"></c:out>
+                            <c:out value="no user task"></c:out>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${not empty groupWorkItemArrayListMap}">
+                            <span>用户所在组的任务</span>
+                            <c:forEach items="${groupWorkItemArrayListMap.entrySet() }" var="groupWorkItemEntrySet">
+                                <c:forEach items="${groupWorkItemEntrySet.getValue() }" var="groupWorkItemEntity">
+                                    <div class="panel panel-primary panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><c:out
+                                                    value="${groupWorkItemEntity.itemId}"></c:out></h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    发布者：<span><c:out
+                                                        value="44444"></c:out></span>
+                                                </div>
+                                                <div class="col-lg-6 text-right">
+                                                    555555
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    任务名：<c:out value="${groupWorkItemEntity.itemName}"></c:out>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer text-right">
+                                            <!--
+                                        <span class="text-danger"><c:out value="${taskEntity.taskPrice}"></c:out>元</span>
+
+                                        -->
+                                            <a href="#" class="btn btn-success" role="button">详细</a>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </c:forEach>
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-3">
+                                    <ul class="pagination pagination-lg container">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li class="disabled"><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                        <li><a href="#">9</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="no group task"></c:out>
                         </c:otherwise>
                     </c:choose>
                 </div>

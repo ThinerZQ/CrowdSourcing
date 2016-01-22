@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.services.LoginService;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +27,15 @@ public class LoginController {
         boolean b = loginService.login(userEntity);
         if (b == true) {
             userEntity = loginService.getUserByEmail(userEntity.getUserEmail());
-            httpSession.setAttribute("user", userEntity);
-            modelAndView.setViewName("redirect:/myTask.do");
+            httpSession.setAttribute("currentUserEntity", userEntity);
+            if ("admin".equals(userEntity.getUserRealName())) {
+                modelAndView.setViewName("redirect:/manage.do");
+            } else if ("poster".equals(userEntity.getUserRealName())) {
+                modelAndView.setViewName("post");
+            } else {
+                modelAndView.setViewName("redirect:/myTask.do");
+            }
+
         } else {
             modelAndView.addObject("loginError", "用户名或者密码错误");
             modelAndView.setViewName("login");

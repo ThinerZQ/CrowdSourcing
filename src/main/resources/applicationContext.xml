@@ -10,10 +10,6 @@
     <import resource="mail-config.xml"/>
     <import resource="dataSource.xml"/>
 
-
-    <bean id="dbHelper" class="com.sysu.crowdsourcing.tools.DBHelper"/>
-
-
     <!--<bean id= "webBindingInitializer" class= "org.springframework.web.bind.support.ConfigurableWebBindingInitializer">-->
     <!--<property name= "conversionService" ref= "conversionService"/>-->
     <!--</bean>-->

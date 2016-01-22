@@ -2,7 +2,7 @@ package com.sysu.crowdsourcing.services.impl;
 
 import com.sysu.crowdsourcing.dao.UserDao;
 import com.sysu.crowdsourcing.services.LoginService;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 
 import javax.annotation.Resource;
 

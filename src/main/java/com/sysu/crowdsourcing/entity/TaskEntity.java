@@ -1,6 +1,7 @@
 package com.sysu.crowdsourcing.entity;
 
-import com.sysu.workflow.service.indentityservice.UserEntity;
+
+import com.sysu.workflow.entity.UserEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

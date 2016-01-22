@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao;
 
 
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 import org.hibernate.Criteria;
 
 import java.util.List;

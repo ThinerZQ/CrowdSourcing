@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -31,14 +32,20 @@
                 <td>ProcessID</td>
                 <td>ProcessName</td>
                 <td>ProcessState</td>
+                <td>StartDate</td>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-            </tr>
+            <c:forEach items="${processInstanceEntityArrayList }" var="processInstanceEntity">
+                <tr>
+                    <td><c:out value="${processInstanceEntity.processinstanceId}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processinstanceName}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processinstanceCurrentState}"></c:out></td>
+                    >>
+                    <td><c:out value="${processInstanceEntity.processinstanceCreateTime}"></c:out></td>
+                    >>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

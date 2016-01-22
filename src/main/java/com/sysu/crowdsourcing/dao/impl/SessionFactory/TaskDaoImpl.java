@@ -1,16 +1,15 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
-
 import com.sysu.crowdsourcing.dao.TaskDao;
 import com.sysu.crowdsourcing.entity.TaskEntity;
-import com.sysu.workflow.service.indentityservice.WorkItemEntity;
+import com.sysu.workflow.entity.UserWorkItemEntity;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,34 +24,38 @@ public class TaskDaoImpl implements TaskDao {
 
 
     @Transactional
-    public boolean addTask(TaskEntity taskEntity) {
+    public long addTask(TaskEntity taskEntity) {
 
-        boolean b = false;
+        long id = 0;
         try {
             Session session = sessionFactory.getCurrentSession();
-
-            Serializable id = (Serializable) session.save(taskEntity);
-
-            if ((Long) id != 0 && id != null) {
-                b = true;
-            }
-
+            id = (Long) session.save(taskEntity);
         } catch (Exception e) {
             e.printStackTrace();
-            b = false;
         } finally {
-            return b;
+            return id;
         }
 
 
     }
 
-
-    public boolean deleteTaskById(String task_id) {
-        return false;
+    @Transactional
+    public boolean deleteTaskById(long taskId) {
+        int result = 0;
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            String hql = "delete TaskEntity as t where t.taskId =?";
+            Query query = session.createQuery(hql);
+            query.setLong(0, taskId);
+            result = query.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result == 1 ? true : false;
+        }
     }
 
-
+    @Transactional
     public boolean updateTask(TaskEntity taskEntity) {
         return false;
     }
@@ -88,12 +91,12 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Transactional
-    public List<WorkItemEntity> findAllWorkitem() {
+    public List<UserWorkItemEntity> findAllWorkitem() {
 
-        List<WorkItemEntity> workItemEntityList = new ArrayList<WorkItemEntity>();
+        List<UserWorkItemEntity> workItemEntityList = new ArrayList<UserWorkItemEntity>();
         try {
             Session session = sessionFactory.getCurrentSession();
-            Criteria criteria = session.createCriteria(WorkItemEntity.class);
+            Criteria criteria = session.createCriteria(TaskEntity.class);
             criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             workItemEntityList = criteria.list();
             //Hibernate.initialize();

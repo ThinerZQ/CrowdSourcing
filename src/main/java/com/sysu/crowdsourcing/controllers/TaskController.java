@@ -1,14 +1,19 @@
 package com.sysu.crowdsourcing.controllers;
 
-import com.sysu.crowdsourcing.services.TaskService;
-import com.sysu.workflow.service.indentityservice.WorkItemEntity;
+
+import com.sysu.workflow.entity.GroupEntity;
+import com.sysu.workflow.entity.GroupWorkItemEntity;
+import com.sysu.workflow.entity.UserEntity;
+import com.sysu.workflow.entity.UserWorkItemEntity;
+import com.sysu.workflow.service.taskservice.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
@@ -17,8 +22,8 @@ public class TaskController {
 
 
 
-    @Resource(name = "taskService")
-    TaskService taskService;
+    /*@Resource(name = "taskService")
+    TaskService taskService;*/
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -33,15 +38,27 @@ public class TaskController {
     }
 
     @RequestMapping("/myTask.do")
-    public ModelAndView myTask() {
+    public ModelAndView myTask(HttpSession httpSession) {
 
         System.out.println("--------myTask.do----------");
         System.out.println("--------load my workitem----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        ArrayList<WorkItemEntity> workItemEntityList = (ArrayList<WorkItemEntity>) taskService.getAllMyWorkItem();
+        UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
+        ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
-        modelAndView.addObject("workItemEntityList", workItemEntityList);
+        Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
+        //得到当前用户所在组的所有工作项
+        for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
+            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
+            //当前组有任务，就加入到map里面
+            if (groupWorkItemEntityArrayList.size() != 0) {
+                groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
+            }
+        }
+
+        modelAndView.addObject("userWorkItemEntityList", userWorkItemEntityList);
+        modelAndView.addObject("groupWorkItemArrayListMap", groupWorkItemArrayListMap);
         modelAndView.setViewName("myTask");
         return modelAndView;
     }

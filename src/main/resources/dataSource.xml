@@ -18,10 +18,13 @@
         <property name="annotatedClasses">
             <list>
 
-                <value>com.sysu.workflow.service.indentityservice.UserEntity</value>
-                <value>com.sysu.workflow.service.indentityservice.GroupEntity</value>
-                <value>com.sysu.workflow.service.taskservice.WorkItemEntity</value>
-                <value>com.sysu.workflow.service.processservice.ProcessInstanceEntity</value>
+                <value>com.sysu.workflow.entity.UserEntity</value>
+                <value>com.sysu.workflow.entity.GroupEntity</value>
+                <value>com.sysu.workflow.entity.UserWorkItemEntity</value>
+                <value>com.sysu.workflow.entity.GroupWorkItemEntity</value>
+                <value>com.sysu.workflow.entity.ProcessInstanceEntity</value>
+                <value>com.sysu.workflow.entity.FormEntity</value>
+                <value>com.sysu.workflow.entity.FormItemEntity</value>
                 <value>com.sysu.crowdsourcing.entity.TaskEntity</value>
 
             </list>

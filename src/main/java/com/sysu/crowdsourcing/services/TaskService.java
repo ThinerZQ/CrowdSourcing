@@ -1,6 +1,7 @@
 package com.sysu.crowdsourcing.services;
 
-import com.sysu.workflow.service.indentityservice.WorkItemEntity;
+
+import com.sysu.workflow.entity.UserWorkItemEntity;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface TaskService {
 
-    List<WorkItemEntity> getAllMyWorkItem();
+    List<UserWorkItemEntity> getAllMyWorkItem();
 
 }

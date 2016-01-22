@@ -7,7 +7,7 @@ import com.sysu.crowdsourcing.services.RegisterService;
 import com.sysu.crowdsourcing.tools.MD5Utils;
 import com.sysu.crowdsourcing.tools.RegisterTools;
 import com.sysu.crowdsourcing.tools.SendMail;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;

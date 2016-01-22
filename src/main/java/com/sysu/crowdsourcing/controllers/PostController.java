@@ -4,7 +4,7 @@ package com.sysu.crowdsourcing.controllers;
 import com.sysu.crowdsourcing.entity.TaskEntity;
 import com.sysu.crowdsourcing.services.PostService;
 import com.sysu.crowdsourcing.tools.TaskType;
-import com.sysu.workflow.service.indentityservice.UserEntity;
+import com.sysu.workflow.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,11 +36,6 @@ public class PostController {
         UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
         taskEntity.setUserEntity(userEntity);
 
-
-        System.out.println(taskEntity.getTaskDeadlineTime());
-        System.out.println(taskEntity.getTaskName());
-        System.out.println(taskEntity);
-
         System.out.printf(taskEntity.toString());
 
 
@@ -50,7 +45,6 @@ public class PostController {
             modelAndView.addObject("sucessMessage", "发布成功");
             modelAndView.setViewName("sucess");
         } else {
-
             modelAndView.addObject("errorMessage", "发布错误");
             modelAndView.setViewName("error");
         }

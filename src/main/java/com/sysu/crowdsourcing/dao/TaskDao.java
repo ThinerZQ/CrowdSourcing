@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao;
 
 import com.sysu.crowdsourcing.entity.TaskEntity;
-import com.sysu.workflow.service.indentityservice.WorkItemEntity;
+import com.sysu.workflow.entity.UserWorkItemEntity;
 import org.hibernate.Criteria;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.List;
  * Created by zhengshouzi on 2015/9/7.
  */
 public interface TaskDao {
-    boolean addTask(TaskEntity taskEntity);
+    long addTask(TaskEntity taskEntity);
 
-    boolean deleteTaskById(String task_id);
+    boolean deleteTaskById(long taskId);
 
     boolean updateTask(TaskEntity taskEntity);
 
@@ -20,7 +20,7 @@ public interface TaskDao {
 
     List<TaskEntity> findTaskByCriteria(Criteria criteria);
 
-    List<WorkItemEntity> findAllWorkitem();
+    List<UserWorkItemEntity> findAllWorkitem();
 
 
 

@@ -25,30 +25,27 @@ public class PostServiceImpl implements PostService {
 
     public boolean postTask(TaskEntity taskEntity) {
 
-        boolean flag = taskDao.addTask(taskEntity);
-
+        long id = taskDao.addTask(taskEntity);
+        boolean flag = false;
         //发布成功，加载众包流程，分派任务
-        if (flag) {
+        if (id != 0) {
             try {
-                URL url = this.getClass().getResource("crowdsourcingTest.xml");
+                URL url = this.getClass().getClassLoader().getResource("crowdsourcingMyTest.xml");
                 SCXML scxml = new SCXMLReader().read(url);
-
                 //实例化数据模型解析器
                 Evaluator evaluator = new JexlEvaluator();
-
                 //实例化引擎
                 SCXMLExecutor executor = new SCXMLExecutor(evaluator, new MulitStateMachineDispatcher(), new SimpleErrorReporter());
-
                 executor.setStateMachine(scxml);
-
                 //启动当前任务对应的状态机
                 executor.go();
-
+                flag = true;
             } catch (Exception e) {
                 e.printStackTrace();
+                taskDao.deleteTaskById(id);
+                flag = false;
             }
         }
-
         return flag;
     }
 }
