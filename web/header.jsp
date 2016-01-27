@@ -52,6 +52,9 @@
                             <button type="button" class="btn btn-default" style="color: black">
                                 Your Profile
                             </button>
+                            <button type="button" class="btn btn-danger" style="color: black">
+                                Logout
+                            </button>
                         </li>
                     </c:otherwise>
                 </c:choose>

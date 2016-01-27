@@ -87,37 +87,32 @@
                 <div class="tab-pane fade in active" id="home">
                     <c:choose>
                         <c:when test="${not empty userWorkItemEntityList}">
-
                             <span> 用户自己任务</span>
                             <c:forEach items="${userWorkItemEntityList }" var="userWorkItemEntity">
-
                                 <div class="panel panel-primary panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><c:out
-                                                value="${userWorkItemEntity.itemId}"></c:out></h3>
+                                        <h3 class="panel-title">流程ID：<c:out
+                                                value="${userWorkItemEntity.itemProcessId}"></c:out>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任务所处状态：<c:out
+                                                    value="${userWorkItemEntity.itemStateId}"></c:out>
+                                        </h3>
                                     </div>
                                     <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                发布者：<span><c:out
-                                                    value="44444"></c:out></span>
-                                            </div>
-                                            <div class="col-lg-6 text-right">
-                                                555555
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 任务名：<c:out value="${userWorkItemEntity.itemName}"></c:out>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                发布时间：<span><c:out
+                                                    value="${userWorkItemEntity.itemCreateTime }"></c:out></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer text-right">
-                                        <!--
-                                        <span class="text-danger"><c:out value="${taskEntity.taskPrice}"></c:out>元</span>
-
-                                        -->
-                                        <a href="#" class="btn btn-success" role="button">详细</a>
+                                        <a href="${pageContext.request.contextPath}/taskDetail.do?taskItemId=<c:out value="${userWorkItemEntity.itemId}"></c:out>"
+                                           class="btn btn-success" role="button">详细</a>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -147,34 +142,36 @@
                     <c:choose>
                         <c:when test="${not empty groupWorkItemArrayListMap}">
                             <span>用户所在组的任务</span>
-                            <c:forEach items="${groupWorkItemArrayListMap.entrySet() }" var="groupWorkItemEntrySet">
-                                <c:forEach items="${groupWorkItemEntrySet.getValue() }" var="groupWorkItemEntity">
+                            <c:forEach items="${groupWorkItemArrayListMap.keySet() }" var="groupEntity">
+
+                                当前组：<c:out value="${groupEntity.groupName}"></c:out>
+
+                                <c:forEach items="${groupWorkItemArrayListMap.get(groupEntity) }"
+                                           var="groupWorkItemEntity">
                                     <div class="panel panel-primary panel-info">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title"><c:out
-                                                    value="${groupWorkItemEntity.itemId}"></c:out></h3>
+                                            <h3 class="panel-title">流程ID：<c:out
+                                                    value="${groupWorkItemEntity.itemProcessId}"></c:out>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任务所处状态：<c:out
+                                                        value="${groupWorkItemEntity.itemStateId}"></c:out>
+                                            </h3>
                                         </div>
                                         <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    发布者：<span><c:out
-                                                        value="44444"></c:out></span>
-                                                </div>
-                                                <div class="col-lg-6 text-right">
-                                                    555555
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     任务名：<c:out value="${groupWorkItemEntity.itemName}"></c:out>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    发布时间：<span><c:out
+                                                        value="${groupWorkItemEntity.itemCreateTime }"></c:out></span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="panel-footer text-right">
-                                            <!--
-                                        <span class="text-danger"><c:out value="${taskEntity.taskPrice}"></c:out>元</span>
-
-                                        -->
+                                            <a href="${pageContext.request.contextPath}/signIn.do?groupWorkItemId=<c:out value="${groupWorkItemEntity.itemId}"></c:out>"
+                                               class="btn btn-group" role="button">签收</a>
                                             <a href="#" class="btn btn-success" role="button">详细</a>
                                         </div>
                                     </div>

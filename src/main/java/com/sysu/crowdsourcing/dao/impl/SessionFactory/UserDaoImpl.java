@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 
             Criterion criterion = Restrictions.eq("userEmail", email);
             criteria.add(criterion);
-
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             List<UserEntity> userEntityList = criteria.list();
 
             if (userEntityList.size() == 1) {
@@ -90,16 +90,12 @@ public class UserDaoImpl implements UserDao {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(UserEntity.class);
 
-            Criterion criterion = Restrictions.eq("userEmail", userEntity.getUserEmail());
+            Criterion criterion = Restrictions.allEq(userEntity.getNotNullPropertyMap());
             criteria.add(criterion);
-
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             List<UserEntity> userEntityList = criteria.list();
-
-            System.out.printf(userEntityList.size() + "");
             if (userEntityList.size() == 1) {
-                if (userEntity.getUserPassword().trim().equals(userEntityList.get(0).getUserPassword().trim())) {
-                    b = true;
-                }
+                b = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
