@@ -21,9 +21,10 @@
       <column name="t_form_formId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="formItemEntityLinkedHashSet_formId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="t_form_formId,formItemEntityLinkedHashSet_formId"/>
-      <foreign-key name="FK8F7D4DD25415A3CB" columns="t_form_formId" ref-table="t_form" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK8F7D4DD22175578C" columns="formItemEntityLinkedHashSet_formId" ref-table="t_formitem" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK8F7D4DD25415A3CB" columns="t_form_formId" ref-table="t_form" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="UK_8F7D4DD2A320BD" unique="true" columns="formItemEntityLinkedHashSet_formId"/>
+      <index name="UK_ddoms57odurwx5f2vtpk2rdya" unique="true" columns="formItemEntityLinkedHashSet_formId"/>
       <index name="FK8F7D4DD22175578C" unique="false" columns="formItemEntityLinkedHashSet_formId"/>
       <index name="FK8F7D4DD25415A3CB" unique="false" columns="t_form_formId"/>
     </table>
@@ -57,8 +58,8 @@
       <column name="groupEntity" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="formEntity" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="itemId"/>
-      <foreign-key name="FK1555098A983DC03" columns="formEntity" ref-table="t_form" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK15550984190A86F" columns="groupEntity" ref-table="t_group" ref-schema="" ref-catalog="crowdsourcing" ref-columns="groupId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK1555098A983DC03" columns="formEntity" ref-table="t_form" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FKAB9C085A9949C4F7" table="t_userworkitem" schema="" catalog="crowdsourcing" columns="groupWorkItemEntity"/>
       <index name="FK15550984190A86F" unique="false" columns="groupEntity"/>
       <index name="FK1555098A983DC03" unique="false" columns="formEntity"/>
@@ -115,8 +116,8 @@
       <column name="t_user_userId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="groupEntitySet_groupId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="t_user_userId,groupEntitySet_groupId"/>
-      <foreign-key name="FKD65E906BDBC895F2" columns="t_user_userId" ref-table="t_user" ref-schema="" ref-catalog="crowdsourcing" ref-columns="userId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FKD65E906B1E501E8" columns="groupEntitySet_groupId" ref-table="t_group" ref-schema="" ref-catalog="crowdsourcing" ref-columns="groupId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKD65E906BDBC895F2" columns="t_user_userId" ref-table="t_user" ref-schema="" ref-catalog="crowdsourcing" ref-columns="userId" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FKD65E906B1E501E8" unique="false" columns="groupEntitySet_groupId"/>
       <index name="FKD65E906BDBC895F2" unique="false" columns="t_user_userId"/>
     </table>

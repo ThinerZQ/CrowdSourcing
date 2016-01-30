@@ -8,4 +8,12 @@
     <bean id="taskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.TaskDaoImpl"></bean>
 
 
+    <bean id="formDao" class="com.sysu.workflow.service.formservice.sessionfactory.FormDaoImpl"></bean>
+    <bean id="userDao2" class="com.sysu.workflow.service.identityservice.sessionfactory.UserDaoImpl"></bean>
+    <bean id="groupDao" class="com.sysu.workflow.service.identityservice.sessionfactory.GroupDaoImpl"></bean>
+    <bean id="processInstanceDao"
+          class="com.sysu.workflow.service.processservice.sessionfactory.ProcessInstanceDaoImpl"></bean>
+    <bean id="workItemDao" class="com.sysu.workflow.service.taskservice.sessionfactory.WorkItemDaoImpl"></bean>
+
+
 </beans>

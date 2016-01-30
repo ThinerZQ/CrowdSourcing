@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +23,8 @@ import java.util.Map;
 public class TaskController {
 
 
-
-    /*@Resource(name = "taskService")
-    TaskService taskService;*/
+    @Resource(name = "taskService")
+    TaskService taskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -32,9 +32,8 @@ public class TaskController {
         System.out.println("--------Home----------");
 
         ModelAndView modelAndView = new ModelAndView();
-     /*   List<TaskEntity> taskEntityList = taskService.getAllTask();
-        modelAndView.addObject("HomeTaskEntityList", taskEntityList);*/
-        modelAndView.setViewName("index");
+
+        modelAndView.setViewName("redirect:/myTask.do");
         return modelAndView;
     }
 
@@ -46,12 +45,12 @@ public class TaskController {
 
         ModelAndView modelAndView = new ModelAndView();
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
-        ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
+        ArrayList<UserWorkItemEntity> userWorkItemEntityList = taskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
         //得到当前用户所在组的所有工作项
         for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
-            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
+            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = taskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
 
             //当前组有任务，就加入到map里面
             if (groupWorkItemEntityArrayList.size() != 0) {
@@ -74,8 +73,6 @@ public class TaskController {
             } else {
                 groupWorkItemArrayListMap.remove(groupEntity);
             }
-
-
         }
 
         modelAndView.addObject("userWorkItemEntityList", userWorkItemEntityList);
@@ -94,7 +91,7 @@ public class TaskController {
         System.out.println(groupWorkItemId);
 
         if (groupWorkItemId != null) {
-            GroupWorkItemEntity groupWorkItemEntity = TaskService.createGroupTaskQuery().taskId(Integer.parseInt(groupWorkItemId)).SingleResult();
+            GroupWorkItemEntity groupWorkItemEntity = taskService.createGroupTaskQuery().taskId(Integer.parseInt(groupWorkItemId)).SingleResult();
             //更新group workitem
             int instance;
             instance = groupWorkItemEntity.getItemInstances();
@@ -102,16 +99,16 @@ public class TaskController {
                 //返回，提示组任务被做完了。
                 System.out.println("group work done ");
             } else {
-                TaskService taskService = new TaskService();
+
                 UserWorkItemEntity userWorkItemEntity = taskService.newWorkItem();
                 //保存user workitem
                 userWorkItemEntity.setItemName(groupWorkItemEntity.getItemName())
                         .setItemCreateTime(new Date().toLocaleString())
                         .setItemStateId(groupWorkItemEntity.getItemStateId())
                         .setItemProcessId(groupWorkItemEntity.getItemProcessId())
-                        .setItemAssigneeEntity(currentUserEntity);
-                //.setItemFormEntity(groupWorkItemEntity.getItemFormEntity());
-                // .setItemGroupWorkItemEntity(groupWorkItemEntity);
+                        .setItemAssigneeEntity(currentUserEntity)
+                        .setItemFormEntity(groupWorkItemEntity.getItemFormEntity())
+                        .setItemGroupWorkItemEntity(groupWorkItemEntity);
                 taskService.saveUserWorkItem(userWorkItemEntity);
 
                 instance = groupWorkItemEntity.getItemInstances() - 1;
@@ -133,7 +130,7 @@ public class TaskController {
         System.out.println(taskWorkItemId);
 
         if (taskWorkItemId != null) {
-            UserWorkItemEntity userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(taskWorkItemId)).SingleResult();
+            UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(taskWorkItemId)).SingleResult();
             modelAndView.addObject("userWorkItemEntity", userWorkItemEntity);
             modelAndView.setViewName("taskDetail");
         }
