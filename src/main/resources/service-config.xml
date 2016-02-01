@@ -9,6 +9,7 @@
     <bean id="loginService" class="com.sysu.crowdsourcing.services.impl.LoginServiceImpl"></bean>
 
 
+    <!--
     <bean id="taskService" class="com.sysu.workflow.service.taskservice.TaskService"></bean>
     <bean id="runtimeService" class="com.sysu.workflow.service.processservice.RuntimeService"></bean>
     <bean id="identityService" class="com.sysu.workflow.service.identityservice.IdentityService"></bean>
@@ -20,5 +21,6 @@
     <bean id="processInstanceQuery" class="com.sysu.workflow.service.processservice.ProcessInstanceQuery"></bean>
     <bean id="userTaskQuery" class="com.sysu.workflow.service.taskservice.UserTaskQuery"></bean>
     <bean id="groupTaskQuery" class="com.sysu.workflow.service.taskservice.GroupTaskQuery"></bean>
+    -->
 
 </beans>

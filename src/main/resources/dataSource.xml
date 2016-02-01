@@ -39,6 +39,7 @@
                 <prop key="hibernate.current_session_context_class">
                     org.springframework.orm.hibernate4.SpringSessionContext
                 </prop>
+                <prop key="hibernate.event.merge.entity_copy_observer">allow</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>

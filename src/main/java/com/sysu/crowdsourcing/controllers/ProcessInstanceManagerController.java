@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
@@ -24,15 +23,16 @@ import java.util.ArrayList;
 @Controller
 public class ProcessInstanceManagerController {
 
-    @Resource(name = "runtimeService")
-    RuntimeService runtimeService;
-
+    /* @Resource(name = "runtimeService")
+     RuntimeService runtimeService;
+ */
     @RequestMapping("/manage.do")
     public ModelAndView manage(@ModelAttribute UserEntity userEntity, HttpSession httpSession) {
 
         System.out.println("-------manage.do---------");
 
         ModelAndView modelAndView = new ModelAndView();
+        RuntimeService runtimeService = new RuntimeService();
         ArrayList<ProcessInstanceEntity> processInstanceEntityArrayList = runtimeService.createProcessInstanceQuery().getAllProcessInstance();
         modelAndView.addObject("processInstanceEntityArrayList", processInstanceEntityArrayList);
         modelAndView.setViewName("manager");

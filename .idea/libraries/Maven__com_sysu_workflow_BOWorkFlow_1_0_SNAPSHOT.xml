@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Maven: com.sysu.workflow:BOWorkFlow:1.0-SNAPSHOT">
+  <library name="Maven: com.sysu.workflow:BOWorkflow:1.0-SNAPSHOT">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT.jar!/" />
     </CLASSES>
@@ -8,7 +8,6 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-sources.jar!/" />
-      <root url="file://$PROJECT_DIR$/../BOWorkFlow/src/main/java" />
     </SOURCES>
   </library>
 </component>

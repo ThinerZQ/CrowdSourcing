@@ -2,7 +2,7 @@ package com.sysu.crowdsourcing;
 
 import com.sysu.workflow.entity.GroupEntity;
 import com.sysu.workflow.entity.UserEntity;
-import com.sysu.workflow.service.identityservice.IdentityService;
+import com.sysu.workflow.service.indentityservice.IdentityService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,12 +27,13 @@ import java.util.Set;
 @ContextConfiguration(locations = "/applicationContext.xml")
 @TransactionConfiguration
 public class DataTest extends AbstractJUnit4SpringContextTests {
-    @Resource(name = "identityService")
+   /* @Resource(name = "identityService")
     IdentityService identityService;
-
+*/
 
     @Test
     public void testAddUserAndGroup() {
+        IdentityService identityService = new IdentityService();
         //添加管理员
         UserEntity userEntity = identityService.newUser("admin");
         userEntity.setUserPassword("123456")

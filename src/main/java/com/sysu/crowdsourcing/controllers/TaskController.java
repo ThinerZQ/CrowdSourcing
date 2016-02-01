@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +21,9 @@ import java.util.Map;
 @Controller
 public class TaskController {
 
-
+    /*
     @Resource(name = "taskService")
-    TaskService taskService;
+    TaskService taskService;*/
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -45,12 +44,12 @@ public class TaskController {
 
         ModelAndView modelAndView = new ModelAndView();
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
-        ArrayList<UserWorkItemEntity> userWorkItemEntityList = taskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
+        ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
         //得到当前用户所在组的所有工作项
         for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
-            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = taskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
+            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
 
             //当前组有任务，就加入到map里面
             if (groupWorkItemEntityArrayList.size() != 0) {
@@ -89,9 +88,9 @@ public class TaskController {
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
 
         System.out.println(groupWorkItemId);
-
+        TaskService taskService = new TaskService();
         if (groupWorkItemId != null) {
-            GroupWorkItemEntity groupWorkItemEntity = taskService.createGroupTaskQuery().taskId(Integer.parseInt(groupWorkItemId)).SingleResult();
+            GroupWorkItemEntity groupWorkItemEntity = TaskService.createGroupTaskQuery().taskId(Integer.parseInt(groupWorkItemId)).SingleResult();
             //更新group workitem
             int instance;
             instance = groupWorkItemEntity.getItemInstances();
@@ -128,7 +127,7 @@ public class TaskController {
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
 
         System.out.println(taskWorkItemId);
-
+        TaskService taskService = new TaskService();
         if (taskWorkItemId != null) {
             UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(taskWorkItemId)).SingleResult();
             modelAndView.addObject("userWorkItemEntity", userWorkItemEntity);
