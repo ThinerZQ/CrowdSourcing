@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
 import com.sysu.crowdsourcing.dao.TaskDao;
-import com.sysu.crowdsourcing.entity.TaskEntity;
+import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.workflow.entity.UserWorkItemEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -24,12 +24,12 @@ public class TaskDaoImpl implements TaskDao {
 
 
     @Transactional
-    public long addTask(TaskEntity taskEntity) {
+    public long addTask(CrowdSourcingTask crowdSourcingTask) {
 
         long id = 0;
         try {
             Session session = sessionFactory.getCurrentSession();
-            id = (Long) session.save(taskEntity);
+            id = (Long) session.save(crowdSourcingTask);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -44,7 +44,7 @@ public class TaskDaoImpl implements TaskDao {
         int result = 0;
         try {
             Session session = sessionFactory.getCurrentSession();
-            String hql = "delete TaskEntity as t where t.taskId =?";
+            String hql = "delete CrowdSourcingTask as t where t.taskId =?";
             Query query = session.createQuery(hql);
             query.setLong(0, taskId);
             result = query.executeUpdate();
@@ -56,37 +56,37 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Transactional
-    public boolean updateTask(TaskEntity taskEntity) {
+    public boolean updateTask(CrowdSourcingTask crowdSourcingTask) {
         return false;
     }
 
     @Transactional
-    public List<TaskEntity> findAllTask() {
-        List<TaskEntity> taskEntityList = new ArrayList<TaskEntity>();
+    public List<CrowdSourcingTask> findAllTask() {
+        List<CrowdSourcingTask> crowdSourcingTaskList = new ArrayList<CrowdSourcingTask>();
         try {
             Session session = sessionFactory.getCurrentSession();
-            Criteria criteria = session.createCriteria(TaskEntity.class);
+            Criteria criteria = session.createCriteria(CrowdSourcingTask.class);
             criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-            taskEntityList = criteria.list();
+            crowdSourcingTaskList = criteria.list();
             //Hibernate.initialize();
             //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
 
         } finally {
-            return taskEntityList;
+            return crowdSourcingTaskList;
         }
 
     }
 
     @Transactional
-    public TaskEntity findTaskById(String id) {
+    public CrowdSourcingTask findTaskById(String id) {
 
         return null;
 
     }
 
     @Transactional
-    public List<TaskEntity> findTaskByCriteria(Criteria criteria) {
+    public List<CrowdSourcingTask> findTaskByCriteria(Criteria criteria) {
         return null;
     }
 
@@ -96,7 +96,7 @@ public class TaskDaoImpl implements TaskDao {
         List<UserWorkItemEntity> workItemEntityList = new ArrayList<UserWorkItemEntity>();
         try {
             Session session = sessionFactory.getCurrentSession();
-            Criteria criteria = session.createCriteria(TaskEntity.class);
+            Criteria criteria = session.createCriteria(CrowdSourcingTask.class);
             criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             workItemEntityList = criteria.list();
             //Hibernate.initialize();

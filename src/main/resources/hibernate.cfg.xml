@@ -1,4 +1,3 @@
-<!--
 <?xml version='1.0' encoding='utf-8'?>
 
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -17,9 +16,10 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.event.merge.entity_copy_observer">allow</property>
 
         <mapping class="com.sysu.workflow.entity.UserEntity"/>
-        <mapping class="com.sysu.crowdsourcing.entity.TaskEntity"/>
+        <mapping class="com.sysu.crowdsourcing.entity.CrowdSourcingTask"/>
         <mapping class="com.sysu.workflow.entity.GroupEntity"/>
         <mapping class="com.sysu.workflow.entity.UserWorkItemEntity"/>
         <mapping class="com.sysu.workflow.entity.GroupWorkItemEntity"/>
@@ -29,4 +29,3 @@
 
     </session-factory>
 </hibernate-configuration>
--->

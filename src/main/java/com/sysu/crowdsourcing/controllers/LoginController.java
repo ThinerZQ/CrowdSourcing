@@ -31,7 +31,7 @@ public class LoginController {
             if ("admin".equals(queriedUserEntity.getUserRealName())) {
                 modelAndView.setViewName("redirect:/manage.do");
             } else if ("poster".equals(queriedUserEntity.getUserRealName())) {
-                modelAndView.setViewName("post");
+                modelAndView.setViewName("postTask");
             } else {
                 modelAndView.setViewName("redirect:/myTask.do");
             }

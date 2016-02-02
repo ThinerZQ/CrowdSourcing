@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer text-right">
-                                        <a href="${pageContext.request.contextPath}/taskDetail.do?taskItemId=<c:out value="${userWorkItemEntity.itemId}"></c:out>"
+                                        <a href="${pageContext.request.contextPath}/userTaskDetail.do?userWorkItemId=<c:out value="${userWorkItemEntity.itemId}"></c:out>"
                                            class="btn btn-success" role="button">详细</a>
                                     </div>
                                 </div>
@@ -172,7 +172,8 @@
                                         <div class="panel-footer text-right">
                                             <a href="${pageContext.request.contextPath}/signIn.do?groupWorkItemId=<c:out value="${groupWorkItemEntity.itemId}"></c:out>"
                                                class="btn btn-group" role="button">签收</a>
-                                            <a href="#" class="btn btn-success" role="button">详细</a>
+                                            <a href="${pageContext.request.contextPath}/groupTaskDetail.do?groupWorkItemId=<c:out value="${groupWorkItemEntity.itemId}"></c:out>"
+                                               class="btn btn-success" role="button">详细</a>
                                         </div>
                                     </div>
                                 </c:forEach>

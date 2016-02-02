@@ -119,21 +119,39 @@ public class TaskController {
         return modelAndView;
     }
 
-    @RequestMapping("/taskDetail.do")
-    public ModelAndView taskDetail(String taskWorkItemId, HttpSession httpSession) {
+    @RequestMapping("/userTaskDetail.do")
+    public ModelAndView userTaskDetail(String userWorkItemId, HttpSession httpSession) {
         System.out.println("--------taskDetail.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
 
-        System.out.println(taskWorkItemId);
+        System.out.println(userWorkItemId);
         TaskService taskService = new TaskService();
-        if (taskWorkItemId != null) {
-            UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(taskWorkItemId)).SingleResult();
+        if (userWorkItemId != null) {
+            UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
             modelAndView.addObject("userWorkItemEntity", userWorkItemEntity);
             modelAndView.setViewName("taskDetail");
         }
 
+        return modelAndView;
+    }
+
+
+    @RequestMapping("/groupTaskDetail.do")
+    public ModelAndView groupTaskDetail(String groupWorkItemId, HttpSession httpSession) {
+        System.out.println("--------taskDetail.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+        UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
+
+        System.out.println(groupWorkItemId);
+        TaskService taskService = new TaskService();
+        if (groupWorkItemId != null) {
+            GroupWorkItemEntity groupWorkItemEntity = taskService.createGroupTaskQuery().taskId(Integer.parseInt(groupWorkItemId)).SingleResult();
+            modelAndView.addObject("groupWorkItemEntity", groupWorkItemEntity);
+            modelAndView.setViewName("taskDetail");
+        }
         return modelAndView;
     }
 

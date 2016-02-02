@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
 
-import com.sysu.crowdsourcing.entity.TaskEntity;
+import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.crowdsourcing.services.PostService;
 import com.sysu.crowdsourcing.tools.TaskType;
 import com.sysu.workflow.entity.UserEntity;
@@ -24,31 +24,30 @@ public class PostController {
     PostService postService;
 
     @RequestMapping("/post.do")
-    public ModelAndView postTask(@ModelAttribute TaskEntity taskEntity, HttpSession httpSession) {
+    public ModelAndView postTask(@ModelAttribute CrowdSourcingTask crowdSourcingTask, HttpSession httpSession) {
 
         System.out.println("--------postTask----------");
 
         ModelAndView modelAndView = new ModelAndView();
 
-        taskEntity.setTaskType(TaskType.MainTask);
-        taskEntity.setTaskReleaseTime(new Date());
+        crowdSourcingTask.setTaskType(TaskType.MainTask);
+        crowdSourcingTask.setTaskReleaseTime(new Date());
 
         UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
-        taskEntity.setUserEntity(userEntity);
+        crowdSourcingTask.setUserEntity(userEntity);
 
-        System.out.printf(taskEntity.toString());
+        System.out.printf(crowdSourcingTask.toString());
 
 
-        boolean b = postService.postTask(taskEntity);
+        boolean b = postService.postTask(crowdSourcingTask);
 
         if (b) {
-            modelAndView.addObject("sucessMessage", "发布成功");
+            modelAndView.addObject("sucessMessage", "Post Success");
             modelAndView.setViewName("sucess");
         } else {
-            modelAndView.addObject("errorMessage", "发布错误");
+            modelAndView.addObject("errorMessage", "Post Error");
             modelAndView.setViewName("error");
         }
         return modelAndView;
-
     }
 }

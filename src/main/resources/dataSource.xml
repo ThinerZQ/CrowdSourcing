@@ -25,7 +25,7 @@
                 <value>com.sysu.workflow.entity.ProcessInstanceEntity</value>
                 <value>com.sysu.workflow.entity.FormEntity</value>
                 <value>com.sysu.workflow.entity.FormItemEntity</value>
-                <value>com.sysu.crowdsourcing.entity.TaskEntity</value>
+                <value>com.sysu.crowdsourcing.entity.CrowdSourcingTask</value>
 
             </list>
         </property>

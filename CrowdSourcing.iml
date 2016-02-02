@@ -23,6 +23,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="9be9d642-e84e-4048-8196-c6238831a2be" />
+          <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="sessionFactory" value="mysqlDataSource" />
         </datasource-map>
         <naming-strategy-map />

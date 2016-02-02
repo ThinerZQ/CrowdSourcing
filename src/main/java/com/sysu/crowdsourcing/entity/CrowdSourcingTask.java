@@ -12,33 +12,68 @@ import java.util.Date;
  * Created by zhengshouzi on 2015/9/17.
  */
 @Entity
-@Table(name = "t_task")
-public class TaskEntity {
-
-
-    @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
-    public long taskId;
-    @Basic
-    public String taskName;
-    @Basic
-    public String taskDescription;
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date taskReleaseTime;
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date taskDeadlineTime;
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date taskCompleteTime;
-    @Basic
-    public String taskType;
-    @Basic
-    public String taskPrice;
+@Table(name = "t_crowdsourcingtask")
+public class CrowdSourcingTask {
 
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
     public UserEntity userEntity;
+    @Id
+    @GeneratedValue(generator = "generator")
+    @GenericGenerator(name = "generator", strategy = "identity")
+    private long taskId;
+    @Basic
+    private String taskName;
+    @Basic
+    private String taskDescription;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date taskReleaseTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date taskDeadlineTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date taskCompleteTime;
+    @Basic
+    private String taskType;
+    @Basic
+    private String taskPrice;
+    @Basic
+    private int taskJudgeCount = 3;
+    @Basic
+    private int taskDecomposeCount = 2;
+    @Basic
+    private int taskDecomposeVoteCount = 3;
+    @Basic
+    private int taskSolveCount = 2;
+    @Basic
+    private int taskSolveVoteCount = 3;
+    @Basic
+    private String stateMachineId;
+
+
+    public void updateTaskType(String taskType) {
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public long getTaskId() {
@@ -113,10 +148,57 @@ public class TaskEntity {
         this.taskType = taskType;
     }
 
+    public int getTaskJudgeCount() {
+        return taskJudgeCount;
+    }
+
+    public void setTaskJudgeCount(int taskJudgeCount) {
+        this.taskJudgeCount = taskJudgeCount;
+    }
+
+    public int getTaskDecomposeCount() {
+        return taskDecomposeCount;
+    }
+
+    public void setTaskDecomposeCount(int taskDecomposeCount) {
+        this.taskDecomposeCount = taskDecomposeCount;
+    }
+
+    public int getTaskDecomposeVoteCount() {
+        return taskDecomposeVoteCount;
+    }
+
+    public void setTaskDecomposeVoteCount(int taskDecomposeVoteCount) {
+        this.taskDecomposeVoteCount = taskDecomposeVoteCount;
+    }
+
+    public String getStateMachineId() {
+        return stateMachineId;
+    }
+
+    public void setStateMachineId(String stateMachineId) {
+        this.stateMachineId = stateMachineId;
+    }
+
+    public int getTaskSolveCount() {
+        return taskSolveCount;
+    }
+
+    public void setTaskSolveCount(int taskSolveCount) {
+        this.taskSolveCount = taskSolveCount;
+    }
+
+    public int getTaskSolveVoteCount() {
+        return taskSolveVoteCount;
+    }
+
+    public void setTaskSolveVoteCount(int taskSolveVoteCount) {
+        this.taskSolveVoteCount = taskSolveVoteCount;
+    }
 
     @Override
     public String toString() {
-        return "TaskEntity{" +
+        return "CrowdSourcingTask{" +
                 "taskId=" + taskId +
                 ", taskName='" + taskName + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +
@@ -125,7 +207,13 @@ public class TaskEntity {
                 ", taskCompleteTime=" + taskCompleteTime +
                 ", taskType='" + taskType + '\'' +
                 ", taskPrice='" + taskPrice + '\'' +
+                ", taskJudgeCount=" + taskJudgeCount +
+                ", taskDecomposeCount=" + taskDecomposeCount +
+                ", taskDecomposeVoteCount=" + taskDecomposeVoteCount +
+                ", taskSolveCount=" + taskSolveCount +
+                ", taskSolveVoteCount=" + taskSolveVoteCount +
                 ", userEntity=" + userEntity +
+                ", stateMachineId=" + stateMachineId +
                 '}';
     }
 }
