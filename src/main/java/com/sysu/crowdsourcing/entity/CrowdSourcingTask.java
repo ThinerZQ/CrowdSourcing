@@ -1,6 +1,7 @@
 package com.sysu.crowdsourcing.entity;
 
 
+import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.entity.UserEntity;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -47,8 +48,9 @@ public class CrowdSourcingTask {
     private int taskSolveCount = 2;
     @Basic
     private int taskSolveVoteCount = 3;
-    @Basic
-    private String stateMachineId;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "processInstanceId")
+    private ProcessInstanceEntity processInstanceEntity;
 
 
     public void updateTaskType(String taskType) {
@@ -172,12 +174,12 @@ public class CrowdSourcingTask {
         this.taskDecomposeVoteCount = taskDecomposeVoteCount;
     }
 
-    public String getStateMachineId() {
-        return stateMachineId;
+    public ProcessInstanceEntity getProcessInstanceEntity() {
+        return processInstanceEntity;
     }
 
-    public void setStateMachineId(String stateMachineId) {
-        this.stateMachineId = stateMachineId;
+    public void setProcessInstanceEntity(ProcessInstanceEntity processInstanceEntity) {
+        this.processInstanceEntity = processInstanceEntity;
     }
 
     public int getTaskSolveCount() {
@@ -213,7 +215,7 @@ public class CrowdSourcingTask {
                 ", taskSolveCount=" + taskSolveCount +
                 ", taskSolveVoteCount=" + taskSolveVoteCount +
                 ", userEntity=" + userEntity +
-                ", stateMachineId=" + stateMachineId +
+                ", processInstanceEntity=" + processInstanceEntity +
                 '}';
     }
 }

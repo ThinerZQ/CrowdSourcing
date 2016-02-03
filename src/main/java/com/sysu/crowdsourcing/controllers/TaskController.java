@@ -107,7 +107,8 @@ public class TaskController {
                         .setItemProcessId(groupWorkItemEntity.getItemProcessId())
                         .setItemAssigneeEntity(currentUserEntity)
                         .setItemFormEntity(groupWorkItemEntity.getItemFormEntity())
-                        .setItemGroupWorkItemEntity(groupWorkItemEntity);
+                        .setItemGroupWorkItemEntity(groupWorkItemEntity)
+                        .setItemProcessInstanceEntity(groupWorkItemEntity.getItemProcessInstanceEntity());
                 taskService.saveUserWorkItem(userWorkItemEntity);
 
                 instance = groupWorkItemEntity.getItemInstances() - 1;

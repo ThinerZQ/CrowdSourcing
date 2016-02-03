@@ -7,11 +7,13 @@ import com.sysu.workflow.Context;
 import com.sysu.workflow.Evaluator;
 import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.SCXMLSystemContext;
+import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.env.MulitStateMachineDispatcher;
 import com.sysu.workflow.env.SimpleErrorReporter;
 import com.sysu.workflow.env.jexl.JexlEvaluator;
 import com.sysu.workflow.io.SCXMLReader;
 import com.sysu.workflow.model.SCXML;
+import com.sysu.workflow.service.processservice.RuntimeService;
 
 import javax.annotation.Resource;
 import java.net.URL;
@@ -44,11 +46,11 @@ public class PostServiceImpl implements PostService {
             Context rootContext = evaluator.newContext(null);
             rootContext.set("crowdSourcingTask", crowdSourcingTask);
             executor.setRootContext(rootContext);
-
+            System.out.println(crowdSourcingTask.toString());
             //启动当前任务对应的状态机
             executor.go();
-
-            crowdSourcingTask.setStateMachineId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY));
+            ProcessInstanceEntity processInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY)).SingleResult();
+            crowdSourcingTask.setProcessInstanceEntity(processInstanceEntity);
 
             id = taskDao.addTask(crowdSourcingTask);
             flag = true;

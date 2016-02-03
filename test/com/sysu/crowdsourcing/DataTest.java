@@ -47,14 +47,14 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
 
         //添加发布者
         UserEntity userEntity1 = identityService.newUser("poster");
-        userEntity.setUserPassword("123456")
+        userEntity1.setUserPassword("123456")
                 .setUserName("poster")
                 .setUserAge("23")
                 .setUserEmail("poster@qq.com")
                 .setUserGender("man")
                 .setUserStatus("1")
                 .setUserRegisterDate(new Date());
-        identityService.saveUser(userEntity);
+        identityService.saveUser(userEntity1);
 
         //添加用户对应的组
         GroupEntity judgerGroupEntity = identityService.newGroup("Judger");

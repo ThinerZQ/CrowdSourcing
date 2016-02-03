@@ -14,7 +14,6 @@ public class TestSomeUncertain {
         Timestamp timestamp = Timestamp.valueOf(s);
         System.out.printf(timestamp.toString());
 
-
     }
 
 

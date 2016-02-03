@@ -26,15 +26,15 @@
             <script>
                 taskName=crowdSourcingTask.getTaskName();
                 taskDescription=crowdSourcingTask.getTaskDescription();
-                judgeCount = crowdSourcingTask.getJudgeCount();
-                decomposeCount= crowdSourcingTask.getDecomposeCount();
-                decomposeVoteCount= crowdSourcingTask.getDecomposeVoteTask();
-                solveCount= crowdSourcingTask.getSolveCount();
-                solveVoteCount= crowdSourcingTask.getSolveVoteCount();
+                judgeCount = crowdSourcingTask.getTaskJudgeCount();
+                decomposeCount= crowdSourcingTask.getTaskDecomposeCount();
+                decomposeVoteCount= crowdSourcingTask.getTaskDecomposeVoteCount();
+                solveCount= crowdSourcingTask.getTaskSolveCount();
+                solveVoteCount= crowdSourcingTask.getTaskSolveVoteCount();
             </script>
-            <log expr="initialization complete"></log>
+            <log expr="'initialization complete'"></log>
         </onentry>
-        <transition event="init" target="judging">
+        <transition target="judging">
             <log expr="'init state transition to judging'"/>
         </transition>
         <onexit>
