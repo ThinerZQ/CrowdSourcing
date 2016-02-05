@@ -7,6 +7,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -57,26 +59,6 @@ public class CrowdSourcingTask {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public long getTaskId() {
         return taskId;
@@ -218,4 +200,23 @@ public class CrowdSourcingTask {
                 ", processInstanceEntity=" + processInstanceEntity +
                 '}';
     }
+
+    public Map<String, Object> getNotNullPropertyMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("currentObject", this.getClass().getName());
+        if (getTaskId() != 0) {
+            map.put("taskId", getTaskId());
+        }
+        if (getTaskName() != null) {
+            map.put("taskName", getTaskName());
+        }
+        if (getProcessInstanceEntity() != null) {
+            map.put("processInstanceEntity", getProcessInstanceEntity());
+        }
+
+        System.out.println("Query Condition: " + map);
+        map.remove("currentObject");
+        return map;
+    }
 }
+

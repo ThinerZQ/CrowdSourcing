@@ -23,6 +23,13 @@
     <jsp:include page="header.jsp"></jsp:include>
 </header>
 
-${sucessMessage}
+<div>
+    ${sucessMessage}
+</div>
+
+
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

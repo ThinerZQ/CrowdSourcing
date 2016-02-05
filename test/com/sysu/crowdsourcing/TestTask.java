@@ -1,14 +1,16 @@
 package com.sysu.crowdsourcing;
 
-import com.sysu.crowdsourcing.dao.TaskDao;
+import com.sysu.crowdsourcing.dao.CrowdSourcingTaskDao;
 import com.sysu.crowdsourcing.dao.UserDao;
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
+import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -21,11 +23,12 @@ import java.util.Date;
 @TransactionConfiguration
 public class TestTask extends AbstractJUnit4SpringContextTests {
 
+    @Resource(name = "sessionFactory")
+    public SessionFactory sessionFactory;
     @Resource(name = "userDao")
     UserDao userDao;
-    @Resource(name = "taskDao")
-    TaskDao taskDao;
-
+    @Resource(name = "crowdSourcingTaskDao")
+    CrowdSourcingTaskDao crowdSourcingTaskDao;
 
     @Test
     public void testPostTask() {
@@ -38,7 +41,18 @@ public class TestTask extends AbstractJUnit4SpringContextTests {
             crowdSourcingTask.setTaskDeadlineTime(new Date());
             crowdSourcingTask.setTaskReleaseTime(new Date());
             crowdSourcingTask.setTaskPrice("10000");
-            taskDao.addTask(crowdSourcingTask);
+            crowdSourcingTaskDao.addTask(crowdSourcingTask);
         }
+    }
+
+    @Test
+    @Transactional
+    public void testGetCrowdSourcingTask() {
+        /*//ProcessInstanceEntity processInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId("10").SingleResult();
+        CrowdSourcingTask crowdSourcingTask = new CrowdSourcingTask();
+       // crowdSourcingTask.setProcessInstanceEntity(processInstanceEntity);
+        List<CrowdSourcingTask> task =crowdSourcingTaskDao.getCrowdSourcingTask(crowdSourcingTask);*/
+        crowdSourcingTaskDao.getCrowdSourcingTaskByProcessInstanceId(10);
+        // System.out.println(task.size());
     }
 }

@@ -12,7 +12,6 @@
         <data id="taskDescription" expr=""></data>
         <data id="dueDate"></data>
 
-
         <data id="judgeCount" expr=""></data>
         <data id="decomposeCount" expr=""></data>
         <data id="decomposeVoteCount" expr=""></data>
@@ -52,9 +51,8 @@
         <onentry>
             <log expr="'entry judging state'"/>
             <userTask id="judge" name="JudgeTask" candidateGroups="Judger" instancesExpr="judgeCount">
-                <form>
-                    <param name="任务名字" expr="taskName" type="input"></param>
-                    <param name="任务描述" expr="taskDescription" type="input"></param>
+                <form src="form/judge.jsp">
+
                 </form>
             </userTask>
         </onentry>
@@ -93,6 +91,9 @@
             <log expr="'entry decomposing state'"/>
             <userTask id="decompose" name="DecomposeTask" candidateGroups="Decomposer"
                       instancesExpr="decomposeCount">
+                <form src="form/decompose.jsp">
+
+                </form>
             </userTask>
         </onentry>
 

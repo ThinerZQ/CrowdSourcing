@@ -21,6 +21,12 @@
     <jsp:include page="header.jsp"></jsp:include>
 </header>
 
-${errorMessage}
+<div>
+    ${errorMessage}
+</div>
+
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

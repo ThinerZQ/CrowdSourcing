@@ -7,6 +7,8 @@
     <bean id="registerService" class="com.sysu.crowdsourcing.services.impl.RegisterServiceImpl"></bean>
     <bean id="postService" class="com.sysu.crowdsourcing.services.impl.PostServiceImpl"></bean>
     <bean id="loginService" class="com.sysu.crowdsourcing.services.impl.LoginServiceImpl"></bean>
+    <bean id="crowdSourcingTaskService"
+          class="com.sysu.crowdsourcing.services.impl.CrowdSourcingTaskServiceImpl"></bean>
 
 
     <!--

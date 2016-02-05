@@ -9,10 +9,18 @@ import java.util.List;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
-public interface TaskDao {
+public interface CrowdSourcingTaskDao {
     long addTask(CrowdSourcingTask crowdSourcingTask);
 
     boolean deleteTaskById(long taskId);
+
+    CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId);
+
+
+    List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask);
+
+
+
 
     boolean updateTask(CrowdSourcingTask crowdSourcingTask);
 
@@ -21,7 +29,6 @@ public interface TaskDao {
     List<CrowdSourcingTask> findTaskByCriteria(Criteria criteria);
 
     List<UserWorkItemEntity> findAllWorkitem();
-
 
 
 }

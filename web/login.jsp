@@ -15,7 +15,7 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/header.js"></script>
-    <title>register</title>
+    <title>login</title>
 
     <script type="text/javascript" src="js/login.js"></script>
 
@@ -69,6 +69,9 @@
         </div>
     </div>
 </div>
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 
 </html>

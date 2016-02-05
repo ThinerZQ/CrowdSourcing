@@ -5,7 +5,8 @@
 
 
     <bean id="userDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.UserDaoImpl"></bean>
-    <bean id="taskDao" class="com.sysu.crowdsourcing.dao.impl.SessionFactory.TaskDaoImpl"></bean>
+    <bean id="crowdSourcingTaskDao"
+          class="com.sysu.crowdsourcing.dao.impl.SessionFactory.CrowdSourcingTaskDaoImpl"></bean>
 
 
     <!--

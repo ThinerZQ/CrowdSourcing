@@ -1,6 +1,8 @@
 package com.sysu.crowdsourcing.controllers;
 
 
+import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
+import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
 import com.sysu.workflow.entity.GroupEntity;
 import com.sysu.workflow.entity.GroupWorkItemEntity;
 import com.sysu.workflow.entity.UserEntity;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,9 +24,8 @@ import java.util.Map;
 @Controller
 public class TaskController {
 
-    /*
-    @Resource(name = "taskService")
-    TaskService taskService;*/
+    @Resource(name = "crowdSourcingTaskService")
+    CrowdSourcingTaskService crowdSourcingTaskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -131,7 +133,11 @@ public class TaskController {
         TaskService taskService = new TaskService();
         if (userWorkItemId != null) {
             UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+            CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
+            String currentState = userWorkItemEntity.getItemProcessInstanceEntity().getProcessInstanceCurrentState();
             modelAndView.addObject("userWorkItemEntity", userWorkItemEntity);
+            modelAndView.addObject("crowdSourcingTask", crowdSourcingTask);
+            modelAndView.addObject("currentState", currentState);
             modelAndView.setViewName("taskDetail");
         }
 
@@ -156,75 +162,56 @@ public class TaskController {
         return modelAndView;
     }
 
-    @RequestMapping("/task.do")
-    public ModelAndView task() {
-
-        System.out.println("--------task.do----------");
-
-        ModelAndView modelAndView = new ModelAndView();
-       /* List<TaskEntity> taskEntityList = taskService.getAllTask();
-        modelAndView.addObject("taskEntityList", taskEntityList);*/
-        modelAndView.setViewName("task");
-        return modelAndView;
-    }
 
     @RequestMapping("/judgeTask.do")
-    public ModelAndView judgeTask() {
+    public ModelAndView judgeTask(HttpSession httpSession) {
 
         System.out.println("--------judgeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-       /* List<JudgetaskEntity> judgetaskEntityList = judgeTaskService.getAllJudgeTask();
-        modelAndView.addObject("judgetaskEntityList", judgetaskEntityList);
-        modelAndView.setViewName("judgeTask");*/
-        return modelAndView;
-    }
-
-    @RequestMapping("/solveTask.do")
-    public ModelAndView solveTask() {
-
-        System.out.println("--------solveTask.do----------");
-
-        ModelAndView modelAndView = new ModelAndView();
-      /*  List<SolvetaskEntity> solvetaskEntityList = solveTaskService.getAllSolveTask();
-        modelAndView.addObject("solvetaskEntityList", solvetaskEntityList);
-        modelAndView.setViewName("solveTask");*/
-        return modelAndView;
-    }
-
-    @RequestMapping("/mergeTask.do")
-    public ModelAndView mergeTask() {
-
-        System.out.println("--------mergeTask.do----------");
-
-        ModelAndView modelAndView = new ModelAndView();
-      /*  List<MergetaskEntity> mergetaskEntityList = mergeTaskService.getAllMergeTask();
-        modelAndView.addObject("mergetaskEntityList", mergetaskEntityList);
-        modelAndView.setViewName("mergeTask");*/
-        return modelAndView;
-    }
-
-    @RequestMapping("/voteTask.do")
-    public ModelAndView voteTask() {
-
-        System.out.println("--------voteTask.do----------");
-
-        ModelAndView modelAndView = new ModelAndView();
-     /*   List<VotetaskEntity> votetaskEntityList = voteTaskService.getAllVoteTask();
-        modelAndView.addObject("votetaskEntityList", votetaskEntityList);
-        modelAndView.setViewName("voteTask");*/
+        modelAndView.setViewName("redirect:/myTask.do?taskState=judging");
         return modelAndView;
     }
 
     @RequestMapping("/decomposeTask.do")
-    public ModelAndView decomposeTask() {
+    public ModelAndView solveTask() {
 
         System.out.println("--------decomposeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-      /*  List<DecomposetaskEntity> decomposetaskEntityList = decomposeTaskService.getAllDecomposeTask();
-        modelAndView.addObject("decomposetaskEntityList", decomposetaskEntityList);
-        modelAndView.setViewName("decomposeTask");*/
+        modelAndView.setViewName("redirect:/myTask.do?taskState=decomposing");
+        return modelAndView;
+    }
+
+    @RequestMapping("/decomposeVoteTask.do")
+    public ModelAndView mergeTask() {
+
+        System.out.println("--------decomposeVoteTask.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/myTask.do?taskState=decomposeVoting");
+        return modelAndView;
+    }
+
+    @RequestMapping("/solveTask.do")
+    public ModelAndView voteTask() {
+
+        System.out.println("--------solveTask.do----------");
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/myTask.do?taskState=solving");
+        return modelAndView;
+    }
+
+    @RequestMapping("/solveVoteTask.do")
+    public ModelAndView decomposeTask() {
+
+        System.out.println("--------solveVoteTask.do----------");
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
         return modelAndView;
     }
 

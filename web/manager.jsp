@@ -41,14 +41,15 @@
                     <td><c:out value="${processInstanceEntity.processinstanceId}"></c:out></td>
                     <td><c:out value="${processInstanceEntity.processinstanceName}"></c:out></td>
                     <td><c:out value="${processInstanceEntity.processinstanceCurrentState}"></c:out></td>
-                    >>
                     <td><c:out value="${processInstanceEntity.processinstanceCreateTime}"></c:out></td>
-                    >>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

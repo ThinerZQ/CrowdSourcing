@@ -1,12 +1,11 @@
 package com.sysu.crowdsourcing.dao.impl.SessionFactory;
 
-import com.sysu.crowdsourcing.dao.TaskDao;
+import com.sysu.crowdsourcing.dao.CrowdSourcingTaskDao;
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.workflow.entity.UserWorkItemEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import java.util.List;
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
-public class TaskDaoImpl implements TaskDao {
+public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
 
 
     @Resource(name = "sessionFactory")
@@ -56,6 +55,52 @@ public class TaskDaoImpl implements TaskDao {
     }
 
     @Transactional
+    public CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId) {
+
+
+        CrowdSourcingTask crowdSourcingTask = new CrowdSourcingTask();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            String hql = "select * from t_crowdsourcingtask where processInstanceId =" + processInstanceId;
+            SQLQuery query = session.createSQLQuery(hql).addEntity(CrowdSourcingTask.class);
+            List<CrowdSourcingTask> crowdSourcingTasks = query.list();
+
+            if (crowdSourcingTasks.size() == 1) {
+                crowdSourcingTask = crowdSourcingTasks.listIterator().next();
+            } else {
+                System.out.println("no crowdSourcingTask");
+            }
+
+            System.out.println(crowdSourcingTask);
+            //Hibernate.initialize();
+            //System.out.printf(taskEntityList.get(0).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return crowdSourcingTask;
+        }
+    }
+
+    public List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+        List<CrowdSourcingTask> crowdSourcingTaskList = new ArrayList<CrowdSourcingTask>();
+        //TODO:some error to fix
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            Criteria criteria = session.createCriteria(CrowdSourcingTask.class);
+            Criterion criterion = Restrictions.allEq(crowdSourcingTask.getNotNullPropertyMap());
+            criteria.add(criterion);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+            crowdSourcingTaskList = criteria.list();
+            //Hibernate.initialize();
+            //System.out.printf(taskEntityList.get(0).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return crowdSourcingTaskList;
+        }
+    }
+
+    @Transactional
     public boolean updateTask(CrowdSourcingTask crowdSourcingTask) {
         return false;
     }
@@ -71,7 +116,7 @@ public class TaskDaoImpl implements TaskDao {
             //Hibernate.initialize();
             //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
             return crowdSourcingTaskList;
         }
@@ -102,7 +147,7 @@ public class TaskDaoImpl implements TaskDao {
             //Hibernate.initialize();
             //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
             return workItemEntityList;
         }

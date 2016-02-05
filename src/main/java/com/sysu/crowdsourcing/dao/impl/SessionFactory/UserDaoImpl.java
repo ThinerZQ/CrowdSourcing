@@ -153,7 +153,6 @@ public class UserDaoImpl implements UserDao {
         } finally {
             return b;
         }
-
     }
 
     @Transactional

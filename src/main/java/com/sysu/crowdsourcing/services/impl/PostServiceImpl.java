@@ -1,6 +1,6 @@
 package com.sysu.crowdsourcing.services.impl;
 
-import com.sysu.crowdsourcing.dao.TaskDao;
+import com.sysu.crowdsourcing.dao.CrowdSourcingTaskDao;
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.crowdsourcing.services.PostService;
 import com.sysu.workflow.Context;
@@ -23,8 +23,8 @@ import java.net.URL;
  */
 public class PostServiceImpl implements PostService {
 
-    @Resource(name = "taskDao")
-    TaskDao taskDao;
+    @Resource(name = "crowdSourcingTaskDao")
+    CrowdSourcingTaskDao crowdSorucingTaskDao;
 
 
     public boolean postTask(CrowdSourcingTask crowdSourcingTask) {
@@ -52,12 +52,13 @@ public class PostServiceImpl implements PostService {
             ProcessInstanceEntity processInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY)).SingleResult();
             crowdSourcingTask.setProcessInstanceEntity(processInstanceEntity);
 
-            id = taskDao.addTask(crowdSourcingTask);
+
+            id = crowdSorucingTaskDao.addTask(crowdSourcingTask);
             flag = true;
         } catch (Exception e) {
             e.printStackTrace();
             if (id != 0) {
-                taskDao.deleteTaskById(id);
+                crowdSorucingTaskDao.deleteTaskById(id);
             }
             flag = false;
         }
