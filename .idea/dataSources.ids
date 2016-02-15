@@ -91,6 +91,15 @@
       <index name="FK_jablvwkoxih7jwc5s1ompgl5u" unique="false" columns="processInstanceEntity"/>
       <index name="FK_q3ehpgsy6v3wyek0bt3vmg93e" unique="false" columns="groupEntity"/>
     </table>
+    <table name="t_judgetask" schema="" catalog="crowdsourcing" type="TABLE">
+      <column name="taskId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="property" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taskCompleteTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="userworkitem_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="taskId"/>
+      <foreign-key name="FK_pe5y1aatbgghhw5d5ljquswxw" columns="userworkitem_id" ref-table="t_userworkitem" ref-schema="" ref-catalog="crowdsourcing" ref-columns="itemId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_pe5y1aatbgghhw5d5ljquswxw" unique="false" columns="userworkitem_id"/>
+    </table>
     <table name="t_processinstance" schema="" catalog="crowdsourcing" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="processInstanceCreateTime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
@@ -139,6 +148,7 @@
       <column name="itemId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="itemCreateTime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="itemDueTime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="itemFinish" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="itemName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="itemProcessId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="itemStateId" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
@@ -151,6 +161,7 @@
       <foreign-key name="FK_3fly0xvvndw6pbmfxe09nn6bb" columns="itemAssignee" ref-table="t_user" ref-schema="" ref-catalog="crowdsourcing" ref-columns="userId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_f40hve5p82fq0v07xdf9f6stp" columns="groupWorkItemEntity" ref-table="t_groupworkitem" ref-schema="" ref-catalog="crowdsourcing" ref-columns="itemId" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_lcioq853iir0avq4dyr26ptjj" columns="formEntity" ref-table="t_form" ref-schema="" ref-catalog="crowdsourcing" ref-columns="formId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_pe5y1aatbgghhw5d5ljquswxw" table="t_judgetask" schema="" catalog="crowdsourcing" columns="userworkitem_id"/>
       <index name="FK_3fly0xvvndw6pbmfxe09nn6bb" unique="false" columns="itemAssignee"/>
       <index name="FK_bdbioi0oovfp48l7mp1vfd7d1" unique="false" columns="processInstanceEntity"/>
       <index name="FK_f40hve5p82fq0v07xdf9f6stp" unique="false" columns="groupWorkItemEntity"/>

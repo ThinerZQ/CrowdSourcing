@@ -5,7 +5,7 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="home">
         <c:if test="${null !=  userWorkItemEntity}">
-        <form>
+            <form action="${pageContext.request.contextPath}/completeJudgeTask.do" class="form-horizontal">
             <div class="panel panel-primary panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">WorkItemName：<c:out
@@ -46,14 +46,16 @@
                                         <input type="radio" name="property" value="complex"/> Complex
                                     </td>
                                 </tr>
+
                             </table>
+                            <input hidden="hidden" type="text"
+                                   value="<c:out value='${userWorkItemEntity.itemId}'></c:out>" name="userWorkItemId">
 
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-right">
-                    <a href="${pageContext.request.contextPath}/complete.do?userWorkItemId=<c:out value="${userWorkItemEntity.itemId}"></c:out>"
-                       class="btn btn-group" role="button">Complete</a>
+                    <button class="btn-success btn btn-group" type="submit">Complete</button>
                 </div>
             </div>
         </form>

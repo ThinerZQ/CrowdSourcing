@@ -32,8 +32,7 @@ public class ProcessInstanceManagerController {
         System.out.println("-------manage.do---------");
 
         ModelAndView modelAndView = new ModelAndView();
-        RuntimeService runtimeService = new RuntimeService();
-        ArrayList<ProcessInstanceEntity> processInstanceEntityArrayList = runtimeService.createProcessInstanceQuery().getAllProcessInstance();
+        ArrayList<ProcessInstanceEntity> processInstanceEntityArrayList = RuntimeService.createProcessInstanceQuery().getAllProcessInstance();
         modelAndView.addObject("processInstanceEntityArrayList", processInstanceEntityArrayList);
         modelAndView.setViewName("manager");
 

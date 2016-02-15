@@ -13,3 +13,6 @@ function signIn() {
 function post() {
     window.location = "postTask.jsp";
 }
+function logout() {
+    window.location = "logout.do";
+}

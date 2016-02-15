@@ -38,10 +38,10 @@
             <tbody>
             <c:forEach items="${processInstanceEntityArrayList }" var="processInstanceEntity">
                 <tr>
-                    <td><c:out value="${processInstanceEntity.processinstanceId}"></c:out></td>
-                    <td><c:out value="${processInstanceEntity.processinstanceName}"></c:out></td>
-                    <td><c:out value="${processInstanceEntity.processinstanceCurrentState}"></c:out></td>
-                    <td><c:out value="${processInstanceEntity.processinstanceCreateTime}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processInstanceId}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processInstanceName}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processInstanceCurrentState}"></c:out></td>
+                    <td><c:out value="${processInstanceEntity.processInstanceCreateTime}"></c:out></td>
                 </tr>
             </c:forEach>
             </tbody>

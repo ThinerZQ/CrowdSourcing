@@ -3,6 +3,7 @@ package com.sysu.crowdsourcing.entity;
 
 import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.entity.UserEntity;
+import com.sysu.workflow.entity.WorkflowEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 @Entity
 @Table(name = "t_crowdsourcingtask")
-public class CrowdSourcingTask {
+public class CrowdSourcingTask implements WorkflowEntity {
 
 
     @ManyToOne()

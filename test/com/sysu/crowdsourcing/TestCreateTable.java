@@ -1,6 +1,5 @@
 package com.sysu.crowdsourcing;
 
-import com.sysu.crowdsourcing.dao.CrowdSourcingTaskDao;
 import com.sysu.crowdsourcing.dao.UserDao;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
@@ -23,8 +22,6 @@ public class TestCreateTable extends AbstractJUnit4SpringContextTests {
 
     @Resource(name = "userDao")
     UserDao userDao;
-    @Resource(name = "taskDao")
-    CrowdSourcingTaskDao taskDao;
 
     @Test
     public void testCreateTable() {

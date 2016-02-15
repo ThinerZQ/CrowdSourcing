@@ -52,7 +52,7 @@
                             <button type="button" class="btn btn-default" style="color: black">
                                 Your Profile
                             </button>
-                            <button type="button" class="btn btn-danger" style="color: black">
+                            <button type="button" class="btn btn-danger" style="color: black" onclick="logout()">
                                 Logout
                             </button>
                         </li>

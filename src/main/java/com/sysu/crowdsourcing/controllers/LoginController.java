@@ -43,5 +43,18 @@ public class LoginController {
         return modelAndView;
     }
 
+    @RequestMapping("/logout.do")
+    public ModelAndView logout(HttpSession httpSession) {
+
+        System.out.println("-------logout---------");
+        ModelAndView modelAndView = new ModelAndView();
+
+
+        httpSession.setAttribute("currentUserEntity", null);
+        modelAndView.setViewName("login");
+
+        return modelAndView;
+    }
+
 
 }

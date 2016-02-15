@@ -2,22 +2,25 @@ package com.sysu.crowdsourcing.controllers;
 
 
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
+import com.sysu.crowdsourcing.entity.JudgeTask;
 import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
+import com.sysu.crowdsourcing.services.JudgeTaskService;
+import com.sysu.workflow.TriggerEvent;
+import com.sysu.workflow.engine.SCXMLInstanceManager;
 import com.sysu.workflow.entity.GroupEntity;
 import com.sysu.workflow.entity.GroupWorkItemEntity;
 import com.sysu.workflow.entity.UserEntity;
 import com.sysu.workflow.entity.UserWorkItemEntity;
 import com.sysu.workflow.service.taskservice.TaskService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
+
 /**
  * Created by zhengshouzi on 2015/9/7.
  */
@@ -26,6 +29,9 @@ public class TaskController {
 
     @Resource(name = "crowdSourcingTaskService")
     CrowdSourcingTaskService crowdSourcingTaskService;
+
+    @Resource(name = "judgeTaskService")
+    JudgeTaskService judgeTaskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -46,7 +52,7 @@ public class TaskController {
 
         ModelAndView modelAndView = new ModelAndView();
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
-        ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
+        ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).taskFinish(null).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
         //得到当前用户所在组的所有工作项
@@ -73,6 +79,13 @@ public class TaskController {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             } else {
                 groupWorkItemArrayListMap.remove(groupEntity);
+            }
+        }
+        int size = userWorkItemEntityList.size();
+        for (int i = 0; i < size; i++) {
+            if (userWorkItemEntityList.get(i).getItemFinish().equals("yes")) {
+                userWorkItemEntityList.remove(i);
+                size--;
             }
         }
 
@@ -173,6 +186,51 @@ public class TaskController {
         return modelAndView;
     }
 
+    @RequestMapping("/completeJudgeTask.do")
+    public ModelAndView completeJudgeTask(@ModelAttribute JudgeTask judgeTask, String userWorkItemId, HttpSession httpSession) {
+
+        System.out.println("--------completeJudgeTask.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        judgeTask.setTaskCompleteTime(new Date());
+        System.out.println(judgeTask.toString());
+        System.out.println(userWorkItemId);
+        UserWorkItemEntity userWorkItemEntity = null;
+        try {
+            if (userWorkItemId != null) {
+                userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+                judgeTask.setUserWorkItemEntity(userWorkItemEntity);
+            }
+            if (judgeTask.getUserWorkItemEntity() == null) {
+                modelAndView.setViewName("error");
+                return modelAndView;
+            }
+            long id = judgeTaskService.saveJudgeTask(judgeTask);
+            //save result sucess ,then update itemFinish to yes
+            if (id != -1) {
+                userWorkItemEntity.setItemFinish("yes");
+                TaskService taskService = new TaskService();
+                taskService.updateUserWorkItem(userWorkItemEntity);
+
+                int simple = -1;
+                //notify scxml executor
+                if ("complex".equals(judgeTask.getProperty())) {
+                    simple = 1;
+                } else if ("simple".equals(judgeTask.getProperty())) {
+                    simple = 0;
+                }
+                Map<String, Object> dataMap = new HashMap<String, Object>();
+                dataMap.put("simple", simple);
+                System.out.println(SCXMLInstanceManager.getRunningSCXMLInstanceExecutorMap());
+                SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId()).triggerEvent(new TriggerEvent("judgeComplete", TriggerEvent.SIGNAL_EVENT, dataMap));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        modelAndView.setViewName("redirect:/myTask.do?taskState=judging");
+        return modelAndView;
+    }
     @RequestMapping("/decomposeTask.do")
     public ModelAndView solveTask() {
 

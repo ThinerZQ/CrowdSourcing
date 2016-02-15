@@ -51,8 +51,8 @@
                     </ul>
                 </li>
             </ul>
-            ${pageContext.request.contextPath}/${userWorkItemEntity.itemFormEntity.formName }
-            <jsp:include page="${userWorkItemEntity.itemFormEntity.formName }">
+            ${pageContext.request.contextPath}/${userWorkItemEntity.itemFormEntity.formSrc }
+            <jsp:include page="${userWorkItemEntity.itemFormEntity.formSrc }">
                 <jsp:param name="userWorkItemEntity" value="${userWorkItemEntity}"></jsp:param>
                 <jsp:param name="crowdSourcingTask" value="${crowdSourcingTask}"></jsp:param>
             </jsp:include>
