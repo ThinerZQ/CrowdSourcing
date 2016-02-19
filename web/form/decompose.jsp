@@ -40,7 +40,7 @@
                                         Steps
                                     </td>
                                     <td>
-                                        <input list="steps" onchange="popupSteps()" id="stepInput">
+                                        <input list="steps" onchange="popupSteps()" id="stepInput" name="steps">
                                         <datalist id="steps">
                                             <option value="2">2</option>
                                             <option value="3">3</option>

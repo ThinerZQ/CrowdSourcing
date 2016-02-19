@@ -9,8 +9,8 @@
     <bean id="loginService" class="com.sysu.crowdsourcing.services.impl.LoginServiceImpl"></bean>
     <bean id="crowdSourcingTaskService"
           class="com.sysu.crowdsourcing.services.impl.CrowdSourcingTaskServiceImpl"></bean>
-    <bean id="judgeTaskService"
-          class="com.sysu.crowdsourcing.services.impl.JudgeTaskServiceImpl"></bean>
+    <bean id="judgeTaskService" class="com.sysu.crowdsourcing.services.impl.JudgeTaskServiceImpl"></bean>
+    <bean id="decomposeTaskService" class="com.sysu.crowdsourcing.services.impl.DecomposeTaskServiceImpl"></bean>
 
 
     <!--

@@ -2,9 +2,13 @@ package com.sysu.crowdsourcing.controllers;
 
 
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
+import com.sysu.crowdsourcing.entity.DecomposeTask;
 import com.sysu.crowdsourcing.entity.JudgeTask;
+import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
 import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
+import com.sysu.crowdsourcing.services.DecomposeTaskService;
 import com.sysu.crowdsourcing.services.JudgeTaskService;
+import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.TriggerEvent;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
 import com.sysu.workflow.entity.GroupEntity;
@@ -18,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -32,6 +37,9 @@ public class TaskController {
 
     @Resource(name = "judgeTaskService")
     JudgeTaskService judgeTaskService;
+
+    @Resource(name = "decomposeTaskService")
+    DecomposeTaskService decomposeTaskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -140,7 +148,6 @@ public class TaskController {
         System.out.println("--------taskDetail.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
-        UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
 
         System.out.println(userWorkItemId);
         TaskService taskService = new TaskService();
@@ -148,14 +155,34 @@ public class TaskController {
             UserWorkItemEntity userWorkItemEntity = taskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
             CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
             String currentState = userWorkItemEntity.getItemProcessInstanceEntity().getProcessInstanceCurrentState();
+
+
+            if (userWorkItemEntity.getItemName().equals("DecomposeVoteTask")) {
+                ArrayList<UserWorkItemEntity> decomposeTaskUserWorkflowEntity = TaskService.createUserTaskQuery().taskFinish("yes").taskName("DecomposeTask").taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).list();
+
+                Map<UserWorkItemEntity, ArrayList<DecomposeTask>> decomposeTaskUserWorkflowMap = new HashMap<UserWorkItemEntity, ArrayList<DecomposeTask>>();
+                //get coorespond decompose result for each userworkflowEntity
+                for (UserWorkItemEntity tempEntity : decomposeTaskUserWorkflowEntity) {
+                    DecomposeTask tempDecomposeTask = new DecomposeTask();
+                    tempDecomposeTask.setUserWorkItemEntity(tempEntity);
+                    ArrayList<DecomposeTask> decomposeTaskArrayList = decomposeTaskService.getDecomposeTasks(tempDecomposeTask);
+                    decomposeTaskUserWorkflowMap.put(tempEntity, decomposeTaskArrayList);
+                }
+                modelAndView.addObject("decomposeTaskUserWorkflowMap", decomposeTaskUserWorkflowMap);
+            }
+
+
             modelAndView.addObject("userWorkItemEntity", userWorkItemEntity);
             modelAndView.addObject("crowdSourcingTask", crowdSourcingTask);
+
+
             modelAndView.addObject("currentState", currentState);
             modelAndView.setViewName("taskDetail");
         }
 
         return modelAndView;
     }
+
 
 
     @RequestMapping("/groupTaskDetail.do")
@@ -223,7 +250,11 @@ public class TaskController {
                 Map<String, Object> dataMap = new HashMap<String, Object>();
                 dataMap.put("simple", simple);
                 System.out.println(SCXMLInstanceManager.getRunningSCXMLInstanceExecutorMap());
-                SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId()).triggerEvent(new TriggerEvent("judgeComplete", TriggerEvent.SIGNAL_EVENT, dataMap));
+                SCXMLExecutor executor = SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId());
+                if (executor == null) {
+                    throw new SCXMLExecuteException("no executor exception");
+                }
+                executor.triggerEvent(new TriggerEvent("judgeComplete", TriggerEvent.SIGNAL_EVENT, dataMap));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -231,18 +262,70 @@ public class TaskController {
         modelAndView.setViewName("redirect:/myTask.do?taskState=judging");
         return modelAndView;
     }
-    @RequestMapping("/decomposeTask.do")
-    public ModelAndView solveTask() {
 
-        System.out.println("--------decomposeTask.do----------");
+    @RequestMapping("/completeDecomposeTask.do")
+    public ModelAndView completeDecomposeTask(String userWorkItemId, String steps, HttpServletRequest httpServletRequest) {
+
+        System.out.println("--------completeDecomposeTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
+
+        int step = 0;
+
+        //Ð´ÈëdecomposeVoteTask
+        if (userWorkItemId != null && steps != null && (step = Integer.parseInt(steps)) > 0) {
+            UserWorkItemEntity userWorkItemEntity = null;
+            try {
+                userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+                if (userWorkItemEntity == null) {
+                    modelAndView.setViewName("error");
+                    return modelAndView;
+                }
+
+                ArrayList<DecomposeTask> decomposeTasks = new ArrayList<DecomposeTask>();
+                for (int i = 1; i <= step; i++) {
+
+                    DecomposeTask decomposeTask = new DecomposeTask();
+                    decomposeTask.setTaskCompleteTime(new Date());
+
+                    String order = (String) httpServletRequest.getAttribute("order" + i);
+                    String stepName = (String) httpServletRequest.getAttribute("stepName" + i);
+                    String stepDescription = (String) httpServletRequest.getAttribute("stepDescription" + i);
+
+                    decomposeTask.setUserWorkItemEntity(userWorkItemEntity);
+                    decomposeTask.setTaskName(stepName);
+                    decomposeTask.setTaskOrder(order);
+                    decomposeTask.setTaskDescription(stepDescription);
+
+                    decomposeTasks.add(decomposeTask);
+                }
+
+                boolean flag = decomposeTaskService.saveDecomposeTask(decomposeTasks);
+
+                //save result sucess ,then update itemFinish to yes
+                if (flag) {
+                    userWorkItemEntity.setItemFinish("yes");
+                    TaskService taskService = new TaskService();
+                    taskService.updateUserWorkItem(userWorkItemEntity);
+
+                    SCXMLExecutor executor = SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId());
+                    if (executor == null) {
+                        throw new SCXMLExecuteException("no  executor exception");
+                    }
+                    executor.triggerEvent(new TriggerEvent("decomposeComplete", TriggerEvent.SIGNAL_EVENT));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
         modelAndView.setViewName("redirect:/myTask.do?taskState=decomposing");
         return modelAndView;
     }
 
     @RequestMapping("/decomposeVoteTask.do")
-    public ModelAndView mergeTask() {
+    public ModelAndView decomposeVoteTask() {
 
         System.out.println("--------decomposeVoteTask.do----------");
 
@@ -251,8 +334,61 @@ public class TaskController {
         return modelAndView;
     }
 
+    @RequestMapping("/completeDecomposeVoteTask.do")
+    public ModelAndView completeDecomposeVoteTask(String userWorkItemId) {
+
+        System.out.println("--------completeDecomposeVoteTask.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        int step = 0;
+
+        //Ð´ÈëdecomposeVoteTask
+        if (userWorkItemId != null) {
+            UserWorkItemEntity userWorkItemEntity = null;
+            try {
+                userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+                if (userWorkItemEntity == null) {
+                    modelAndView.setViewName("error");
+                    return modelAndView;
+                }
+
+                ArrayList<DecomposeTask> decomposeTasks = new ArrayList<DecomposeTask>();
+                for (int i = 1; i <= step; i++) {
+
+                    DecomposeTask decomposeTask = new DecomposeTask();
+                    decomposeTask.setTaskCompleteTime(new Date());
+
+
+                    decomposeTasks.add(decomposeTask);
+                }
+                // TODO :
+                boolean flag = decomposeTaskService.saveDecomposeTask(decomposeTasks);
+
+                //save result sucess ,then update itemFinish to yes
+                if (flag) {
+                    userWorkItemEntity.setItemFinish("yes");
+                    TaskService taskService = new TaskService();
+                    taskService.updateUserWorkItem(userWorkItemEntity);
+
+                    SCXMLExecutor executor = SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId());
+                    if (executor == null) {
+                        throw new SCXMLExecuteException("no  executor exception");
+                    }
+                    executor.triggerEvent(new TriggerEvent("decomposeComplete", TriggerEvent.SIGNAL_EVENT));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        modelAndView.setViewName("redirect:/myTask.do?taskState=decomposeVoting");
+        return modelAndView;
+    }
+
     @RequestMapping("/solveTask.do")
-    public ModelAndView voteTask() {
+    public ModelAndView solveTask() {
 
         System.out.println("--------solveTask.do----------");
 
@@ -262,8 +398,21 @@ public class TaskController {
         return modelAndView;
     }
 
+
+    @RequestMapping("/completeSolveTask.do")
+    public ModelAndView completeSolveTask() {
+
+        System.out.println("--------completeSolveTask.do----------");
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/myTask.do?taskState=solving");
+        return modelAndView;
+    }
+
+
     @RequestMapping("/solveVoteTask.do")
-    public ModelAndView decomposeTask() {
+    public ModelAndView solveVoteTask() {
 
         System.out.println("--------solveVoteTask.do----------");
 
@@ -272,6 +421,18 @@ public class TaskController {
         modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
         return modelAndView;
     }
+
+    @RequestMapping("/completeSolveVoteTask.do")
+    public ModelAndView completeSolveVoteTask() {
+
+        System.out.println("--------completeSolveVoteTask.do----------");
+
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
+        return modelAndView;
+    }
+
 
 
 }

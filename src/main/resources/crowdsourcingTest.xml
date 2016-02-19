@@ -56,28 +56,38 @@
                 </form>
             </userTask>
         </onentry>
-        <transition event="judgeComplete">
-            <if cond="_event.data.simple eq 0">
-                <assign location="simpleCount" expr="simpleCount + 1"></assign>
-
-                <elseif cond="_event.data.simple eq 1">
-                    <assign location="complexCount" expr="complexCount + 1"></assign>
-                </elseif>
-            </if>
-            <if cond="simpleCount + complexCount eq judgeCount">
-                <send event="judgeCompleted"></send>
-            </if>
-            <log expr="'judge state inner transition'"/>
-        </transition>
-        <transition event="judgeCompleted" cond="simpleCount gt complexCount" target="solving">
-            <log expr="'judge state transition to solving'"/>
-        </transition>
-        <transition event="judgeCompleted" cond="simpleCount lt complexCount" target="decomposing">
-            <log expr="'judge state transition to decomposing'"/>
-        </transition>
         <onexit>
             <log expr="'exit judging state'"/>
         </onexit>
+
+        <transition event="judgeComplete">
+            <if cond="_event.data.simple eq 0">
+                <assign location="simpleCount" expr="simpleCount + 1"></assign>
+                <log expr="' simple'"/>
+
+                <elseif cond="_event.data.simple eq 1"/>
+                <assign location="complexCount" expr="complexCount + 1"></assign>
+                <log expr="' complex'"/>
+
+                <else/>
+                <log expr="_event.data.simple"/>
+            </if>
+            <if cond="simpleCount + complexCount eq judgeCount">
+                <send event="judgeCompleted"></send>
+                <log expr="'send event judgeCompleted'"/>
+            </if>
+            <log expr="'judge state inner transition'"/>
+
+        </transition>
+
+        <transition event="judgeCompleted" cond="simpleCount gt complexCount" target="solving">
+            <log expr="'judge state transition to solving'"/>
+        </transition>
+
+        <transition event="judgeCompleted" cond="simpleCount lt complexCount" target="decomposing">
+            <log expr="'judge state transition to decomposing'"/>
+        </transition>
+
     </state>
 
 
@@ -100,8 +110,12 @@
         <transition event="decomposeComplete">
             <assign location="counted" expr="counted + 1"></assign>
             <!-- 写入数据库: 谁分解成了什么 -->
+            <log expr="' inner transition ,decomposeComplete'"/>
         </transition>
-        <transition cond="counted eq decomposeCount" target="decomposeVoting"></transition>
+        <transition cond="counted eq decomposeCount" target="decomposeVoting">
+
+            <log expr="' transition from decompose to decomposeVoting '"/>
+        </transition>
 
         <onexit>
             <log expr="'exit decomposing state'"/>
@@ -117,7 +131,9 @@
         <onentry>
             <userTask id="decompose" name="DecomposeVoteTask" candidateGroups="DecomposeVoter"
                       instancesExpr="decomposeVoteCount">
+                <form src="form/decomposeVote.jsp">
 
+                </form>
             </userTask>
         </onentry>
         <transition event="decomposeVoteComplete">
@@ -141,7 +157,9 @@
         <onentry>
             <userTask id="solve" name="SolveTask" candidateGroups="Solver"
                       instancesExpr="solveCount">
+                <form src="form/solve.jsp">
 
+                </form>
             </userTask>
         </onentry>
         <transition event="solveComplete">
@@ -159,7 +177,9 @@
         <onentry>
             <userTask id="solveVoting" name="SolveVoteTask" candidateGroups="SolveVoter"
                       instancesExpr="solveVoteCount">
+                <form src="form/solveVote.jsp">
 
+                </form>
             </userTask>
         </onentry>
         <transition event="solveVoteComplete">

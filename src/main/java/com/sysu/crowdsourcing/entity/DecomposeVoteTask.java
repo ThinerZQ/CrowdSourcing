@@ -8,32 +8,39 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA
- * Date: 2016/2/15
- * Time: 12:56
+ * Date: 2016/2/19
+ * Time: 15:28
  * User: ThinerZQ
  * GitHub: <a>https://github.com/ThinerZQ</a>
  * Blog: <a>http://www.thinerzq.me</a>
  * Email: 601097836@qq.com
  */
-@Entity
-@Table(name = "t_judgetask")
-public class JudgeTask implements WorkflowEntity {
+public class DecomposeVoteTask implements WorkflowEntity {
 
 
     @OneToOne()
     @JoinColumn(name = "userworkitem_id")
     public UserWorkItemEntity userWorkItemEntity;
+    @OneToMany(mappedBy = "decomposeVoteTask", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set<DecomposeTask> decomposeTaskSet;
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "identity")
     private long taskId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date taskCompleteTime;
-    @Basic
-    private String property;
+
+    public UserWorkItemEntity getUserWorkItemEntity() {
+        return userWorkItemEntity;
+    }
+
+    public void setUserWorkItemEntity(UserWorkItemEntity userWorkItemEntity) {
+        this.userWorkItemEntity = userWorkItemEntity;
+    }
 
     public long getTaskId() {
         return taskId;
@@ -51,29 +58,21 @@ public class JudgeTask implements WorkflowEntity {
         this.taskCompleteTime = taskCompleteTime;
     }
 
-    public UserWorkItemEntity getUserWorkItemEntity() {
-        return userWorkItemEntity;
+    public Set<DecomposeTask> getDecomposeTaskSet() {
+        return decomposeTaskSet;
     }
 
-    public void setUserWorkItemEntity(UserWorkItemEntity userWorkItemEntity) {
-        this.userWorkItemEntity = userWorkItemEntity;
-    }
-
-    public String getProperty() {
-        return property;
-    }
-
-    public void setProperty(String property) {
-        this.property = property;
+    public void setDecomposeTaskSet(Set<DecomposeTask> decomposeTaskSet) {
+        this.decomposeTaskSet = decomposeTaskSet;
     }
 
     @Override
     public String toString() {
-        return "JudgeTask{" +
-                "taskId=" + taskId +
+        return "DecomposeVoteTask{" +
+                "userWorkItemEntity=" + userWorkItemEntity +
+                ", taskId=" + taskId +
                 ", taskCompleteTime=" + taskCompleteTime +
-                ", property='" + property + '\'' +
-                ", userWorkItemEntity=" + userWorkItemEntity +
+                ", decomposeTaskSet=" + decomposeTaskSet +
                 '}';
     }
 
@@ -82,9 +81,6 @@ public class JudgeTask implements WorkflowEntity {
         map.put("currentObject", this.getClass().getName());
         if (getTaskId() != 0) {
             map.put("taskId", getTaskId());
-        }
-        if (getProperty() != null) {
-            map.put("property", getProperty());
         }
         if (getUserWorkItemEntity() != null) {
             map.put("userWorkItemEntity", getUserWorkItemEntity());
