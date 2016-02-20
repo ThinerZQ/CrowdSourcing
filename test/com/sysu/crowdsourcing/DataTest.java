@@ -76,7 +76,7 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             groupSet.add(judgerGroupEntity);
             userEntity = identityService.newUser();
             userEntity.setUserRealName("judger" + i)
-                    .setUserPassword("judger" + i)
+                    .setUserPassword("123456")
                     .setUserName("judger" + i)
                     .setUserAge("23")
                     .setUserEmail("judger" + i + "@qq.com")
@@ -92,7 +92,7 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             groupSet.add(decomposerGroupEntity1);
             userEntity = identityService.newUser();
             userEntity.setUserRealName("decomposer" + i)
-                    .setUserPassword("decomposer" + i)
+                    .setUserPassword("123456")
                     .setUserName("decomposer" + i)
                     .setUserAge("23")
                     .setUserEmail("decomposer" + i + "@qq.com")
@@ -108,7 +108,7 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             groupSet.add(decomposeVoterGroupEntity2);
             userEntity = identityService.newUser();
             userEntity.setUserRealName("decomposeVoter" + i)
-                    .setUserPassword("decomposeVoter" + i)
+                    .setUserPassword("123456")
                     .setUserName("decomposeVoter" + i)
                     .setUserAge("23")
                     .setUserEmail("decomposeVoter" + i + "@qq.com")
@@ -124,7 +124,7 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             groupSet.add(solverGroupEntity3);
             userEntity = identityService.newUser();
             userEntity.setUserRealName("solver" + i)
-                    .setUserPassword("solver" + i)
+                    .setUserPassword("123456")
                     .setUserName("solver" + i)
                     .setUserAge("23")
                     .setUserEmail("solver" + i + "@qq.com")
@@ -140,7 +140,7 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             groupSet.add(solveVoterGroupEntity4);
             userEntity = identityService.newUser();
             userEntity.setUserRealName("solveVoter" + i)
-                    .setUserPassword("solveVoter" + i)
+                    .setUserPassword("123456")
                     .setUserName("solveVoter" + i)
                     .setUserAge("23")
                     .setUserEmail("solveVoter" + i + "@qq.com")

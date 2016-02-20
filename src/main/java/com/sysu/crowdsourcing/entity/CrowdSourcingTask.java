@@ -61,6 +61,10 @@ public class CrowdSourcingTask implements WorkflowEntity {
 
     }
 
+    public void getBestDecomposeTask() {
+
+    }
+
     public long getTaskId() {
         return taskId;
     }

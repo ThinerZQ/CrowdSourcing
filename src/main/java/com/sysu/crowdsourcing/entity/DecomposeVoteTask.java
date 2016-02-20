@@ -5,10 +5,7 @@ import com.sysu.workflow.entity.WorkflowEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA
@@ -19,14 +16,17 @@ import java.util.Set;
  * Blog: <a>http://www.thinerzq.me</a>
  * Email: 601097836@qq.com
  */
+
+@Entity
+@Table(name = "t_decomposevotetask")
 public class DecomposeVoteTask implements WorkflowEntity {
 
 
     @OneToOne()
     @JoinColumn(name = "userworkitem_id")
     public UserWorkItemEntity userWorkItemEntity;
-    @OneToMany(mappedBy = "decomposeVoteTask", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Set<DecomposeTask> decomposeTaskSet;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public Set<DecomposeTask> decomposeTaskSet = new HashSet<DecomposeTask>();
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "identity")

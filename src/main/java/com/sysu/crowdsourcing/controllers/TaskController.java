@@ -3,10 +3,12 @@ package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.crowdsourcing.entity.DecomposeTask;
+import com.sysu.crowdsourcing.entity.DecomposeVoteTask;
 import com.sysu.crowdsourcing.entity.JudgeTask;
 import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
 import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
 import com.sysu.crowdsourcing.services.DecomposeTaskService;
+import com.sysu.crowdsourcing.services.DecomposeVoteTaskService;
 import com.sysu.crowdsourcing.services.JudgeTaskService;
 import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.TriggerEvent;
@@ -22,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -40,6 +41,9 @@ public class TaskController {
 
     @Resource(name = "decomposeTaskService")
     DecomposeTaskService decomposeTaskService;
+
+    @Resource(name = "decomposeVoteTaskService")
+    DecomposeVoteTaskService decomposeVoteTaskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -264,7 +268,7 @@ public class TaskController {
     }
 
     @RequestMapping("/completeDecomposeTask.do")
-    public ModelAndView completeDecomposeTask(String userWorkItemId, String steps, HttpServletRequest httpServletRequest) {
+    public ModelAndView completeDecomposeTask(String userWorkItemId, String steps, String stepName[], String order[], String stepDescription[]) {
 
         System.out.println("--------completeDecomposeTask.do----------");
 
@@ -283,19 +287,19 @@ public class TaskController {
                 }
 
                 ArrayList<DecomposeTask> decomposeTasks = new ArrayList<DecomposeTask>();
-                for (int i = 1; i <= step; i++) {
+                for (int i = 0; i <= step; i++) {
 
                     DecomposeTask decomposeTask = new DecomposeTask();
                     decomposeTask.setTaskCompleteTime(new Date());
 
-                    String order = (String) httpServletRequest.getAttribute("order" + i);
-                    String stepName = (String) httpServletRequest.getAttribute("stepName" + i);
-                    String stepDescription = (String) httpServletRequest.getAttribute("stepDescription" + i);
+                    String tempOrder = order[i];
+                    String tempStepName = stepName[i];
+                    String tempStepDescription = stepDescription[i];
 
                     decomposeTask.setUserWorkItemEntity(userWorkItemEntity);
-                    decomposeTask.setTaskName(stepName);
-                    decomposeTask.setTaskOrder(order);
-                    decomposeTask.setTaskDescription(stepDescription);
+                    decomposeTask.setTaskName(tempStepName);
+                    decomposeTask.setTaskOrder(tempOrder);
+                    decomposeTask.setTaskDescription(tempStepDescription);
 
                     decomposeTasks.add(decomposeTask);
                 }
@@ -335,38 +339,42 @@ public class TaskController {
     }
 
     @RequestMapping("/completeDecomposeVoteTask.do")
-    public ModelAndView completeDecomposeVoteTask(String userWorkItemId) {
+    public ModelAndView completeDecomposeVoteTask(String userWorkItemId, String votedUserWorkItemId) {
 
         System.out.println("--------completeDecomposeVoteTask.do----------");
 
         ModelAndView modelAndView = new ModelAndView();
 
-        int step = 0;
-
         //Ð´ÈëdecomposeVoteTask
-        if (userWorkItemId != null) {
+        if (userWorkItemId != null && votedUserWorkItemId != null) {
             UserWorkItemEntity userWorkItemEntity = null;
+            UserWorkItemEntity votedUserWorkItemEntity = null;
             try {
                 userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
-                if (userWorkItemEntity == null) {
+                votedUserWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(votedUserWorkItemId)).SingleResult();
+
+                if (userWorkItemEntity == null || votedUserWorkItemEntity == null) {
                     modelAndView.setViewName("error");
                     return modelAndView;
                 }
+                ArrayList<DecomposeTask> voteDecomposeTask = new ArrayList<DecomposeTask>();
 
-                ArrayList<DecomposeTask> decomposeTasks = new ArrayList<DecomposeTask>();
-                for (int i = 1; i <= step; i++) {
+                DecomposeTask tempDecomposeTask = new DecomposeTask();
+                tempDecomposeTask.setUserWorkItemEntity(votedUserWorkItemEntity);
+                voteDecomposeTask = decomposeTaskService.getDecomposeTasks(tempDecomposeTask);
 
-                    DecomposeTask decomposeTask = new DecomposeTask();
-                    decomposeTask.setTaskCompleteTime(new Date());
+                //save decomposeVoteTask
+                DecomposeVoteTask decomposeVoteTask = new DecomposeVoteTask();
+                decomposeVoteTask.setTaskCompleteTime(new Date());
+                decomposeVoteTask.setUserWorkItemEntity(userWorkItemEntity);
+                decomposeVoteTask.setDecomposeTaskSet(new HashSet<DecomposeTask>(voteDecomposeTask));
 
 
-                    decomposeTasks.add(decomposeTask);
-                }
                 // TODO :
-                boolean flag = decomposeTaskService.saveDecomposeTask(decomposeTasks);
+                long id = decomposeVoteTaskService.saveDecomposeVoteTask(decomposeVoteTask);
 
                 //save result sucess ,then update itemFinish to yes
-                if (flag) {
+                if (id != -1) {
                     userWorkItemEntity.setItemFinish("yes");
                     TaskService taskService = new TaskService();
                     taskService.updateUserWorkItem(userWorkItemEntity);
@@ -375,7 +383,47 @@ public class TaskController {
                     if (executor == null) {
                         throw new SCXMLExecuteException("no  executor exception");
                     }
-                    executor.triggerEvent(new TriggerEvent("decomposeComplete", TriggerEvent.SIGNAL_EVENT));
+
+                    //get the best decompose result
+                    CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
+
+                    ArrayList<UserWorkItemEntity> tempUserWorkflowEntitys = TaskService.createUserTaskQuery().taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).taskName("DecomposeTask").taskFinish("yes").list();
+                    int votedCount = tempUserWorkflowEntitys.size();
+                    //all people have been voted
+                    Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
+                    if (crowdSourcingTask.getTaskDecomposeVoteCount() == votedCount) {
+                        //get the best decompose result
+                        for (UserWorkItemEntity tempUserWorkflowEntity : tempUserWorkflowEntitys) {
+                            DecomposeVoteTask condDecomposeVoteTask = new DecomposeVoteTask();
+                            condDecomposeVoteTask.setUserWorkItemEntity(tempUserWorkflowEntity);
+                            DecomposeVoteTask decomposeVoteTask1 = decomposeVoteTaskService.getDecomposeVoteTasks(condDecomposeVoteTask);
+
+                            //get decomposeVoteTask's vote result
+                            Set<DecomposeTask> decomposeTasks = decomposeVoteTask1.getDecomposeTaskSet();
+                            for (DecomposeTask dt : decomposeTasks) {
+                                int tempObj = tempMap.get((int) dt.getTaskId());
+                                if (tempObj != 0)
+                                    tempMap.put((int) dt.getTaskId(), tempObj + 1);
+                                else
+                                    tempMap.put((int) dt.getTaskId(), 1);
+                            }
+                        }
+                    }
+
+                    int max = 0;
+                    int index = 0;
+                    for (Map.Entry<Integer, Integer> entry : tempMap.entrySet()) {
+                        if (max < entry.getValue()) {
+                            max = entry.getValue();
+                            index = entry.getKey();
+                        }
+                    }
+
+
+                    //decomposeTaskService.getDecomposeTasks()
+
+
+                    executor.triggerEvent(new TriggerEvent("decomposeVoteComplete", TriggerEvent.SIGNAL_EVENT));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -4,7 +4,8 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="home">
         <c:if test="${null !=  userWorkItemEntity}">
-        <form action="${pageContext.request.contextPath}/completeDecomposeTask.do" class="form-horizontal">
+            <form action="${pageContext.request.contextPath}/completeDecomposeTask.do" class="form-horizontal"
+                  method="post">
             <div class="panel panel-primary panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">WorkItemName：<c:out
@@ -47,6 +48,56 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </datalist>
+                                    </td>
+                                </tr>
+                                <tr class="hidden hidden1">
+                                    <td>
+                                        Step1<input hidden="hidden" type="text" ,name="order" value="1"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="stepName" value="">
+                                        <br/>
+                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="hidden hidden2">
+                                    <td>
+                                        Step1<input hidden="hidden" type="text" ,name="order" value="2"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="stepName" value="">
+                                        <br/>
+                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="hidden hidden3">
+                                    <td>
+                                        Step1<input hidden="hidden" type="text" ,name="order" value="3"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="stepName" value="">
+                                        <br/>
+                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="hidden hidden4">
+                                    <td>
+                                        Step1<input hidden="hidden" type="text" ,name="order" value="4"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="stepName" value="">
+                                        <br/>
+                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="hidden hidden5">
+                                    <td>
+                                        Step1<input hidden="hidden" type="text" ,name="order" value="5"/>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="" value="">
+                                        <br/>
+                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                             </table>

@@ -23,13 +23,6 @@ import java.util.Map;
 @Table(name = "t_decomposetask")
 public class DecomposeTask implements WorkflowEntity {
 
-
-    @ManyToOne()
-    @JoinColumn(name = "userworkitem_id")
-    public UserWorkItemEntity userWorkItemEntity;
-    @ManyToOne()
-    @JoinColumn(name = "decomposevotetask_id")
-    public DecomposeVoteTask decomposeVoteTask;
     @Id
     @GeneratedValue(generator = "generator")
     @GenericGenerator(name = "generator", strategy = "identity")
@@ -43,13 +36,13 @@ public class DecomposeTask implements WorkflowEntity {
     @Basic
     private String taskOrder;
 
-    public UserWorkItemEntity getUserWorkItemEntity() {
-        return userWorkItemEntity;
-    }
+    @ManyToOne()
+    @JoinColumn(name = "userworkitem_id")
+    private UserWorkItemEntity userWorkItemEntity;
 
-    public void setUserWorkItemEntity(UserWorkItemEntity userWorkItemEntity) {
-        this.userWorkItemEntity = userWorkItemEntity;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    private DecomposeVoteTask decomposeVoteTask;
+
 
     public long getTaskId() {
         return taskId;
@@ -91,17 +84,12 @@ public class DecomposeTask implements WorkflowEntity {
         this.taskOrder = taskOrder;
     }
 
-    @Override
-    public String toString() {
-        return "DecomposeTask{" +
-                "userWorkItemEntity=" + userWorkItemEntity +
-                ", taskId=" + taskId +
-                ", taskCompleteTime=" + taskCompleteTime +
-                ", taskName='" + taskName + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
-                ", taskOrder='" + taskOrder + '\'' +
-                ", decomposeVoteTask=" + decomposeVoteTask +
-                '}';
+    public UserWorkItemEntity getUserWorkItemEntity() {
+        return userWorkItemEntity;
+    }
+
+    public void setUserWorkItemEntity(UserWorkItemEntity userWorkItemEntity) {
+        this.userWorkItemEntity = userWorkItemEntity;
     }
 
     public DecomposeVoteTask getDecomposeVoteTask() {
@@ -130,9 +118,6 @@ public class DecomposeTask implements WorkflowEntity {
         }
         if (getUserWorkItemEntity() != null) {
             map.put("userWorkItemEntity", getUserWorkItemEntity());
-        }
-        if (getDecomposeVoteTask() != null) {
-            map.put("decomposeVoteTask", getDecomposeVoteTask());
         }
 
         System.out.println("Query Condition: " + map);
