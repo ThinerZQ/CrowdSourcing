@@ -64,7 +64,7 @@ public class DecomposeTaskDaoImpl implements DecomposeTaskDao {
                 }
             }
         }
-        return false;
+        return flag;
     }
 
     @Transactional
@@ -85,5 +85,23 @@ public class DecomposeTaskDaoImpl implements DecomposeTaskDao {
             e.printStackTrace();
         }
         return decomposeTaskArrayList;
+    }
+
+    public DecomposeTask getDecomposeTask(DecomposeTask decomposeTask) {
+        DecomposeTask dt = new DecomposeTask();
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            Criteria criteria = session.createCriteria(DecomposeTask.class);
+
+            Criterion allCriterion = Restrictions.allEq(decomposeTask.getNotNullPropertyMap());
+
+            criteria.add(allCriterion);
+            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+
+            dt = (DecomposeTask) criteria.list().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dt;
     }
 }

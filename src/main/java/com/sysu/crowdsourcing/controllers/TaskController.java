@@ -6,10 +6,7 @@ import com.sysu.crowdsourcing.entity.DecomposeTask;
 import com.sysu.crowdsourcing.entity.DecomposeVoteTask;
 import com.sysu.crowdsourcing.entity.JudgeTask;
 import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
-import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
-import com.sysu.crowdsourcing.services.DecomposeTaskService;
-import com.sysu.crowdsourcing.services.DecomposeVoteTaskService;
-import com.sysu.crowdsourcing.services.JudgeTaskService;
+import com.sysu.crowdsourcing.services.*;
 import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.TriggerEvent;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
@@ -45,6 +42,9 @@ public class TaskController {
     @Resource(name = "decomposeVoteTaskService")
     DecomposeVoteTaskService decomposeVoteTaskService;
 
+    @Resource(name = "postService")
+    PostService postService;
+
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
 
@@ -61,6 +61,8 @@ public class TaskController {
 
         System.out.println("--------myTask.do----------");
         System.out.println("--------load my workitem----------");
+
+        //TODO: correct below
 
         ModelAndView modelAndView = new ModelAndView();
         UserEntity currentUserEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
@@ -287,7 +289,7 @@ public class TaskController {
                 }
 
                 ArrayList<DecomposeTask> decomposeTasks = new ArrayList<DecomposeTask>();
-                for (int i = 0; i <= step; i++) {
+                for (int i = 0; i < step; i++) {
 
                     DecomposeTask decomposeTask = new DecomposeTask();
                     decomposeTask.setTaskCompleteTime(new Date());
@@ -351,7 +353,7 @@ public class TaskController {
             UserWorkItemEntity votedUserWorkItemEntity = null;
             try {
                 userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
-                votedUserWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(votedUserWorkItemId)).SingleResult();
+                votedUserWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(votedUserWorkItemId)).taskFinish("yes").SingleResult();
 
                 if (userWorkItemEntity == null || votedUserWorkItemEntity == null) {
                     modelAndView.setViewName("error");
@@ -384,6 +386,9 @@ public class TaskController {
                         throw new SCXMLExecuteException("no  executor exception");
                     }
 
+
+                    executor.triggerEvent(new TriggerEvent("decomposeVoteComplete", TriggerEvent.SIGNAL_EVENT));
+
                     //get the best decompose result
                     CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
 
@@ -408,22 +413,40 @@ public class TaskController {
                                     tempMap.put((int) dt.getTaskId(), 1);
                             }
                         }
-                    }
 
-                    int max = 0;
-                    int index = 0;
-                    for (Map.Entry<Integer, Integer> entry : tempMap.entrySet()) {
-                        if (max < entry.getValue()) {
-                            max = entry.getValue();
-                            index = entry.getKey();
+                        int max = 0;
+                        int index = 0;
+                        for (Map.Entry<Integer, Integer> entry : tempMap.entrySet()) {
+                            if (max < entry.getValue()) {
+                                max = entry.getValue();
+                                index = entry.getKey();
+                            }
+                        }
+
+                        DecomposeTask condDt = new DecomposeTask();
+                        condDt.setTaskId(index);
+                        DecomposeTask dt_1 = decomposeTaskService.getDecomposeTask(condDt);
+
+                        DecomposeVoteTask dvt = dt_1.getDecomposeVoteTask();
+
+                        Set<DecomposeTask> bestDecomposeTasks = dvt.getDecomposeTaskSet();
+
+                        if (bestDecomposeTasks != null) {
+                            ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList = new ArrayList<CrowdSourcingTask>();
+                            for (DecomposeTask tempDecomposeTask1 : bestDecomposeTasks) {
+                                CrowdSourcingTask tempCrowdSourcingTask = new CrowdSourcingTask();
+                                tempCrowdSourcingTask.setTaskName(tempDecomposeTask1.getTaskName());
+                                tempCrowdSourcingTask.setTaskDescription(tempDecomposeTask1.getTaskDescription());
+                                tempCrowdSourcingTask.setTaskReleaseTime(new Date());
+                                tempCrowdSourcingTask.setUserEntity(userWorkItemEntity.getItemAssigneeEntity());
+
+                                crowdSourcingTaskArrayList.add(tempCrowdSourcingTask);
+                            }
+                            postService.saveCrowdSourcingTask(crowdSourcingTaskArrayList);
+                            executor.getRootContext().set("crowdSourcingTaskArrayList", crowdSourcingTaskArrayList);
+                            executor.triggerEvent(new TriggerEvent("startSubMachine", TriggerEvent.SIGNAL_EVENT));
                         }
                     }
-
-
-                    //decomposeTaskService.getDecomposeTasks()
-
-
-                    executor.triggerEvent(new TriggerEvent("decomposeVoteComplete", TriggerEvent.SIGNAL_EVENT));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -480,7 +503,4 @@ public class TaskController {
         modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
         return modelAndView;
     }
-
-
-
 }

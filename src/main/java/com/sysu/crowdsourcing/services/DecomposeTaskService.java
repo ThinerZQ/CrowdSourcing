@@ -22,4 +22,7 @@ public interface DecomposeTaskService {
 
     ArrayList<DecomposeTask> getDecomposeTasks(DecomposeTask decomposeTask);
 
+    DecomposeTask getDecomposeTask(DecomposeTask decomposeTask);
+
+
 }

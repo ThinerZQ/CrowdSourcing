@@ -20,4 +20,7 @@ public interface DecomposeTaskDao {
     boolean saveDecomposeTask(ArrayList<DecomposeTask> decomposeTasks);
 
     ArrayList<DecomposeTask> getDecomposeTasks(DecomposeTask decomposeTask);
+
+
+    DecomposeTask getDecomposeTask(DecomposeTask decomposeTask);
 }

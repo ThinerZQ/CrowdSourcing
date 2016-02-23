@@ -25,7 +25,7 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
     @Transactional
     public long addTask(CrowdSourcingTask crowdSourcingTask) {
 
-        long id = 0;
+        long id = -1;
         try {
             Session session = sessionFactory.getCurrentSession();
             id = (Long) session.save(crowdSourcingTask);
@@ -36,6 +36,24 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
         }
 
 
+    }
+
+    public boolean addTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList) {
+        boolean flag = true;
+        for (CrowdSourcingTask crowdSourcingTask : crowdSourcingTaskArrayList) {
+            long id = -1;
+            try {
+                Session session = sessionFactory.getCurrentSession();
+                id = (Long) session.save(crowdSourcingTask);
+                if (id == -1) {
+                    flag = false;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+            }
+        }
+        return flag;
     }
 
     @Transactional

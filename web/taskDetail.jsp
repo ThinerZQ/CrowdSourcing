@@ -56,6 +56,7 @@
             <jsp:include page="${userWorkItemEntity.itemFormEntity.formSrc }">
                 <jsp:param name="userWorkItemEntity" value="${userWorkItemEntity}"></jsp:param>
                 <jsp:param name="crowdSourcingTask" value="${crowdSourcingTask}"></jsp:param>
+                <jsp:param name="decomposeTaskUserWorkflowMap" value="${decomposeTaskUserWorkflowMap }"></jsp:param>
             </jsp:include>
         </div>
     </div>

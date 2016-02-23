@@ -34,4 +34,8 @@ public class DecomposeTaskServiceImpl implements DecomposeTaskService {
     public ArrayList<DecomposeTask> getDecomposeTasks(DecomposeTask decomposeTask) {
         return decomposeTaskDao.getDecomposeTasks(decomposeTask);
     }
+
+    public DecomposeTask getDecomposeTask(DecomposeTask decomposeTask) {
+        return decomposeTaskDao.getDecomposeTask(decomposeTask);
+    }
 }

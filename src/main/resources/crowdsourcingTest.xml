@@ -17,6 +17,7 @@
         <data id="decomposeVoteCount" expr=""></data>
         <data id="solveCount" expr=""></data>
         <data id="solveVoteCount" expr=""></data>
+        <data id="steps" expr="0"></data>
     </datamodel>
 
     <state id="init">
@@ -136,17 +137,45 @@
                 </form>
             </userTask>
         </onentry>
+
         <transition event="decomposeVoteComplete">
             <assign location="counted" expr="counted + 1"></assign>
         </transition>
-        <transition cond="counted eq decomposeVoteCount" target="end">
 
+        <transition event="startSubMachine" cond="counted eq decomposeVoteCount" target="waitResulting">
             <!-- 查询数据库，找出分解最好的方案，启动这些实例 -->
-
-
             <!-- 投票结束了，选出最好的投票解决，调用本xml文件作为子状态机， -->
 
+            <foreach array="crowdSourcingTaskArrayList" item="tempCrowdSourcingTask">
+                <subStateMachine src="crowdSourcingTest.xml" instances="1">
+                    <param name="crowdSourcingTask" expr="tempCrowdSourcingTask"></param>
+                </subStateMachine>
+                <assign location="steps" expr="steps + 1"></assign>
+            </foreach>
+
         </transition>
+    </state>
+
+    <!-- wait children's event come -->
+    <state id="waitResulting">
+        <datamodel>
+            <data id="count" expr="0"></data>
+        </datamodel>
+        <onentry>
+
+        </onentry>
+        <transition event="to_waitResult">
+            <assign location="count" expr="count + 1"></assign>
+        </transition>
+        <transition cond="count eq steps" target="merging">
+            <log expr="'  '"/>
+        </transition>
+    </state>
+
+    <!-- assign merging task -->
+    <state id="merging">
+
+
     </state>
 
     <!-- 解决 -->
@@ -186,7 +215,9 @@
             <assign location="counted" expr="counted + 1"></assign>
             <!-- 保存到数据库  谁投了谁 -->
         </transition>
-        <transition cond="counted eq solveVoteCount" target="end"></transition>
+        <transition cond="counted eq solveVoteCount" target="end">
+            <send event="to_waitResult" type="scxml" messageMode="TO_PARENT"></send>
+        </transition>
     </state>
 
     <final id="end">

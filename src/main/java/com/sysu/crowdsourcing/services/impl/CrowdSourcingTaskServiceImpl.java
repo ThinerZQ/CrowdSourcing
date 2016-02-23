@@ -12,9 +12,9 @@ import javax.annotation.Resource;
 public class CrowdSourcingTaskServiceImpl implements CrowdSourcingTaskService {
 
     @Resource
-    CrowdSourcingTaskDao crowdSorucingTaskDao;
+    CrowdSourcingTaskDao crowdSourcingTaskDao;
 
     public CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId) {
-        return crowdSorucingTaskDao.getCrowdSourcingTaskByProcessInstanceId(processInstanceId);
+        return crowdSourcingTaskDao.getCrowdSourcingTaskByProcessInstanceId(processInstanceId);
     }
 }

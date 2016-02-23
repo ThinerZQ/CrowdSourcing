@@ -17,6 +17,7 @@ import com.sysu.workflow.service.processservice.RuntimeService;
 
 import javax.annotation.Resource;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -29,7 +30,7 @@ public class PostServiceImpl implements PostService {
 
     public boolean postTask(CrowdSourcingTask crowdSourcingTask) {
 
-        long id = 0;
+        long id = -1;
         boolean flag = false;
         //发布成功，加载众包流程，分派任务
 
@@ -57,12 +58,23 @@ public class PostServiceImpl implements PostService {
             flag = true;
         } catch (Exception e) {
             e.printStackTrace();
-            if (id != 0) {
+            if (id != -1) {
                 crowdSorucingTaskDao.deleteTaskById(id);
             }
             flag = false;
         }
 
         return flag;
+    }
+
+    public boolean saveCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+
+        return crowdSorucingTaskDao.addTask(crowdSourcingTask) != -1 ? true : false;
+    }
+
+    public boolean saveCrowdSourcingTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList) {
+
+
+        return crowdSorucingTaskDao.addTask(crowdSourcingTaskArrayList);
     }
 }

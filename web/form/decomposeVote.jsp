@@ -53,13 +53,15 @@
                                                 <td>Author:</td>
                                                 <td><c:out
                                                         value="${tempUserWorkflowEntity.itemAssigneeEntity.userName}"></c:out></td>
-                                                <td><input type="radio" name="best"/></td>
+                                                <td><input type="radio" name="votedUserWorkItemId"
+                                                           value="<c:out value="${tempUserWorkflowEntity.itemId}"></c:out>"/>
+                                                </td>
                                             </tr>
                                             <c:forEach
                                                     items="${decomposeTaskUserWorkflowMap.get(tempUserWorkflowEntity) }"
                                                     var="decomposeTask">
                                                 <tr>
-                                                    <td>Step <c:out value="${decomposeTask.order }"></c:out></td>
+                                                    <td>Step <c:out value="${decomposeTask.taskOrder }"></c:out></td>
                                                     <td><c:out value="${decomposeTask.taskName}"></c:out></td>
                                                     <td><c:out value="${decomposeTask.taskDescription }"></c:out></td>
                                                 </tr>

@@ -52,7 +52,7 @@
                                 </tr>
                                 <tr class="hidden hidden1">
                                     <td>
-                                        Step1<input hidden="hidden" type="text" ,name="order" value="1"/>
+                                        Step1<input hidden="hidden" type="text" name="order" value="1"/>
                                     </td>
                                     <td>
                                         <input type="text" name="stepName" value="">
@@ -62,7 +62,7 @@
                                 </tr>
                                 <tr class="hidden hidden2">
                                     <td>
-                                        Step1<input hidden="hidden" type="text" ,name="order" value="2"/>
+                                        Step2<input hidden="hidden" type="text" name="order" value="2"/>
                                     </td>
                                     <td>
                                         <input type="text" name="stepName" value="">
@@ -72,7 +72,7 @@
                                 </tr>
                                 <tr class="hidden hidden3">
                                     <td>
-                                        Step1<input hidden="hidden" type="text" ,name="order" value="3"/>
+                                        Step3<input hidden="hidden" type="text" name="order" value="3"/>
                                     </td>
                                     <td>
                                         <input type="text" name="stepName" value="">
@@ -82,7 +82,7 @@
                                 </tr>
                                 <tr class="hidden hidden4">
                                     <td>
-                                        Step1<input hidden="hidden" type="text" ,name="order" value="4"/>
+                                        Step4<input hidden="hidden" type="text" name="order" value="4"/>
                                     </td>
                                     <td>
                                         <input type="text" name="stepName" value="">
@@ -92,10 +92,10 @@
                                 </tr>
                                 <tr class="hidden hidden5">
                                     <td>
-                                        Step1<input hidden="hidden" type="text" ,name="order" value="5"/>
+                                        Step5<input hidden="hidden" type="text" name="order" value="5"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="" value="">
+                                        <input type="text" name="stepName" value="">
                                         <br/>
                                         <textarea cols="20" rows="4" name="stepDescription"></textarea>
                                     </td>

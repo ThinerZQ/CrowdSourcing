@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -27,6 +28,7 @@ public class DecomposeVoteTaskDaoImpl implements DecomposeVoteTaskDao {
     public SessionFactory sessionFactory;
 
 
+    @Transactional
     public long saveDecomposeVoteTask(DecomposeVoteTask decomposeVoteTask) {
         long id = -1;
         try {
@@ -41,6 +43,7 @@ public class DecomposeVoteTaskDaoImpl implements DecomposeVoteTaskDao {
         }
     }
 
+    @Transactional
     public DecomposeVoteTask getDecomposeVoteTasks(DecomposeVoteTask decomposeVoteTask) {
         DecomposeVoteTask decomposeVoteTask1 = null;
         try {
