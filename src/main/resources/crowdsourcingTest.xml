@@ -147,7 +147,7 @@
             <!-- 投票结束了，选出最好的投票解决，调用本xml文件作为子状态机， -->
 
             <foreach array="crowdSourcingTaskArrayList" item="tempCrowdSourcingTask">
-                <subStateMachine src="crowdSourcingTest.xml" instances="1">
+                <subStateMachine src="crowdsourcingTest.xml" instances="1">
                     <param name="crowdSourcingTask" expr="tempCrowdSourcingTask"></param>
                 </subStateMachine>
                 <assign location="steps" expr="steps + 1"></assign>

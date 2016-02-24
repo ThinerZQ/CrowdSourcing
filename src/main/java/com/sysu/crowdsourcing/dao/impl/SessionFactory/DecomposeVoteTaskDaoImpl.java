@@ -34,10 +34,11 @@ public class DecomposeVoteTaskDaoImpl implements DecomposeVoteTaskDao {
         try {
             Session session = sessionFactory.getCurrentSession();
 
-            id = (Long) session.save(decomposeVoteTask);
-
+            session.merge(decomposeVoteTask);
+            id = 0;
         } catch (HibernateException e) {
             e.printStackTrace();
+            id = -1;
         } finally {
             return id;
         }

@@ -87,6 +87,7 @@ public class DecomposeTaskDaoImpl implements DecomposeTaskDao {
         return decomposeTaskArrayList;
     }
 
+    @Transactional
     public DecomposeTask getDecomposeTask(DecomposeTask decomposeTask) {
         DecomposeTask dt = new DecomposeTask();
         try {

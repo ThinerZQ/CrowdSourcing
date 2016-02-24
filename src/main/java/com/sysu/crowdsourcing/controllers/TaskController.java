@@ -77,29 +77,35 @@ public class TaskController {
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             }
+        }
+
+        //剔除包含在用户任务列表里面的任务
+        for (Map.Entry<GroupEntity, ArrayList<GroupWorkItemEntity>> entry : groupWorkItemArrayListMap.entrySet()) {
+            GroupEntity groupEntity = entry.getKey();
+            ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = entry.getValue();
             //剔除包含在用户任务列表里面的任务
             for (UserWorkItemEntity uwie : userWorkItemEntityList) {
+
+
                 int size = groupWorkItemEntityArrayList.size();
-                for (int i = 0; i < size; i++) {
-                    GroupWorkItemEntity gwie = groupWorkItemEntityArrayList.get(i);
-                    if (gwie.getItemProcessId().equals(uwie.getItemProcessId()) && gwie.getItemStateId().equals(uwie.getItemStateId()) && gwie.getItemName().equals(uwie.getItemName())) {
-                        groupWorkItemEntityArrayList.remove(gwie);
-                        size--;
+                // indicate have been signed in
+                if (uwie.getItemGroupWorkItemEntity() != null) {
+                    Iterator<GroupWorkItemEntity> itemEntityIterator = groupWorkItemEntityArrayList.listIterator();
+                    while (itemEntityIterator.hasNext()) {
+                        GroupWorkItemEntity gwie = itemEntityIterator.next();
+                        if (gwie.getItemId() == uwie.getItemGroupWorkItemEntity().getItemId()) {
+                            itemEntityIterator.remove();
+                        }
                     }
                 }
-            }
-            //当前组有任务，就加入到map里面
-            if (groupWorkItemEntityArrayList.size() != 0) {
-                groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
-            } else {
-                groupWorkItemArrayListMap.remove(groupEntity);
+
             }
         }
-        int size = userWorkItemEntityList.size();
-        for (int i = 0; i < size; i++) {
-            if (userWorkItemEntityList.get(i).getItemFinish().equals("yes")) {
-                userWorkItemEntityList.remove(i);
-                size--;
+        Iterator<UserWorkItemEntity> itemEntityIterator = userWorkItemEntityList.listIterator();
+        while (itemEntityIterator.hasNext()) {
+            UserWorkItemEntity userWorkItemEntity = itemEntityIterator.next();
+            if ("yes".equals(userWorkItemEntity.getItemFinish())) {
+                itemEntityIterator.remove();
             }
         }
 
@@ -392,46 +398,50 @@ public class TaskController {
                     //get the best decompose result
                     CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
 
-                    ArrayList<UserWorkItemEntity> tempUserWorkflowEntitys = TaskService.createUserTaskQuery().taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).taskName("DecomposeTask").taskFinish("yes").list();
+                    ArrayList<UserWorkItemEntity> tempUserWorkflowEntitys = TaskService.createUserTaskQuery().taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).taskName("DecomposeVoteTask").taskFinish("yes").list();
                     int votedCount = tempUserWorkflowEntitys.size();
                     //all people have been voted
                     Map<Integer, Integer> tempMap = new HashMap<Integer, Integer>();
                     if (crowdSourcingTask.getTaskDecomposeVoteCount() == votedCount) {
                         //get the best decompose result
                         for (UserWorkItemEntity tempUserWorkflowEntity : tempUserWorkflowEntitys) {
+
                             DecomposeVoteTask condDecomposeVoteTask = new DecomposeVoteTask();
                             condDecomposeVoteTask.setUserWorkItemEntity(tempUserWorkflowEntity);
+
                             DecomposeVoteTask decomposeVoteTask1 = decomposeVoteTaskService.getDecomposeVoteTasks(condDecomposeVoteTask);
 
                             //get decomposeVoteTask's vote result
                             Set<DecomposeTask> decomposeTasks = decomposeVoteTask1.getDecomposeTaskSet();
                             for (DecomposeTask dt : decomposeTasks) {
-                                int tempObj = tempMap.get((int) dt.getTaskId());
-                                if (tempObj != 0)
-                                    tempMap.put((int) dt.getTaskId(), tempObj + 1);
+                                if (tempMap.get((int) dt.getTaskId()) != null)
+                                    tempMap.put((int) dt.getTaskId(), tempMap.get((int) dt.getTaskId()) + 1);
                                 else
                                     tempMap.put((int) dt.getTaskId(), 1);
                             }
                         }
 
                         int max = 0;
-                        int index = 0;
                         for (Map.Entry<Integer, Integer> entry : tempMap.entrySet()) {
                             if (max < entry.getValue()) {
                                 max = entry.getValue();
-                                index = entry.getKey();
                             }
                         }
+                        ArrayList<Integer> bestIndexs = new ArrayList<Integer>();
+                        for (Map.Entry<Integer, Integer> entry : tempMap.entrySet()) {
+                            if (max == entry.getValue()) {
+                                bestIndexs.add(entry.getKey());
+                            }
+                        }
+                        Set<DecomposeTask> bestDecomposeTasks = new HashSet<DecomposeTask>();
+                        for (int index : bestIndexs) {
+                            DecomposeTask condDt = new DecomposeTask();
+                            condDt.setTaskId(index);
+                            DecomposeTask dt_1 = decomposeTaskService.getDecomposeTask(condDt);
+                            bestDecomposeTasks.add(dt_1);
+                        }
 
-                        DecomposeTask condDt = new DecomposeTask();
-                        condDt.setTaskId(index);
-                        DecomposeTask dt_1 = decomposeTaskService.getDecomposeTask(condDt);
-
-                        DecomposeVoteTask dvt = dt_1.getDecomposeVoteTask();
-
-                        Set<DecomposeTask> bestDecomposeTasks = dvt.getDecomposeTaskSet();
-
-                        if (bestDecomposeTasks != null) {
+                        if (bestDecomposeTasks != null && bestDecomposeTasks.size() != 0) {
                             ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList = new ArrayList<CrowdSourcingTask>();
                             for (DecomposeTask tempDecomposeTask1 : bestDecomposeTasks) {
                                 CrowdSourcingTask tempCrowdSourcingTask = new CrowdSourcingTask();

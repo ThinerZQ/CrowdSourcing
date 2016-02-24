@@ -21,11 +21,10 @@ import java.util.*;
 @Table(name = "t_decomposevotetask")
 public class DecomposeVoteTask implements WorkflowEntity {
 
-
     @OneToOne()
     @JoinColumn(name = "userworkitem_id")
     public UserWorkItemEntity userWorkItemEntity;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<DecomposeTask> decomposeTaskSet = new HashSet<DecomposeTask>();
     @Id
     @GeneratedValue(generator = "generator")

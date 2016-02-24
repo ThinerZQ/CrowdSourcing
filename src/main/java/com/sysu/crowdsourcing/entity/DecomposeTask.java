@@ -5,9 +5,7 @@ import com.sysu.workflow.entity.WorkflowEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA
@@ -40,8 +38,8 @@ public class DecomposeTask implements WorkflowEntity {
     @JoinColumn(name = "userworkitem_id")
     private UserWorkItemEntity userWorkItemEntity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private DecomposeVoteTask decomposeVoteTask;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<DecomposeVoteTask> decomposeVoteTaskSet = new HashSet<DecomposeVoteTask>();
 
 
     public long getTaskId() {
@@ -92,12 +90,12 @@ public class DecomposeTask implements WorkflowEntity {
         this.userWorkItemEntity = userWorkItemEntity;
     }
 
-    public DecomposeVoteTask getDecomposeVoteTask() {
-        return decomposeVoteTask;
+    public Set<DecomposeVoteTask> getDecomposeVoteTaskSet() {
+        return decomposeVoteTaskSet;
     }
 
-    public void setDecomposeVoteTask(DecomposeVoteTask decomposeVoteTask) {
-        this.decomposeVoteTask = decomposeVoteTask;
+    public void setDecomposeVoteTaskSet(Set<DecomposeVoteTask> decomposeVoteTaskSet) {
+        this.decomposeVoteTaskSet = decomposeVoteTaskSet;
     }
 
     public Map<String, Object> getNotNullPropertyMap() {

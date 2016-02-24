@@ -3,6 +3,9 @@ package com.sysu.crowdsourcing;
 import com.sysu.crowdsourcing.dao.CrowdSourcingTaskDao;
 import com.sysu.crowdsourcing.dao.UserDao;
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
+import com.sysu.crowdsourcing.entity.DecomposeTask;
+import com.sysu.crowdsourcing.entity.DecomposeVoteTask;
+import com.sysu.crowdsourcing.services.DecomposeTaskService;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by zhengshouzi on 2015/9/20.
@@ -29,6 +33,9 @@ public class TestTask extends AbstractJUnit4SpringContextTests {
     UserDao userDao;
     @Resource(name = "crowdSourcingTaskDao")
     CrowdSourcingTaskDao crowdSourcingTaskDao;
+
+    @Resource
+    DecomposeTaskService decomposeTaskService;
 
     @Test
     public void testPostTask() {
@@ -54,5 +61,18 @@ public class TestTask extends AbstractJUnit4SpringContextTests {
         List<CrowdSourcingTask> task =crowdSourcingTaskDao.getCrowdSourcingTask(crowdSourcingTask);*/
         crowdSourcingTaskDao.getCrowdSourcingTaskByProcessInstanceId(10);
         // System.out.println(task.size());
+    }
+
+    @Test
+    @Transactional
+    public void testDecomposeTask() {
+        DecomposeTask condDt = new DecomposeTask();
+        condDt.setTaskId(3);
+        DecomposeTask dt_1 = decomposeTaskService.getDecomposeTask(condDt);
+
+        DecomposeVoteTask dvt = dt_1.getDecomposeVoteTaskSet().iterator().next();
+
+        Set<DecomposeTask> bestDecomposeTasks = dvt.getDecomposeTaskSet();
+        System.out.println(bestDecomposeTasks.size());
     }
 }

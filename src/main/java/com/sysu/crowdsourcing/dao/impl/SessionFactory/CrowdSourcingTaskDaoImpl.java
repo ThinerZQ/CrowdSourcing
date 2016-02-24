@@ -38,6 +38,7 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
 
     }
 
+    @Transactional
     public boolean addTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList) {
         boolean flag = true;
         for (CrowdSourcingTask crowdSourcingTask : crowdSourcingTaskArrayList) {
