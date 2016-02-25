@@ -22,7 +22,7 @@
 
     <state id="init">
         <onentry>
-            <log expr="'init state entry ,begin to initialization'"/>
+            <log label="init" expr="'init state entry ,begin to initialization'"/>
             <script>
                 taskName=crowdSourcingTask.getTaskName();
                 taskDescription=crowdSourcingTask.getTaskDescription();
@@ -32,13 +32,13 @@
                 solveCount= crowdSourcingTask.getTaskSolveCount();
                 solveVoteCount= crowdSourcingTask.getTaskSolveVoteCount();
             </script>
-            <log expr="'initialization complete'"></log>
+            <log label="init" expr="'initialization complete'"></log>
         </onentry>
         <transition target="judging">
-            <log expr="'init state transition to judging'"/>
+            <log label="init" expr="'init state transition to judging'"/>
         </transition>
         <onexit>
-            <log expr="'init state exit'"/>
+            <log label="init" expr="'init state exit'"/>
         </onexit>
     </state>
 
@@ -50,7 +50,7 @@
             <data id="simpleCount" expr="0"></data>
         </datamodel>
         <onentry>
-            <log expr="'entry judging state'"/>
+            <log label="judging" expr="'entry judging state'"/>
             <userTask id="judge" name="JudgeTask" candidateGroups="Judger" instancesExpr="judgeCount">
                 <form src="form/judge.jsp">
 
@@ -58,35 +58,35 @@
             </userTask>
         </onentry>
         <onexit>
-            <log expr="'exit judging state'"/>
+            <log label="judging" expr="'exit judging state'"/>
         </onexit>
 
         <transition event="judgeComplete">
             <if cond="_event.data.simple eq 0">
                 <assign location="simpleCount" expr="simpleCount + 1"></assign>
-                <log expr="' simple'"/>
+                <log label="judging" expr="' simple'"/>
 
                 <elseif cond="_event.data.simple eq 1"/>
                 <assign location="complexCount" expr="complexCount + 1"></assign>
-                <log expr="' complex'"/>
+                <log label="judging" expr="' complex'"/>
 
                 <else/>
-                <log expr="_event.data.simple"/>
+                <log label="judging" expr="_event.data.simple"/>
             </if>
             <if cond="simpleCount + complexCount eq judgeCount">
                 <send event="judgeCompleted"></send>
-                <log expr="'send event judgeCompleted'"/>
+                <log label="judging" expr="'send event judgeCompleted'"/>
             </if>
-            <log expr="'judge state inner transition'"/>
+            <log label="judging" expr="'judge state inner transition'"/>
 
         </transition>
 
         <transition event="judgeCompleted" cond="simpleCount gt complexCount" target="solving">
-            <log expr="'judge state transition to solving'"/>
+            <log label="judging" expr="'judge state transition to solving'"/>
         </transition>
 
         <transition event="judgeCompleted" cond="simpleCount lt complexCount" target="decomposing">
-            <log expr="'judge state transition to decomposing'"/>
+            <log label="judging" expr="'judge state transition to decomposing'"/>
         </transition>
 
     </state>
@@ -99,7 +99,7 @@
             <data id="step" expr="0"></data>
         </datamodel>
         <onentry>
-            <log expr="'entry decomposing state'"/>
+            <log label="decomposing" expr="'entry decomposing state'"/>
             <userTask id="decompose" name="DecomposeTask" candidateGroups="Decomposer"
                       instancesExpr="decomposeCount">
                 <form src="form/decompose.jsp">
@@ -111,15 +111,15 @@
         <transition event="decomposeComplete">
             <assign location="counted" expr="counted + 1"></assign>
             <!-- 写入数据库: 谁分解成了什么 -->
-            <log expr="' inner transition ,decomposeComplete'"/>
+            <log label="decomposing" expr="' inner transition ,decomposeComplete'"/>
         </transition>
         <transition cond="counted eq decomposeCount" target="decomposeVoting">
 
-            <log expr="' transition from decompose to decomposeVoting '"/>
+            <log label="decomposing" expr="' transition from decompose to decomposeVoting '"/>
         </transition>
 
         <onexit>
-            <log expr="'exit decomposing state'"/>
+            <log label="decomposing" expr="'exit decomposing state'"/>
         </onexit>
     </state>
 
@@ -136,10 +136,12 @@
 
                 </form>
             </userTask>
+            <log label="decomposeVoting" expr="'entry decomposeVoting state'"/>
         </onentry>
 
         <transition event="decomposeVoteComplete">
             <assign location="counted" expr="counted + 1"></assign>
+            <log label="decomposeVoting" expr="' inner transition ,decomposeVoteComplete'"/>
         </transition>
 
         <transition event="startSubMachine" cond="counted eq decomposeVoteCount" target="waitResulting">
@@ -151,8 +153,10 @@
                     <param name="crowdSourcingTask" expr="tempCrowdSourcingTask"></param>
                 </subStateMachine>
                 <assign location="steps" expr="steps + 1"></assign>
+                <log label="decomposeVoting" expr="'startSubMachine '"/>
             </foreach>
 
+            <log label="decomposeVoting" expr="'transition from decompose to decomposeVoting '"/>
         </transition>
     </state>
 
@@ -162,19 +166,35 @@
             <data id="count" expr="0"></data>
         </datamodel>
         <onentry>
-
+            <log label="waitResulting" expr="'entry waitResulting state '"/>
         </onentry>
         <transition event="to_waitResult">
             <assign location="count" expr="count + 1"></assign>
+            <log label="waitResulting" expr="' inner transition ,subStateMachine_to_end'"/>
         </transition>
         <transition cond="count eq steps" target="merging">
-            <log expr="'  '"/>
+            <log label="waitResulting" expr="' transition from waitResulting to merging '"/>
         </transition>
     </state>
 
     <!-- assign merging task -->
     <state id="merging">
+        <datamodel>
+            <data id="count" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <log label="merging" expr="'entry merging state '"/>
+            <!-- 自动化 归并任务，or??   -->
 
+
+        </onentry>
+        <transition event="to_waitResult">
+            <assign location="count" expr="count + 1"></assign>
+            <log label="merging" expr="' inner transition ,subStateMachine_to_end'"/>
+        </transition>
+        <transition cond="count eq steps" target="merging">
+            <log label="merging" expr="' transition from waitResulting to merging '"/>
+        </transition>
 
     </state>
 

@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -37,6 +38,8 @@ public class SolveTask implements WorkflowEntity {
     private Date taskCompleteTime;
     @Basic
     private String taskSolution;
+    @Basic
+    private String taskBest;
 
     public UserWorkItemEntity getUserWorkItemEntity() {
         return userWorkItemEntity;
@@ -44,6 +47,26 @@ public class SolveTask implements WorkflowEntity {
 
     public void setUserWorkItemEntity(UserWorkItemEntity userWorkItemEntity) {
         this.userWorkItemEntity = userWorkItemEntity;
+    }
+
+    @Override
+    public String toString() {
+        return "SolveTask{" +
+                "taskId=" + taskId +
+                ", taskCompleteTime=" + taskCompleteTime +
+                ", taskSolution='" + taskSolution + '\'' +
+                ", taskBest='" + taskBest + '\'' +
+                ", solveVoteTask=" + solveVoteTask +
+                ", userWorkItemEntity=" + userWorkItemEntity +
+                '}';
+    }
+
+    public String getTaskBest() {
+        return taskBest;
+    }
+
+    public void setTaskBest(String taskBest) {
+        this.taskBest = taskBest;
     }
 
     public long getTaskId() {
@@ -80,6 +103,27 @@ public class SolveTask implements WorkflowEntity {
 
 
     public Map<String, Object> getNotNullPropertyMap() {
-        return null;
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("currentObject", this.getClass().getName());
+        if (getTaskId() != 0) {
+            map.put("taskId", getTaskId());
+        }
+        if (getTaskSolution() != null) {
+            map.put("taskSolution", getTaskSolution());
+        }
+        if (getUserWorkItemEntity() != null) {
+            map.put("userWorkItemEntity", getUserWorkItemEntity());
+        }
+        if (getSolveVoteTask() != null) {
+            map.put("solveVoteTask", getSolveVoteTask());
+        }
+        if (getTaskBest() != null) {
+            map.put("taskBest", getTaskBest());
+        }
+
+        System.out.println("Query Condition: " + map);
+        map.remove("currentObject");
+        return map;
     }
+
 }

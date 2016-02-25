@@ -23,4 +23,6 @@ public interface DecomposeTaskDao {
 
 
     DecomposeTask getDecomposeTask(DecomposeTask decomposeTask);
+
+    boolean updateDecomposeTask(DecomposeTask decomposeTask);
 }

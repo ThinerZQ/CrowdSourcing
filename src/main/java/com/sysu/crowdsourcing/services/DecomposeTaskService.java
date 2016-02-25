@@ -24,5 +24,7 @@ public interface DecomposeTaskService {
 
     DecomposeTask getDecomposeTask(DecomposeTask decomposeTask);
 
+    boolean updateDecomposeTask(DecomposeTask decomposeTask);
+
 
 }

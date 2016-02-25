@@ -4,7 +4,7 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="home">
         <c:if test="${null !=  userWorkItemEntity}">
-        <form action="${pageContext.request.contextPath}/completeDecomposeTask.do" class="form-horizontal"
+            <form action="${pageContext.request.contextPath}/completeSolveTask.do" class="form-horizontal"
               method="post">
             <div class="panel panel-primary panel-info">
                 <div class="panel-heading">
@@ -41,7 +41,7 @@
                                         Solution
                                     </td>
                                     <td>
-                                        <textarea cols="100" rows="20" name="solution"></textarea>
+                                        <textarea cols="100" rows="10" name="taskSolution"></textarea>
                                     </td>
                                 </tr>
 

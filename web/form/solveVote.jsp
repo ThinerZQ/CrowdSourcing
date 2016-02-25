@@ -4,7 +4,7 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="home">
         <c:if test="${null !=  userWorkItemEntity}">
-        <form action="${pageContext.request.contextPath}/completeDecomposeVoteTask.do" class="form-horizontal">
+            <form action="${pageContext.request.contextPath}/completeSolveVoteTask.do" class="form-horizontal">
             <div class="panel panel-primary panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">WorkItemName：<c:out
@@ -39,7 +39,7 @@
                                     <table class="table table-bordered table-hover">
                                         <caption class="text-center">solve Result about the task above</caption>
                                         <tbody>
-                                        <c:forEach items="${decomposeTaskUserWorkflowMap.keySet() }"
+                                        <c:forEach items="${solveTaskUserWorkflowMap.keySet() }"
                                                    var="tempUserWorkflowEntity">
                                             <tr class="bg-success">
                                                 <td>Author:</td>
@@ -49,15 +49,11 @@
                                                            value="<c:out value="${tempUserWorkflowEntity.itemId}"></c:out>"/>
                                                 </td>
                                             </tr>
-                                            <c:forEach
-                                                    items="${decomposeTaskUserWorkflowMap.get(tempUserWorkflowEntity) }"
-                                                    var="decomposeTask">
-                                                <tr>
-                                                    <td>Step <c:out value="${decomposeTask.taskOrder }"></c:out></td>
-                                                    <td><c:out value="${decomposeTask.taskName}"></c:out></td>
-                                                    <td><c:out value="${decomposeTask.taskDescription }"></c:out></td>
-                                                </tr>
-                                            </c:forEach>
+                                            <tr>
+                                                <td>Solution :</td>
+                                                <td colspan="2"><c:out
+                                                        value="${solveTaskUserWorkflowMap.get(tempUserWorkflowEntity).taskSolution }"></c:out></td>
+                                            </tr>
                                         </c:forEach>
                                         </tbody>
                                     </table>

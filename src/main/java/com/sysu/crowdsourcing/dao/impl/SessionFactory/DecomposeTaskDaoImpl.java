@@ -105,4 +105,18 @@ public class DecomposeTaskDaoImpl implements DecomposeTaskDao {
         }
         return dt;
     }
+
+    @Transactional
+    public boolean updateDecomposeTask(DecomposeTask decomposeTask) {
+        boolean flag = false;
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.update(decomposeTask);
+            flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return flag;
+        }
+    }
 }

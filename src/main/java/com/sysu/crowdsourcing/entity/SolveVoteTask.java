@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -66,7 +67,32 @@ public class SolveVoteTask implements WorkflowEntity {
         this.solveTask = solveTask;
     }
 
-    public Map<String, Object> getNotNullPropertyMap() {
-        return null;
+    @Override
+    public String toString() {
+        return "SolveVoteTask{" +
+                "solveTask=" + solveTask +
+                ", userWorkItemEntity=" + userWorkItemEntity +
+                ", taskId=" + taskId +
+                ", taskCompleteTime=" + taskCompleteTime +
+                '}';
     }
+
+    public Map<String, Object> getNotNullPropertyMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("currentObject", this.getClass().getName());
+        if (getTaskId() != 0) {
+            map.put("taskId", getTaskId());
+        }
+        if (getSolveTask() != null) {
+            map.put("solveTask", getSolveTask());
+        }
+        if (getUserWorkItemEntity() != null) {
+            map.put("userWorkItemEntity", getUserWorkItemEntity());
+        }
+        System.out.println("Query Condition: " + map);
+        map.remove("currentObject");
+        return map;
+    }
+
+
 }

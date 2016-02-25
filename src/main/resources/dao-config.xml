@@ -13,6 +13,10 @@
           class="com.sysu.crowdsourcing.dao.impl.SessionFactory.DecomposeTaskDaoImpl"></bean>
     <bean id="decomposeVoteTaskDao"
           class="com.sysu.crowdsourcing.dao.impl.SessionFactory.DecomposeVoteTaskDaoImpl"></bean>
+    <bean id="solveTaskDao"
+          class="com.sysu.crowdsourcing.dao.impl.SessionFactory.SolveTaskDaoImpl"></bean>
+    <bean id="solveVoteTaskDao"
+          class="com.sysu.crowdsourcing.dao.impl.SessionFactory.SolveVoteTaskDaoImpl"></bean>
 
 
     <!--

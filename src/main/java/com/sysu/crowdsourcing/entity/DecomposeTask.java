@@ -34,6 +34,9 @@ public class DecomposeTask implements WorkflowEntity {
     @Basic
     private String taskOrder;
 
+    @Basic
+    private String taskBest;
+
     @ManyToOne()
     @JoinColumn(name = "userworkitem_id")
     private UserWorkItemEntity userWorkItemEntity;
@@ -90,6 +93,14 @@ public class DecomposeTask implements WorkflowEntity {
         this.userWorkItemEntity = userWorkItemEntity;
     }
 
+    public String getTaskBest() {
+        return taskBest;
+    }
+
+    public void setTaskBest(String taskBest) {
+        this.taskBest = taskBest;
+    }
+
     public Set<DecomposeVoteTask> getDecomposeVoteTaskSet() {
         return decomposeVoteTaskSet;
     }
@@ -117,10 +128,12 @@ public class DecomposeTask implements WorkflowEntity {
         if (getUserWorkItemEntity() != null) {
             map.put("userWorkItemEntity", getUserWorkItemEntity());
         }
+        if (getTaskBest() != null) {
+            map.put("taskBest", getTaskBest());
+        }
 
         System.out.println("Query Condition: " + map);
         map.remove("currentObject");
         return map;
-
     }
 }

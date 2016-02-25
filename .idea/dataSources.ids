@@ -31,6 +31,7 @@
     </table>
     <table name="t_decomposetask" schema="" catalog="crowdsourcing" type="TABLE">
       <column name="taskId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="taskBest" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="taskCompleteTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="taskDescription" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="taskName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
@@ -147,6 +148,7 @@
     </table>
     <table name="t_solvetask" schema="" catalog="crowdsourcing" type="TABLE">
       <column name="taskId" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="taskBest" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="taskCompleteTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="taskSolution" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="solvevotetask_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>

@@ -13,6 +13,10 @@
     <bean id="decomposeTaskService" class="com.sysu.crowdsourcing.services.impl.DecomposeTaskServiceImpl"></bean>
     <bean id="decomposeVoteTaskService"
           class="com.sysu.crowdsourcing.services.impl.DecomposeVoteTaskServiceImpl"></bean>
+    <bean id="solveTaskService"
+          class="com.sysu.crowdsourcing.services.impl.SolveTaskServiceImpl"></bean>
+    <bean id="solveVoteTaskService"
+          class="com.sysu.crowdsourcing.services.impl.SolveVoteTaskServiceImpl"></bean>
 
 
     <!--

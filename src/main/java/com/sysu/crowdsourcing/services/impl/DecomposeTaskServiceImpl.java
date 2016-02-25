@@ -38,4 +38,8 @@ public class DecomposeTaskServiceImpl implements DecomposeTaskService {
     public DecomposeTask getDecomposeTask(DecomposeTask decomposeTask) {
         return decomposeTaskDao.getDecomposeTask(decomposeTask);
     }
+
+    public boolean updateDecomposeTask(DecomposeTask decomposeTask) {
+        return decomposeTaskDao.updateDecomposeTask(decomposeTask);
+    }
 }

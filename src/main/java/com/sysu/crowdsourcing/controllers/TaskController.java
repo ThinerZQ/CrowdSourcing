@@ -1,10 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
 
-import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
-import com.sysu.crowdsourcing.entity.DecomposeTask;
-import com.sysu.crowdsourcing.entity.DecomposeVoteTask;
-import com.sysu.crowdsourcing.entity.JudgeTask;
+import com.sysu.crowdsourcing.entity.*;
 import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
 import com.sysu.crowdsourcing.services.*;
 import com.sysu.workflow.SCXMLExecutor;
@@ -44,6 +41,12 @@ public class TaskController {
 
     @Resource(name = "postService")
     PostService postService;
+
+    @Resource(name = "solveTaskService")
+    SolveTaskService solveTaskService;
+
+    @Resource(name = "solveVoteTaskService")
+    SolveVoteTaskService solveVoteTaskService;
 
     @RequestMapping("/Home.do")
     public ModelAndView Home() {
@@ -181,6 +184,20 @@ public class TaskController {
                     decomposeTaskUserWorkflowMap.put(tempEntity, decomposeTaskArrayList);
                 }
                 modelAndView.addObject("decomposeTaskUserWorkflowMap", decomposeTaskUserWorkflowMap);
+            } else if (userWorkItemEntity.getItemName().equals("SolveVoteTask")) {
+                {
+                    ArrayList<UserWorkItemEntity> solveTaskUserWorkflowEntity = TaskService.createUserTaskQuery().taskFinish("yes").taskName("SolveTask").taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).list();
+
+                    Map<UserWorkItemEntity, SolveTask> solveTaskUserWorkflowMap = new HashMap<UserWorkItemEntity, SolveTask>();
+                    //get coorespond solve result for each userworkflowEntity
+                    for (UserWorkItemEntity tempEntity : solveTaskUserWorkflowEntity) {
+                        SolveTask solveTask = new SolveTask();
+                        solveTask.setUserWorkItemEntity(tempEntity);
+                        SolveTask solveTask1 = solveTaskService.getSolveTask(solveTask);
+                        solveTaskUserWorkflowMap.put(tempEntity, solveTask1);
+                    }
+                    modelAndView.addObject("solveTaskUserWorkflowMap", solveTaskUserWorkflowMap);
+                }
             }
 
 
@@ -441,6 +458,7 @@ public class TaskController {
                             bestDecomposeTasks.add(dt_1);
                         }
 
+                        //write to crowdsoucing table
                         if (bestDecomposeTasks != null && bestDecomposeTasks.size() != 0) {
                             ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList = new ArrayList<CrowdSourcingTask>();
                             for (DecomposeTask tempDecomposeTask1 : bestDecomposeTasks) {
@@ -451,10 +469,15 @@ public class TaskController {
                                 tempCrowdSourcingTask.setUserEntity(userWorkItemEntity.getItemAssigneeEntity());
 
                                 crowdSourcingTaskArrayList.add(tempCrowdSourcingTask);
+
+                                //update best decomposeTask property "best" to yes
+                                tempDecomposeTask1.setTaskBest("yes");
+                                decomposeTaskService.updateDecomposeTask(tempDecomposeTask1);
                             }
                             postService.saveCrowdSourcingTask(crowdSourcingTaskArrayList);
                             executor.getRootContext().set("crowdSourcingTaskArrayList", crowdSourcingTaskArrayList);
                             executor.triggerEvent(new TriggerEvent("startSubMachine", TriggerEvent.SIGNAL_EVENT));
+
                         }
                     }
                 }
@@ -481,13 +504,44 @@ public class TaskController {
 
 
     @RequestMapping("/completeSolveTask.do")
-    public ModelAndView completeSolveTask() {
+    public ModelAndView completeSolveTask(@ModelAttribute SolveTask solveTask, String userWorkItemId, HttpSession httpSession) {
 
         System.out.println("--------completeSolveTask.do----------");
 
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/myTask.do?taskState=solving");
+
+        solveTask.setTaskCompleteTime(new Date());
+        System.out.println(solveTask.toString());
+        System.out.println(userWorkItemId);
+        UserWorkItemEntity userWorkItemEntity = null;
+        try {
+            if (userWorkItemId != null) {
+                userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+                solveTask.setUserWorkItemEntity(userWorkItemEntity);
+            }
+            if (solveTask.getUserWorkItemEntity() == null) {
+                modelAndView.setViewName("error");
+                return modelAndView;
+            }
+            long id = solveTaskService.saveSolveVote(solveTask);
+            //save result sucess ,then update itemFinish to yes
+            if (id != -1) {
+                userWorkItemEntity.setItemFinish("yes");
+                TaskService taskService = new TaskService();
+                taskService.updateUserWorkItem(userWorkItemEntity);
+
+
+                SCXMLExecutor executor = SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId());
+                if (executor == null) {
+                    throw new SCXMLExecuteException("no executor exception");
+                }
+                executor.triggerEvent(new TriggerEvent("solveComplete", TriggerEvent.SIGNAL_EVENT));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        modelAndView.setViewName("redirect:/myTask.do?taskState=judging");
         return modelAndView;
     }
 
@@ -504,12 +558,102 @@ public class TaskController {
     }
 
     @RequestMapping("/completeSolveVoteTask.do")
-    public ModelAndView completeSolveVoteTask() {
+    public ModelAndView completeSolveVoteTask(String userWorkItemId, String votedUserWorkItemId) {
 
         System.out.println("--------completeSolveVoteTask.do----------");
 
-
         ModelAndView modelAndView = new ModelAndView();
+
+
+        //–¥»ÎsolveVoteTask
+        if (userWorkItemId != null && votedUserWorkItemId != null) {
+            UserWorkItemEntity userWorkItemEntity = null;
+            UserWorkItemEntity votedUserWorkItemEntity = null;
+            try {
+                userWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(userWorkItemId)).SingleResult();
+                votedUserWorkItemEntity = TaskService.createUserTaskQuery().taskId(Integer.parseInt(votedUserWorkItemId)).taskFinish("yes").SingleResult();
+
+                if (userWorkItemEntity == null || votedUserWorkItemEntity == null) {
+                    modelAndView.setViewName("error");
+                    return modelAndView;
+                }
+
+
+                SolveTask tempSolveTask = new SolveTask();
+                tempSolveTask.setUserWorkItemEntity(votedUserWorkItemEntity);
+                tempSolveTask = solveTaskService.getSolveTask(tempSolveTask);
+
+                //save solveVoteTask
+                SolveVoteTask solveVoteTask = new SolveVoteTask();
+                solveVoteTask.setTaskCompleteTime(new Date());
+                solveVoteTask.setUserWorkItemEntity(userWorkItemEntity);
+                solveVoteTask.setSolveTask(tempSolveTask);
+
+
+                // TODO :
+                long id = solveVoteTaskService.saveSolveVoteTask(solveVoteTask);
+
+                //save result sucess ,then update itemFinish to yes
+                if (id != -1) {
+                    userWorkItemEntity.setItemFinish("yes");
+                    TaskService taskService = new TaskService();
+                    taskService.updateUserWorkItem(userWorkItemEntity);
+
+                    SCXMLExecutor executor = SCXMLInstanceManager.getSCXMLInstanceExecutor(userWorkItemEntity.getItemProcessId());
+                    if (executor == null) {
+                        throw new SCXMLExecuteException("no  executor exception");
+                    }
+
+
+                    //get the best solve result
+                    CrowdSourcingTask crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
+
+                    ArrayList<UserWorkItemEntity> tempUserWorkflowEntitys = TaskService.createUserTaskQuery().taskProcessInstanceId(userWorkItemEntity.getItemProcessId()).taskName("SolveVoteTask").taskFinish("yes").list();
+                    int votedCount = tempUserWorkflowEntitys.size();
+                    //all people have been voted
+                    Map<Long, Long> tempMap = new HashMap<Long, Long>();
+                    if (crowdSourcingTask.getTaskSolveVoteCount() == votedCount) {
+                        //get the best solve result
+                        for (UserWorkItemEntity tempUserWorkflowEntity : tempUserWorkflowEntitys) {
+
+                            SolveVoteTask condSolveVoteTask = new SolveVoteTask();
+                            condSolveVoteTask.setUserWorkItemEntity(tempUserWorkflowEntity);
+
+                            SolveVoteTask solveVoteTask1 = solveVoteTaskService.getSolveVoteTask(condSolveVoteTask);
+                            long taskId = solveVoteTask1.getSolveTask().getTaskId();
+                            if (tempMap.containsKey(taskId)) {
+                                tempMap.put(taskId, tempMap.get(taskId) + 1);
+                            } else {
+                                tempMap.put(taskId, (long) 1);
+                            }
+                        }
+                        // find the most frequence  ,as to bestVoted
+                        long maxValue = 0;
+                        long maxIndex = 0;
+                        for (Map.Entry<Long, Long> entry : tempMap.entrySet()) {
+                            if (maxValue < entry.getValue()) {
+                                maxValue = entry.getValue();
+                                maxIndex = entry.getKey();
+                            }
+                        }
+                        SolveTask task1 = new SolveTask();
+                        task1.setTaskId(maxIndex);
+                        SolveTask sessionSolveTask = solveTaskService.getSolveTask(task1);
+                        sessionSolveTask.setTaskBest("yes");
+                        solveTaskService.updateSolveTask(sessionSolveTask);
+
+                    }
+
+                    executor.triggerEvent(new TriggerEvent("solveVoteComplete", TriggerEvent.SIGNAL_EVENT));
+
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
         modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
         return modelAndView;
     }
