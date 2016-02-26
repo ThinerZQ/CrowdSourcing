@@ -17,4 +17,8 @@ public class CrowdSourcingTaskServiceImpl implements CrowdSourcingTaskService {
     public CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId) {
         return crowdSourcingTaskDao.getCrowdSourcingTaskByProcessInstanceId(processInstanceId);
     }
+
+    public boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+        return crowdSourcingTaskDao.updateCrowdSourcingTask(crowdSourcingTask);
+    }
 }

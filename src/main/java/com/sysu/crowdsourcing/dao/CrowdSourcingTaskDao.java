@@ -4,8 +4,8 @@ import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.workflow.entity.UserWorkItemEntity;
 import org.hibernate.Criteria;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -13,12 +13,13 @@ import java.util.List;
 public interface CrowdSourcingTaskDao {
     long addTask(CrowdSourcingTask crowdSourcingTask);
 
-    boolean addTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList);
+    boolean addTask(Set<CrowdSourcingTask> crowdSourcingTaskArrayList);
 
     boolean deleteTaskById(long taskId);
 
     CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId);
 
+    boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask);
 
     List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask);
 

@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.services;
 
 import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -13,5 +13,5 @@ public interface PostService {
 
     boolean saveCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask);
 
-    boolean saveCrowdSourcingTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList);
+    boolean saveCrowdSourcingTask(Set<CrowdSourcingTask> crowdSourcingTaskArrayList);
 }

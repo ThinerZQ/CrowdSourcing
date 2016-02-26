@@ -184,16 +184,14 @@
         </datamodel>
         <onentry>
             <log label="merging" expr="'entry merging state '"/>
-            <!-- 自动化 归并任务，or??   -->
-
-
+            <!-- 自动化 归并任务,    -->
+            <script>
+                var result = crowdSourcingTask.merge();
+            </script>
         </onentry>
-        <transition event="to_waitResult">
-            <assign location="count" expr="count + 1"></assign>
-            <log label="merging" expr="' inner transition ,subStateMachine_to_end'"/>
-        </transition>
-        <transition cond="count eq steps" target="merging">
-            <log label="merging" expr="' transition from waitResulting to merging '"/>
+
+        <transition cond="result eq true" target="end">
+            <send event="to_waitResult" type="scxml" messageMode="TO_PARENT"></send>
         </transition>
 
     </state>

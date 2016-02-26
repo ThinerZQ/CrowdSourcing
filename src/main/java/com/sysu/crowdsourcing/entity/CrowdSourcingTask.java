@@ -7,9 +7,7 @@ import com.sysu.workflow.entity.WorkflowEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -42,6 +40,8 @@ public class CrowdSourcingTask implements WorkflowEntity {
     @Basic
     private String taskPrice;
     @Basic
+    private String taskSolution;
+    @Basic
     private int taskJudgeCount = 3;
     @Basic
     private int taskDecomposeCount = 2;
@@ -56,6 +56,10 @@ public class CrowdSourcingTask implements WorkflowEntity {
     private ProcessInstanceEntity processInstanceEntity;
 
 
+    @OneToMany
+    private Set<CrowdSourcingTask> taskSubCrowdSourcingTask = new HashSet<CrowdSourcingTask>();
+
+
     public void updateTaskType(String taskType) {
 
 
@@ -68,6 +72,26 @@ public class CrowdSourcingTask implements WorkflowEntity {
 
     public void getBestDecomposeTask() {
 
+    }
+
+    public void merge() {
+
+
+        // CrowdSourcingTask crowdSourcingTask   = Tasktt.getSubCrowdSourcingTask(this.getTaskId());
+        //Set<CrowdSourcingTask> subCrowdSourcingSet  = crowdSourcingTask.getTaskSubCrowdSourcingTask();
+        // merge
+
+        // can this is right ? ?
+
+
+    }
+
+    public String getTaskSolution() {
+        return taskSolution;
+    }
+
+    public void setTaskSolution(String taskSolution) {
+        this.taskSolution = taskSolution;
     }
 
     public long getTaskId() {
@@ -190,10 +214,20 @@ public class CrowdSourcingTask implements WorkflowEntity {
         this.taskSolveVoteCount = taskSolveVoteCount;
     }
 
+
+    public Set<CrowdSourcingTask> getTaskSubCrowdSourcingTask() {
+        return taskSubCrowdSourcingTask;
+    }
+
+    public void setTaskSubCrowdSourcingTask(Set<CrowdSourcingTask> taskSubCrowdSourcingTask) {
+        this.taskSubCrowdSourcingTask = taskSubCrowdSourcingTask;
+    }
+
     @Override
     public String toString() {
         return "CrowdSourcingTask{" +
-                "taskId=" + taskId +
+                "userEntity=" + userEntity +
+                ", taskId=" + taskId +
                 ", taskName='" + taskName + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +
                 ", taskReleaseTime=" + taskReleaseTime +
@@ -201,17 +235,18 @@ public class CrowdSourcingTask implements WorkflowEntity {
                 ", taskCompleteTime=" + taskCompleteTime +
                 ", taskType='" + taskType + '\'' +
                 ", taskPrice='" + taskPrice + '\'' +
+                ", taskSolution='" + taskSolution + '\'' +
                 ", taskJudgeCount=" + taskJudgeCount +
                 ", taskDecomposeCount=" + taskDecomposeCount +
                 ", taskDecomposeVoteCount=" + taskDecomposeVoteCount +
                 ", taskSolveCount=" + taskSolveCount +
                 ", taskSolveVoteCount=" + taskSolveVoteCount +
-                ", userEntity=" + userEntity +
                 ", processInstanceEntity=" + processInstanceEntity +
                 '}';
     }
 
     public Map<String, Object> getNotNullPropertyMap() {
+
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("currentObject", this.getClass().getName());
         if (getTaskId() != 0) {
@@ -227,6 +262,7 @@ public class CrowdSourcingTask implements WorkflowEntity {
         System.out.println("Query Condition: " + map);
         map.remove("currentObject");
         return map;
+
     }
 }
 

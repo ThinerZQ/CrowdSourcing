@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -39,7 +40,7 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
     }
 
     @Transactional
-    public boolean addTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList) {
+    public boolean addTask(Set<CrowdSourcingTask> crowdSourcingTaskArrayList) {
         boolean flag = true;
         for (CrowdSourcingTask crowdSourcingTask : crowdSourcingTaskArrayList) {
             long id = -1;
@@ -97,6 +98,19 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
             e.printStackTrace();
         } finally {
             return crowdSourcingTask;
+        }
+    }
+
+    public boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+        boolean flag = false;
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.merge(crowdSourcingTask);
+            flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return flag;
         }
     }
 

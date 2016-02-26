@@ -11,5 +11,7 @@ public interface CrowdSourcingTaskService {
 
     CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId);
 
+    boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask);
+
 
 }

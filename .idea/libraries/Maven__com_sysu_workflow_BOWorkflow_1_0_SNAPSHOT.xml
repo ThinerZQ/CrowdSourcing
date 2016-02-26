@@ -13,6 +13,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-javadoc.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-javadoc.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-sources.jar!/" />
@@ -25,6 +26,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-sources.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-sources.jar!/" />
       <root url="file://$PROJECT_DIR$/../BOWorkFlow/src/main/java" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

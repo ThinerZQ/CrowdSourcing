@@ -5,6 +5,7 @@ import com.sysu.crowdsourcing.entity.*;
 import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
 import com.sysu.crowdsourcing.services.*;
 import com.sysu.workflow.SCXMLExecutor;
+import com.sysu.workflow.SCXMLSystemContext;
 import com.sysu.workflow.TriggerEvent;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
 import com.sysu.workflow.entity.GroupEntity;
@@ -460,9 +461,11 @@ public class TaskController {
 
                         //write to crowdsoucing table
                         if (bestDecomposeTasks != null && bestDecomposeTasks.size() != 0) {
-                            ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList = new ArrayList<CrowdSourcingTask>();
+                            Set<CrowdSourcingTask> crowdSourcingTaskArrayList = new HashSet<CrowdSourcingTask>();
                             for (DecomposeTask tempDecomposeTask1 : bestDecomposeTasks) {
+
                                 CrowdSourcingTask tempCrowdSourcingTask = new CrowdSourcingTask();
+
                                 tempCrowdSourcingTask.setTaskName(tempDecomposeTask1.getTaskName());
                                 tempCrowdSourcingTask.setTaskDescription(tempDecomposeTask1.getTaskDescription());
                                 tempCrowdSourcingTask.setTaskReleaseTime(new Date());
@@ -475,10 +478,34 @@ public class TaskController {
                                 decomposeTaskService.updateDecomposeTask(tempDecomposeTask1);
                             }
                             postService.saveCrowdSourcingTask(crowdSourcingTaskArrayList);
+
+                            //update current crowdsourcingTask's subCrowdSourcingTask record
+                            crowdSourcingTask.setTaskSubCrowdSourcingTask(crowdSourcingTaskArrayList);
+                            crowdSourcingTaskService.updateCrowdSourcingTask(crowdSourcingTask);
+
                             executor.getRootContext().set("crowdSourcingTaskArrayList", crowdSourcingTaskArrayList);
                             executor.triggerEvent(new TriggerEvent("startSubMachine", TriggerEvent.SIGNAL_EVENT));
 
+
+                            //record the bestCrowdSourcingTask correspond processInstance Id .
+
+                            CrowdSourcingTask rootContextCrowdSourcingTask = (CrowdSourcingTask) executor.getRootContext().get("crowdSourcingTask");
+                            ArrayList<String> childSessionIdList = executor.getSCXMLInstanceTree().getChildTreeNodeSessionId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY));
+
+                            for (String sessionId : childSessionIdList) {
+                                SCXMLExecutor childSCXMLExecutor = SCXMLInstanceManager.getSCXMLInstanceExecutor(sessionId);
+                                CrowdSourcingTask tempRootContextCrowdSourcingTask = (CrowdSourcingTask) childSCXMLExecutor.getRootContext().get("crowdSourcingTask");
+
+
+                                //TODO : this tempRootContextCrowdSourcingTask no task id , so look pre and solve it
+
+
+                            }
+
+
                         }
+
+
                     }
                 }
             } catch (Exception e) {
@@ -641,7 +668,9 @@ public class TaskController {
                         SolveTask sessionSolveTask = solveTaskService.getSolveTask(task1);
                         sessionSolveTask.setTaskBest("yes");
                         solveTaskService.updateSolveTask(sessionSolveTask);
-
+                        crowdSourcingTask.setTaskSolution(sessionSolveTask.getTaskSolution());
+                        //cory bestSolution to crowdsourcingTask if this crowdsourcing task is simple
+                        crowdSourcingTaskService.updateCrowdSourcingTask(crowdSourcingTask);
                     }
 
                     executor.triggerEvent(new TriggerEvent("solveVoteComplete", TriggerEvent.SIGNAL_EVENT));

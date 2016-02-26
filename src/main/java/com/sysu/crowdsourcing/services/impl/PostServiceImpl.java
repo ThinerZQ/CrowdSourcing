@@ -17,7 +17,7 @@ import com.sysu.workflow.service.processservice.RuntimeService;
 
 import javax.annotation.Resource;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by zhengshouzi on 2015/9/7.
@@ -72,7 +72,7 @@ public class PostServiceImpl implements PostService {
         return crowdSorucingTaskDao.addTask(crowdSourcingTask) != -1 ? true : false;
     }
 
-    public boolean saveCrowdSourcingTask(ArrayList<CrowdSourcingTask> crowdSourcingTaskArrayList) {
+    public boolean saveCrowdSourcingTask(Set<CrowdSourcingTask> crowdSourcingTaskArrayList) {
 
 
         return crowdSorucingTaskDao.addTask(crowdSourcingTaskArrayList);
