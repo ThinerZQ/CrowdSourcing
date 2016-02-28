@@ -33,7 +33,7 @@ public class PostController {
         crowdSourcingTask.setTaskType(TaskType.MainTask);
         crowdSourcingTask.setTaskReleaseTime(new Date());
 
-        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
+        UserEntity userEntity = (UserEntity) httpSession.getAttribute("currentUserEntity");
         crowdSourcingTask.setUserEntity(userEntity);
 
         System.out.printf(crowdSourcingTask.toString());

@@ -8,10 +8,8 @@ import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.SCXMLSystemContext;
 import com.sysu.workflow.TriggerEvent;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
-import com.sysu.workflow.entity.GroupEntity;
-import com.sysu.workflow.entity.GroupWorkItemEntity;
-import com.sysu.workflow.entity.UserEntity;
-import com.sysu.workflow.entity.UserWorkItemEntity;
+import com.sysu.workflow.entity.*;
+import com.sysu.workflow.service.processservice.RuntimeService;
 import com.sysu.workflow.service.taskservice.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -468,6 +466,7 @@ public class TaskController {
 
                                 tempCrowdSourcingTask.setTaskName(tempDecomposeTask1.getTaskName());
                                 tempCrowdSourcingTask.setTaskDescription(tempDecomposeTask1.getTaskDescription());
+                                tempCrowdSourcingTask.setTaskStep(Integer.valueOf(tempDecomposeTask1.getTaskOrder()));
                                 tempCrowdSourcingTask.setTaskReleaseTime(new Date());
                                 tempCrowdSourcingTask.setUserEntity(userWorkItemEntity.getItemAssigneeEntity());
 
@@ -477,13 +476,18 @@ public class TaskController {
                                 tempDecomposeTask1.setTaskBest("yes");
                                 decomposeTaskService.updateDecomposeTask(tempDecomposeTask1);
                             }
-                            postService.saveCrowdSourcingTask(crowdSourcingTaskArrayList);
+                            //postService.saveCrowdSourcingTask(crowdSourcingTaskArrayList);
 
                             //update current crowdsourcingTask's subCrowdSourcingTask record
                             crowdSourcingTask.setTaskSubCrowdSourcingTask(crowdSourcingTaskArrayList);
                             crowdSourcingTaskService.updateCrowdSourcingTask(crowdSourcingTask);
 
+
+                            crowdSourcingTask = crowdSourcingTaskService.getCrowdSourcingTaskByProcessInstanceId(userWorkItemEntity.getItemProcessInstanceEntity().getId());
+                            crowdSourcingTaskArrayList = crowdSourcingTask.getTaskSubCrowdSourcingTask();
+
                             executor.getRootContext().set("crowdSourcingTaskArrayList", crowdSourcingTaskArrayList);
+                            executor.getRootContext().set("crowdSourcingTask", crowdSourcingTask);
                             executor.triggerEvent(new TriggerEvent("startSubMachine", TriggerEvent.SIGNAL_EVENT));
 
 
@@ -496,16 +500,17 @@ public class TaskController {
                                 SCXMLExecutor childSCXMLExecutor = SCXMLInstanceManager.getSCXMLInstanceExecutor(sessionId);
                                 CrowdSourcingTask tempRootContextCrowdSourcingTask = (CrowdSourcingTask) childSCXMLExecutor.getRootContext().get("crowdSourcingTask");
 
-
+                                //according the tempRootContextCrowdSourcingTask 's ID update it's processInstance ,
                                 //TODO : this tempRootContextCrowdSourcingTask no task id , so look pre and solve it
 
+                                ProcessInstanceEntity childProcessInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId(sessionId).SingleResult();
 
+                                tempRootContextCrowdSourcingTask.setProcessInstanceEntity(childProcessInstanceEntity);
+
+                                crowdSourcingTaskService.updateCrowdSourcingTask(tempRootContextCrowdSourcingTask);
                             }
 
-
                         }
-
-
                     }
                 }
             } catch (Exception e) {
@@ -680,10 +685,50 @@ public class TaskController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
-
         modelAndView.setViewName("redirect:/myTask.do?taskState=solveVoting");
         return modelAndView;
     }
+
+
+    @RequestMapping("/myPostedTask.do")
+    public ModelAndView myPostedTask(HttpSession httpSession) {
+
+        System.out.println("--------myPostedTask.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        CrowdSourcingTask condCrowdSourcingTask = new CrowdSourcingTask();
+        condCrowdSourcingTask.setUserEntity((UserEntity) httpSession.getAttribute("currentUserEntity"));
+
+        List<CrowdSourcingTask> myPostedCrowdSourcingTaskList = crowdSourcingTaskService.getCrowdSourcingTask(condCrowdSourcingTask);
+
+        modelAndView.addObject("myPostedCrowdSourcingTaskList", myPostedCrowdSourcingTaskList);
+
+        modelAndView.setViewName("postTask");
+
+        return modelAndView;
+
+    }
+
+    @RequestMapping("/myPostedTaskDetail.do")
+    public ModelAndView myPostedTaskDetail(String taskId) {
+
+        System.out.println("--------myPostedTaskDetail.do----------");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        CrowdSourcingTask condCrowdSourcingTask = new CrowdSourcingTask();
+        condCrowdSourcingTask.setTaskId(Integer.parseInt(taskId));
+
+        List<CrowdSourcingTask> myPostedCrowdSourcingTaskList = crowdSourcingTaskService.getCrowdSourcingTask(condCrowdSourcingTask);
+
+        modelAndView.addObject("myPostedCrowdSourcingTask", myPostedCrowdSourcingTaskList.get(0));
+
+        modelAndView.setViewName("postedTaskDetail");
+
+        return modelAndView;
+
+    }
+
 }

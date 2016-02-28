@@ -101,6 +101,7 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
         }
     }
 
+    @Transactional
     public boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
         boolean flag = false;
         try {
@@ -114,9 +115,9 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
         }
     }
 
+    @Transactional
     public List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
         List<CrowdSourcingTask> crowdSourcingTaskList = new ArrayList<CrowdSourcingTask>();
-        //TODO:some error to fix
         try {
             Session session = sessionFactory.getCurrentSession();
             Criteria criteria = session.createCriteria(CrowdSourcingTask.class);
@@ -124,8 +125,6 @@ public class CrowdSourcingTaskDaoImpl implements CrowdSourcingTaskDao {
             criteria.add(criterion);
             criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
             crowdSourcingTaskList = criteria.list();
-            //Hibernate.initialize();
-            //System.out.printf(taskEntityList.get(0).toString());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

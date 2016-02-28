@@ -1,12 +1,16 @@
 package com.sysu.crowdsourcing.entity;
 
 
+import com.sysu.crowdsourcing.tools.DBHelper;
 import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.entity.UserEntity;
 import com.sysu.workflow.entity.WorkflowEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.*;
 
 
@@ -18,7 +22,7 @@ import java.util.*;
 public class CrowdSourcingTask implements WorkflowEntity {
 
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     public UserEntity userEntity;
     @Id
@@ -51,17 +55,19 @@ public class CrowdSourcingTask implements WorkflowEntity {
     private int taskSolveCount = 2;
     @Basic
     private int taskSolveVoteCount = 3;
+    @Basic
+    private int taskStep = 3;
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "processInstanceId")
     private ProcessInstanceEntity processInstanceEntity;
+    @OneToMany(targetEntity = CrowdSourcingTask.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OrderBy("taskStep")
+    private Set<CrowdSourcingTask> taskSubCrowdSourcingTask;
 
-
-    @OneToMany
-    private Set<CrowdSourcingTask> taskSubCrowdSourcingTask = new HashSet<CrowdSourcingTask>();
-
+    @ManyToOne
+    private CrowdSourcingTask taskParentCrowdSourcingTask;
 
     public void updateTaskType(String taskType) {
-
 
     }
 
@@ -74,24 +80,71 @@ public class CrowdSourcingTask implements WorkflowEntity {
 
     }
 
-    public void merge() {
+    public boolean merge() {
 
 
         // CrowdSourcingTask crowdSourcingTask   = Tasktt.getSubCrowdSourcingTask(this.getTaskId());
-        //Set<CrowdSourcingTask> subCrowdSourcingSet  = crowdSourcingTask.getTaskSubCrowdSourcingTask();
+        // Set<CrowdSourcingTask> subCrowdSourcingSet  = crowdSourcingTask.getTaskSubCrowdSourcingTask();
         // merge
 
         // can this is right ? ?
 
+        Set<CrowdSourcingTask> tempCrowdSourcingTaks = this.getTaskSubCrowdSourcingTask();
+        ArrayList<CrowdSourcingTask> subCrowdSourcingTaskArrayList = new ArrayList<CrowdSourcingTask>();
+        for (CrowdSourcingTask crowdSourcingTask : tempCrowdSourcingTaks) {
+            try {
+                Connection connection = DBHelper.getMySqlConnection();
+                String sql = "select * from t_crowdsourcingtask where taskId=?";
 
-    }
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-    public String getTaskSolution() {
-        return taskSolution;
-    }
+                preparedStatement.setLong(1, crowdSourcingTask.getTaskId());
 
-    public void setTaskSolution(String taskSolution) {
-        this.taskSolution = taskSolution;
+                ResultSet resultSet = preparedStatement.executeQuery();
+                CrowdSourcingTask solvedCrowdSourcingTask = new CrowdSourcingTask();
+                while (resultSet.next()) {
+                    solvedCrowdSourcingTask.setTaskId(resultSet.getLong("taskId"));
+                    solvedCrowdSourcingTask.setTaskStep(resultSet.getInt("taskStep"));
+                    solvedCrowdSourcingTask.setTaskSolution(resultSet.getString("taskSolution"));
+                }
+                subCrowdSourcingTaskArrayList.add(solvedCrowdSourcingTask);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        Collections.sort(subCrowdSourcingTaskArrayList, new Comparator<CrowdSourcingTask>() {
+            public int compare(CrowdSourcingTask o1, CrowdSourcingTask o2) {
+                if (o1.getTaskStep() > o2.getTaskStep())
+                    return 1;
+                return 0;
+            }
+        });
+
+        StringBuilder taskSolutions = new StringBuilder();
+        for (CrowdSourcingTask temp : subCrowdSourcingTaskArrayList) {
+            taskSolutions.append(temp.getTaskSolution());
+            taskSolutions.append("/n/t");
+        }
+
+        this.setTaskSolution(taskSolutions.toString());
+
+        // update this task ;
+        try {
+            Connection connection = DBHelper.getMySqlConnection();
+            String sql = "update t_crowdsourcingtask SET taskSolution= ? WHERE taskId=?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, this.getTaskSolution());
+            preparedStatement.setLong(2, this.getTaskId());
+
+            preparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public long getTaskId() {
@@ -142,6 +195,14 @@ public class CrowdSourcingTask implements WorkflowEntity {
         this.taskCompleteTime = taskCompleteTime;
     }
 
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
     public String getTaskPrice() {
         return taskPrice;
     }
@@ -150,20 +211,12 @@ public class CrowdSourcingTask implements WorkflowEntity {
         this.taskPrice = taskPrice;
     }
 
-    public UserEntity getUserEntity() {
-        return userEntity;
+    public String getTaskSolution() {
+        return taskSolution;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
-
-    public String getTaskType() {
-        return taskType;
-    }
-
-    public void setTaskType(String taskType) {
-        this.taskType = taskType;
+    public void setTaskSolution(String taskSolution) {
+        this.taskSolution = taskSolution;
     }
 
     public int getTaskJudgeCount() {
@@ -190,14 +243,6 @@ public class CrowdSourcingTask implements WorkflowEntity {
         this.taskDecomposeVoteCount = taskDecomposeVoteCount;
     }
 
-    public ProcessInstanceEntity getProcessInstanceEntity() {
-        return processInstanceEntity;
-    }
-
-    public void setProcessInstanceEntity(ProcessInstanceEntity processInstanceEntity) {
-        this.processInstanceEntity = processInstanceEntity;
-    }
-
     public int getTaskSolveCount() {
         return taskSolveCount;
     }
@@ -214,6 +259,29 @@ public class CrowdSourcingTask implements WorkflowEntity {
         this.taskSolveVoteCount = taskSolveVoteCount;
     }
 
+    public int getTaskStep() {
+        return taskStep;
+    }
+
+    public void setTaskStep(int taskStep) {
+        this.taskStep = taskStep;
+    }
+
+    public ProcessInstanceEntity getProcessInstanceEntity() {
+        return processInstanceEntity;
+    }
+
+    public void setProcessInstanceEntity(ProcessInstanceEntity processInstanceEntity) {
+        this.processInstanceEntity = processInstanceEntity;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 
     public Set<CrowdSourcingTask> getTaskSubCrowdSourcingTask() {
         return taskSubCrowdSourcingTask;
@@ -221,6 +289,14 @@ public class CrowdSourcingTask implements WorkflowEntity {
 
     public void setTaskSubCrowdSourcingTask(Set<CrowdSourcingTask> taskSubCrowdSourcingTask) {
         this.taskSubCrowdSourcingTask = taskSubCrowdSourcingTask;
+    }
+
+    public CrowdSourcingTask getTaskParentCrowdSourcingTask() {
+        return taskParentCrowdSourcingTask;
+    }
+
+    public void setTaskParentCrowdSourcingTask(CrowdSourcingTask taskParentCrowdSourcingTask) {
+        this.taskParentCrowdSourcingTask = taskParentCrowdSourcingTask;
     }
 
     @Override
@@ -241,7 +317,10 @@ public class CrowdSourcingTask implements WorkflowEntity {
                 ", taskDecomposeVoteCount=" + taskDecomposeVoteCount +
                 ", taskSolveCount=" + taskSolveCount +
                 ", taskSolveVoteCount=" + taskSolveVoteCount +
+                ", taskStep=" + taskStep +
                 ", processInstanceEntity=" + processInstanceEntity +
+                ", taskSubCrowdSourcingTask=" + taskSubCrowdSourcingTask +
+                ", taskParentCrowdSourcingTask=" + taskParentCrowdSourcingTask +
                 '}';
     }
 
@@ -257,6 +336,9 @@ public class CrowdSourcingTask implements WorkflowEntity {
         }
         if (getProcessInstanceEntity() != null) {
             map.put("processInstanceEntity", getProcessInstanceEntity());
+        }
+        if (getUserEntity() != null) {
+            map.put("userEntity", getUserEntity());
         }
 
         System.out.println("Query Condition: " + map);

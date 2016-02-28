@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +15,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/header.js"></script>
     <script src="js/post.js"></script>
-    <title>发布工作</title>
+    <title>Post Task</title>
 
     <link rel="stylesheet" href="css/post.css"/>
 
@@ -108,7 +109,35 @@
             <div class="col-lg-4">
             </div>
         </div>
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <caption class="text-center"> My Posted Task</caption>
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>TaskName</td>
+                    <td>TaskDescription</td>
+                    <td>TaskSolution</td>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${myPostedCrowdSourcingTaskList }" var="tempCrowdSourcingTask">
+                    <tr>
+                        <td><c:out value="${tempCrowdSourcingTask.taskId}"></c:out></td>
+                        <td><c:out value="${tempCrowdSourcingTask.taskName}"></c:out></td>
+                        <td><c:out value="${tempCrowdSourcingTask.taskDescription}"></c:out></td>
+                        <td>
+                            <a href="myPostedTaskDetail.do?taskId=<c:out value="${tempCrowdSourcingTask.taskId}"></c:out>">Solution</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
+        </div>
     </div>
+
+
 </div>
 <footer>
     <jsp:include page="footer.jsp"></jsp:include>

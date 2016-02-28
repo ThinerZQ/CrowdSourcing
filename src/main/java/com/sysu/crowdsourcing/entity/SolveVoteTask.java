@@ -22,9 +22,8 @@ import java.util.Map;
 @Table(name = "t_solvevotetask")
 public class SolveVoteTask implements WorkflowEntity {
 
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public SolveTask solveTask = new SolveTask();
+    public SolveTask solveTask;
     @OneToOne()
     @JoinColumn(name = "userworkitem_id")
     public UserWorkItemEntity userWorkItemEntity;

@@ -5,6 +5,7 @@ import com.sysu.crowdsourcing.entity.CrowdSourcingTask;
 import com.sysu.crowdsourcing.services.CrowdSourcingTaskService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by zhengshouzi on 2015/9/20.
@@ -20,5 +21,9 @@ public class CrowdSourcingTaskServiceImpl implements CrowdSourcingTaskService {
 
     public boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
         return crowdSourcingTaskDao.updateCrowdSourcingTask(crowdSourcingTask);
+    }
+
+    public List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+        return crowdSourcingTaskDao.getCrowdSourcingTask(crowdSourcingTask);
     }
 }

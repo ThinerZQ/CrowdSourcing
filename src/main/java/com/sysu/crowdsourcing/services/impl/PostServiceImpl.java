@@ -55,6 +55,10 @@ public class PostServiceImpl implements PostService {
 
 
             id = crowdSorucingTaskDao.addTask(crowdSourcingTask);
+
+            CrowdSourcingTask fulCrowdSourcingTask = crowdSorucingTaskDao.findTaskById(id + "");
+            rootContext.set("crowdSourcingTask", fulCrowdSourcingTask);
+
             flag = true;
         } catch (Exception e) {
             e.printStackTrace();

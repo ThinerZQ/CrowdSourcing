@@ -186,12 +186,13 @@
             <log label="merging" expr="'entry merging state '"/>
             <!-- 自动化 归并任务,    -->
             <script>
-                var result = crowdSourcingTask.merge();
+                result = crowdSourcingTask.merge();
             </script>
         </onentry>
 
-        <transition cond="result eq true" target="end">
+        <transition cond="result" target="end">
             <send event="to_waitResult" type="scxml" messageMode="TO_PARENT"></send>
+            <log label="merging" expr="'transition from merging state to end '"/>
         </transition>
 
     </state>
@@ -202,6 +203,7 @@
             <data id="counted" expr="0"></data>
         </datamodel>
         <onentry>
+            <log label="solving" expr="'entry solving state '"/>
             <userTask id="solve" name="SolveTask" candidateGroups="Solver"
                       instancesExpr="solveCount">
                 <form src="form/solve.jsp">
@@ -211,9 +213,11 @@
         </onentry>
         <transition event="solveComplete">
             <assign location="counted" expr="counted + 1"></assign>
-            <!-- 保存解决结果到数据库 -->
+            <log label="solving" expr="'solveComplete ,inner transition '"/>
         </transition>
-        <transition cond="counted eq solveCount" target="solveVoting"></transition>
+        <transition cond="counted eq solveCount" target="solveVoting">
+            <log label="solving" expr="' transition from solving to solveVoting'"/>
+        </transition>
     </state>
 
     <!-- 解决投票 -->
@@ -222,6 +226,7 @@
             <data id="counted" expr="0"></data>
         </datamodel>
         <onentry>
+            <log label="solveVoting" expr="' entry solveVoting state '"/>
             <userTask id="solveVoting" name="SolveVoteTask" candidateGroups="SolveVoter"
                       instancesExpr="solveVoteCount">
                 <form src="form/solveVote.jsp">
@@ -232,12 +237,17 @@
         <transition event="solveVoteComplete">
             <assign location="counted" expr="counted + 1"></assign>
             <!-- 保存到数据库  谁投了谁 -->
+            <log label="solveVoting" expr="'solveVoteComplete ,inner transition '"/>
         </transition>
         <transition cond="counted eq solveVoteCount" target="end">
             <send event="to_waitResult" type="scxml" messageMode="TO_PARENT"></send>
+            <log label="solveVoting" expr="'transition from solveVoting to end '"/>
         </transition>
     </state>
 
     <final id="end">
+        <onentry>
+            <log label="end" expr="' crowdsourcingTask end '"/>
+        </onentry>
     </final>
 </scxml>

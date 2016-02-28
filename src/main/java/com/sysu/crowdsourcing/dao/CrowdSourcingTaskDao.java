@@ -25,7 +25,6 @@ public interface CrowdSourcingTaskDao {
 
 
 
-
     boolean updateTask(CrowdSourcingTask crowdSourcingTask);
 
     CrowdSourcingTask findTaskById(String id);
