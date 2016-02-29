@@ -25,30 +25,33 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-3">
-                TaskName
-            </div>
-            <div class="col-lg-9">
-                <c:out value="${myPostedCrowdSourcingTask.taskName}"></c:out>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                TaskDescription
-            </div>
-            <div class="col-lg-9">
-                <c:out value="${myPostedCrowdSourcingTask.taskDescription}"></c:out>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                TaskSolution
-            </div>
-            <div class="col-lg-9">
-                <c:out value="${myPostedCrowdSourcingTask.taskSolution}"></c:out>
-            </div>
-        </div>
+            <table class="table table-bordered table-hover">
+                <caption class="text-center">Solution</caption>
+                <thead>
+                <tr>
+                    <td>Property</td>
+                    <td>Content</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>TaskName</td>
+                    <td><c:out value="${myPostedCrowdSourcingTask.taskName}"></c:out></td>
 
+                </tr>
+                <tr>
+                    <td>TaskDescription</td>
+                    <td><c:out value="${myPostedCrowdSourcingTask.taskDescription}"></c:out></td>
+
+                </tr>
+                <tr>
+
+                    <td>TaskSolution</td>
+                    <td><c:out value="${myPostedCrowdSourcingTask.taskSolution}"></c:out></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
