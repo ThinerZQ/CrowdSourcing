@@ -11,7 +11,7 @@
                             value="${userWorkItemEntity.itemName}"></c:out>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkItemDeployDateTime：<c:out
                                 value="${userWorkItemEntity.itemCreateTime}"></c:out>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;责任人：<c:out
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsible ：<c:out
                                 value="${currentUserEntity.userRealName}"></c:out>
                     </h3>
                 </div>
@@ -80,7 +80,7 @@
                             value="${userWorkItemEntity.itemName}"></c:out>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkItemDeployDateTime：<c:out
                                 value="${userWorkItemEntity.itemCreateTime}"></c:out>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;责任人：<c:out
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsible ：<c:out
                                 value="${currentUserEntity.userRealName}"></c:out>
                     </h3>
                 </div>

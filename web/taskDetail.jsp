@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>任务详情</title>
+    <title>Task Detail</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-1.11.3.min.js"></script>
@@ -33,15 +33,15 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/Home.do">Home</a>
                 </li>
-                <li class="active"><a href="${pageContext.request.contextPath}/task.do">原始任务</a></li>
-                <li><a href="${pageContext.request.contextPath}/judgeTask.do">判断任务</a></li>
-                <li><a href="${pageContext.request.contextPath}/decomposeTask.do">分解任务</a></li>
-                <li><a href="${pageContext.request.contextPath}/solveTask.do">解决任务</a></li>
-                <li><a href="${pageContext.request.contextPath}/voteTask.do">投票任务</a></li>
-                <li><a href="${pageContext.request.contextPath}/mergeTask.do">合并任务</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/task.do">OriginalTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/judgeTask.do">JudgeTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/decomposeTask.do">DecomposeTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/solveTask.do">SolveTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/voteTask.do">VoteTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/mergeTask.do">MergeTask</a></li>
                 <li class="dropdown">
                     <a href="#" id="myTabDrop1" class="dropdown-toggle"
-                       data-toggle="dropdown">其他任务
+                       data-toggle="dropdown">OtherTask
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">

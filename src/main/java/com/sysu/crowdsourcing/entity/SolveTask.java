@@ -36,7 +36,7 @@ public class SolveTask implements WorkflowEntity {
     private long taskId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date taskCompleteTime;
-    @Basic
+    @Column(length = 65000)
     private String taskSolution;
     @Basic
     private String taskBest;

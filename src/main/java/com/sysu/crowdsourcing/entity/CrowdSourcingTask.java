@@ -43,7 +43,7 @@ public class CrowdSourcingTask implements WorkflowEntity {
     private String taskType;
     @Basic
     private String taskPrice;
-    @Basic
+    @Column(length = 65000)
     private String taskSolution;
     @Basic
     private int taskJudgeCount = 3;
@@ -124,9 +124,9 @@ public class CrowdSourcingTask implements WorkflowEntity {
         StringBuilder taskSolutions = new StringBuilder();
         for (CrowdSourcingTask temp : subCrowdSourcingTaskArrayList) {
             taskSolutions.append(temp.getTaskSolution());
-            taskSolutions.append("/n/t");
+            taskSolutions.append("</br>");
         }
-
+        taskSolutions.delete(taskSolutions.lastIndexOf("</br>"), taskSolutions.length() - 1);
         this.setTaskSolution(taskSolutions.toString());
 
         // update this task ;

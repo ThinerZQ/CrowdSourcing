@@ -28,13 +28,13 @@
 <div class="container-fluid" style="background: url('images/bg-login-top.png') repeat #fff;">
     <div class="container">
         <div class="row bg-danger" style="height: 50px;margin-bottom: 5px">
-            <h3 style="margin-bottom: 10px" class="text-center"> 我们郑重承诺;不收取您的任何佣金，请放心发布</h3>
+            <h3 style="margin-bottom: 10px" class="text-center">Assured Published</h3>
         </div>
         <div class="row">
             <div class="col-lg-8" style="padding-left: 0px">
                 <form class="form" action="${pageContext.request.contextPath}/post.do">
                     <div class="form-group">
-                        <label for="inputTitle" class="control-label">简单描述你的需求：</label>
+                        <label for="inputTitle" class="control-label">taskName：</label>
 
                         <div>
                             <input type="text" class="form-control" id="inputTitle" name="taskName"
@@ -70,7 +70,7 @@
                     </div>
 --%>
                     <div class="form-group">
-                        <label for="inputDetail" class="control-label">说说您的具体要求</label>
+                        <label for="inputDetail" class="control-label">mission requirement detail </label>
 
                         <div>
                         <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
@@ -93,7 +93,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-lg-2">
-                                <label for="deadlineTime" class="control-label" style="display:inline">截止时间</label>
+                                <label for="deadlineTime" class="control-label" style="display:inline">deadline</label>
                             </div>
                             <div class="col-lg-4">
                                 <input type="date" class="form-control" id="deadlineTime" name="taskDeadlineTime"

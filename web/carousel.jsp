@@ -20,17 +20,17 @@
             <div class="item active container">
                 <img src="images/slide1.png" alt="First slide">
 
-                <div class="carousel-caption">标题 1</div>
+                <div class="carousel-caption">title 1</div>
             </div>
             <div class="item container">
                 <img src="images/slide2.png" alt="Second slide">
 
-                <div class="carousel-caption">标题 2</div>
+                <div class="carousel-caption">title 2</div>
             </div>
             <div class="item container">
                 <img src="images/slide3.png" alt="Third slide">
 
-                <div class="carousel-caption">标题 3</div>
+                <div class="carousel-caption">title 3</div>
             </div>
         </div>
         <!-- 轮播（Carousel）导航 -->

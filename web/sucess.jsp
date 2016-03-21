@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>sucess</title>
+    <title>Success</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-1.11.3.min.js"></script>

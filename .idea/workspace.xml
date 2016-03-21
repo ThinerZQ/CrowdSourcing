@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecf08459-9d81-4d8c-904b-b6f829a235cd" name="Default" comment="all is down ,test not task care of detail ,test is tomorrow">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/postedTaskDetail.jsp" afterPath="$PROJECT_DIR$/web/postedTaskDetail.jsp" />
+    <list default="true" id="ecf08459-9d81-4d8c-904b-b6f829a235cd" name="Default" comment="experiment done.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/allWorkItem.jsp" afterPath="$PROJECT_DIR$/web/allWorkItem.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/carousel.jsp" afterPath="$PROJECT_DIR$/web/carousel.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/decompose.jsp" afterPath="$PROJECT_DIR$/web/form/decompose.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/decomposeVote.jsp" afterPath="$PROJECT_DIR$/web/form/decomposeVote.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/judge.jsp" afterPath="$PROJECT_DIR$/web/form/judge.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/manager.jsp" afterPath="$PROJECT_DIR$/web/manager.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/myTask.jsp" afterPath="$PROJECT_DIR$/web/myTask.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/postTask.jsp" afterPath="$PROJECT_DIR$/web/postTask.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/solve.jsp" afterPath="$PROJECT_DIR$/web/form/solve.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/solveVote.jsp" afterPath="$PROJECT_DIR$/web/form/solveVote.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/sucess.jsp" afterPath="$PROJECT_DIR$/web/sucess.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/taskDetail.jsp" afterPath="$PROJECT_DIR$/web/taskDetail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="7f26ec3a-4eec-4c05-a378-2a241c8cbe4e" name="New changelist" comment="New changelist" />
@@ -32,10 +45,6 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - crowdsourcing@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -48,112 +57,125 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="489" column="69" selection-start-line="489" selection-start-column="69" selection-end-line="489" selection-end-column="69" />
-              <folding>
-                <element signature="e#19769#19787#0" expanded="true" />
-                <element signature="e#21329#21338#0" expanded="true" />
-                <element signature="e#21683#21698#0" expanded="true" />
-                <element signature="e#22300#22319#0" expanded="true" />
-                <element signature="e#31522#31534#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postTask.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/postTask.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.548388">
-              <caret line="123" column="65" selection-start-line="123" selection-start-column="65" selection-end-line="123" selection-end-column="65" />
+              <caret line="551" column="83" selection-start-line="551" selection-start-column="83" selection-end-line="551" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCreateTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestCreateTable.java">
+      <file leaf-file-name="SolveTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java">
+      <file leaf-file-name="myTask.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/myTask.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crowdsourcing.t_crowdsourcingtask" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_crowdsourcingtask">
+      <file leaf-file-name="allWorkItem.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/allWorkItem.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crowdsourcing.t_solvetask" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask">
+          <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crowdsourcing.t_userworkitem" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_userworkitem">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crowdsourcing.t_processinstance" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_processinstance">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postedTaskDetail.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/postedTaskDetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49225473">
-              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="solveVote.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/form/solveVote.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/register.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.806452">
-              <caret line="101" column="9" selection-start-line="98" selection-start-column="6" selection-end-line="101" selection-end-column="9" />
+      <file leaf-file-name="crowdsourcing.t_judgetask" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_judgetask">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manager.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/manager.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.967742">
-              <caret line="47" column="16" selection-start-line="27" selection-start-column="8" selection-end-line="47" selection-end-column="16" />
+      <file leaf-file-name="crowdsourcing.t_solvevotetask" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvevotetask">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrowdSourcingTask.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CrowdSourcingTask.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.348941">
+              <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
               <folding>
-                <element signature="e#2601#2620#0" expanded="true" />
-                <marker date="1456670232821" expanded="true" signature="2819:2867" placeholder="select * fro..t_crowdsourcingtask..." />
-                <marker date="1456670232821" expanded="true" signature="4445:4506" placeholder="update t_cro..." />
+                <marker date="1457696530875" expanded="true" signature="2836:2884" placeholder="select * fro..t_crowdsourcingtask..." />
+                <marker date="1457696530875" expanded="true" signature="4553:4614" placeholder="update t_cro..." />
               </folding>
             </state>
           </provider>
@@ -191,16 +213,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/dataSource.xml" />
-        <option value="$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java" />
-        <option value="$PROJECT_DIR$/web/js/decompose.js" />
-        <option value="$PROJECT_DIR$/web/form/decompose.html" />
-        <option value="$PROJECT_DIR$/web/form/decompose.jsp" />
-        <option value="dbtable:/c35cd642/06ebd2a5-8fc5-47fe-ae7e-58e5277ed106/crowdsourcing..t_userworkitem" />
         <option value="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestFull.java" />
         <option value="$PROJECT_DIR$/web/form/solve.html" />
-        <option value="$PROJECT_DIR$/web/form/decomposeVote.jsp" />
         <option value="dbtable:/c35cd642/06ebd2a5-8fc5-47fe-ae7e-58e5277ed106/crowdsourcing..t_decomposevotetask_t_decomposetask" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeVoteTaskDaoImpl.java" />
         <option value="dbtable:/c35cd642/06ebd2a5-8fc5-47fe-ae7e-58e5277ed106/crowdsourcing..t_judgetask" />
@@ -208,11 +222,7 @@
         <option value="$PROJECT_DIR$/../BOWorkFlow/src/main/java/com/sysu/workflow/service/taskservice/WorkItemDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dao-config.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/service-config.xml" />
-        <option value="$PROJECT_DIR$/web/form/solve.jsp" />
-        <option value="$PROJECT_DIR$/web/taskDetail.jsp" />
-        <option value="$PROJECT_DIR$/web/form/solveVote.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/DecomposeTaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/DecomposeTaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/DecomposeTaskDao.java" />
@@ -226,22 +236,34 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/SolveVoteTaskDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/SolveTaskDaoImpl.java" />
         <option value="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestTask.java" />
-        <option value="dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_crowdsourcingtask" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/PostService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/PostServiceImpl.java" />
-        <option value="dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveVoteTask.java" />
         <option value="$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/PostController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/CrowdSourcingTaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/CrowdSourcingTaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/CrowdSourcingTaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/LoginController.java" />
-        <option value="$PROJECT_DIR$/web/postTask.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java" />
         <option value="$PROJECT_DIR$/web/postedTaskDetail.jsp" />
+        <option value="$PROJECT_DIR$/web/taskDetail.jsp" />
+        <option value="$PROJECT_DIR$/web/sucess.jsp" />
+        <option value="$PROJECT_DIR$/web/postTask.jsp" />
+        <option value="$PROJECT_DIR$/web/myTask.jsp" />
+        <option value="$PROJECT_DIR$/web/manager.jsp" />
+        <option value="$PROJECT_DIR$/web/carousel.jsp" />
+        <option value="dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_crowdsourcingtask" />
+        <option value="$PROJECT_DIR$/web/form/judge.jsp" />
+        <option value="$PROJECT_DIR$/web/form/solve.jsp" />
+        <option value="$PROJECT_DIR$/web/form/solveVote.jsp" />
+        <option value="$PROJECT_DIR$/web/form/decomposeVote.jsp" />
+        <option value="$PROJECT_DIR$/web/form/decompose.jsp" />
+        <option value="$PROJECT_DIR$/web/allWorkItem.jsp" />
+        <option value="dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java" />
       </list>
     </option>
   </component>
@@ -345,6 +367,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -642,47 +665,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SessionFactory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crowdsourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -703,7 +691,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="ToolWindowDatabase.ShowToolbar" value="false" />
     <property name="JPA.DatabaseSchemaImportDialog" value="e3e5919a-6109-4fab-b9fb-fa218d2e3d28" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../commons-scxml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="Console.TableResult.DefaultCopyAction" value="Comma-separated Values (CSV)" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -1132,9 +1120,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Unknown" factoryName="Unknown">
-      <method />
-    </configuration>
     <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
       <setting name="environment" value="" />
       <setting name="specsToExecute" value="" />
@@ -1299,7 +1284,16 @@
       <workItem from="1456302442755" duration="3411000" />
       <workItem from="1456367834441" duration="15951000" />
       <workItem from="1456464817852" duration="9361000" />
-      <workItem from="1456556486601" duration="33241000" />
+      <workItem from="1456556486601" duration="33470000" />
+      <workItem from="1456714836639" duration="55000" />
+      <workItem from="1456721225886" duration="877000" />
+      <workItem from="1456836505135" duration="1289000" />
+      <workItem from="1456920421610" duration="187000" />
+      <workItem from="1457147031712" duration="2764000" />
+      <workItem from="1457578233322" duration="1988000" />
+      <workItem from="1457683860370" duration="13551000" />
+      <workItem from="1457868474602" duration="132000" />
+      <workItem from="1458565113182" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="sosi">
       <created>1441433160413</created>
@@ -1457,11 +1451,17 @@
       <option name="project" value="LOCAL" />
       <updated>1456670251523</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="experiment done.">
+      <created>1456714254962</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1456714254962</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427543000" />
+    <option name="totallyTimeSpent" value="448730000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1473,37 +1473,37 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.48294243" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39459458" sideWeight="0.21055438" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.48294243" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5170576" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.48507464" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14392324" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15135135" sideWeight="0.48294243" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36" sideWeight="0.72441363" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.48081023" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.48933902" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880597" sideWeight="0.22972973" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17643923" sideWeight="0.7702703" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25906184" sideWeight="0.33633092" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.026652452" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1207" y="94" width="627" height="630" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18336888" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1207" y="94" width="627" height="630" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.68248945" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2585288" sideWeight="0.3262295" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30702704" sideWeight="0.69722813" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1877637" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30702704" sideWeight="0.69722813" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39459458" sideWeight="0.21055438" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39956802" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36" sideWeight="0.72441363" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1546,7 +1546,8 @@
     <MESSAGE value="test again" />
     <MESSAGE value="add CrowdSourcingTask self association" />
     <MESSAGE value="all is down ,test not task care of detail ,test is tomorrow" />
-    <option name="LAST_COMMIT_MESSAGE" value="all is down ,test not task care of detail ,test is tomorrow" />
+    <MESSAGE value="experiment done." />
+    <option name="LAST_COMMIT_MESSAGE" value="experiment done." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1613,162 +1614,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.5.RELEASE/spring-tx-4.1.5.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.75">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#1656#1820#0" expanded="true" />
-            <element signature="e#1819#1820#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.5.RELEASE/spring-tx-4.1.5.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.464286">
-          <caret line="164" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_user_t_group">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_user_group">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dao-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.428572">
-          <caret line="12" column="84" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/PostServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_71/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.964286">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/SolveVoteTaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/SolveVoteTaskDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvevotetask">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveVoteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/JudgeTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeVoteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="78" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.5.RELEASE/spring-aop-4.1.5.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.142857">
           <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1776,20 +1625,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_groupworkitem">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1797,7 +1644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1805,7 +1651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="326" column="0" selection-start-line="326" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1813,9 +1658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#590#591#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1823,7 +1665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1331" column="13" selection-start-line="1331" selection-start-column="13" selection-end-line="1331" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1831,7 +1672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="479" column="0" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1839,7 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1847,7 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="305" column="0" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1855,41 +1693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="520" column="0" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_processinstance">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="81" selection-start-line="194" selection-start-column="81" selection-end-line="194" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_userworkitem">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1897,9 +1700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="86" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1907,6 +1707,146 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/PostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/sucess.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.806452">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/postTask.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.67742">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/postedTaskDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/navbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.967742">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/manager.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.741936">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.83871">
+          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/information.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.935484">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/indexInformation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.419354">
+          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.774194">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.645162">
+          <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.870968">
+          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/carousel.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.806452">
+          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="66" selection-start-line="148" selection-start-column="66" selection-end-line="148" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -1915,114 +1855,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
-          <folding>
-            <marker date="1456670232902" expanded="true" signature="-1:-1" placeholder="select * fro..t_crowdsourcingtask..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/myTask.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.870968">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/information.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.935484">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/allWorkItem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.645162">
-          <caret line="15" column="85" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/PostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="88" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_user">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/navbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/postTask.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.548388">
-          <caret line="123" column="65" selection-start-line="123" selection-start-column="65" selection-end-line="123" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_crowdsourcingtask">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestCreateTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form/judge.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.354838">
+          <caret line="106" column="36" selection-start-line="106" selection-start-column="36" selection-end-line="106" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form/solve.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.774194">
+          <caret line="69" column="66" selection-start-line="69" selection-start-column="66" selection-end-line="69" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form/solveVote.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.4838705">
+          <caret line="82" column="66" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form/decomposeVote.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.4838705">
+          <caret line="94" column="66" selection-start-line="94" selection-start-column="66" selection-end-line="94" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form/decompose.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/taskDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.64516">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/myTask.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/allWorkItem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvevotetask">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_judgetask">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_userworkitem">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_processinstance">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2030,58 +1985,40 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="489" column="69" selection-start-line="489" selection-start-column="69" selection-end-line="489" selection-end-column="69" />
-          <folding>
-            <element signature="e#19769#19787#0" expanded="true" />
-            <element signature="e#21329#21338#0" expanded="true" />
-            <element signature="e#21683#21698#0" expanded="true" />
-            <element signature="e#22300#22319#0" expanded="true" />
-            <element signature="e#31522#31534#0" expanded="true" />
-          </folding>
+          <caret line="551" column="83" selection-start-line="551" selection-start-column="83" selection-end-line="551" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask">
+      <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.348941">
+          <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
           <folding>
-            <element signature="e#2601#2620#0" expanded="true" />
-            <marker date="1456670232821" expanded="true" signature="2819:2867" placeholder="select * fro..t_crowdsourcingtask..." />
-            <marker date="1456670232821" expanded="true" signature="4445:4506" placeholder="update t_cro..." />
+            <marker date="1457696530875" expanded="true" signature="2836:2884" placeholder="select * fro..t_crowdsourcingtask..." />
+            <marker date="1457696530875" expanded="true" signature="4553:4614" placeholder="update t_cro..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/solveVote.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.806452">
-          <caret line="101" column="9" selection-start-line="98" selection-start-column="6" selection-end-line="101" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.967742">
-          <caret line="47" column="16" selection-start-line="27" selection-start-column="8" selection-end-line="47" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/postedTaskDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49225473">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>我的任务</title>
+    <title>My Task</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-1.11.3.min.js"></script>
