@@ -38,7 +38,7 @@
 
                         <div>
                             <input type="text" class="form-control" id="inputTitle" name="taskName"
-                                   placeholder="一句话描述你的需求，例如：写一篇关于众包的文章" style="width: 50%">
+                                   placeholder="describing your task by a phrase" style="width: 50%">
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
                         <label for="inputDetail" class="control-label">mission requirement detail </label>
 
                         <div>
-                        <textarea class="form-control" id="inputDetail" placeholder="具体的描述一下"
+                        <textarea class="form-control" id="inputDetail" placeholder="Specifically describe your task"
                                   name="taskDescription"
                                   style="width: 80%;height: 250px"></textarea>
                         </div>
@@ -90,7 +90,7 @@
                       </div>--%>
 
 
-                    <div class="form-group">
+                    <%-- <div class="form-group">
                         <div class="row">
                             <div class="col-lg-2">
                                 <label for="deadlineTime" class="control-label" style="display:inline">deadline</label>
@@ -100,7 +100,7 @@
                                        min="2015-09-09"></div>
 
                         </div>
-                    </div>
+                    </div> --%>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success col-lg-4">Post</button>
                     </div>

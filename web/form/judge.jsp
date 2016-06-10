@@ -12,7 +12,7 @@
                             value="${userWorkItemEntity.itemName}"></c:out>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkItemDeployDateTime：<c:out
                                 value="${userWorkItemEntity.itemCreateTime}"></c:out>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsible ：<c:out
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person in charge ：<c:out
                                 value="${currentUserEntity.userRealName}"></c:out>
                     </h3>
                 </div>
@@ -21,6 +21,10 @@
                         <div class="col-lg-12">
 
                             <table class="table table-bordered table-hover">
+                                <caption class="bg-danger text-center">this task is simple or complex? please give you
+                                    choice
+                                </caption>
+
                                 <tr class="info">
                                     <td>
                                         taskName

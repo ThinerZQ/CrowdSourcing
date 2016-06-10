@@ -12,7 +12,7 @@
                             value="${userWorkItemEntity.itemName}"></c:out>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkItemDeployDateTime：<c:out
                                 value="${userWorkItemEntity.itemCreateTime}"></c:out>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsible ：<c:out
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person in charge ：<c:out
                                 value="${currentUserEntity.userRealName}"></c:out>
                     </h3>
                 </div>
@@ -20,6 +20,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <table class="table table-bordered table-hover" id="decomposeTable">
+                                <caption class="bg-danger text-center">look up following task and give the decompose
+                                    schema
+                                </caption>
                                 <tr class="info">
                                     <td>
                                         taskName
@@ -55,9 +58,9 @@
                                         Step1<input hidden="hidden" type="text" name="order" value="1"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="stepName" value="">
+                                        <input type="text" name="stepName" value="" style="width:80%">
                                         <br/>
-                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                        <textarea cols="100" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                                 <tr class="hidden hidden2">
@@ -65,9 +68,9 @@
                                         Step2<input hidden="hidden" type="text" name="order" value="2"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="stepName" value="">
+                                        <input type="text" name="stepName" value="" style="width:80%">
                                         <br/>
-                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                        <textarea cols="100" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                                 <tr class="hidden hidden3">
@@ -75,9 +78,9 @@
                                         Step3<input hidden="hidden" type="text" name="order" value="3"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="stepName" value="">
+                                        <input type="text" name="stepName" value="" style="width:80%">
                                         <br/>
-                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                        <textarea cols="100" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                                 <tr class="hidden hidden4">
@@ -85,9 +88,9 @@
                                         Step4<input hidden="hidden" type="text" name="order" value="4"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="stepName" value="">
+                                        <input type="text" name="stepName" value="" style="width:80%">
                                         <br/>
-                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                        <textarea cols="100" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                                 <tr class="hidden hidden5">
@@ -95,9 +98,9 @@
                                         Step5<input hidden="hidden" type="text" name="order" value="5"/>
                                     </td>
                                     <td>
-                                        <input type="text" name="stepName" value="">
+                                        <input type="text" name="stepName" value="" style="width:80%">
                                         <br/>
-                                        <textarea cols="20" rows="4" name="stepDescription"></textarea>
+                                        <textarea cols="100" rows="4" name="stepDescription"></textarea>
                                     </td>
                                 </tr>
                             </table>

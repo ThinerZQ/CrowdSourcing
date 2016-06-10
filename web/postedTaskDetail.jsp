@@ -47,7 +47,7 @@
                 <tr>
 
                     <td>TaskSolution</td>
-                    <td><c:out value="${myPostedCrowdSourcingTask.taskSolution}"></c:out></td>
+                    <td><span>${myPostedCrowdSourcingTask.taskSolution}</span></td>
                 </tr>
                 </tbody>
             </table>

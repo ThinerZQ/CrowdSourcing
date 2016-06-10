@@ -11,7 +11,7 @@
                             value="${userWorkItemEntity.itemName}"></c:out>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WorkItemDeployDateTime：<c:out
                                 value="${userWorkItemEntity.itemCreateTime}"></c:out>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsible ：<c:out
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person in charge ：<c:out
                                 value="${currentUserEntity.userRealName}"></c:out>
                     </h3>
                 </div>
@@ -19,6 +19,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <table class="table table-bordered table-hover" id="decomposeTable">
+                                <caption class="bg-danger text-center">Which one is the best solution strategy for
+                                    following task, please vote
+                                </caption>
+
                                 <tr class="info">
                                     <td>
                                         taskName
