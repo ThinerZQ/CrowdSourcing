@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="userDao" class="UserDaoImpl"></bean>
+    <bean id="crowdSourcingTaskDao"
+          class="CrowdSourcingTaskDaoImpl"></bean>
+    <bean id="judgeTaskDao"
+          class="JudgeTaskDaoImpl"></bean>
+    <bean id="decomposeTaskDao"
+          class="DecomposeTaskDaoImpl"></bean>
+    <bean id="decomposeVoteTaskDao"
+          class="DecomposeVoteTaskDaoImpl"></bean>
+    <bean id="solveTaskDao"
+          class="SolveTaskDaoImpl"></bean>
+    <bean id="solveVoteTaskDao"
+          class="SolveVoteTaskDaoImpl"></bean>
+
+
+    <!--
+    <bean id="formDao" class="com.sysu.workflow.service.formservice.sessionfactory.FormDaoImpl"></bean>
+    <bean id="userDao2" class="com.sysu.workflow.service.identityservice.sessionfactory.UserDaoImpl"></bean>
+    <bean id="groupDao" class="com.sysu.workflow.service.identityservice.sessionfactory.GroupDaoImpl"></bean>
+    <bean id="processInstanceDao"
+          class="com.sysu.workflow.service.processservice.sessionfactory.ProcessInstanceDaoImpl"></bean>
+    <bean id="workItemDao" class="com.sysu.workflow.service.taskservice.sessionfactory.WorkItemDaoImpl"></bean>
+-->
+
+</beans>

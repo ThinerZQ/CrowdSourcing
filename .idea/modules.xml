@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CrowdSourcing.iml" filepath="$PROJECT_DIR$/CrowdSourcing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crowdsourcingservice.iml" filepath="$PROJECT_DIR$/crowdsourcingservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/engine/engine.iml" filepath="$PROJECT_DIR$/engine/engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/persistence/persistence.iml" filepath="$PROJECT_DIR$/persistence/persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-api/service-api.iml" filepath="$PROJECT_DIR$/service-api/service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-impl/service-impl.iml" filepath="$PROJECT_DIR$/service-impl/service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-app/web-app.iml" filepath="$PROJECT_DIR$/web-app/web-app.iml" />
     </modules>
   </component>
 </project>

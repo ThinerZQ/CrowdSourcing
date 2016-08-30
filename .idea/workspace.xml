@@ -1,21 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecf08459-9d81-4d8c-904b-b6f829a235cd" name="Default" comment="experiment done.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="ecf08459-9d81-4d8c-904b-b6f829a235cd" name="Default" comment="switch to english&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/web_app_war.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/web_app_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_37.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/engine.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/ActionExecutionContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/Builtin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/Context.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/ErrorReporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/Evaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/EvaluatorFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/EvaluatorProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/EventDispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/NotificationRegistry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/PathResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCInstance.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLExecutionContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLExecutor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLExpressionException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLIOProcessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLSemantics.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLSystemContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/StateConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/Status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/TriggerEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/XPathBuiltin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/database/DBUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/engine/SCXMLInstanceManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/engine/SCXMLInstanceTree.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/AbstractSCXMLListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/AbstractStateMachine.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/EffectiveContextMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/LogUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/MulitStateMachineDispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleDispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleErrorHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleErrorReporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleSCXMLListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/SimpleXMLReporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/Tracer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/URLResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/groovy/GroovyContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/groovy/GroovyContextBinding.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/groovy/GroovyEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/groovy/GroovyExtendableScriptCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/groovy/GroovySCXMLScript.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/javascript/JSBindings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/javascript/JSContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/javascript/JSEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/javascript/JSFunctions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/jexl/JexlBuiltin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/jexl/JexlContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/jexl/JexlEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/minimal/MinimalContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/minimal/MinimalEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/xpath/ContextVariables.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/xpath/XPathContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/xpath/XPathEvaluator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/xpath/XPathFunctions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/invoke/AsyncTrigger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/invoke/Invoker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/invoke/InvokerException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/invoke/SimpleSCXMLInvoker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/io/ModelUpdater.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/io/SCXMLReader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/io/SCXMLWriter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Action.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ActionsContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Assign.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/BodyContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Cancel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Content.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ContentContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/CustomAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Data.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Datamodel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/DocumentOrder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Else.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ElseIf.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/EnterableState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Executable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ExternalContent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Final.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Finalize.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Foreach.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/History.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/If.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Initial.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Invoke.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Log.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ModelException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/NamelistHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/NamespacePrefixesHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Observable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/OnEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/OnExit.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Parallel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Param.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ParamsContainer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/PathResolverHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/PayloadProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Raise.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/SCXML.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Script.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Send.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/SimpleTransition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/State.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Transition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/TransitionTarget.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/TransitionType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/TransitionalState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Var.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/Form.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/GroupException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/IdentityException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/MessageMode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/ServiceTask.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/SubStateMachine.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/UserException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/UserTask.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/semantics/ErrorConstants.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/semantics/SCXMLSemanticsImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/semantics/Step.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/GroupDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/GroupQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/IdentityService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/UserDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/UserQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/ProcessInstanceDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/ProcessInstanceQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/RuntimeService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/GroupTaskQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/TaskDispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/TaskService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/UserTaskQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/WorkItemDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/system/EventVariable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/test/StandaloneJexlExpressions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/test/StandaloneUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/crowdsourcingTest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/foreach.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/hibernate.cfg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/script.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/scxml-initial-attr.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/main/resources/subStateMachine.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/CrowdSourcingTaskEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/SCXMLTestHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestIdentityService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestProcessInstanceService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestTaskService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/DataTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/TableTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/engine/InstanceManagerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/engine/InstanceTreeTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/io/SCXMLReaderTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TaskState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestForeach.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestScript.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestSubStateMachine.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/persistence.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/WorkflowEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/FormEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/FormItemEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/GroupEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/GroupWorkItemEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/ProcessDefineEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/ProcessInstanceEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/UserEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/UserWorkItemEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-api/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-api/service-api.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-impl/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service-impl/service-impl.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/resources/crowdsourcing.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/web-app.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/CrowdSourcingTaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/DecomposeTaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/DecomposeVoteTaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/JudgeTaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/LoginService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/PostService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/RegisterService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/SolveTaskService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/SolveVoteTaskService.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/CrowdSourcing_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/CrowdSourcing_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/CrowdSourcing_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/CrowdSourcing_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sysu_workflow_BOWorkflow_1_0_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sysu_workflow_BOWorkflow_1_0_SNAPSHOT.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/decompose.jsp" afterPath="$PROJECT_DIR$/web/form/decompose.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/decomposeVote.jsp" afterPath="$PROJECT_DIR$/web/form/decomposeVote.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/judge.jsp" afterPath="$PROJECT_DIR$/web/form/judge.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/solve.jsp" afterPath="$PROJECT_DIR$/web/form/solve.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/form/solveVote.jsp" afterPath="$PROJECT_DIR$/web/form/solveVote.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/postTask.jsp" afterPath="$PROJECT_DIR$/web/postTask.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/postedTaskDetail.jsp" afterPath="$PROJECT_DIR$/web/postedTaskDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/taskDetail.jsp" afterPath="$PROJECT_DIR$/web/taskDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CrowdSourcing.iml" afterPath="$PROJECT_DIR$/CrowdSourcingService.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Crowsourcing_mysql_ER.png" afterPath="$PROJECT_DIR$/doc/Crowsourcing_mysql_ER.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/crowdousrcing_original.sql" afterPath="$PROJECT_DIR$/doc/crowdousrcing_original.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/model-diagram.png" afterPath="$PROJECT_DIR$/doc/model-diagram.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/springmvc self-studing.pdf" afterPath="$PROJECT_DIR$/doc/springmvc self-studing.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/TaskType.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/TaskType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/beans/MailBean.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/beans/MailBean.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/CodeController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/CodeController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/LoginController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/LoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/PostController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/PostController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/ProcessInstanceManagerController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/ProcessInstanceManagerController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/RegisterController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/RegisterController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/TaskController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/ajax/AjaxController.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/ajax/AjaxController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/CrowdSourcingTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/CrowdSourcingTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/DecomposeTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/DecomposeTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/DecomposeVoteTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/DecomposeVoteTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/JudgeTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/JudgeTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/SolveTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/SolveTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/SolveVoteTaskDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/SolveVoteTaskDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/UserDao.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/UserDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/DecomposeTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeVoteTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/DecomposeVoteTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/JudgeTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/JudgeTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/SolveTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/SolveTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/SolveVoteTaskDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/SolveVoteTaskDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/UserDaoImpl.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/UserDaoImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/CrowdSourcingTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/DecomposeTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeVoteTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/DecomposeVoteTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/JudgeTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/JudgeTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/SolveTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveVoteTask.java" afterPath="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/SolveVoteTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/exceptions/SCXMLExecuteException.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/exceptions/SCXMLExecuteException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/exceptions/ServiceException.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/exceptions/ServiceException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/CrowdSourcingTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/CrowdSourcingTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/DecomposeTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/DecomposeTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/DecomposeVoteTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/DecomposeVoteTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/JudgeTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/JudgeTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/LoginServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/LoginServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/PostServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/PostServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/RegisterServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/RegisterServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/SolveTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/SolveTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/SolveVoteTaskServiceImpl.java" afterPath="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/SolveVoteTaskServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/ArrayToDescriptionCollectionConverter.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/ArrayToDescriptionCollectionConverter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/ConstantDefine.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/ConstantDefine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/DBHelper.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/DBHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/MD5Utils.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/MD5Utils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/Page.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/Page.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/RegisterTools.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/RegisterTools.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/SendMail.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/SendMail.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/StringToDate.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/StringToDate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/tools/TaskType.java" afterPath="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/TaskType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/applicationContext.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/crowdsourcing.xml" afterPath="$PROJECT_DIR$/engine/src/main/resources/crowdsourcing.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/crowdsourcingTest.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/dao-config.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/dao-config.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/dataSource.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/dataSource.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/hibernate.cfg.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/web-app/src/main/resources/log4j.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/mail-config.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/mail-config.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/scxml-initial-attr.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/scxml-initial-attr.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/service-config.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/service-config.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/spring-servlet.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/spring-servlet.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/sql/crowdsourcing.sql" afterPath="$PROJECT_DIR$/web-app/src/main/resources/sql/crowdsourcing.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/subStateMachine.xml" afterPath="$PROJECT_DIR$/web-app/src/main/resources/subStateMachine.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/DataTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestCreateTable.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestCreateTable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestFull.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestFull.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestSCXMLInstanceManager.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestSCXMLInstanceManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestSomeUncertain.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestSomeUncertain.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestTask.java" afterPath="$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/allWorkItem.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/allWorkItem.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/carousel.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/carousel.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/css/main.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/css/post.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/css/post.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/error.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/error.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/footer.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/footer.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/decompose.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/decompose.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/decompose.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/decompose.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/decomposeVote.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/decomposeVote.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/decomposeVote.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/decomposeVote.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/judge.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/judge.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/solve.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/solve.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/solve.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/solve.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/form/solveVote.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/solveVote.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/header.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/header.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/bg-login-top.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/bg-login-top.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/bg-login.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/bg-login.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/logo.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/slide1.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/slide1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/slide2.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/slide2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/slide3.png" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/images/slide3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/index.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/indexInformation.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/indexInformation.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/information.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/information.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/decompose.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/decompose.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/header.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/header.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/jquery-1.11.3.min.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/jquery-1.11.3.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/login.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/login.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/post.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/post.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/js/register.js" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/static/js/register.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/login.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/login.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/manager.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/manager.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/myTask.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/myTask.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/navbar.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/navbar.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/postTask.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/postTask.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/postedTaskDetail.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/postedTaskDetail.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/register.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/register.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/sucess.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/sucess.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/taskDetail.jsp" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/taskDetail.jsp" />
     </list>
     <list id="7f26ec3a-4eec-4c05-a378-2a241c8cbe4e" name="New changelist" comment="New changelist" />
     <ignored path="CrowdSourcing.iws" />
@@ -23,6 +329,11 @@
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/web-app/target/" />
+    <ignored path="$PROJECT_DIR$/persistence/target/" />
+    <ignored path="$PROJECT_DIR$/service-api/target/" />
+    <ignored path="$PROJECT_DIR$/service-impl/target/" />
+    <ignored path="$PROJECT_DIR$/engine/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,121 +351,28 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="CrowdSourcing" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestCreateTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestCreateTable.java">
+    <leaf>
+      <file leaf-file-name="PostServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/PostServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+            <state relative-caret-position="300">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java">
+      <file leaf-file-name="CrowdSourcingTaskServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/CrowdSourcingTaskServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postTask.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/postTask.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrowdSourcingTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2156">
-              <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-              <folding>
-                <element signature="e#3772#4023#0" expanded="true" />
-                <element signature="e#4022#4023#0" expanded="true" />
-                <element signature="e#6589#6590#0" expanded="true" />
-                <element signature="e#6626#6627#0" expanded="true" />
-                <marker date="1462949178331" expanded="true" signature="2836:2884" placeholder="select * fro... t_crowdsourcingtask" />
-                <marker date="1462949178331" expanded="true" signature="4556:4617" placeholder="update t_cro... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decompose.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/form/decompose.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1078">
-              <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crowdsourcingTest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="taskDetail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/taskDetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1144">
-              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postedTaskDetail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/postedTaskDetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="solveVote.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/form/solveVote.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="500">
+              <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -168,8 +386,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -177,7 +395,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="problem" />
       </map>
     </option>
     <option name="PUSH_TAGS">
@@ -192,22 +410,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/form/solve.html" />
-        <option value="dbtable:/c35cd642/06ebd2a5-8fc5-47fe-ae7e-58e5277ed106/crowdsourcing..t_decomposevotetask_t_decomposetask" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeVoteTaskDaoImpl.java" />
-        <option value="dbtable:/c35cd642/06ebd2a5-8fc5-47fe-ae7e-58e5277ed106/crowdsourcing..t_judgetask" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeVoteTask.java" />
-        <option value="$PROJECT_DIR$/../BOWorkFlow/src/main/java/com/sysu/workflow/service/taskservice/WorkItemDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dao-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/service-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/DecomposeTaskService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/DecomposeTaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/DecomposeTaskDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeTaskDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/SolveTaskService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/SolveTaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/SolveTaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/SolveVoteTaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/SolveVoteTaskDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/SolveVoteTaskServiceImpl.java" />
@@ -243,13 +445,30 @@
         <option value="$PROJECT_DIR$/web/postTask.jsp" />
         <option value="$PROJECT_DIR$/web/form/decompose.jsp" />
         <option value="$PROJECT_DIR$/web/postedTaskDetail.jsp" />
+        <option value="$PROJECT_DIR$/web-app/pom.xml" />
+        <option value="$PROJECT_DIR$/service-api/pom.xml" />
+        <option value="$PROJECT_DIR$/persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/engine/src/main/java/workflow/env/minimal/MinimalContext.java" />
+        <option value="$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/minimal/MinimalContext.java" />
+        <option value="$PROJECT_DIR$/engine/src/test/java/workflow/database/DataTest.java" />
+        <option value="$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/DataTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/engine/pom.xml" />
+        <option value="$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/CrowdSourcingTask.java" />
+        <option value="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtil.java" />
+        <option value="$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtils.java" />
+        <option value="$PROJECT_DIR$/service-api/src/main/java/com/sysu/crowdsourcing/services/CrowdSourcingTaskService.java" />
+        <option value="$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/CrowdSourcingTaskServiceImpl.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -271,13 +490,20 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState />
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -335,42 +561,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.sysu.workflow:BOWorkflow:1.0-SNAPSHOT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BOWorkFlow-1.0-SNAPSHOT.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -380,7 +581,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -388,13 +589,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="web-app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -402,39 +603,197 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="web-app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="form" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crowdsourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crowdsourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crowdsourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service-api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -445,18 +804,76 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="persistence" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -472,17 +889,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="crowdsourcing" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemId" value="CrowdSourcingService" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcingService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrowdSourcing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -498,16 +977,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="crowdsourcing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
+              <option name="myItemId" value="workflow" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -525,29 +1003,30 @@
     <property name="dynamic.classpath" value="false" />
     <property name="ToolWindowDatabase.ShowToolbar" value="false" />
     <property name="JPA.DatabaseSchemaImportDialog" value="e3e5919a-6109-4fab-b9fb-fa218d2e3d28" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BOWorkflow" />
     <property name="Console.TableResult.DefaultCopyAction" value="Comma-separated Values (CSV)" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="WorkItemEntity&#9;PSI&#9;JAVA://com.sysu.workflow.service.taskservice.WorkItemEntity" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\web\form" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src\main\java\com\sysu\workflow\service\identityservice" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src\main\resources" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\test" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sysu.crowdsourcing.dao.impl.SessionFactory" />
+      <recent name="com.sysu.crowdsourcing.dao" />
+      <recent name="com.sysu.crowdsourcing.services.impl" />
+      <recent name="com.sysu.crowdsourcing.services" />
+      <recent name="com.sysu.workflow.service.taskservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src\main\resources\sql" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src\main\resources" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\web" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\web\task" />
-      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\doc" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\web-app\src\main\webapp\WEB-INF" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\web-app\src\main\webapp\WEB-INF\view" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\web-app\src\main\webapp\static" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\web-app\src\test\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.sysu.crowdsourcing" />
@@ -557,135 +1036,15 @@
       <recent name="com.zhengshouzi.myweb.entity" />
       <recent name="com.zhengshouzi.myweb.beans" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.sysu.crowdsourcing.dao.impl.SessionFactory" />
-      <recent name="com.sysu.crowdsourcing.dao" />
-      <recent name="com.sysu.crowdsourcing.services.impl" />
-      <recent name="com.sysu.crowdsourcing.services" />
-      <recent name="com.sysu.workflow.service.taskservice" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\engine\src\test\java" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\engine\src\main\resources" />
+      <recent name="E:\Workspace\IdeaWorkspace\CrowdSourcing\engine\src\main\java" />
+      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\web\form" />
+      <recent name="E:\WorkSpace\IntellijIDEAWorkspace\CrowdSourcing\src\main\java\com\sysu\workflow\service\identityservice" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DataTest.testAddUserAndGroup">
-    <configuration default="false" name="TestCreateTable.testCreateTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CrowdSourcing" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sysu.crowdsourcing" />
-      <option name="MAIN_CLASS_NAME" value="com.sysu.crowdsourcing.TestCreateTable" />
-      <option name="METHOD_NAME" value="testCreateTable" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="DataTest.testAddUserAndGroup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CrowdSourcing" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sysu.crowdsourcing" />
-      <option name="MAIN_CLASS_NAME" value="com.sysu.crowdsourcing.DataTest" />
-      <option name="METHOD_NAME" value="testAddUserAndGroup" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="DataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.sysu.crowdsourcing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CrowdSourcing" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sysu.crowdsourcing" />
-      <option name="MAIN_CLASS_NAME" value="com.sysu.crowdsourcing.DataTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestTask.testDecomposeTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.sysu.crowdsourcing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CrowdSourcing" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sysu.crowdsourcing" />
-      <option name="MAIN_CLASS_NAME" value="com.sysu.crowdsourcing.TestTask" />
-      <option name="METHOD_NAME" value="testDecomposeTask" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestCreateTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.sysu.crowdsourcing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="CrowdSourcing" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sysu.crowdsourcing" />
-      <option name="MAIN_CLASS_NAME" value="com.sysu.crowdsourcing.TestCreateTable" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Tomcat Server.tomcat8">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -1123,7 +1482,7 @@
       <method />
     </configuration>
     <configuration default="false" name="tomcat8" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.33" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=GBK" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -1196,23 +1555,9 @@
         </option>
       </method>
     </configuration>
-    <list size="6">
+    <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat8" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TestCreateTable.testCreateTable" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DataTest.testAddUserAndGroup" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DataTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TestTask.testDecomposeTask" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.TestCreateTable" />
     </list>
-    <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DataTest.testAddUserAndGroup" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TestCreateTable.testCreateTable" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestCreateTable" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestTask.testDecomposeTask" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DataTest" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -1275,7 +1620,10 @@
       <workItem from="1462952565320" duration="279000" />
       <workItem from="1462953715414" duration="92000" />
       <workItem from="1463901671118" duration="13078000" />
-      <workItem from="1465566736770" duration="81000" />
+      <workItem from="1465566736770" duration="470000" />
+      <workItem from="1472458255805" duration="993000" />
+      <workItem from="1472461042608" duration="1241000" />
+      <workItem from="1472536166576" duration="6582000" />
     </task>
     <task id="LOCAL-00001" summary="sosi">
       <created>1441433160413</created>
@@ -1466,7 +1814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1456714254962</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="switch to english&#10;">
+      <created>1465566841067</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1465566841067</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1484,7 +1839,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463143000" />
+    <option name="totallyTimeSpent" value="472348000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1496,41 +1851,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.48294243" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08995816" sideWeight="0.21055438" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.48294243" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5170576" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.48507464" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14375" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28012684" sideWeight="0.72441363" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11145833" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15135135" sideWeight="0.48294243" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28012684" sideWeight="0.72441363" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.48081023" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.48933902" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3880597" sideWeight="0.22972973" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2125" sideWeight="0.7702703" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28802082" sideWeight="0.7702703" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25906184" sideWeight="0.33633092" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.184375" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1207" y="94" width="627" height="630" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.075851396" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="1207" y="94" width="627" height="630" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32845187" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.68248945" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30702704" sideWeight="0.69722813" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2585288" sideWeight="0.3262295" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30702704" sideWeight="0.69722813" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1877637" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39429176" sideWeight="0.21055438" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956802" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3880597" sideWeight="0.22972973" order="6" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1547,7 +1902,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="sosi" />
     <MESSAGE value="add hibernate support before" />
     <MESSAGE value="New changelist" />
     <MESSAGE value="spring mvc dataconverter done" />
@@ -1572,7 +1926,8 @@
     <MESSAGE value="add CrowdSourcingTask self association" />
     <MESSAGE value="all is down ,test not task care of detail ,test is tomorrow" />
     <MESSAGE value="experiment done." />
-    <option name="LAST_COMMIT_MESSAGE" value="experiment done." />
+    <MESSAGE value="switch to english&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch to english&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1587,7 +1942,7 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/DecomposeTaskDaoImpl.java</url>
+          <url>file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/DecomposeTaskDaoImpl.java</url>
           <line>91</line>
           <properties />
           <option name="timeStamp" value="37" />
@@ -1599,20 +1954,20 @@
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java</url>
-          <line>482</line>
+          <url>file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/TaskController.java</url>
+          <line>480</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java</url>
+          <url>file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java</url>
           <line>80</line>
           <properties />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java</url>
-          <line>516</line>
+          <url>file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/controllers/TaskController.java</url>
+          <line>514</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
@@ -1633,414 +1988,97 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../BOWorkflow/src/main/java/com/sysu/workflow/semantics/SCXMLSemanticsImpl.java">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/form/solveVote.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../BOWorkflow/src/main/java/com/sysu/workflow/env/MulitStateMachineDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="305" column="0" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../BOWorkflow/src/main/java/com/sysu/workflow/SCXMLExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="520" column="0" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/CrowdSourcingTaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="17" column="86" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/CrowdSourcingTaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/PostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="88" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_user" />
-    <entry file="file://$PROJECT_DIR$/web/sucess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/navbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/manager.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/information.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/footer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/error.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/carousel.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/dao/impl/SessionFactory/CrowdSourcingTaskDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="148" column="66" selection-start-line="148" selection-start-column="66" selection-end-line="148" selection-end-column="66" />
+        <state relative-caret-position="748">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/services/impl/CrowdSourcingTaskServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/myTask.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        <state relative-caret-position="1300">
+          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvevotetask" />
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_judgetask" />
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_userworkitem" />
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_processinstance" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/controllers/TaskController.java">
+    <entry file="file://$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestSomeUncertain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11748">
-          <caret line="551" column="83" selection-start-line="551" selection-start-column="83" selection-end-line="551" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/c35cd642/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing..t_solvetask" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="175">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeTask.java">
+    <entry file="file://$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestSCXMLInstanceManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1175#1194#0" expanded="false" />
-            <element signature="e#1228#1229#0" expanded="false" />
-            <element signature="e#1257#1258#0" expanded="false" />
-            <element signature="e#1299#1300#0" expanded="false" />
-            <element signature="e#1335#1336#0" expanded="false" />
-            <element signature="e#1376#1377#0" expanded="false" />
-            <element signature="e#1415#1416#0" expanded="false" />
-            <element signature="e#1477#1478#0" expanded="false" />
-            <element signature="e#1533#1534#0" expanded="false" />
-            <element signature="e#1568#1569#0" expanded="false" />
-            <element signature="e#1599#1600#0" expanded="false" />
-            <element signature="e#1647#1648#0" expanded="false" />
-            <element signature="e#1687#1688#0" expanded="false" />
-            <element signature="e#1729#1730#0" expanded="false" />
-            <element signature="e#1767#1768#0" expanded="false" />
-            <element signature="e#1829#1830#0" expanded="false" />
-            <element signature="e#1883#1884#0" expanded="false" />
-            <element signature="e#1919#1920#0" expanded="false" />
-            <element signature="e#1951#1952#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
-            <element signature="e#2043#2044#0" expanded="false" />
-            <element signature="e#2100#2101#0" expanded="false" />
-            <element signature="e#2141#2142#0" expanded="false" />
-            <element signature="e#2316#2317#0" expanded="false" />
-            <element signature="e#2347#2348#0" expanded="false" />
-            <element signature="e#2395#2396#0" expanded="false" />
-            <element signature="e#2435#2436#0" expanded="false" />
-            <element signature="e#2498#2499#0" expanded="false" />
-            <element signature="e#2541#2542#0" expanded="false" />
-            <element signature="e#2799#2815#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/DecomposeVoteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#785#800#0" expanded="false" />
-            <element signature="e#1075#1076#0" expanded="false" />
-            <element signature="e#1116#1117#0" expanded="false" />
-            <element signature="e#1287#1288#0" expanded="false" />
-            <element signature="e#1316#1317#0" expanded="false" />
-            <element signature="e#1358#1359#0" expanded="false" />
-            <element signature="e#1394#1395#0" expanded="false" />
-            <element signature="e#1435#1436#0" expanded="false" />
-            <element signature="e#1474#1475#0" expanded="false" />
-            <element signature="e#1536#1537#0" expanded="false" />
-            <element signature="e#1592#1593#0" expanded="false" />
-            <element signature="e#1647#1648#0" expanded="false" />
-            <element signature="e#1686#1687#0" expanded="false" />
-            <element signature="e#1762#1763#0" expanded="false" />
-            <element signature="e#1818#1819#0" expanded="false" />
-            <element signature="e#2252#2268#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/JudgeTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#977#978#0" expanded="false" />
-            <element signature="e#1006#1007#0" expanded="false" />
-            <element signature="e#1048#1049#0" expanded="false" />
-            <element signature="e#1084#1085#0" expanded="false" />
-            <element signature="e#1125#1126#0" expanded="false" />
-            <element signature="e#1164#1165#0" expanded="false" />
-            <element signature="e#1226#1227#0" expanded="false" />
-            <element signature="e#1282#1283#0" expanded="false" />
-            <element signature="e#1339#1340#0" expanded="false" />
-            <element signature="e#1380#1381#0" expanded="false" />
-            <element signature="e#1555#1556#0" expanded="false" />
-            <element signature="e#1586#1587#0" expanded="false" />
-            <element signature="e#1634#1635#0" expanded="false" />
-            <element signature="e#1674#1675#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1164#1165#0" expanded="false" />
-            <element signature="e#1205#1206#0" expanded="false" />
-            <element signature="e#1805#1806#0" expanded="false" />
-            <element signature="e#1836#1837#0" expanded="false" />
-            <element signature="e#1884#1885#0" expanded="false" />
-            <element signature="e#1924#1925#0" expanded="false" />
-            <element signature="e#1955#1956#0" expanded="false" />
-            <element signature="e#1984#1985#0" expanded="false" />
-            <element signature="e#2026#2027#0" expanded="false" />
-            <element signature="e#2062#2063#0" expanded="false" />
-            <element signature="e#2103#2104#0" expanded="false" />
-            <element signature="e#2142#2143#0" expanded="false" />
-            <element signature="e#2204#2205#0" expanded="false" />
-            <element signature="e#2260#2261#0" expanded="false" />
-            <element signature="e#2299#2300#0" expanded="false" />
-            <element signature="e#2334#2335#0" expanded="false" />
-            <element signature="e#2390#2391#0" expanded="false" />
-            <element signature="e#2438#2439#0" expanded="false" />
-            <element signature="e#2485#2486#0" expanded="false" />
-            <element signature="e#2521#2522#0" expanded="false" />
-            <element signature="e#2586#2587#0" expanded="false" />
-            <element signature="e#2636#2637#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/SolveVoteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1068#1069#0" expanded="false" />
-            <element signature="e#1109#1110#0" expanded="false" />
-            <element signature="e#1280#1281#0" expanded="false" />
-            <element signature="e#1309#1310#0" expanded="false" />
-            <element signature="e#1351#1352#0" expanded="false" />
-            <element signature="e#1387#1388#0" expanded="false" />
-            <element signature="e#1428#1429#0" expanded="false" />
-            <element signature="e#1467#1468#0" expanded="false" />
-            <element signature="e#1529#1530#0" expanded="false" />
-            <element signature="e#1585#1586#0" expanded="false" />
-            <element signature="e#1624#1625#0" expanded="false" />
-            <element signature="e#1656#1657#0" expanded="false" />
-            <element signature="e#1709#1710#0" expanded="false" />
-            <element signature="e#1751#1752#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/58e548b9/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing.t_crowdsourcingtask">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/indexInformation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/allWorkItem.jsp">
+    <entry file="file://$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/TestCreateTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="116" column="62" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/58e548b9/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/crowdsourcing.t_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/decomposeVote.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/solve.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/solveVote.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/judge.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/TestCreateTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="500">
           <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/view/allWorkItem.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+        <state relative-caret-position="425">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6bf47c2a-e9be-4bb5-a5a3-f7ac59649afc/console.sql">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="906">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="31" />
+          <folding>
+            <marker date="1472539868579" expanded="true" signature="1402:1423" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crowdsourcingservice.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1675">
+          <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/service-api.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2048,57 +2086,332 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/form/decompose.jsp">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/postedTaskDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sysu/crowdsourcing/entity/CrowdSourcingTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2156">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+        <state relative-caret-position="432">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="e#3772#4023#0" expanded="true" />
-            <element signature="e#4022#4023#0" expanded="true" />
-            <element signature="e#6589#6590#0" expanded="true" />
-            <element signature="e#6626#6627#0" expanded="true" />
-            <marker date="1462949178331" expanded="true" signature="2836:2884" placeholder="select * fro... t_crowdsourcingtask" />
-            <marker date="1462949178331" expanded="true" signature="4556:4617" placeholder="update t_cro... " />
+            <marker date="1472540386009" expanded="true" signature="101:2179" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/crowdsourcingTest.xml">
+    <entry file="file://$PROJECT_DIR$/service-impl/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+        <state relative-caret-position="375">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/taskDetail.jsp">
+    <entry file="file://$PROJECT_DIR$/service-api/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        <state relative-caret-position="275">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/postTask.jsp">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        <state relative-caret-position="25">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/GroupTaskQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Cancel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/Evaluator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/SCXMLExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/test/StandaloneUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/ServiceTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/ElseIf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/PathResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/Else.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/env/minimal/MinimalContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/main/resources/crowdsourcing.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/TableTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestTaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/CrowdSourcingTaskEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestProcessInstanceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TaskState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestSubStateMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/SCXMLTestHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/io/SCXMLReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/DataTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crowdsourcingservice.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/crowdsourcing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/crowdsourcing/CrowdSourcingTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <marker date="1472542325999" expanded="true" signature="2841:2889" ph="select * fro... t_crowdsourcingtask" />
+            <marker date="1472542325999" expanded="true" signature="4561:4622" ph="update t_cro... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/TaskType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/RegisterTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+          <folding>
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1615#1616#0" expanded="false" />
+            <element signature="e#1672#1673#0" expanded="false" />
+            <element signature="e#2092#2093#0" expanded="false" />
+            <element signature="e#2144#2145#0" expanded="false" />
+            <element signature="e#2225#2226#0" expanded="false" />
+            <element signature="e#2279#2280#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-api/src/main/java/com/sysu/crowdsourcing/services/CrowdSourcingTaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/PostServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-impl/src/main/java/com/sysu/crowdsourcing/service/impl/CrowdSourcingTaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -2122,7 +2435,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring</last-edited>
+          <last-edited>Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2138,7 +2451,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37471265" />
               </list>
             </option>
           </splitter-proportions>
@@ -2150,7 +2463,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37471265" />
               </list>
             </option>
           </splitter-proportions>
@@ -2158,7 +2471,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>CrowdSourcing</last-edited>
+          <last-edited>web-app</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

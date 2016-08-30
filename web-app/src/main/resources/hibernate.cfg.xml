@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/crowdsourcing</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">zhengqiang</property>
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.event.merge.entity_copy_observer">allow</property>
+
+        <mapping class="com.sysu.UserEntity"/>
+        <mapping class="com.sysu.GroupEntity"/>
+        <mapping class="com.sysu.UserWorkItemEntity"/>
+        <mapping class="com.sysu.GroupWorkItemEntity"/>
+        <mapping class="com.sysu.FormEntity"/>
+        <mapping class="com.sysu.FormItemEntity"/>
+        <mapping class="com.sysu.ProcessInstanceEntity"/>
+
+        <mapping class="CrowdSourcingTask"/>
+        <mapping class="JudgeTask"/>
+        <mapping class="DecomposeTask"/>
+        <mapping class="DecomposeVoteTask"/>
+        <mapping class="SolveTask"/>
+        <mapping class="SolveVoteTask"/>
+
+    </session-factory>
+</hibernate-configuration>

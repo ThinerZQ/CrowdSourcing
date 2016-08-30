@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="CrowdSourcing:war exploded">
-    <output-path>$PROJECT_DIR$/target/CrowdSourcing-0.0.1-release</output-path>
+    <output-path>$PROJECT_DIR$/target/CrowdSourcing-1.0.0-SNAPSHORT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="CrowdSourcing" />
+          <element id="module-output" name="crowdsourcingservice" />
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$MAVEN_REPOSITORY$/com/sysu/workflow/BOWorkFlow/1.0-SNAPSHOT/BOWorkFlow-1.0-SNAPSHOT.jar" output-file-name="BOWorkflow-1.0-SNAPSHOT.jar" />
@@ -62,9 +62,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/CrowdSourcing-0.0.1-release/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/CrowdSourcing-1.0.0-SNAPSHORT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="CrowdSourcing/web/Web" />
+      <element id="javaee-facet-resources" facet="CrowdSourcingService/web/Web" />
     </root>
   </artifact>
 </component>

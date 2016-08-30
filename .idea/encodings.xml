@@ -1,7 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/resources/scxml-initial-attr.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/test/com/sysu/crowdsourcing/DataTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/engine/SCXMLInstanceManager.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/engine/SCXMLInstanceTree.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/Form.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/IdentityException.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/MessageMode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/ServiceTask.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/SubStateMachine.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/model/extend/UserTask.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/formservice/FormService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/GroupDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/IdentityService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/UserDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/indentityservice/UserQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/ProcessInstanceDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/ProcessInstanceQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/processservice/RuntimeService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/GroupTaskQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/TaskService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/UserTaskQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/java/com/sysu/workflow/service/taskservice/WorkItemDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/resources/crowdsourcing.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/resources/crowdsourcingTest.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/resources/hibernate.cfg.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/main/resources/subStateMachine.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/CrowdSourcingTaskEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestIdentityService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestProcessInstanceService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestTaskService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/TestUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/DataTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/database/TableTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/engine/InstanceManagerTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/engine/InstanceTreeTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TaskState.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestForeach.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestScript.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/engine/src/test/java/com/sysu/workflow/model/TestSubStateMachine.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/WorkflowEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/FormEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/FormItemEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/GroupEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/GroupWorkItemEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/ProcessDefineEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/ProcessInstanceEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/UserEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/persistence/src/main/java/com/sysu/model/workflow/UserWorkItemEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web-app/src/main/java/com/sysu/model/crowdsourcing/tools/PageUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-app/src/main/resources/scxml-initial-attr.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-app/src/test/java/com/sysu/model/crowdsourcing/DataTest.java" charset="GBK" />
   </component>
 </project>

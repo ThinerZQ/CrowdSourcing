@@ -4,31 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sysu.crowdsourcing</groupId>
-    <artifactId>CrowdSourcing</artifactId>
-    <version>0.0.1-release</version>
-    <packaging>war</packaging>
-    <name>复杂任务众包平台</name>
+    <groupId>com.sysu</groupId>
+    <artifactId>CrowdSourcingService</artifactId>
+    <version>1.0.0-SNAPSHORT</version>
+    <modules>
+        <module>web-app</module>
+        <module>persistence</module>
+        <module>service-api</module>
+        <module>service-impl</module>
+        <module>engine</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>复杂任务众包平台服务</name>
 
+    <developers>
+        <developer>
+            <name>Money Zheng</name>
+            <id>ThinerZQ</id>
+            <email>thinerzq@gmail.com</email>
+            <organization>sysu workflow lab</organization>
+        </developer>
+    </developers>
 
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <directory>web</directory>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
+    <properties>
+        <spring.version>4.1.5.RELEASE</spring.version>
+    </properties>
 
 
 

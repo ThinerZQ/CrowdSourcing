@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="CrowdSourcing:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="CrowdSourcing-0.0.1-release.war">
+    <root id="archive" name="CrowdSourcing-1.0.0-SNAPSHORT.war">
       <element id="artifact" artifact-name="CrowdSourcing:war exploded" />
     </root>
   </artifact>

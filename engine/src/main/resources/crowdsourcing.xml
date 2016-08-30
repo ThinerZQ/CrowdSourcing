@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml"
+       version="1.0"
+       datamodel="jexl"
+       initial="judging">
+
+    <!-- 浠诲姟闇�瑕佺殑鏁版嵁-->
+    <datamodel>
+        <data id="deployee" expr=""></data>
+        <data id="taskName" expr=""></data>
+        <data id="taskDescription" expr=""></data>
+        <data id="dueDate"></data>
+
+        <data id="judgeCount" expr="3"></data>
+        <data id="decomposeCount" expr="2"></data>
+        <data id="decomposeVoteCount" expr="3"></data>
+        <data id="solveCount" expr="2"></data>
+        <data id="solveVoteCount" expr="3"></data>
+    </datamodel>
+
+
+    <state id="judging">
+        <datamodel>
+            <data id="complexCount" expr="0"></data>
+            <data id="simpleCount" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <userTask id="judge" name="鍒ゆ柇浠诲姟" assignee="" cadidateUsers="" cadidateGroups="judge" dueDate=""
+                      instances="judgeCount">
+                <param name="浠诲姟鍚嶅瓧" expr="taskName"></param>
+                <param name="浠诲姟鎻忚堪" expr="taskDescription"></param>
+            </userTask>
+
+        </onentry>
+        <transition event="judgeComplete">
+            <if expr="_event.data_flag eq simple">
+                <assigne location="simpleCount" expr="simpleCount +1"></assigne>
+            </if>
+            <else>
+                <assigne location="complexCount" expr="complexCount +1"></assigne>
+            </else>
+        </transition>
+        <transition cond="simpleCount + complexCount eq judgeCount and simpleCount > complexCount" target="solving">
+            <!-- 鍐欏叆鏁版嵁搴撳摢涓�涓鍒ゆ柇鏄畝鍗曠殑 -->
+        </transition>
+        <transition cond="simpleCount + complexCount eq judgeCount and simpleCount < complexCount" target="decomposing">
+            <!-- 鍐欏叆鏁版嵁搴撳摢涓�涓鍒ゆ柇鏄鏉傜殑鐨� -->
+        </transition>
+    </state>
+
+
+    <state id="decomposing">
+        <datamodel>
+            <data id="counted" expr="0"></data>
+            <data id="step" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <userTask id="decompose" name="鍒嗚В浠诲姟" assignee="zhengqiang" cadidateUsers="" cadidateGroups="" dueDate=""
+                      instances="decomposeCount">
+                <param name="浠诲姟鍚嶅瓧" expr="taskName"></param>
+                <param name="浠诲姟鎻忚堪" expr="taskDescription"></param>
+            </userTask>
+        </onentry>
+
+        <transition event="decomposeComplete">
+            <assigne location="counted" expr="counted + 1"></assigne>
+            <!-- 鍐欏叆鏁版嵁搴�: 璋佸垎瑙ｆ垚浜嗕粈涔� -->
+        </transition>
+        <transition cond="counted eq decomposeCount" target="decomposeVoting"></transition>
+    </state>
+
+
+    <state id="decomposeVoting">
+        <datamodel>
+            <data id="counted" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <userTask id="decompose" name="鍒嗚В鎶曠エ浠诲姟" assignee="zhengqiang" cadidateUsers="" cadidateGroups=""
+                      dueDate=""
+                      instances="decomposeVoteCount">
+
+            </userTask>
+        </onentry>
+        <transition event="decomposeVoteComplete">
+            <assigne location="counted" expr="counted + 1"></assigne>
+        </transition>
+        <transition cond="counted eq decomposeVoteCount" target="end">
+
+            <!-- 鏌ヨ鏁版嵁搴擄紝鎵惧嚭鍒嗚В鏈�濂界殑鏂规锛屽惎鍔ㄨ繖浜涘疄渚� -->
+
+
+            <!-- 鎶曠エ缁撴潫浜嗭紝閫夊嚭鏈�濂界殑鎶曠エ瑙ｅ喅锛岃皟鐢ㄦ湰xml鏂囦欢浣滀负瀛愮姸鎬佹満锛� -->
+            <subStateMachine src="crowdsourcing.xml" instances="steps">
+
+            </subStateMachine>
+
+        </transition>
+    </state>
+
+
+    <state id="solving">
+        <datamodel>
+            <data id="counted" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <userTask id="solve" name="瑙ｅ喅浠诲姟" assignee="zhengqiang" cadidateUsers="" cadidateGroups="" dueDate=""
+                      instances="solveCount">
+
+            </userTask>
+        </onentry>
+        <transition event="solveComplete">
+            <assigne location="counted" expr="counted + 1"></assigne>
+            <!-- 淇濆瓨瑙ｅ喅缁撴灉鍒版暟鎹簱 -->
+        </transition>
+        <transition cond="counted eq solveCount" target="solveVoting"></transition>
+    </state>
+
+
+    <state id="solveVoting">
+        <datamodel>
+            <data id="counted" expr="0"></data>
+        </datamodel>
+        <onentry>
+            <userTask id="solveVoting" name="瑙ｅ喅鎶曠エ浠诲姟" assignee="zhengqiang" cadidateUsers="" cadidateGroups=""
+                      dueDate=""
+                      instances="solveVoteCount">
+
+            </userTask>
+        </onentry>
+        <transition event="solveVoteComplete">
+            <assigne location="counted" expr="counted + 1"></assigne>
+            <!-- 淇濆瓨鍒版暟鎹簱  璋佹姇浜嗚皝 -->
+        </transition>
+        <transition cond="counted eq solveVoteCount" target="end"></transition>
+    </state>
+
+    <final id="end">
+    </final>
+</scxml>
