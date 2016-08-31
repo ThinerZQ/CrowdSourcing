@@ -13,4 +13,13 @@
     <name>复杂任务众包平台服务-api</name>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sysu</groupId>
+            <artifactId>persistence</artifactId>
+            <version>1.0.0-SNAPSHORT</version>
+        </dependency>
+    </dependencies>
+
+
 </project>

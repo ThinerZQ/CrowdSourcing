@@ -41,10 +41,10 @@ public class TestTaskService {
         ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
-        //µÃµ½µ±Ç°ÓÃ»§ËùÔÚ×éµÄËùÓĞ¹¤×÷Ïî
+        //å¾—åˆ°å½“å‰ç”¨æˆ·æ‰€åœ¨ç»„çš„æ‰€æœ‰å·¥ä½œé¡¹
         for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
             ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
-            //µ±Ç°×éÓĞÈÎÎñ£¬¾Í¼ÓÈëµ½mapÀïÃæ
+            //å½“å‰ç»„æœ‰ä»»åŠ¡ï¼Œå°±åŠ å…¥åˆ°mapé‡Œé¢
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             }
@@ -59,11 +59,11 @@ public class TestTaskService {
         ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
-        //µÃµ½µ±Ç°ÓÃ»§ËùÔÚ×éµÄËùÓĞ¹¤×÷Ïî
+        //å¾—åˆ°å½“å‰ç”¨æˆ·æ‰€åœ¨ç»„çš„æ‰€æœ‰å·¥ä½œé¡¹
        long groupWorkItemId =0;
         for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
             ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
-            //µ±Ç°×éÓĞÈÎÎñ£¬¾Í¼ÓÈëµ½mapÀïÃæ
+            //å½“å‰ç»„æœ‰ä»»åŠ¡ï¼Œå°±åŠ å…¥åˆ°mapé‡Œé¢
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             }
@@ -71,16 +71,16 @@ public class TestTaskService {
         }
         if (groupWorkItemId != 0) {
             GroupWorkItemEntity groupWorkItemEntity = TaskService.createGroupTaskQuery().taskId((int) groupWorkItemId).SingleResult();
-            //¸üĞÂgroup workitem
+            //æ›´æ–°group workitem
             int instance;
             instance = groupWorkItemEntity.getItemInstances();
             if (groupWorkItemEntity.getItemInstances() <= 0) {
-                //·µ»Ø£¬ÌáÊ¾×éÈÎÎñ±»×öÍêÁË¡£
+                //è¿”å›ï¼Œæç¤ºç»„ä»»åŠ¡è¢«åšå®Œäº†ã€‚
                 System.out.println("group work done ");
             } else {
                 TaskService taskService = new TaskService();
                 UserWorkItemEntity userWorkItemEntity = taskService.newWorkItem();
-                //±£´æuser workitem
+                //ä¿å­˜user workitem
                 userWorkItemEntity.setItemName(groupWorkItemEntity.getItemName())
                         .setItemCreateTime(new Date().toLocaleString())
                         .setItemStateId(groupWorkItemEntity.getItemStateId())
@@ -106,15 +106,15 @@ public class TestTaskService {
         ArrayList<UserWorkItemEntity> userWorkItemEntityList = TaskService.createUserTaskQuery().taskAssignee(currentUserEntity).list();
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
-        //µÃµ½µ±Ç°ÓÃ»§ËùÔÚ×éµÄËùÓĞ¹¤×÷Ïî
+        //å¾—åˆ°å½“å‰ç”¨æˆ·æ‰€åœ¨ç»„çš„æ‰€æœ‰å·¥ä½œé¡¹
         for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
             ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
 
-            //µ±Ç°×éÓĞÈÎÎñ£¬¾Í¼ÓÈëµ½mapÀïÃæ
+            //å½“å‰ç»„æœ‰ä»»åŠ¡ï¼Œå°±åŠ å…¥åˆ°mapé‡Œé¢
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             }
-            //ÌŞ³ı°üº¬ÔÚÓÃ»§ÈÎÎñÁĞ±íÀïÃæµÄÈÎÎñ
+            //å‰”é™¤åŒ…å«åœ¨ç”¨æˆ·ä»»åŠ¡åˆ—è¡¨é‡Œé¢çš„ä»»åŠ¡
             for (UserWorkItemEntity uwie : userWorkItemEntityList) {
                 int size = groupWorkItemEntityArrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -125,7 +125,7 @@ public class TestTaskService {
                     }
                 }
             }
-            //µ±Ç°×éÓĞÈÎÎñ£¬¾Í¼ÓÈëµ½mapÀïÃæ
+            //å½“å‰ç»„æœ‰ä»»åŠ¡ï¼Œå°±åŠ å…¥åˆ°mapé‡Œé¢
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             } else {

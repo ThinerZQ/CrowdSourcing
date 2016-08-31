@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>state-machine-workflow-engine</artifactId>
+    <artifactId>BOWorkFlow</artifactId>
     <name>复杂任务众包平台服务-engine</name>
 
 
@@ -19,12 +19,6 @@
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -59,6 +53,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.37</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sysu</groupId>
+            <artifactId>persistence</artifactId>
+            <version>1.0.0-SNAPSHORT</version>
         </dependency>
 
         <!-- 改造成使用mybatis -->

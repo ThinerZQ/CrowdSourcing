@@ -24,13 +24,13 @@
         <onentry>
             <log label="init" expr="'init state entry ,begin to initialization'"/>
             <script>
-                taskName=crowdSourcingTask.getTaskName();
-                taskDescription=crowdSourcingTask.getTaskDescription();
-                judgeCount = crowdSourcingTask.getTaskJudgeCount();
-                decomposeCount= crowdSourcingTask.getTaskDecomposeCount();
-                decomposeVoteCount= crowdSourcingTask.getTaskDecomposeVoteCount();
-                solveCount= crowdSourcingTask.getTaskSolveCount();
-                solveVoteCount= crowdSourcingTask.getTaskSolveVoteCount();
+                taskName=crowdSourcingTaskEntity.getTaskName();
+                taskDescription=crowdSourcingTaskEntity.getTaskDescription();
+                judgeCount = crowdSourcingTaskEntity.getTaskJudgeCount();
+                decomposeCount= crowdSourcingTaskEntity.getTaskDecomposeCount();
+                decomposeVoteCount= crowdSourcingTaskEntity.getTaskDecomposeVoteCount();
+                solveCount= crowdSourcingTaskEntity.getTaskSolveCount();
+                solveVoteCount= crowdSourcingTaskEntity.getTaskSolveVoteCount();
             </script>
             <log label="init" expr="'initialization complete'"></log>
         </onentry>
@@ -148,9 +148,9 @@
             <!-- 查询数据库，找出分解最好的方案，启动这些实例 -->
             <!-- 投票结束了，选出最好的投票解决，调用本xml文件作为子状态机， -->
 
-            <foreach array="crowdSourcingTaskArrayList" item="tempCrowdSourcingTask">
+            <foreach array="crowdSourcingTaskEntityArrayList" item="tempCrowdSourcingTaskEntity">
                 <subStateMachine src="crowdsourcingTest.xml" instances="1">
-                    <param name="crowdSourcingTask" expr="tempCrowdSourcingTask"></param>
+                    <param name="crowdSourcingTaskEntity" expr="tempCrowdSourcingTaskEntity"></param>
                 </subStateMachine>
                 <assign location="steps" expr="steps + 1"></assign>
                 <log label="decomposeVoting" expr="'startSubMachine '"/>
@@ -186,7 +186,7 @@
             <log label="merging" expr="'entry merging state '"/>
             <!-- 自动化 归并任务,    -->
             <script>
-                result = crowdSourcingTask.merge();
+                result = crowdSourcingTaskEntity.merge();
             </script>
         </onentry>
 

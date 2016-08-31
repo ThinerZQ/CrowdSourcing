@@ -29,7 +29,6 @@ public class SubStateMachine extends NamelistHolder implements PathResolverHolde
 
 
     /**
-     * ???¡¤????????
      * {@link PathResolver} for resolving the "src" or "srcexpr" result.
      */
     private PathResolver pathResolver;
@@ -67,7 +66,6 @@ public class SubStateMachine extends NamelistHolder implements PathResolverHolde
             //get resource file url
             final URL url = this.getClass().getClassLoader().getResource(getSrc());
             SCXML scxml = null;
-            //????src?????????????
             try {
                 scxml = SCXMLReader.read(url);
             } catch (Exception e) {
@@ -85,7 +83,6 @@ public class SubStateMachine extends NamelistHolder implements PathResolverHolde
                 SCXMLExecutor executor = new SCXMLExecutor(evaluator, new MulitStateMachineDispatcher(), new SimpleErrorReporter(), null, instanceTree);
                 executor.setStateMachine(scxml);
 
-                //??????????§Ö????????
                 Context rootContext = evaluator.newContext(null);
                 for (Map.Entry<String, Object> entry : payloadDataMap.entrySet()) {
                     rootContext.set(entry.getKey(), entry.getValue());
@@ -93,17 +90,14 @@ public class SubStateMachine extends NamelistHolder implements PathResolverHolde
 
                 executor.setRootContext(rootContext);
 
-                //???????????
                 executor.go();
 
-                //??????
                 String currentSessionId = (String) currentExecutionContext.getScInstance().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY);
 
                 String subStateMachineSessionId = (String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY);
 
                 instanceTree.insert(currentSessionId, subStateMachineSessionId, executor.getStateMachine().getName());
 
-                //???????Executor????  ?????????????
 
                 SCXMLInstanceManager.setSCXMLInstance(executor);
 

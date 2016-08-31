@@ -1,8 +1,8 @@
 
 package com.sysu.workflow.semantics;
 
+import com.sysu.model.workflow.ProcessInstanceEntity;
 import com.sysu.workflow.*;
-import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.invoke.Invoker;
 import com.sysu.workflow.invoke.InvokerException;
 import com.sysu.workflow.model.*;

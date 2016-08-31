@@ -1,6 +1,10 @@
 package com.sysu.workflow.service.taskservice;
 
-import com.sysu.workflow.entity.*;
+import com.sysu.model.WorkflowEntity;
+import com.sysu.model.workflow.GroupEntity;
+import com.sysu.model.workflow.GroupWorkItemEntity;
+import com.sysu.model.workflow.UserEntity;
+import com.sysu.model.workflow.UserWorkItemEntity;
 import com.sysu.workflow.model.extend.GroupException;
 import com.sysu.workflow.model.extend.UserException;
 

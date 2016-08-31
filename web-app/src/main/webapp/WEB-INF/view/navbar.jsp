@@ -5,11 +5,11 @@
     <li class="active">
         <a href="${pageContext.request.contextPath}/Home.do">Home</a>
     </li>
-    <li><a href="${pageContext.request.contextPath}/judgeTask.do">JudgeTask</a></li>
-    <li><a href="${pageContext.request.contextPath}/decomposeTask.do">DecomposeTask</a></li>
-    <li><a href="${pageContext.request.contextPath}/decomposeVoteTask.do">DecomposeVoteTask</a></li>
-    <li><a href="${pageContext.request.contextPath}/solveTask.do">SolveTask</a></li>
-    <li><a href="${pageContext.request.contextPath}/solveVoteTask.do">SolveVoteTask</a></li>
+    <li><a href="${pageContext.request.contextPath}/judgeTaskEntity.do">JudgeTask</a></li>
+    <li><a href="${pageContext.request.contextPath}/decomposeTaskEntity.do">DecomposeTask</a></li>
+    <li><a href="${pageContext.request.contextPath}/decomposeVoteTaskEntity.do">DecomposeVoteTask</a></li>
+    <li><a href="${pageContext.request.contextPath}/solveTaskEntity.do">SolveTask</a></li>
+    <li><a href="${pageContext.request.contextPath}/solveVoteTaskEntity.do">SolveVoteTask</a></li>
     <li class="dropdown">
         <a href="#" id="myTabDrop1" class="dropdown-toggle"
            data-toggle="dropdown">Other

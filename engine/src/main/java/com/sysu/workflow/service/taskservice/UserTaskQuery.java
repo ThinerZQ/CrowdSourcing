@@ -1,7 +1,8 @@
 package com.sysu.workflow.service.taskservice;
 
-import com.sysu.workflow.entity.UserEntity;
-import com.sysu.workflow.entity.UserWorkItemEntity;
+
+import com.sysu.model.workflow.UserEntity;
+import com.sysu.model.workflow.UserWorkItemEntity;
 
 import java.util.ArrayList;
 

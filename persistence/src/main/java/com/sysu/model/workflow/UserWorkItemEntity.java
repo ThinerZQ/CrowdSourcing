@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,44 +16,25 @@ import java.util.Map;
  * Email: 601097836@qq.com
  */
 
-@Entity
-@Table(name = "t_userworkitem")
 public class UserWorkItemEntity implements WorkflowEntity {
 
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long itemId;
-    @Basic
     private String itemName;
-    @Basic
     private String itemCreateTime;
-    @Basic
     private String itemDueTime;
-    @Basic
     private String itemStateId;
-    @Basic
     private String itemProcessId;
-    @Basic
     private String itemFinish = "no";
 
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "itemAssignee")
     private UserEntity itemAssigneeEntity;
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "formEntity")
     private FormEntity itemFormEntity;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "groupWorkItemEntity")
     private GroupWorkItemEntity itemGroupWorkItemEntity;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "processInstanceEntity")
     private ProcessInstanceEntity itemProcessInstanceEntity;
-
 
     public String getItemFinish() {
         return itemFinish;

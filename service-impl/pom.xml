@@ -14,6 +14,21 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.sysu</groupId>
+            <artifactId>service-api</artifactId>
+            <version>1.0.0-SNAPSHORT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sysu</groupId>
+            <artifactId>BOWorkFlow</artifactId>
+            <version>1.0.0-SNAPSHORT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sysu</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0-SNAPSHORT</version>
+        </dependency>
     </dependencies>
 
 

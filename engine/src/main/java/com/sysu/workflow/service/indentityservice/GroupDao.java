@@ -1,11 +1,6 @@
 package com.sysu.workflow.service.indentityservice;
 
-import com.sysu.workflow.database.DBUtils;
-import com.sysu.workflow.entity.GroupEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
+import com.sysu.model.workflow.GroupEntity;
 
 import java.util.ArrayList;
 
@@ -21,7 +16,7 @@ import java.util.ArrayList;
 public class GroupDao {
 
     public boolean addGroup(GroupEntity groupEntity) {
-        Session session = null;
+      /*  Session session = null;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
             session.beginTransaction();
@@ -33,12 +28,12 @@ public class GroupDao {
             e.printStackTrace();
         } finally {
             //DBUtils.closeSession(session);
-        }
+        }*/
         return true;
     }
 
     public ArrayList<GroupEntity> findGroup(GroupEntity groupEntity) {
-        Session session = null;
+       /* Session session = null;
 
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -48,20 +43,20 @@ public class GroupDao {
             } else if (groupEntity.getGroupName() != null) {
                 return findGroupByGroupName(groupEntity.getGroupName());
             } else {
-                //TODO:其他各种访问方式
+                //TODO:鍏朵粬鍚勭璁块棶鏂瑰紡
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             //DBUtils.closeSession(session);
-        }
+        }*/
         return null;
     }
 
     public ArrayList<GroupEntity> findGroupByGroupName(String groupName) {
 
-        Session session = null;
+      /*  Session session = null;
         ArrayList<GroupEntity> groupEntityArrayList = new ArrayList<GroupEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -79,12 +74,13 @@ public class GroupDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return groupEntityArrayList;
+        return groupEntityArrayList;*/
 
+        return null;
     }
 
     public ArrayList<GroupEntity> findGroupByGroupId(String groupId) {
-        Session session = null;
+      /*  Session session = null;
         ArrayList<GroupEntity> groupEntityArrayList = new ArrayList<GroupEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -102,7 +98,8 @@ public class GroupDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return groupEntityArrayList;
+        return groupEntityArrayList;*/
+        return null;
     }
 
     public boolean updateGroup(GroupEntity groupEntity) {

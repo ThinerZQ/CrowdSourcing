@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -17,29 +16,23 @@ import java.util.Set;
  * Blog: <a>http://blog.csdn.net/c601097836</a>
  * Email: 601097836@qq.com
  */
-@Entity
-@Table(name = "t_form")
 public class FormEntity implements WorkflowEntity {
 
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long formId;
 
-    @Basic
+
     private String formName;
 
-    @Basic
+
     private String formSrc;
 
 
-    @OneToOne(cascade = {CascadeType.ALL}, mappedBy = "itemFormEntity")
     private UserWorkItemEntity userWorkItemEntity;
 
-    @OneToOne(cascade = {CascadeType.ALL}, mappedBy = "itemFormEntity")
+
     private GroupWorkItemEntity groupWorkItemEntity;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<FormItemEntity> formItemEntityLinkedHashSet = new LinkedHashSet<FormItemEntity>();
 
 

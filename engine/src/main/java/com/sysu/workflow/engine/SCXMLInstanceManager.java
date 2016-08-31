@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 管理系统中所有的所有的SCXML实例
+ * 绠＄悊绯荤粺涓墍鏈夌殑鎵�鏈夌殑SCXML瀹炰緥
+ * 绠＄悊绯荤粺涓墍鏈夌殑鎵�鏈夌殑SCXML瀹炰緥
  * Created by zhengshouzi on 2015/12/26.
  */
 public class SCXMLInstanceManager {

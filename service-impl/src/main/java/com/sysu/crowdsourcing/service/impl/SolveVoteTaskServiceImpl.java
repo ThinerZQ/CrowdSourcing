@@ -1,8 +1,9 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.SolveVoteTaskDao;
-import com.sysu.model.crowdsourcing.entity.SolveVoteTask;
-import com.sysu.model.crowdsourcing.services.SolveVoteTaskService;
+
+import com.sysu.crowdsourcing.manager.SolveVoteTaskManager;
+import com.sysu.crowdsourcing.service.SolveVoteTaskService;
+import com.sysu.model.crowdsourcing.SolveVoteTaskEntity;
 
 import javax.annotation.Resource;
 
@@ -18,13 +19,13 @@ import javax.annotation.Resource;
 public class SolveVoteTaskServiceImpl implements SolveVoteTaskService {
 
     @Resource
-    SolveVoteTaskDao solveVoteTaskDao;
+    SolveVoteTaskManager solveVoteTaskManager;
 
-    public long saveSolveVoteTask(SolveVoteTask solveVoteTask) {
-        return solveVoteTaskDao.saveSolveVoteTask(solveVoteTask);
+    public long saveSolveVoteTask(SolveVoteTaskEntity solveVoteTaskEntity) {
+        return 0;
     }
 
-    public SolveVoteTask getSolveVoteTask(SolveVoteTask solveVoteTask) {
-        return solveVoteTaskDao.getSolveVoteTask(solveVoteTask);
+    public SolveVoteTaskEntity getSolveVoteTask(SolveVoteTaskEntity solveVoteTaskEntity) {
+        return solveVoteTaskEntity;
     }
 }

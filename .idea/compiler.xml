@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="common" />
         <module name="engine" />
         <module name="persistence" />
         <module name="service-api" />
@@ -30,15 +31,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
       <module name="CrowdSourcing" target="1.5" />
-      <module name="CrowdSourcingService" target="1.5" />
+      <module name="CrowdSourcingService" target="1.8" />
       <module name="crowdsourcingservice" target="1.5" />
-      <module name="engine" target="1.5" />
-      <module name="persistence" target="1.5" />
-      <module name="service-api" target="1.5" />
-      <module name="service-impl" target="1.5" />
+      <module name="engine" target="1.8" />
+      <module name="persistence" target="1.8" />
+      <module name="service-api" target="1.8" />
+      <module name="service-impl" target="1.8" />
       <module name="web" target="1.5" />
-      <module name="web-app" target="1.5" />
+      <module name="web-app" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

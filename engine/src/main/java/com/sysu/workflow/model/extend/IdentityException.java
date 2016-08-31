@@ -1,7 +1,7 @@
 package com.sysu.workflow.model.extend;
 
 /**
- * 解析用户过程中出现的异常
+ * 瑙ｆ瀽鐢ㄦ埛杩囩▼涓嚭鐜扮殑寮傚父
  * <p>
  * <p>
  * Created by zhengshouzi on 2015/12/26.

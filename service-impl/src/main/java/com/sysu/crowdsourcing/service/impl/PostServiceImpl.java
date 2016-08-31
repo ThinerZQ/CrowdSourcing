@@ -1,19 +1,17 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.CrowdSourcingTaskDao;
-import com.sysu.model.crowdsourcing.entity.CrowdSourcingTask;
-import com.sysu.model.crowdsourcing.services.PostService;
+
+import com.sysu.crowdsourcing.manager.CrowdSourcingTaskManager;
+import com.sysu.crowdsourcing.service.PostService;
+import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
 import com.sysu.workflow.Context;
 import com.sysu.workflow.Evaluator;
 import com.sysu.workflow.SCXMLExecutor;
-import com.sysu.workflow.SCXMLSystemContext;
-import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.env.MulitStateMachineDispatcher;
 import com.sysu.workflow.env.SimpleErrorReporter;
 import com.sysu.workflow.env.jexl.JexlEvaluator;
 import com.sysu.workflow.io.SCXMLReader;
 import com.sysu.workflow.model.SCXML;
-import com.sysu.workflow.service.processservice.RuntimeService;
 
 import javax.annotation.Resource;
 import java.net.URL;
@@ -24,61 +22,55 @@ import java.util.Set;
  */
 public class PostServiceImpl implements PostService {
 
-    @Resource(name = "crowdSourcingTaskDao")
-    CrowdSourcingTaskDao crowdSorucingTaskDao;
+    @Resource
+    CrowdSourcingTaskManager crowdSourcingTaskManager;
 
 
-    public boolean postTask(CrowdSourcingTask crowdSourcingTask) {
+    public boolean postTask(CrowdSourcingTaskEntity crowdSourcingTaskEntity) {
 
         long id = -1;
         boolean flag = false;
-        //�����ɹ��������ڰ����̣���������
-
+        // post task
         try {
             URL url = this.getClass().getClassLoader().getResource("crowdsourcingTest.xml");
             SCXML scxml = new SCXMLReader().read(url);
-            //ʵ��������ģ�ͽ�����
             Evaluator evaluator = new JexlEvaluator();
-            //ʵ��������
             SCXMLExecutor executor = new SCXMLExecutor(evaluator, new MulitStateMachineDispatcher(), new SimpleErrorReporter());
             executor.setStateMachine(scxml);
 
-            //����ǰ��crowdsourcingTask ����Ϊ��������
             Context rootContext = evaluator.newContext(null);
-            rootContext.set("crowdSourcingTask", crowdSourcingTask);
+            rootContext.set("crowdSourcingTaskEntity", crowdSourcingTaskEntity);
             executor.setRootContext(rootContext);
-            System.out.println(crowdSourcingTask.toString());
-            //������ǰ�����Ӧ��״̬��
+            System.out.println(crowdSourcingTaskEntity.toString());
+
             executor.go();
-            ProcessInstanceEntity processInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY)).SingleResult();
-            crowdSourcingTask.setProcessInstanceEntity(processInstanceEntity);
+           /* ProcessInstanceEntity processInstanceEntity = RuntimeService.createProcessInstanceQuery().processInstanceId((String) executor.getGlobalContext().getSystemContext().get(SCXMLSystemContext.SESSIONID_KEY)).SingleResult();
+            crowdSourcingTaskEntity.setProcessInstanceEntity(processInstanceEntity);*/
 
 
-            id = crowdSorucingTaskDao.addTask(crowdSourcingTask);
+           /* //id = crowdSourcingTaskManager.addTask(crowdSourcingTaskEntity);
 
-            CrowdSourcingTask fulCrowdSourcingTask = crowdSorucingTaskDao.findTaskById(id + "");
-            rootContext.set("crowdSourcingTask", fulCrowdSourcingTask);
+            CrowdSourcingTaskEntity fulCrowdSourcingTask = crowdSorucingTaskDao.findTaskById(id + "");
+            rootContext.set("crowdSourcingTaskEntity", fulCrowdSourcingTask);*/
 
             flag = true;
         } catch (Exception e) {
-            e.printStackTrace();
-            if (id != -1) {
-                crowdSorucingTaskDao.deleteTaskById(id);
-            }
-            flag = false;
+
         }
 
         return flag;
     }
 
-    public boolean saveCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
+    public boolean saveCrowdSourcingTask(CrowdSourcingTaskEntity crowdSourcingTaskEntity) {
 
-        return crowdSorucingTaskDao.addTask(crowdSourcingTask) != -1 ? true : false;
+        //return crowdSourcingTaskManager.addTask(crowdSourcingTaskEntity) != -1 ? true : false;
+        return false;
     }
 
-    public boolean saveCrowdSourcingTask(Set<CrowdSourcingTask> crowdSourcingTaskArrayList) {
+    public boolean saveCrowdSourcingTask(Set<CrowdSourcingTaskEntity> crowdSourcingTaskEntityArrayList) {
 
 
-        return crowdSorucingTaskDao.addTask(crowdSourcingTaskArrayList);
+        //return crowdSourcingTaskManager.addTask(crowdSourcingTaskEntityArrayList);
+        return false;
     }
 }

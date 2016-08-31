@@ -1,9 +1,9 @@
 
 package com.sysu.workflow;
 
+import com.sysu.model.workflow.ProcessInstanceEntity;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
 import com.sysu.workflow.engine.SCXMLInstanceTree;
-import com.sysu.workflow.entity.ProcessInstanceEntity;
 import com.sysu.workflow.env.SimpleDispatcher;
 import com.sysu.workflow.env.SimpleErrorReporter;
 import com.sysu.workflow.invoke.Invoker;

@@ -15,14 +15,14 @@
         <onentry>
             <foreach item="str" array="stringSet">
                 <script>
-                    CrowdSourcingTaskEntity tempCrowdSourcingTask = new CrowdSourcingTaskEntity();
-                    tempCrowdSourcingTask.setTaskName(str.taskName+"111");
-                    tempCrowdSourcingTask.setTaskDescription(str.taskDescription+"222");
+                    CrowdSourcingTaskEntity tempCrowdSourcingTaskEntity = new CrowdSourcingTaskEntity();
+                    tempCrowdSourcingTaskEntity.setTaskName(str.taskName+"111");
+                    tempCrowdSourcingTaskEntity.setTaskDescription(str.taskDescription+"222");
                 </script>
                 <log label="log lable" expr="str.taskName"></log>
                 <log label="log lable" expr="str.taskDescription"></log>
                 <subStateMachine src="foreach.xml" instances="1">
-                    <param name="crowdSourcingTaskEntity" expr="tempCrowdSourcingTask"></param>
+                    <param name="crowdSourcingTaskEntity" expr="tempCrowdSourcingTaskEntity"></param>
                 </subStateMachine>
             </foreach>
         </onentry>

@@ -1,8 +1,9 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.JudgeTaskDao;
-import com.sysu.model.crowdsourcing.entity.JudgeTask;
-import com.sysu.model.crowdsourcing.services.JudgeTaskService;
+
+import com.sysu.crowdsourcing.manager.JudgeTaskManager;
+import com.sysu.crowdsourcing.service.JudgeTaskService;
+import com.sysu.model.crowdsourcing.JudgeTaskEntity;
 
 import javax.annotation.Resource;
 
@@ -19,9 +20,9 @@ import javax.annotation.Resource;
 public class JudgeTaskServiceImpl implements JudgeTaskService {
 
     @Resource(name = "judgeTaskDao")
-    JudgeTaskDao judgeTaskDao;
+    JudgeTaskManager judgeTaskManager;
 
-    public long saveJudgeTask(JudgeTask judgeTask) {
-        return judgeTaskDao.saveJudgeTask(judgeTask);
+    public long saveJudgeTask(JudgeTaskEntity judgeTaskEntity) {
+        return 0;
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- * ÒµÎñ¶ÔÏóÊµÀıÊ÷
+ * ä¸šåŠ¡å¯¹è±¡å®ä¾‹æ ‘
  * Created by zhengshouzi on 2015/12/26.
  */
 public class SCXMLInstanceTree {
@@ -20,10 +20,10 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * ²åÈë½Úµã,
+     * æ’å…¥èŠ‚ç‚¹,
      *
-     * @param insertLocation  ²åÈëµÄ½ÚµãµÄsessionId
-     * @param insertSessionId ´ı²åÈë½ÚµãµÄsessionId
+     * @param insertLocation  æ’å…¥çš„èŠ‚ç‚¹çš„sessionId
+     * @param insertSessionId å¾…æ’å…¥èŠ‚ç‚¹çš„sessionId
      */
 
 
@@ -53,7 +53,7 @@ public class SCXMLInstanceTree {
 
 
     /**
-     * ÒÔrootÎª¸ùµÄÊ÷ÖĞÊÇ·ñ°üº¬sessionId
+     * ä»¥rootä¸ºæ ¹çš„æ ‘ä¸­æ˜¯å¦åŒ…å«sessionId
      *
      * @param root
      * @param sessionId
@@ -64,7 +64,7 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * ÅĞ¶ÏÊ÷ÖĞÊÇ·ñ°üº¬sessionId
+     * åˆ¤æ–­æ ‘ä¸­æ˜¯å¦åŒ…å«sessionId
      *
      * @param sessionId
      * @return
@@ -75,11 +75,11 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * ¸ù¾İ¸ù½ÚµãºÍsessionidÑ°ÕÒ½ÚµãÔÚÊ÷ÖĞµÄÎ»ÖÃ
+     * æ ¹æ®æ ¹èŠ‚ç‚¹å’Œsessionidå¯»æ‰¾èŠ‚ç‚¹åœ¨æ ‘ä¸­çš„ä½ç½®
      *
      * @param tempRoot
      * @param sessionId
-     * @return ÕÒµ½µÄ½Úµã£¬Ã»ÓĞÎªnull
+     * @return æ‰¾åˆ°çš„èŠ‚ç‚¹ï¼Œæ²¡æœ‰ä¸ºnull
      */
     public TreeNode getNode(TreeNode tempRoot, String sessionId) {
 
@@ -88,7 +88,7 @@ public class SCXMLInstanceTree {
         TreeNode node = null;
         while (!nodeStack.empty()) {
             node = nodeStack.pop();
-            //±éÀú¸ù½Úµã
+            //éå†æ ¹èŠ‚ç‚¹
             if (node.getSessionId() == sessionId) {
                 return node;
             }
@@ -104,9 +104,9 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * Éî¶ÈÓÅÏÈ±éÀú
+     * æ·±åº¦ä¼˜å…ˆéå†
      *
-     * @param tempRoot ±éÀúµÄÊ÷µÄ¸ù½Úµã
+     * @param tempRoot éå†çš„æ ‘çš„æ ¹èŠ‚ç‚¹
      */
     public void depthFirstSearch(TreeNode tempRoot) {
 
@@ -115,7 +115,7 @@ public class SCXMLInstanceTree {
         TreeNode node = null;
         while (!nodeStack.empty()) {
             node = nodeStack.pop();
-            //±éÀú¸ù½Úµã
+            //éå†æ ¹èŠ‚ç‚¹
             System.out.print(node.getSessionId());
             if (node.getRightBrother() != null) {
                 nodeStack.push(node.getRightBrother());
@@ -149,11 +149,11 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * ²ÉÓÃÉî¶ÈÓÅÏÈµÄ·½Ê½±éÀú½Úµã
+     * é‡‡ç”¨æ·±åº¦ä¼˜å…ˆçš„æ–¹å¼éå†èŠ‚ç‚¹
      * <p>
-     * µÃµ½ÒÔ tempRootÎª¸ùµÄËùÓĞ ½Úµã
+     * å¾—åˆ°ä»¥ tempRootä¸ºæ ¹çš„æ‰€æœ‰ èŠ‚ç‚¹
      *
-     * @param tempRoot µ±Ç°½Úµã
+     * @param tempRoot å½“å‰èŠ‚ç‚¹
      * @return
      */
     public ArrayList<TreeNode> getAllTreeNode(TreeNode tempRoot) {
@@ -163,11 +163,11 @@ public class SCXMLInstanceTree {
     }
 
     /**
-     * ²ÉÓÃÉî¶ÈÓÅÏÈµÄ·½Ê½±éÀú½Úµã
+     * é‡‡ç”¨æ·±åº¦ä¼˜å…ˆçš„æ–¹å¼éå†èŠ‚ç‚¹
      * <p>
-     * µÃµ½ÒÔ tempRootÎª¸ùµÄËùÓĞ ½Úµã
+     * å¾—åˆ°ä»¥ tempRootä¸ºæ ¹çš„æ‰€æœ‰ èŠ‚ç‚¹
      *
-     * @param tempRoot µ±Ç°½Úµã
+     * @param tempRoot å½“å‰èŠ‚ç‚¹
      * @return
      */
     public ArrayList<TreeNode> getAllTreeNodeByTargetName(TreeNode tempRoot, String targetName) {
@@ -193,7 +193,7 @@ public class SCXMLInstanceTree {
                 nodeStack.push(node.getLeftChild());
             }
         }
-        //ĞèÒª½«tempRoot¸øÒÆ³ıÁË
+        //éœ€è¦å°†tempRootç»™ç§»é™¤äº†
         treeNodeArrayList.remove(tempRoot);
 
         return treeNodeArrayList;
@@ -204,7 +204,7 @@ public class SCXMLInstanceTree {
         ArrayList<TreeNode> treeNodeArrayList = new ArrayList<TreeNode>();
 
         // TODO:
-        //¸ù¾İµ±Ç°½Úµã²éÕÒ×æÏÈ
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹æŸ¥æ‰¾ç¥–å…ˆ
 
         return treeNodeArrayList;
     }
@@ -220,7 +220,7 @@ public class SCXMLInstanceTree {
         ArrayList<TreeNode> treeNodeArrayList = new ArrayList<TreeNode>();
 
 
-        //¸ù¾İµ±Ç°½Úµã²éÕÒ×æÏÈ
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹æŸ¥æ‰¾ç¥–å…ˆ
         // TODO:
         return treeNodeArrayList;
     }
@@ -236,7 +236,7 @@ public class SCXMLInstanceTree {
 
 
     /**
-     * ²éÕÒº¢×Ó½Úµã
+     * æŸ¥æ‰¾å­©å­èŠ‚ç‚¹
      *
      * @param currentTreeNode
      * @param targetName
@@ -245,7 +245,7 @@ public class SCXMLInstanceTree {
 
     public ArrayList<TreeNode> getChildTreeNodeByTargetName(TreeNode currentTreeNode, String targetName) {
 
-        //¸ù¾İµ±Ç°½Úµã²éÕÒº¢×Ó½Úµã
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹æŸ¥æ‰¾å­©å­èŠ‚ç‚¹
         TreeNode tempNode = currentTreeNode;
         ArrayList<TreeNode> nodeList = new ArrayList<TreeNode>();
         if (tempNode == null || tempNode.getLeftChild() == null) {
@@ -261,7 +261,7 @@ public class SCXMLInstanceTree {
 
     public ArrayList<String> getChildTreeNodeSessionIdByTargetName(TreeNode currentTreeNode, String targetName) {
 
-        //¸ù¾İµ±Ç°½Úµã²éÕÒº¢×Ó½Úµã
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹æŸ¥æ‰¾å­©å­èŠ‚ç‚¹
         ArrayList<String> childTreeNodeSessionId = new ArrayList<String>();
         ArrayList<TreeNode> childTreeNode = getChildTreeNodeByTargetName(currentTreeNode, targetName);
         for (TreeNode treeNode : childTreeNode) {
@@ -276,7 +276,7 @@ public class SCXMLInstanceTree {
 
     public ArrayList<TreeNode> getChildTreeNode(String currentTreeNodeSessionId) {
 
-        //¸ù¾İµ±Ç°½ÚµãµÄID, ²éÕÒº¢×Ó½Úµã
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹çš„ID, æŸ¥æ‰¾å­©å­èŠ‚ç‚¹
         TreeNode currentTreeNode = getNode(currentTreeNodeSessionId);
 
         return getChildTreeNodeByTargetName(currentTreeNode, null);
@@ -284,14 +284,14 @@ public class SCXMLInstanceTree {
 
     public ArrayList<String> getChildTreeNodeSessionId(String currentTreeNodeSessionId) {
 
-        //¸ù¾İµ±Ç°½ÚµãµÄID, ²éÕÒº¢×Ó½Úµã
+        //æ ¹æ®å½“å‰èŠ‚ç‚¹çš„ID, æŸ¥æ‰¾å­©å­èŠ‚ç‚¹
         TreeNode currentTreeNode = getNode(currentTreeNodeSessionId);
 
         return getChildTreeNodeSessionIdByTargetName(currentTreeNode, null);
     }
 
     /**
-     * ±íÊ¾Ê÷ÉÏ½ÚµãµÄË½ÓĞÄÚ²¿Àà
+     * è¡¨ç¤ºæ ‘ä¸ŠèŠ‚ç‚¹çš„ç§æœ‰å†…éƒ¨ç±»
      */
     public class TreeNode {
 
@@ -299,7 +299,7 @@ public class SCXMLInstanceTree {
         private String sessionName;
         private TreeNode leftChild;
         private TreeNode rightBrother;
-        // TODO: Ìí¼ÓÉÏ¸¸Ç×µÄÒıÓÃ
+        // TODO: æ·»åŠ ä¸Šçˆ¶äº²çš„å¼•ç”¨
         private TreeNode parent;
 
 

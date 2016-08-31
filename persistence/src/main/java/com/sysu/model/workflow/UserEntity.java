@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.*;
 
 /**
@@ -15,38 +14,23 @@ import java.util.*;
  * Blog: <a>http://blog.csdn.net/c601097836</a>
  * Email: 601097836@qq.com
  */
-@Entity
-@Table(name = "t_user")
 public class UserEntity implements WorkflowEntity {
 
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long userId;
 
-    @Basic
     private String userName;
-    @Basic
     private String userRealName;
-    @Basic
     private String userPassword;
-    @Basic
     private String userAge;
-    @Basic
     private String userGender;
-    @Basic
     private String userEmail;
-    @Basic
     private String userActivateCode;
-    @Basic
     private String userStatus;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date userRegisterDate;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<GroupEntity> groupEntitySet = new HashSet<GroupEntity>();
 
-    @OneToMany(mappedBy = "itemAssigneeEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<UserWorkItemEntity> workItemEntitySet = new HashSet<UserWorkItemEntity>();
 
 

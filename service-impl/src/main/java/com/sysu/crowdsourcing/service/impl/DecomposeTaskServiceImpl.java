@@ -1,8 +1,10 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.DecomposeTaskDao;
-import com.sysu.model.crowdsourcing.entity.DecomposeTask;
-import com.sysu.model.crowdsourcing.services.DecomposeTaskService;
+
+import com.sysu.crowdsourcing.manager.DecomposeTaskManager;
+import com.sysu.crowdsourcing.service.DecomposeTaskService;
+import com.sysu.model.crowdsourcing.DecomposeTaskEntity;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -16,30 +18,31 @@ import java.util.ArrayList;
  * Blog: <a>http://www.thinerzq.me</a>
  * Email: 601097836@qq.com
  */
-
+@Service
 public class DecomposeTaskServiceImpl implements DecomposeTaskService {
 
-    @Resource(name = "decomposeTaskDao")
-    DecomposeTaskDao decomposeTaskDao;
+    @Resource
+    DecomposeTaskManager decomposeTaskManager;
 
 
-    public long saveDecomposeTask(DecomposeTask decomposeTask) {
-        return decomposeTaskDao.saveDecomposeTask(decomposeTask);
+    public long saveDecomposeTask(DecomposeTaskEntity decomposeTaskEntity) {
+
+        return 0;
     }
 
-    public boolean saveDecomposeTask(ArrayList<DecomposeTask> decomposeTasks) {
-        return decomposeTaskDao.saveDecomposeTask(decomposeTasks);
+    public boolean saveDecomposeTask(ArrayList<DecomposeTaskEntity> decomposeTaskEntities) {
+        return false;
     }
 
-    public ArrayList<DecomposeTask> getDecomposeTasks(DecomposeTask decomposeTask) {
-        return decomposeTaskDao.getDecomposeTasks(decomposeTask);
+    public ArrayList<DecomposeTaskEntity> getDecomposeTasks(DecomposeTaskEntity decomposeTaskEntity) {
+        return null;
     }
 
-    public DecomposeTask getDecomposeTask(DecomposeTask decomposeTask) {
-        return decomposeTaskDao.getDecomposeTask(decomposeTask);
+    public DecomposeTaskEntity getDecomposeTask(DecomposeTaskEntity decomposeTaskEntity) {
+        return null;
     }
 
-    public boolean updateDecomposeTask(DecomposeTask decomposeTask) {
-        return decomposeTaskDao.updateDecomposeTask(decomposeTask);
+    public boolean updateDecomposeTask(DecomposeTaskEntity decomposeTaskEntity) {
+        return false;
     }
 }

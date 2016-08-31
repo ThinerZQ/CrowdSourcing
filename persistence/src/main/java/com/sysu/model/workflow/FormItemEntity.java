@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.Map;
 
 /**
@@ -15,25 +14,16 @@ import java.util.Map;
  * Blog: <a>http://blog.csdn.net/c601097836</a>
  * Email: 601097836@qq.com
  */
-@Entity
-@Table(name = "t_formitem")
 public class FormItemEntity implements WorkflowEntity {
 
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long formId;
 
 
-    @Basic
     private String formItemName;
-    @Basic
     private String formItemValue;
-    @Basic
     private String formItemType;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "formEntity")
     private FormEntity formEntity;
 
 

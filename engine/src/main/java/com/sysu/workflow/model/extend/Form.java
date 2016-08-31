@@ -1,8 +1,8 @@
 package com.sysu.workflow.model.extend;
 
+import com.sysu.model.workflow.FormEntity;
+import com.sysu.model.workflow.FormItemEntity;
 import com.sysu.workflow.*;
-import com.sysu.workflow.entity.FormEntity;
-import com.sysu.workflow.entity.FormItemEntity;
 import com.sysu.workflow.model.EnterableState;
 import com.sysu.workflow.model.ModelException;
 import com.sysu.workflow.model.ParamsContainer;
@@ -24,7 +24,7 @@ import java.util.Set;
  */
 
 /**
- * ±íµ¥ÔªËØ
+ * è¡¨å•å…ƒç´ 
  */
 public class Form extends ParamsContainer implements PathResolverHolder {
 
@@ -34,35 +34,35 @@ public class Form extends ParamsContainer implements PathResolverHolder {
     private static final long serialVersionUID = 1L;
 
     /**
-     * µ±Ç°SCXMLÖ´ĞĞÉÏÏÂÎÄµÄkey
+     * å½“å‰SCXMLæ‰§è¡Œä¸Šä¸‹æ–‡çš„key
      * The default context variable key under which the current SCXMLExecutionContext is provided
      */
     private static final String CURRENT_EXECUTION_CONTEXT_KEY = "_CURRENT_EXECUTION_CONTEXT";
 
     /**
-     * ±êÊ¶·û
+     * æ ‡è¯†ç¬¦
      */
     private String id;
 
     /**
-     * ±íµ¥Â·¾¶
+     * è¡¨å•è·¯å¾„
      */
     private String src;
 
     /**
-     * ±íµ¥Â·¾¶±í´ïÊ½£¬ÇóÖµ³ÉÒ»¸öÍâ²¿µÄURL£¬
+     * è¡¨å•è·¯å¾„è¡¨è¾¾å¼ï¼Œæ±‚å€¼æˆä¸€ä¸ªå¤–éƒ¨çš„URLï¼Œ
      */
     private String srcexpr;
 
 
     /**
-     * Ò»¸öÂ·¾¶½âÎöÆ÷
+     * ä¸€ä¸ªè·¯å¾„è§£æå™¨
      * {@link PathResolver} for resolving the "src" or "srcexpr" result.
      */
     private PathResolver pathResolver;
 
     /**
-     * µ±Ç°FormÔªËØËù´¦µÄUserTask
+     * å½“å‰Formå…ƒç´ æ‰€å¤„çš„UserTask
      */
     private UserTask userTask;
 
@@ -87,7 +87,7 @@ public class Form extends ParamsContainer implements PathResolverHolder {
         } else {
             if (!payloadDataMap.isEmpty()) {
 
-                //²åÈëµ½Êı¾İ¿â±í
+                //æ’å…¥åˆ°æ•°æ®åº“è¡¨
                 Object[] paramObject;
                 Set<FormItemEntity> formItemEntitySet = new HashSet<FormItemEntity>();
                 for (Map.Entry<String, Object> entry : payloadDataMap.entrySet()) {
@@ -101,7 +101,7 @@ public class Form extends ParamsContainer implements PathResolverHolder {
                 formEntity.setFormItemEntityLinkedHashSet(formItemEntitySet);
             }
         }
-        //·ÅÈëµ½FormEntity£¬µÈ´ıUserTaskÈ¥¶ÁÈ¡Êı¾İ
+        //æ”¾å…¥åˆ°FormEntityï¼Œç­‰å¾…UserTaskå»è¯»å–æ•°æ®
         setFormEntity(formEntity);
     }
 

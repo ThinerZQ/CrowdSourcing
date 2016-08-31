@@ -1,12 +1,6 @@
 package com.sysu.workflow.service.formservice;
 
-import com.sysu.workflow.database.DBUtils;
-import com.sysu.workflow.entity.FormEntity;
-import com.sysu.workflow.entity.UserEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
+import com.sysu.model.workflow.FormEntity;
 
 import java.util.ArrayList;
 
@@ -22,7 +16,7 @@ import java.util.ArrayList;
 public class FormDao {
 
     public ArrayList<FormEntity> findForm(FormEntity formEntity) {
-        Session session = null;
+      /*  Session session = null;
         ArrayList<FormEntity> formEntityArrayList = new ArrayList<FormEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -37,6 +31,7 @@ public class FormDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return formEntityArrayList;
+        return formEntityArrayList;*/
+        return null;
     }
 }

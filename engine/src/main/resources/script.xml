@@ -7,7 +7,7 @@
             <!--  wrong expression -->
             <!--
               <script>
-                  CrowdSourcingTaskEntity tempCrowdSourcingTask = new CrowdSourcingTaskEntity();
+                  CrowdSourcingTaskEntity tempCrowdSourcingTaskEntity = new CrowdSourcingTaskEntity();
               </script>
             -->
             <script>

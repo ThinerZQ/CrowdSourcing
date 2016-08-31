@@ -28,7 +28,7 @@
                                         taskName
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskName}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskName}"></c:out>
                                     </td>
                                 </tr>
                                 <tr class="info">
@@ -36,7 +36,7 @@
                                         taskDescription
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskDescription}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskDescription}"></c:out>
                                     </td>
                                 </tr>
                                 <tr>
@@ -99,7 +99,7 @@
                                         taskName
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskName}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskName}"></c:out>
                                     </td>
                                 </tr>
                                 <tr class="info">
@@ -107,7 +107,7 @@
                                         taskDescription
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskDescription}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskDescription}"></c:out>
                                     </td>
                                 </tr>
                                 <tr>

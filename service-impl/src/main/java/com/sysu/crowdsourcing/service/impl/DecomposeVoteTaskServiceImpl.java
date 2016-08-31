@@ -1,8 +1,9 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.DecomposeVoteTaskDao;
-import com.sysu.model.crowdsourcing.entity.DecomposeVoteTask;
-import com.sysu.model.crowdsourcing.services.DecomposeVoteTaskService;
+
+import com.sysu.crowdsourcing.manager.DecomposeVoteTaskManager;
+import com.sysu.crowdsourcing.service.DecomposeVoteTaskService;
+import com.sysu.model.crowdsourcing.DecomposeVoteTaskEntity;
 
 import javax.annotation.Resource;
 
@@ -18,15 +19,15 @@ import javax.annotation.Resource;
 
 public class DecomposeVoteTaskServiceImpl implements DecomposeVoteTaskService {
 
-    @Resource(name = "decomposeVoteTaskDao")
-    DecomposeVoteTaskDao decomposeVoteTaskDao;
+    @Resource
+    DecomposeVoteTaskManager decomposeVoteTaskManager;
 
 
-    public long saveDecomposeVoteTask(DecomposeVoteTask decomposeVoteTask) {
-        return decomposeVoteTaskDao.saveDecomposeVoteTask(decomposeVoteTask);
+    public long saveDecomposeVoteTask(DecomposeVoteTaskEntity decomposeVoteTaskEntity) {
+        return 0;
     }
 
-    public DecomposeVoteTask getDecomposeVoteTasks(DecomposeVoteTask decomposeVoteTask) {
-        return decomposeVoteTaskDao.getDecomposeVoteTasks(decomposeVoteTask);
+    public DecomposeVoteTaskEntity getDecomposeVoteTasks(DecomposeVoteTaskEntity decomposeVoteTaskEntity) {
+        return decomposeVoteTaskEntity;
     }
 }

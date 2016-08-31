@@ -1,7 +1,7 @@
 package com.sysu.workflow.model.extend;
 
+import com.sysu.model.workflow.*;
 import com.sysu.workflow.*;
-import com.sysu.workflow.entity.*;
 import com.sysu.workflow.model.Action;
 import com.sysu.workflow.model.EnterableState;
 import com.sysu.workflow.model.ModelException;
@@ -156,7 +156,6 @@ public class UserTask extends Action {
         ctx.setLocal(getNamespacesKey(), getNamespaces());
         Evaluator eval = exctx.getEvaluator();
 
-        //?????????????????
         String assigneeValue = getAssignee();
         if (assigneeValue == null && getAssigneeExpr() != null) {
             assigneeValue = (String) getTextContentIfNodeResult(eval.eval(ctx, getAssigneeExpr()));
@@ -197,7 +196,7 @@ public class UserTask extends Action {
         IdentityService identityService = new IdentityService();
 
 
-        //?get forms for current userTasks
+        //get forms for current userTasks
         if (getForm() != null) {
             getForm().execute(exctx);
         }

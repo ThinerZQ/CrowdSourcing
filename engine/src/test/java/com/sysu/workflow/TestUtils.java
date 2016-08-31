@@ -1,6 +1,5 @@
 package com.sysu.workflow;
 
-import com.sysu.workflow.entity.UserWorkItemEntity;
 import org.junit.Test;
 
 /**
@@ -16,9 +15,9 @@ public class TestUtils {
     @Test
     public void testEntityNotNullProperty() {
 
-        UserWorkItemEntity workItemEntity = new UserWorkItemEntity();
+     /*   UserWorkItemEntity workItemEntity = new UserWorkItemEntity();
         workItemEntity.setItemName("java");
-        System.out.println(workItemEntity.getNotNullPropertyMap().toString());
+        System.out.println(workItemEntity.getNotNullPropertyMap().toString());*/
 
     }
 
@@ -33,7 +32,7 @@ public class TestUtils {
     @Test
     public void s2() {
 
-        UserWorkItemEntity userWorkItemEntity = new UserWorkItemEntity();
-        System.out.println(userWorkItemEntity.getNotNullPropertyMap());
+       /* UserWorkItemEntity userWorkItemEntity = new UserWorkItemEntity();
+        System.out.println(userWorkItemEntity.getNotNullPropertyMap());*/
     }
 }

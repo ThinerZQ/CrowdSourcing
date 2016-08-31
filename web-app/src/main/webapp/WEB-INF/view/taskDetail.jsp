@@ -34,9 +34,9 @@
                     <a href="${pageContext.request.contextPath}/Home.do">Home</a>
                 </li>
                 <li class="active"><a href="${pageContext.request.contextPath}/task.do">OriginalTask</a></li>
-                <li><a href="${pageContext.request.contextPath}/judgeTask.do">JudgeTask</a></li>
-                <li><a href="${pageContext.request.contextPath}/decomposeTask.do">DecomposeTask</a></li>
-                <li><a href="${pageContext.request.contextPath}/solveTask.do">SolveTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/judgeTaskEntity.do">JudgeTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/decomposeTaskEntity.do">DecomposeTask</a></li>
+                <li><a href="${pageContext.request.contextPath}/solveTaskEntity.do">SolveTask</a></li>
                 <li><a href="${pageContext.request.contextPath}/voteTask.do">VoteTask</a></li>
                 <li><a href="${pageContext.request.contextPath}/mergeTask.do">MergeTask</a></li>
                 <li class="dropdown">
@@ -55,7 +55,7 @@
             ${pageContext.request.contextPath}/${userWorkItemEntity.itemFormEntity.formSrc }
             <jsp:include page="${userWorkItemEntity.itemFormEntity.formSrc }">
                 <jsp:param name="userWorkItemEntity" value="${userWorkItemEntity}"></jsp:param>
-                <jsp:param name="crowdSourcingTask" value="${crowdSourcingTask}"></jsp:param>
+                <jsp:param name="crowdSourcingTaskEntity" value="${crowdSourcingTaskEntity}"></jsp:param>
                 <jsp:param name="decomposeTaskUserWorkflowMap" value="${decomposeTaskUserWorkflowMap }"></jsp:param>
                 <jsp:param name="solveTaskUserWorkflowMap" value="${solveTaskUserWorkflowMap }"></jsp:param>
 

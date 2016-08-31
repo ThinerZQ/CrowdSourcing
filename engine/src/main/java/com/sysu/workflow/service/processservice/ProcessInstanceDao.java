@@ -1,11 +1,6 @@
 package com.sysu.workflow.service.processservice;
 
-import com.sysu.workflow.database.DBUtils;
-import com.sysu.workflow.entity.ProcessInstanceEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
+import com.sysu.model.workflow.ProcessInstanceEntity;
 
 import java.util.ArrayList;
 
@@ -25,7 +20,7 @@ public class ProcessInstanceDao {
      */
     public boolean addProcessInstance(ProcessInstanceEntity processInstanceEntity) {
 
-        Session session = null;
+       /* Session session = null;
         boolean flag = false;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -40,13 +35,14 @@ public class ProcessInstanceDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return flag;
+        return flag;*/
+        return false;
     }
 
 
     public boolean updateProcessInstance(ProcessInstanceEntity processInstanceEntity) {
 
-        Session session = null;
+      /*  Session session = null;
         boolean flag = false;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -61,7 +57,8 @@ public class ProcessInstanceDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return flag;
+        return flag;*/
+        return false;
     }
 
 
@@ -71,7 +68,7 @@ public class ProcessInstanceDao {
 
     public ArrayList<ProcessInstanceEntity> findProcessInstance(ProcessInstanceEntity processInstanceEntity) {
 
-        Session session = null;
+      /*  Session session = null;
         ArrayList<ProcessInstanceEntity> processInstanceEntities = null;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -90,7 +87,8 @@ public class ProcessInstanceDao {
         } finally {
             // DBUtils.closeSession(session);
         }
-        return processInstanceEntities;
+        return processInstanceEntities;*/
+        return null;
     }
 
     public ProcessInstanceEntity findProcessInstanceByProcessInstanceId(String processInstanceId) {
@@ -102,7 +100,7 @@ public class ProcessInstanceDao {
     }
 
     public ArrayList<ProcessInstanceEntity> getAllProcessInstance() {
-        Session session = null;
+       /* Session session = null;
         ArrayList<ProcessInstanceEntity> processInstanceEntities = null;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -118,7 +116,8 @@ public class ProcessInstanceDao {
         } finally {
             // DBUtils.closeSession(session);
         }
-        return processInstanceEntities;
+        return processInstanceEntities;*/
 
+        return null;
     }
 }

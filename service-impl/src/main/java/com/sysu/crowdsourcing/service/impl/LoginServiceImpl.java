@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.UserDao;
-import com.sysu.model.crowdsourcing.services.LoginService;
-import com.sysu.workflow.entity.UserEntity;
+import com.sysu.crowdsourcing.manager.UserManager;
+import com.sysu.crowdsourcing.service.LoginService;
+import com.sysu.model.workflow.UserEntity;
 
 import javax.annotation.Resource;
 
@@ -12,18 +12,18 @@ import javax.annotation.Resource;
 public class LoginServiceImpl implements LoginService {
 
     @Resource(name = "userDao")
-    UserDao userDao;
+    UserManager userDao;
 
 
     public boolean login(UserEntity userEntity) {
 
-        boolean b = userDao.checkUser(userEntity);
-        return b;
+
+        return false;
     }
 
     public UserEntity getUserByEmail(String email) {
 
-        return userDao.findUserByEmail(email);
 
+        return null;
     }
 }

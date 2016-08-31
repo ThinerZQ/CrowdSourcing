@@ -28,7 +28,7 @@
                                         taskName
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskName}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskName}"></c:out>
                                     </td>
                                 </tr>
                                 <tr class="info">
@@ -36,7 +36,7 @@
                                         taskDescription
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskDescription}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskDescription}"></c:out>
                                     </td>
                                 </tr>
                                 <tr>
@@ -63,11 +63,13 @@
                                             </tr>
                                             <c:forEach
                                                     items="${decomposeTaskUserWorkflowMap.get(tempUserWorkflowEntity) }"
-                                                    var="decomposeTask">
+                                                    var="decomposeTaskEntity">
                                                 <tr>
-                                                    <td>Step <c:out value="${decomposeTask.taskOrder }"></c:out></td>
-                                                    <td><c:out value="${decomposeTask.taskName}"></c:out></td>
-                                                    <td><c:out value="${decomposeTask.taskDescription }"></c:out></td>
+                                                    <td>Step <c:out
+                                                            value="${decomposeTaskEntity.taskOrder }"></c:out></td>
+                                                    <td><c:out value="${decomposeTaskEntity.taskName}"></c:out></td>
+                                                    <td><c:out
+                                                            value="${decomposeTaskEntity.taskDescription }"></c:out></td>
                                                 </tr>
                                             </c:forEach>
                                         </c:forEach>
@@ -111,7 +113,7 @@
                                         taskName
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskName}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskName}"></c:out>
                                     </td>
                                 </tr>
                                 <tr class="info">
@@ -119,7 +121,7 @@
                                         taskDescription
                                     </td>
                                     <td>
-                                        <c:out value="${crowdSourcingTask.taskDescription}"></c:out>
+                                        <c:out value="${crowdSourcingTaskEntity.taskDescription}"></c:out>
                                     </td>
                                 </tr>
                                 <tr>

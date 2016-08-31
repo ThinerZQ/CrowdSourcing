@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -17,24 +16,15 @@ import java.util.Set;
  * Blog: <a>http://blog.csdn.net/c601097836</a>
  * Email: 601097836@qq.com
  */
-@Entity
-@Table(name = "t_group")
 public class GroupEntity implements WorkflowEntity {
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long groupId;
 
-    @Basic
     private String groupName;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "t_user_group", joinColumns = {@JoinColumn(name = "groupEntity")},
-            inverseJoinColumns = {@JoinColumn(name = "userEntity")})
     private Set<UserEntity> userEntitySet = new HashSet<UserEntity>();
 
 
-    @OneToMany(mappedBy = "itemCandidateGroupEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<GroupWorkItemEntity> workItemEntitySet = new HashSet<GroupWorkItemEntity>();
 
     public GroupEntity(String name) {

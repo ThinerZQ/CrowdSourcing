@@ -1,16 +1,14 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.beans.MailBean;
-import com.sysu.model.crowdsourcing.dao.UserDao;
-import com.sysu.model.crowdsourcing.exceptions.ServiceException;
-import com.sysu.model.crowdsourcing.services.RegisterService;
-import com.sysu.model.crowdsourcing.tools.MD5Utils;
-import com.sysu.model.crowdsourcing.tools.RegisterTools;
-import com.sysu.model.crowdsourcing.tools.SendMail;
-import com.sysu.workflow.entity.UserEntity;
+
+import com.sysu.crowdsourcing.common.MD5Utils;
+import com.sysu.crowdsourcing.common.MailBean;
+import com.sysu.crowdsourcing.common.SendMail;
+import com.sysu.crowdsourcing.manager.UserManager;
+import com.sysu.crowdsourcing.service.RegisterService;
+import com.sysu.model.workflow.UserEntity;
 
 import javax.annotation.Resource;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +18,9 @@ import java.util.Map;
  */
 public class RegisterServiceImpl implements RegisterService {
 
-    @Resource(name = "userDao")
-    UserDao userDao;
-    @Resource(name = "sendMail")
+    @Resource
+    UserManager userManager;
+    @Resource
     SendMail sendMail;
 
 
@@ -35,12 +33,9 @@ public class RegisterServiceImpl implements RegisterService {
             userEntity.setUserStatus(String.valueOf(0));
             userEntity.setUserActivateCode(MD5Utils.encode2hex(userEntity.getUserEmail()));
 
-            //�����û���Ϣ
-            b = userDao.addUser(userEntity);
+            //b = userDao.addUser(userEntity);
 
-            //����ɹ����ͼ����ʼ�
             if (b == true) {
-                ///�����ʼ�
 
                 String Content = "<html><head><meta http-equiv='keywords' content='keyword1,keyword2,keyword3'>" +
                         "<meta http-equiv='description' content='this is my page'><meta http-equiv='content-type' content='text/html; charset=utf-8'>" +
@@ -54,7 +49,7 @@ public class RegisterServiceImpl implements RegisterService {
 
                 MailBean mailBean = new MailBean();
                 mailBean.setToEmail(userEntity.getUserEmail());
-                mailBean.setSubject("�ڰ�������������");
+                mailBean.setSubject("crowdsourcing register");
                 mailBean.setFrom("601097836@qq.com");
                 mailBean.setFromName("֣ǿ");
                 mailBean.setData(map);
@@ -65,10 +60,7 @@ public class RegisterServiceImpl implements RegisterService {
                 try {
                     sendMail.sendHtmlMail(mailBean);
                 } catch (Exception e) {
-                    //�����ʼ�ʧ�ܣ�ɾ��ע����Ϣ
-                    b = false;
-                    userDao.deleteUserByEmail(userEntity.getUserEmail());
-                    e.printStackTrace();
+
                 }
             } else {
 
@@ -82,45 +74,40 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
 
-    public boolean processActivate(String email, String validateCode) throws ServiceException {
+    public boolean processActivate(String email, String validateCode) {
 
-        boolean b = false;
-        //���ݷ��ʲ㣬ͨ��email��ȡ�û���Ϣ
-        UserEntity userEntity = userDao.findUserByEmail(email);
+       /* boolean b = false;
+
+        UserEntity userEntity = userManager.findUserByEmail(email);
         System.out.println(userEntity.toString());
-        //��֤�û��Ƿ����
+        //
         if (userEntity != null) {
-            //��֤�û�����״̬
             if (userEntity.getUserStatus().equals("0")) {
-                ///û����
-                //��ȡ��ǰʱ��
                 Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
-                //��֤�����Ƿ����
                 // currentTime.before(registerForm.getRegisterTime());
                 if (currentTime.before(RegisterTools.getLastActivateTime(new Timestamp(userEntity.getUserRegisterDate().getTime())))) {
-                    //��֤�������Ƿ���ȷ
+
                     if (validateCode.equals(userEntity.getUserActivateCode())) {
-                        //����ɹ��� //�������û��ļ���״̬��Ϊ�Ѽ���
+
                         System.out.println("==sq===" + userEntity.getUserStatus());
                         userEntity.setUserStatus(String.valueOf(1));//��״̬��Ϊ����
                         System.out.println("==sh===" + userEntity.getUserStatus());
-                        userDao.updateRegisterStatus(userEntity.getUserEmail(), String.valueOf(1));
+                        userManager.updateRegisterStatus(userEntity.getUserEmail(), String.valueOf(1));
                         b = true;
                     } else {
-                        throw new ServiceException("�����벻��ȷ");
+
                     }
                 } else {
-                    throw new ServiceException("�������ѹ��ڣ�");
+
                 }
             } else {
-                throw new ServiceException("�����Ѽ�����¼��");
+
             }
         } else {
-            throw new ServiceException("������δע�ᣨ�����ַ�����ڣ���");
-        }
 
-        return b;
+        }*/
+        return false;
 
     }
 }

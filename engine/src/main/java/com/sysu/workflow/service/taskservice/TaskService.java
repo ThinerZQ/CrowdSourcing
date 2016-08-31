@@ -1,7 +1,7 @@
 package com.sysu.workflow.service.taskservice;
 
-import com.sysu.workflow.entity.GroupWorkItemEntity;
-import com.sysu.workflow.entity.UserWorkItemEntity;
+import com.sysu.model.workflow.GroupWorkItemEntity;
+import com.sysu.model.workflow.UserWorkItemEntity;
 
 /**
  * Created with IntelliJ IDEA

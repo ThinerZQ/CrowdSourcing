@@ -121,13 +121,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${myPostedCrowdSourcingTaskList }" var="tempCrowdSourcingTask">
+                <c:forEach items="${myPostedCrowdSourcingTaskEntityList }" var="tempCrowdSourcingTaskEntity">
                     <tr>
-                        <td><c:out value="${tempCrowdSourcingTask.taskId}"></c:out></td>
-                        <td><c:out value="${tempCrowdSourcingTask.taskName}"></c:out></td>
-                        <td><c:out value="${tempCrowdSourcingTask.taskDescription}"></c:out></td>
+                        <td><c:out value="${tempCrowdSourcingTaskEntity.taskId}"></c:out></td>
+                        <td><c:out value="${tempCrowdSourcingTaskEntity.taskName}"></c:out></td>
+                        <td><c:out value="${tempCrowdSourcingTaskEntity.taskDescription}"></c:out></td>
                         <td>
-                            <a href="myPostedTaskDetail.do?taskId=<c:out value="${tempCrowdSourcingTask.taskId}"></c:out>">Solution</a>
+                            <a href="myPostedTaskDetail.do?taskId=<c:out value="${tempCrowdSourcingTaskEntity.taskId}"></c:out>">Solution</a>
                         </td>
                     </tr>
                 </c:forEach>

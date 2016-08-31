@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing.service.impl;
 
-import com.sysu.model.crowdsourcing.dao.CrowdSourcingTaskDao;
-import com.sysu.model.crowdsourcing.entity.CrowdSourcingTask;
-import com.sysu.model.crowdsourcing.services.CrowdSourcingTaskService;
+import com.sysu.crowdsourcing.manager.CrowdSourcingTaskManager;
+import com.sysu.crowdsourcing.service.CrowdSourcingTaskService;
+import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,17 +13,17 @@ import java.util.List;
 public class CrowdSourcingTaskServiceImpl implements CrowdSourcingTaskService {
 
     @Resource
-    CrowdSourcingTaskDao crowdSourcingTaskDao;
+    CrowdSourcingTaskManager crowdSourcingTaskManager;
 
-    public CrowdSourcingTask getCrowdSourcingTaskByProcessInstanceId(long processInstanceId) {
-        return crowdSourcingTaskDao.getCrowdSourcingTaskByProcessInstanceId(processInstanceId);
+    public CrowdSourcingTaskEntity getCrowdSourcingTaskByProcessInstanceId(long processInstanceId) {
+        return null;
     }
 
-    public boolean updateCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
-        return crowdSourcingTaskDao.updateCrowdSourcingTask(crowdSourcingTask);
+    public boolean updateCrowdSourcingTask(CrowdSourcingTaskEntity crowdSourcingTaskEntity) {
+        return false;
     }
 
-    public List<CrowdSourcingTask> getCrowdSourcingTask(CrowdSourcingTask crowdSourcingTask) {
-        return crowdSourcingTaskDao.getCrowdSourcingTask(crowdSourcingTask);
+    public List<CrowdSourcingTaskEntity> getCrowdSourcingTask(CrowdSourcingTaskEntity crowdSourcingTaskEntity) {
+        return null;
     }
 }

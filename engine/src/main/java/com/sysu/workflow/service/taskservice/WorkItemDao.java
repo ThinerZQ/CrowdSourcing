@@ -1,12 +1,7 @@
 package com.sysu.workflow.service.taskservice;
 
-import com.sysu.workflow.database.DBUtils;
-import com.sysu.workflow.entity.GroupWorkItemEntity;
-import com.sysu.workflow.entity.UserWorkItemEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
+import com.sysu.model.workflow.GroupWorkItemEntity;
+import com.sysu.model.workflow.UserWorkItemEntity;
 
 import java.util.ArrayList;
 
@@ -23,7 +18,7 @@ public class WorkItemDao {
 
     public long insertIntoWorkItem(UserWorkItemEntity workItemEntity) {
 
-        Session session = null;
+      /*  Session session = null;
         long id = -1;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -38,12 +33,13 @@ public class WorkItemDao {
         } finally {
             // DBUtils.closeSession(session);
         }
-        return id;
+        return id;*/
+        return 0;
     }
 
     public long insertIntoWorkItem(GroupWorkItemEntity groupWorkItemEntity) {
 
-        Session session = null;
+       /* Session session = null;
         long id = -1;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -59,11 +55,12 @@ public class WorkItemDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return id;
+        return id;*/
+        return 0;
     }
 
     public ArrayList<UserWorkItemEntity> findUserWorkItem(UserWorkItemEntity userWorkItemEntity) {
-        Session session = null;
+       /* Session session = null;
         ArrayList<UserWorkItemEntity> workItemEntityArrayList = new ArrayList<UserWorkItemEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -84,11 +81,12 @@ public class WorkItemDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return workItemEntityArrayList;
+        return workItemEntityArrayList;*/
+        return null;
     }
 
     public ArrayList<GroupWorkItemEntity> findGroupWorkItem(GroupWorkItemEntity groupWorkItemEntity) {
-        Session session = null;
+       /* Session session = null;
         ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = new ArrayList<GroupWorkItemEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -109,11 +107,12 @@ public class WorkItemDao {
         } finally {
             // DBUtils.closeSession(session);
         }
-        return groupWorkItemEntityArrayList;
+        return groupWorkItemEntityArrayList;*/
+        return null;
     }
 
     public boolean updateUserWorkItem(UserWorkItemEntity userWorkItemEntity) {
-        Session session = null;
+      /*  Session session = null;
         boolean flag = false;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -126,11 +125,12 @@ public class WorkItemDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return flag;
+        return flag;*/
+        return false;
     }
 
     public boolean updateGroupWorkItem(GroupWorkItemEntity groupWorkItemEntity) {
-        Session session = null;
+        /*Session session = null;
         boolean flag = false;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -146,6 +146,7 @@ public class WorkItemDao {
         } finally {
             // DBUtils.closeSession(session);
         }
-        return flag;
+        return flag;*/
+        return false;
     }
 }

@@ -1,9 +1,8 @@
 package com.sysu.model.workflow;
 
 import com.sysu.model.WorkflowEntity;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -19,28 +18,18 @@ import java.util.Set;
  */
 
 
-@Entity
-@Table(name = "t_processinstance")
 public class ProcessInstanceEntity implements WorkflowEntity {
 
     @Id
-    @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "identity")
     private long id;
-    @Basic
     private String processInstanceId;
-    @Basic
     private String processInstanceName;
-    @Basic
     private String processInstanceCreateTime;
-    @Basic
     private String processInstanceCurrentState;
 
 
-    @OneToMany(mappedBy = "itemProcessInstanceEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<UserWorkItemEntity> processInstanceUserWorkItemEntitySet;
 
-    @OneToMany(mappedBy = "itemProcessInstanceEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<GroupWorkItemEntity> processInstanceGroupWorkItemEntitySet;
 
     public ProcessInstanceEntity(String processinstanceId, String processinstanceName, String processinstanceCreateTime) {

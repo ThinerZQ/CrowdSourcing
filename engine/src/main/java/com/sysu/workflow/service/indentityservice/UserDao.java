@@ -1,14 +1,8 @@
 package com.sysu.workflow.service.indentityservice;
 
-import com.sysu.workflow.database.DBUtils;
-import com.sysu.workflow.entity.UserEntity;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
+import com.sysu.model.workflow.UserEntity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA
@@ -29,7 +23,7 @@ public class UserDao {
      */
     public boolean addUsers(UserEntity userEntity) {
 
-        Session session = null;
+      /*  Session session = null;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
             session.beginTransaction();
@@ -39,7 +33,7 @@ public class UserDao {
             e.printStackTrace();
         } finally {
             //DBUtils.closeSession(session);
-        }
+        }*/
         return true;
     }
 
@@ -50,7 +44,7 @@ public class UserDao {
      */
     public boolean checkUser(String userEmail, String userPassword) {
 
-        Session session = null;
+      /*  Session session = null;
         UserEntity userEntity = null;
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -71,12 +65,13 @@ public class UserDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return userEntity != null ? true : false;
+        return userEntity != null ? true : false;*/
 
+        return false;
     }
 
     public ArrayList<UserEntity> findUser(UserEntity userEntity) {
-        Session session = null;
+      /*  Session session = null;
         ArrayList<UserEntity> userEntityArrayList = new ArrayList<UserEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -93,12 +88,13 @@ public class UserDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return userEntityArrayList;
+        return userEntityArrayList;*/
+        return null;
     }
 
     public ArrayList<UserEntity> findUserByUserName(String userName) {
 
-        Session session = null;
+    /*    Session session = null;
         ArrayList<UserEntity> userEntityArrayList = new ArrayList<UserEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -116,12 +112,13 @@ public class UserDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return userEntityArrayList;
+        return userEntityArrayList;*/
 
+        return null;
     }
 
     public ArrayList<UserEntity> findUserByUserId(String userId) {
-        Session session = null;
+       /* Session session = null;
         ArrayList<UserEntity> userEntityArrayList = new ArrayList<UserEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -139,11 +136,12 @@ public class UserDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return userEntityArrayList;
+        return userEntityArrayList;*/
+        return null;
     }
 
     public ArrayList<UserEntity> findUserByUserEmail(String userEmail) {
-        Session session = null;
+       /* Session session = null;
         ArrayList<UserEntity> userEntityArrayList = new ArrayList<UserEntity>();
         try {
             session = DBUtils.getSessionFactory().getCurrentSession();
@@ -161,7 +159,8 @@ public class UserDao {
         } finally {
             //DBUtils.closeSession(session);
         }
-        return userEntityArrayList;
+        return userEntityArrayList;*/
+        return null;
     }
 
     public ArrayList<UserEntity> findUserByUserRealName(String userRealName) {
