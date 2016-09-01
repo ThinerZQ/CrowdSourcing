@@ -16,20 +16,12 @@
     <artifactId>web-app</artifactId>
 
     <dependencies>
-        <!-- servlet jsp  -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <!-- java mail -->
-
         <dependency>
             <groupId>com.sysu</groupId>
             <artifactId>service-api</artifactId>

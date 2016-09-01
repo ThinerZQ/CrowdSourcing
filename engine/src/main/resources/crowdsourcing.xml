@@ -4,7 +4,6 @@
        datamodel="jexl"
        initial="judging">
 
-    <!-- 浠诲姟闇�瑕佺殑鏁版嵁-->
     <datamodel>
         <data id="deployee" expr=""></data>
         <data id="taskName" expr=""></data>
