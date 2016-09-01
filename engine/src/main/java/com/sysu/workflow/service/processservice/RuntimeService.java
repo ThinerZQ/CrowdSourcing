@@ -1,7 +1,7 @@
 package com.sysu.workflow.service.processservice;
 
 
-import com.sysu.model.workflow.ProcessInstanceEntity;
+import com.sysu.persistence.model.workflow.ProcessInstanceEntity;
 
 /**
  * Created with IntelliJ IDEA

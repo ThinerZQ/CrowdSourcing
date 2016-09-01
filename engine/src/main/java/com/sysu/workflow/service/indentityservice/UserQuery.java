@@ -1,7 +1,7 @@
 package com.sysu.workflow.service.indentityservice;
 
 
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ public class UserQuery {
     }
 
     public com.sysu.workflow.service.indentityservice.UserQuery userRealName(String realname) {
-        user.setUserRealName(realname);
+        //user.setUserRealName(realname);
         return this;
     }
 

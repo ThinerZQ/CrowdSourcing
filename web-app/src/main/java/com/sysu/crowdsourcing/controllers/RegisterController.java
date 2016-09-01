@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.service.RegisterService;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

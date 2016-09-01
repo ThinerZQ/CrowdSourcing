@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.JudgeTaskManager;
 import com.sysu.crowdsourcing.service.JudgeTaskService;
-import com.sysu.model.crowdsourcing.JudgeTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.JudgeTaskEntity;
 
 import javax.annotation.Resource;
 

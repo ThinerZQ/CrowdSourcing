@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.service.LoginService;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class LoginController {
+
     @Resource
     LoginService loginService;
 
@@ -28,13 +29,13 @@ public class LoginController {
         if (b == true) {
             UserEntity queriedUserEntity = loginService.getUserByEmail(userEntity.getUserEmail());
             httpSession.setAttribute("currentUserEntity", queriedUserEntity);
-            if ("admin".equals(queriedUserEntity.getUserRealName())) {
+          /*  if ("admin".equals(queriedUserEntity.getUserRealName())) {
                 modelAndView.setViewName("redirect:/manage.do");
             } else if ("poster".equals(queriedUserEntity.getUserRealName())) {
                 modelAndView.setViewName("redirect:/myPostedTask.do");
             } else {
                 modelAndView.setViewName("redirect:/myTask.do");
-            }
+            }*/
 
         } else {
             modelAndView.addObject("loginError", "error");

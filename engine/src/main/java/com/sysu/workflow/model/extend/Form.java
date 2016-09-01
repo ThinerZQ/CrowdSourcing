@@ -1,7 +1,7 @@
 package com.sysu.workflow.model.extend;
 
-import com.sysu.model.workflow.FormEntity;
-import com.sysu.model.workflow.FormItemEntity;
+import com.sysu.persistence.model.workflow.FormEntity;
+import com.sysu.persistence.model.workflow.FormItemEntity;
 import com.sysu.workflow.*;
 import com.sysu.workflow.model.EnterableState;
 import com.sysu.workflow.model.ModelException;

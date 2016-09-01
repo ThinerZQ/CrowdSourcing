@@ -2,8 +2,8 @@ package com.sysu.crowdsourcing;
 
 import com.sysu.crowdsourcing.service.CrowdSourcingTaskService;
 import com.sysu.crowdsourcing.service.DecomposeTaskService;
-import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
-import com.sysu.model.crowdsourcing.DecomposeTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.CrowdSourcingTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.DecomposeTaskEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

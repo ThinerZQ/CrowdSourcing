@@ -1,8 +1,9 @@
+/*
 package com.sysu.crowdsourcing;
 
 
-import com.sysu.model.workflow.GroupEntity;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.GroupEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 import com.sysu.workflow.service.indentityservice.IdentityService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+*/
 /**
  * Created with IntelliJ IDEA
  * Date: 2016/1/18
@@ -23,14 +25,17 @@ import java.util.Set;
  * GitHub: <a>https://github.com/ThinerZQ</a>
  * Blog: <a>http://www.thinerzq.me</a>
  * Email: 601097836@qq.com
- */
+ *//*
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext.xml")
 @TransactionConfiguration
 public class DataTest extends AbstractJUnit4SpringContextTests {
-   /* @Resource(name = "identityService")
+   */
+/* @Resource(name = "identityService")
     IdentityService identityService;
-*/
+*//*
+
 
     @Test
     public void testAddUserAndGroup() {
@@ -39,22 +44,22 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
         UserEntity userEntity = identityService.newUser("admin");
         userEntity.setUserPassword("123456")
                 .setUserName("admin")
-                .setUserAge("23")
+                //.setUserAge("23")
                 .setUserEmail("admin@qq.com")
-                .setUserGender("man")
+                //.setUserGender("man")
                 .setUserStatus("1")
-                .setUserRegisterDate(new Date());
+                //.setUserRegisterDate(new Date());
         identityService.saveUser(userEntity);
 
         //添加发布者
         UserEntity userEntity1 = identityService.newUser("poster");
         userEntity1.setUserPassword("123456")
                 .setUserName("poster")
-                .setUserAge("23")
+                //.setUserAge("23")
                 .setUserEmail("poster@qq.com")
-                .setUserGender("man")
+                //.setUserGender("man")
                 .setUserStatus("1")
-                .setUserRegisterDate(new Date());
+               // .setUserRegisterDate(new Date());
         identityService.saveUser(userEntity1);
 
         //添加用户对应的组
@@ -76,15 +81,15 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             Set groupSet = new HashSet<GroupEntity>();
             groupSet.add(judgerGroupEntity);
             userEntity = identityService.newUser();
-            userEntity.setUserRealName("judger" + i)
-                    .setUserPassword("123456")
+            //.setUserRealName("judger" + i)
+            userEntity    .setUserPassword("123456")
                     .setUserName("judger" + i)
-                    .setUserAge("23")
+                    //.setUserAge("23")
                     .setUserEmail("judger" + i + "@qq.com")
-                    .setUserGender("man")
+                    //.setUserGender("man")
                     .setUserStatus("1")
-                    .setUserRegisterDate(new Date())
-                    .setGroupEntitySet(groupSet);
+                    //.setUserRegisterDate(new Date())
+                    //.setGroupEntitySet(groupSet);
             identityService.saveUser(userEntity);
         }
         //添加分解者2个
@@ -92,12 +97,12 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
             Set groupSet = new HashSet<GroupEntity>();
             groupSet.add(decomposerGroupEntity1);
             userEntity = identityService.newUser();
-            userEntity.setUserRealName("decomposer" + i)
-                    .setUserPassword("123456")
+           // userEntity.setUserRealName("decomposer" + i)
+            userEntity .setUserPassword("123456")
                     .setUserName("decomposer" + i)
-                    .setUserAge("23")
+                    //.setUserAge("23")
                     .setUserEmail("decomposer" + i + "@qq.com")
-                    .setUserGender("man")
+                    //.setUserGender("man")
                     .setUserStatus("1")
                     .setUserRegisterDate(new Date())
                     .setGroupEntitySet(groupSet);
@@ -158,3 +163,4 @@ public class DataTest extends AbstractJUnit4SpringContextTests {
 
     }
 }
+*/

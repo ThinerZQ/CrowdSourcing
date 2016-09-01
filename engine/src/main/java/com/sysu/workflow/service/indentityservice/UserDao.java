@@ -1,6 +1,6 @@
 package com.sysu.workflow.service.indentityservice;
 
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 import java.util.ArrayList;
 

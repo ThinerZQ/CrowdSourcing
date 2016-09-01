@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.service;
 
 
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 /**
  * Created by zhengshouzi on 2015/9/7.

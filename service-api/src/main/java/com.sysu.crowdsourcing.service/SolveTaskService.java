@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.service;
 
 
-import com.sysu.model.crowdsourcing.SolveTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.SolveTaskEntity;
 
 import java.util.List;
 

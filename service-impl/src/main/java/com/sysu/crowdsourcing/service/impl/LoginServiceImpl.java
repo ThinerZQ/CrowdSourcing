@@ -2,7 +2,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.UserManager;
 import com.sysu.crowdsourcing.service.LoginService;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 import javax.annotation.Resource;
 

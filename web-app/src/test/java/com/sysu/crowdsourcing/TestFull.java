@@ -1,8 +1,8 @@
 package com.sysu.crowdsourcing;
 
 import com.sysu.crowdsourcing.service.*;
-import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.crowdsourcing.CrowdSourcingTaskEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;

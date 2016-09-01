@@ -1,7 +1,7 @@
 
 package com.sysu.workflow;
 
-import com.sysu.model.workflow.ProcessInstanceEntity;
+import com.sysu.persistence.model.workflow.ProcessInstanceEntity;
 import com.sysu.workflow.engine.SCXMLInstanceManager;
 import com.sysu.workflow.engine.SCXMLInstanceTree;
 import com.sysu.workflow.env.SimpleDispatcher;

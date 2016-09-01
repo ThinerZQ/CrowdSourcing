@@ -3,8 +3,8 @@ package com.sysu.crowdsourcing.controllers;
 
 import com.sysu.crowdsourcing.exceptions.SCXMLExecuteException;
 import com.sysu.crowdsourcing.service.*;
-import com.sysu.model.crowdsourcing.*;
-import com.sysu.model.workflow.*;
+import com.sysu.persistence.model.crowdsourcing.*;
+import com.sysu.persistence.model.workflow.*;
 import com.sysu.workflow.SCXMLExecutor;
 import com.sysu.workflow.SCXMLSystemContext;
 import com.sysu.workflow.TriggerEvent;
@@ -64,13 +64,13 @@ public class TaskController {
 
         Map<GroupEntity, ArrayList<GroupWorkItemEntity>> groupWorkItemArrayListMap = new LinkedHashMap<GroupEntity, ArrayList<GroupWorkItemEntity>>();
 
-        for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
+       /* for (GroupEntity groupEntity : currentUserEntity.getGroupEntitySet()) {
             ArrayList<GroupWorkItemEntity> groupWorkItemEntityArrayList = TaskService.createGroupTaskQuery().taskCandidateGroup(groupEntity).list();
 
             if (groupWorkItemEntityArrayList.size() != 0) {
                 groupWorkItemArrayListMap.put(groupEntity, groupWorkItemEntityArrayList);
             }
-        }
+        }*/
 
         for (Map.Entry<GroupEntity, ArrayList<GroupWorkItemEntity>> entry : groupWorkItemArrayListMap.entrySet()) {
             GroupEntity groupEntity = entry.getKey();

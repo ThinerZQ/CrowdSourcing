@@ -1,6 +1,6 @@
 package com.sysu.workflow.model.extend;
 
-import com.sysu.model.workflow.*;
+import com.sysu.persistence.model.workflow.*;
 import com.sysu.workflow.*;
 import com.sysu.workflow.model.Action;
 import com.sysu.workflow.model.EnterableState;

@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.DecomposeVoteTaskManager;
 import com.sysu.crowdsourcing.service.DecomposeVoteTaskService;
-import com.sysu.model.crowdsourcing.DecomposeVoteTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.DecomposeVoteTaskEntity;
 
 import javax.annotation.Resource;
 

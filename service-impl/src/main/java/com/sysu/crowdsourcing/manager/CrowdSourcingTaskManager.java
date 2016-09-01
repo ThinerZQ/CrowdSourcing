@@ -1,6 +1,6 @@
 package com.sysu.crowdsourcing.manager;
 
-import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.CrowdSourcingTaskEntity;
 
 /**
  * Created with IntelliJ IDEA

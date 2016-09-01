@@ -1,7 +1,7 @@
 package com.sysu.workflow.service.formservice;
 
 
-import com.sysu.model.workflow.FormEntity;
+import com.sysu.persistence.model.workflow.FormEntity;
 
 import java.util.ArrayList;
 

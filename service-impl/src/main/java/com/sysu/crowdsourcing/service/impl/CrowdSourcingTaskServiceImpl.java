@@ -2,7 +2,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.CrowdSourcingTaskManager;
 import com.sysu.crowdsourcing.service.CrowdSourcingTaskService;
-import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.CrowdSourcingTaskEntity;
 
 import javax.annotation.Resource;
 import java.util.List;

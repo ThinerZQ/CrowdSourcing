@@ -1,17 +1,12 @@
 package com.sysu.crowdsourcing.service.impl;
 
 
-import com.sysu.crowdsourcing.common.MD5Utils;
-import com.sysu.crowdsourcing.common.MailBean;
 import com.sysu.crowdsourcing.common.SendMail;
 import com.sysu.crowdsourcing.manager.UserManager;
 import com.sysu.crowdsourcing.service.RegisterService;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by zhengshouzi on 2015/8/24.
@@ -27,7 +22,7 @@ public class RegisterServiceImpl implements RegisterService {
     public boolean register(UserEntity userEntity) {
         boolean b = false;
 
-        try {
+      /*  try {
             //���ע��ĸ�����Ϣ
             userEntity.setUserRegisterDate(new Date());
             userEntity.setUserStatus(String.valueOf(0));
@@ -68,7 +63,7 @@ public class RegisterServiceImpl implements RegisterService {
         } catch (Exception e) {
             b = false;
             e.printStackTrace();
-        }
+        }*/
 
         return b;
     }

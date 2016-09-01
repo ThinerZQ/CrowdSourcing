@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.SolveVoteTaskManager;
 import com.sysu.crowdsourcing.service.SolveVoteTaskService;
-import com.sysu.model.crowdsourcing.SolveVoteTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.SolveVoteTaskEntity;
 
 import javax.annotation.Resource;
 

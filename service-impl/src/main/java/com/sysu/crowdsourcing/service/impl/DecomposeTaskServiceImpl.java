@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.DecomposeTaskManager;
 import com.sysu.crowdsourcing.service.DecomposeTaskService;
-import com.sysu.model.crowdsourcing.DecomposeTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.DecomposeTaskEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

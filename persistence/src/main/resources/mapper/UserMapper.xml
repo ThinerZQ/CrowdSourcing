@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sysu.persistence.mybatis.mapper.UserMapper">
+
+    <resultMap id="user" type="com.sysu.persistence.model.workflow.UserEntity">
+        <id column="id" property="userId"></id>
+        <result column="user_name" property="userName"></result>
+        <result column="password" property="userPassword"></result>
+        <result column="email" property="userEmail"></result>
+        <result column="activate_code" property="userActivateCode"></result>
+        <result column="status" property="userStatus"></result>
+        <result column="create_time" property="userCreateTime"></result>
+        <result column="active_time" property="userActiveTime"></result>
+        <result column="modify_time" property="userModifyTime"></result>
+    </resultMap>
+
+    <!--根据id查询用户详情-->
+    <select id="findById" parameterType="int" resultType="user">
+        SELECT *
+        FROM user
+        WHERE id = #{VALUE }
+    </select>
+</mapper>

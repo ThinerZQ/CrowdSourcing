@@ -3,7 +3,7 @@ package com.sysu.crowdsourcing.service.impl;
 
 import com.sysu.crowdsourcing.manager.CrowdSourcingTaskManager;
 import com.sysu.crowdsourcing.service.PostService;
-import com.sysu.model.crowdsourcing.CrowdSourcingTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.CrowdSourcingTaskEntity;
 import com.sysu.workflow.Context;
 import com.sysu.workflow.Evaluator;
 import com.sysu.workflow.SCXMLExecutor;

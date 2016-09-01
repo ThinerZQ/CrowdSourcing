@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.service;
 
 
-import com.sysu.model.crowdsourcing.DecomposeVoteTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.DecomposeVoteTaskEntity;
 
 /**
  * Created with IntelliJ IDEA

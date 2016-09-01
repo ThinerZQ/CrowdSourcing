@@ -1,6 +1,6 @@
 package com.sysu.crowdsourcing.service;
 
-import com.sysu.model.crowdsourcing.DecomposeTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.DecomposeTaskEntity;
 
 import java.util.ArrayList;
 

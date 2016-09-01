@@ -1,7 +1,7 @@
 package com.sysu.workflow.service.taskservice;
 
-import com.sysu.model.workflow.GroupEntity;
-import com.sysu.model.workflow.GroupWorkItemEntity;
+import com.sysu.persistence.model.workflow.GroupEntity;
+import com.sysu.persistence.model.workflow.GroupWorkItemEntity;
 
 import java.util.ArrayList;
 

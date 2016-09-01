@@ -1,7 +1,7 @@
 package com.sysu.crowdsourcing.service;
 
 
-import com.sysu.model.crowdsourcing.JudgeTaskEntity;
+import com.sysu.persistence.model.crowdsourcing.JudgeTaskEntity;
 
 /**
  * Created with IntelliJ IDEA

@@ -1,8 +1,8 @@
 package com.sysu.workflow.service.indentityservice;
 
 
-import com.sysu.model.workflow.GroupEntity;
-import com.sysu.model.workflow.UserEntity;
+import com.sysu.persistence.model.workflow.GroupEntity;
+import com.sysu.persistence.model.workflow.UserEntity;
 
 /**
  * Created with IntelliJ IDEA
@@ -29,7 +29,7 @@ public class IdentityService {
     }
 
     public UserEntity newUser(String realname) {
-        return new UserEntity(realname);
+        return new UserEntity();
     }
 
     public UserEntity newUser() {
